@@ -12,13 +12,17 @@ public class DataIO {
         boolean login;
         Scanner s = new Scanner(new File(fileName));
         while(s.hasNext()) {
+            
+            Customer cust = new Customer(username, password);
+            
             String line = s.nextLine().trim();
             
             String [] dataRow = line.split("\\|");
             
-            if(username.equals(dataRow[0])) {
+            
+            if(cust.getUsername().equals(dataRow[0])) {
                 
-                if(password.equals(dataRow[1])) {
+                if(cust.getPassword().equals(dataRow[1])) {
                     
                     return login = true;
                 } 

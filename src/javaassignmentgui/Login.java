@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package javaassignmentgui;
 
 import java.io.FileNotFoundException;
@@ -9,10 +6,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Horngjun
- */
+
 public class Login extends javax.swing.JFrame {
 
     /**
@@ -39,7 +33,7 @@ public class Login extends javax.swing.JFrame {
         loginBtn = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        adminLoginBtn = new javax.swing.JButton();
         passwordField = new javax.swing.JPasswordField();
         exitBtn = new javax.swing.JButton();
         backgroundImage = new javax.swing.JLabel();
@@ -91,11 +85,16 @@ public class Login extends javax.swing.JFrame {
         jLabel5.setText("Continue as Guest");
         jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jButton2.setBackground(new java.awt.Color(153, 153, 255));
-        jButton2.setFont(new java.awt.Font("Perpetua", 0, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Admin Login");
-        jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        adminLoginBtn.setBackground(new java.awt.Color(153, 153, 255));
+        adminLoginBtn.setFont(new java.awt.Font("Perpetua", 0, 18)); // NOI18N
+        adminLoginBtn.setForeground(new java.awt.Color(255, 255, 255));
+        adminLoginBtn.setText("Admin Login");
+        adminLoginBtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        adminLoginBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                adminLoginBtnActionPerformed(evt);
+            }
+        });
 
         passwordField.setBorder(null);
 
@@ -111,7 +110,7 @@ public class Login extends javax.swing.JFrame {
                 .addGap(41, 41, 41)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(adminLoginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -150,7 +149,7 @@ public class Login extends javax.swing.JFrame {
                         .addComponent(jLabel5))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(26, 26, 26)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(adminLoginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
@@ -197,8 +196,12 @@ public class Login extends javax.swing.JFrame {
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
-        if(login) {
-            System.out.println("Yes");
+        
+        if(username.equals("") && password.equals("")){
+            JOptionPane.showMessageDialog(null, "Please Enter Username and Password.");
+        }
+        else if(login) {
+            
             JOptionPane.showMessageDialog(null, "Successfully Login.");
         } else {
             JOptionPane.showMessageDialog(null, "Wrong Username & Password, Please Try Again.");
@@ -208,6 +211,12 @@ public class Login extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_loginBtnActionPerformed
+
+    private void adminLoginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminLoginBtnActionPerformed
+        this.dispose();
+        AdminLogin adminLogin = new AdminLogin();
+        adminLogin.setVisible(true);
+    }//GEN-LAST:event_adminLoginBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -245,9 +254,9 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton adminLoginBtn;
     private javax.swing.JLabel backgroundImage;
     private javax.swing.JButton exitBtn;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
