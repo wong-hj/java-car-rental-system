@@ -1,6 +1,7 @@
 
 package javaassignmentgui;
 
+import java.awt.event.KeyEvent;
 import java.io.FileNotFoundException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -36,6 +37,7 @@ public class Login extends javax.swing.JFrame {
         adminLoginBtn = new javax.swing.JButton();
         passwordField = new javax.swing.JPasswordField();
         exitBtn = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
         backgroundImage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -60,13 +62,13 @@ public class Login extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(204, 204, 204));
         jLabel3.setText("Password:");
 
-        usernameField.setBorder(null);
+        usernameField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         loginBtn.setBackground(new java.awt.Color(255, 102, 102));
         loginBtn.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         loginBtn.setForeground(new java.awt.Color(255, 255, 255));
         loginBtn.setText("Login");
-        loginBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        loginBtn.setBorder(null);
         loginBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         loginBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,14 +91,19 @@ public class Login extends javax.swing.JFrame {
         adminLoginBtn.setFont(new java.awt.Font("Perpetua", 0, 18)); // NOI18N
         adminLoginBtn.setForeground(new java.awt.Color(255, 255, 255));
         adminLoginBtn.setText("Admin Login");
-        adminLoginBtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        adminLoginBtn.setBorder(null);
         adminLoginBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 adminLoginBtnActionPerformed(evt);
             }
         });
 
-        passwordField.setBorder(null);
+        passwordField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        passwordField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                passwordFieldKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -160,7 +167,7 @@ public class Login extends javax.swing.JFrame {
         exitBtn.setFont(new java.awt.Font("Perpetua", 0, 36)); // NOI18N
         exitBtn.setForeground(new java.awt.Color(255, 255, 255));
         exitBtn.setText("Exit");
-        exitBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        exitBtn.setBorder(null);
         exitBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exitBtnActionPerformed(evt);
@@ -168,6 +175,11 @@ public class Login extends javax.swing.JFrame {
         });
         getContentPane().add(exitBtn);
         exitBtn.setBounds(1110, 580, 130, 40);
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/renty_smalllogo.png"))); // NOI18N
+        jLabel7.setText("jLabel7");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(50, 30, 150, 60);
 
         backgroundImage.setBackground(new java.awt.Color(0, 0, 0));
         backgroundImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/car.jpg"))); // NOI18N
@@ -185,6 +197,23 @@ public class Login extends javax.swing.JFrame {
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
         // TODO add your handling code here:
         
+        login();
+        
+    }//GEN-LAST:event_loginBtnActionPerformed
+
+    private void adminLoginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminLoginBtnActionPerformed
+        this.dispose();
+        AdminLogin adminLogin = new AdminLogin();
+        adminLogin.setVisible(true);
+    }//GEN-LAST:event_adminLoginBtnActionPerformed
+
+    private void passwordFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordFieldKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER) {
+            login();
+        }
+    }//GEN-LAST:event_passwordFieldKeyPressed
+
+    private void login(){
         String username = usernameField.getText();
         char[] pass = passwordField.getPassword();
         String password = new String(pass);
@@ -209,15 +238,7 @@ public class Login extends javax.swing.JFrame {
             usernameField.setText(null);
             passwordField.setText(null);
         }
-        
-    }//GEN-LAST:event_loginBtnActionPerformed
-
-    private void adminLoginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminLoginBtnActionPerformed
-        this.dispose();
-        AdminLogin adminLogin = new AdminLogin();
-        adminLogin.setVisible(true);
-    }//GEN-LAST:event_adminLoginBtnActionPerformed
-
+    }
     /**
      * @param args the command line arguments
      */
@@ -262,6 +283,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton loginBtn;
     private javax.swing.JPasswordField passwordField;

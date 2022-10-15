@@ -4,6 +4,7 @@
  */
 package javaassignmentgui;
 
+import java.awt.event.KeyEvent;
 import java.io.FileNotFoundException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -52,7 +53,7 @@ public class AdminLogin extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Perpetua", 0, 36)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Exit");
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1.setBorder(null);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -80,7 +81,7 @@ public class AdminLogin extends javax.swing.JFrame {
         loginBtn.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         loginBtn.setForeground(new java.awt.Color(255, 255, 255));
         loginBtn.setText("Login");
-        loginBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        loginBtn.setBorder(null);
         loginBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         loginBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,15 +89,20 @@ public class AdminLogin extends javax.swing.JFrame {
             }
         });
 
-        adminUsernameField.setBorder(null);
+        adminUsernameField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        adminPasswordField.setBorder(null);
+        adminPasswordField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        adminPasswordField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                adminPasswordFieldKeyPressed(evt);
+            }
+        });
 
         memberLoginBtn.setBackground(new java.awt.Color(153, 153, 255));
         memberLoginBtn.setFont(new java.awt.Font("Perpetua", 0, 18)); // NOI18N
         memberLoginBtn.setForeground(new java.awt.Color(255, 255, 255));
         memberLoginBtn.setText("Member Login");
-        memberLoginBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        memberLoginBtn.setBorder(null);
         memberLoginBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         memberLoginBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -167,6 +173,20 @@ public class AdminLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_memberLoginBtnActionPerformed
 
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
+        login();
+    }//GEN-LAST:event_loginBtnActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void adminPasswordFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_adminPasswordFieldKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER) {
+            login();
+        }
+    }//GEN-LAST:event_adminPasswordFieldKeyPressed
+
+    private void login(){
         String username = adminUsernameField.getText();
         char[] pass = adminPasswordField.getPassword();
         String password = new String(pass);
@@ -191,15 +211,7 @@ public class AdminLogin extends javax.swing.JFrame {
             adminUsernameField.setText(null);
             adminPasswordField.setText(null);
         }
-    }//GEN-LAST:event_loginBtnActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
