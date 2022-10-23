@@ -5,12 +5,12 @@ public class Customer {
     private String username;
     private String password;
     private String gender;
-    private String age;
-    private String phoneNum;
+    private int age;
+    private int phoneNum;
     private String email;
     private String address;
 
-    public Customer(String username, String password, String gender, String age, String phoneNum, String email, String address) {
+    public Customer(String username, String password, String gender, int age, int phoneNum, String email, String address) {
         this.username = username;
         this.password = password;
         this.gender = gender;
@@ -44,19 +44,19 @@ public class Customer {
         this.gender = gender;
     }
 
-    public String getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
-    public String getPhoneNum() {
+    public int getPhoneNum() {
         return phoneNum;
     }
 
-    public void setPhoneNum(String phoneNum) {
+    public void setPhoneNum(int phoneNum) {
         this.phoneNum = phoneNum;
     }
 
@@ -75,7 +75,5 @@ public class Customer {
     public void setAddress(String address) {
         this.address = address;
     }
-    
-    
-  
+
 }

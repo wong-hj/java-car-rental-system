@@ -6,81 +6,92 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 
 public class DataIO {
- 
-    public static boolean LoginReadFromTextFile(String fileName, String username, String password) throws FileNotFoundException{
-        boolean login;
-        Scanner s = new Scanner(new File(fileName));
-        while(s.hasNext()) {
-            
-            Customer cust = new Customer(username, password);
-            
-            String line = s.nextLine().trim();
-            
-            String [] dataRow = line.split("\\|");
-            
-            
-            if(cust.getUsername().equals(dataRow[0])) {
+    public static ArrayList<Customer> customers = new ArrayList<Customer>();
+    public static ArrayList<Admin> admins = new ArrayList<Admin>();
+
+    public static void readFromTextFile(){
+        try{
+            Scanner s1 = new Scanner(new File("customer.txt")); 
+            while(s1.hasNext()){
                 
-                if(cust.getPassword().equals(dataRow[1])) {
-                    
-                    return login = true;
-                } 
-            } 
-        }
-        return login = false;
-        
-    }
-    
-    private static boolean CheckExistingUser(String fileName, String username) throws FileNotFoundException {
-        boolean userExist = false;
-        
-        Scanner s = new Scanner(new File(fileName));
-        
-        while(s.hasNext()) {
-            
-            
-            String line = s.nextLine().trim();
-            
-            String [] dataRow = line.split("\\|");
-            
-            if(username.equals(dataRow[0])) {
-                JOptionPane.showMessageDialog(null, "User already exist!", "Error!", JOptionPane.ERROR_MESSAGE);
-                userExist = true;
-            }
-        
-        }
-        
-        return userExist;
-    }
-    
-    public static boolean RegisterUser(String fileName, String username, String password, String gender, String age, String phoneNum, String email, String address) throws FileNotFoundException {
-        boolean register = false;
-        Customer cust = new Customer(username, password, gender, age, phoneNum, email, address);
-        boolean userExist = CheckExistingUser(fileName, username);
-        
-        if (userExist == false) {
-            File oldFile = new File(fileName);
-            
-            String FullNewUserLine = username + "|" + password + "|" + gender + "|" + age + "|" + phoneNum + "|" + email + "|" + address + "\n";
-            String FullNewUserLine1 = cust.getUsername() + "|" + cust.getPassword() + "|" + cust.getGender() + "|" + cust.getAge() + "|" + cust.getPhoneNum() + "|" + cust.getEmail() + "|" + cust.getAddress() + "\n";
-            
-            try {
-                BufferedWriter bw = new BufferedWriter(new FileWriter(oldFile, true));
-                bw.append(FullNewUserLine);
-                bw.close();
+                String line = s1.nextLine().trim();
+                String [] dataRow = line.split("\\|");
+                String username = dataRow[0];
+                String password = dataRow[1];
+                String gender = dataRow[2];
+                int age = Integer.parseInt(dataRow[3]);
+                int phoneNum = Integer.parseInt(dataRow[4]);
+                String email = dataRow[5];
+                String address = dataRow[6];
                 
-                register = true;
-            } catch (IOException e) {
-                System.out.println(e);
+                
+                Customer c = new Customer(username, password, gender, age, phoneNum, email, address);
+                customers.add(c);
             }
             
+            Scanner s2 = new Scanner(new File("admin.txt"));
+            while(s2.hasNext()){
+                String line = s2.nextLine().trim();
+                String [] dataRow = line.split("\\|");
+                String username = dataRow[0];
+                String password = dataRow[1];
+                
+                Admin a = new Admin(username, password);
+                admins.add(a);
+              
+            }
+
+        }catch(Exception e){
+            System.out.println("Error in read .....");
         }
+    }
+    
+    public static void WriteToText() throws FileNotFoundException{
         
-        return register;
+        PrintWriter a = new PrintWriter("customer.txt");
+        for(Customer cust : customers){
+            String Customers = cust.getUsername() + "|" + cust.getPassword() + "|" + cust.getGender() + "|" + cust.getAge() + "|" + cust.getPhoneNum() + "|" + cust.getEmail() + "|" + cust.getAddress();
+            a.println(Customers);
+        }
+        a.close();
+
+        PrintWriter b = new PrintWriter("admin.txt");
+        for(Admin admin : admins){
+            String Admins = admin.getUsername() + "|" + admin.getPassword();
+            b.println(Admins);
+        }
+        b.close();
+
+    }
+
+    public static Customer checkUsername(String username) {
+        Customer found = null;
+        for(Customer c : customers){
+            if(username.equals(c.getUsername())){
+                found = c;
+                break;
+            }
+        }
+        return found;
+        
+    }
+
+    public static Admin checkAdminUsername(String username) {
+        Admin found = null;
+        for(Admin a : admins){
+            if(username.equals(a.getUsername())){
+                found = a;
+                break;
+            }
+        }
+        return found;
+        
     }
 }

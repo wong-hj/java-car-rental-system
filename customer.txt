@@ -1,3 +1,4 @@
-june|june123
-kaito|kaito123
-testuser|testpass|Female|33|0123456789|testemail@email.com|testaddress
+test|test123|Male|20|1234567|test@mail.com|test, taman test
+test1|test321|Male|20|1234567|test@mail.com|test, taman test
+testing|testing123|Male|20|123123123|test@mail.comas|dasd
+asdasd|123123|Male|22|13121123|te@mail.com|asdfasf

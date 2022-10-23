@@ -32,7 +32,7 @@ public class Login extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         usernameField = new javax.swing.JTextField();
         loginBtn = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
+        registerBtn = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         adminLoginBtn = new javax.swing.JButton();
         passwordField = new javax.swing.JPasswordField();
@@ -76,11 +76,16 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Perpetua", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(51, 102, 204));
-        jLabel4.setText("New here? Register.");
-        jLabel4.setToolTipText("");
-        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        registerBtn.setFont(new java.awt.Font("Perpetua", 0, 18)); // NOI18N
+        registerBtn.setForeground(new java.awt.Color(51, 102, 204));
+        registerBtn.setText("New here? Register.");
+        registerBtn.setToolTipText("");
+        registerBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        registerBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                registerBtnMouseClicked(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Perpetua", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(51, 102, 204));
@@ -121,7 +126,7 @@ public class Login extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addComponent(registerBtn, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addComponent(loginBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,7 +156,7 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel4)
+                        .addComponent(registerBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel5))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -191,7 +196,12 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBtnActionPerformed
-       this.dispose();
+        try {
+            DataIO.WriteToText();
+            System.exit(0);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_exitBtnActionPerformed
 
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
@@ -202,7 +212,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_loginBtnActionPerformed
 
     private void adminLoginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminLoginBtnActionPerformed
-        this.dispose();
+        this.setVisible(false);
         AdminLogin adminLogin = new AdminLogin();
         adminLogin.setVisible(true);
     }//GEN-LAST:event_adminLoginBtnActionPerformed
@@ -213,31 +223,36 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_passwordFieldKeyPressed
 
+    private void registerBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerBtnMouseClicked
+        this.setVisible(false);
+        Register reg = new Register();
+        reg.setVisible(true);
+    }//GEN-LAST:event_registerBtnMouseClicked
+
     private void login(){
         String username = usernameField.getText();
         char[] pass = passwordField.getPassword();
         String password = new String(pass);
- 
-        boolean login = false;
-        try {
-            login = DataIO.LoginReadFromTextFile("customer.txt", username, password);
-            
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        Customer found = DataIO.checkUsername(username);
         
         if(username.equals("") && password.equals("")){
             JOptionPane.showMessageDialog(null, "Please Enter Username and Password.");
-        }
-        else if(login) {
+              
+        } else if(found!=null && password.equals(found.getPassword())){
             
-            JOptionPane.showMessageDialog(null, "Successfully Login.");
+            JavaAssignmentGUI.loginUser = found;
+            this.setVisible(false);
+            MainMenu mm = new MainMenu();
+            mm.setVisible(true);
+             
         } else {
-            JOptionPane.showMessageDialog(null, "Wrong Username & Password, Please Try Again.");
-            
-            usernameField.setText(null);
-            passwordField.setText(null);
+            JOptionPane.showMessageDialog(null, "Wrong Username or Password, Please Try Again.");
+  
         }
+        
+        usernameField.setText("");
+        passwordField.setText("");
+         
     }
     /**
      * @param args the command line arguments
@@ -281,12 +296,12 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton loginBtn;
     private javax.swing.JPasswordField passwordField;
+    private javax.swing.JLabel registerBtn;
     private javax.swing.JTextField usernameField;
     // End of variables declaration//GEN-END:variables
 }

@@ -398,7 +398,12 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_emailFieldActionPerformed
 
     private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBtnActionPerformed
-        this.dispose();
+         try {
+            DataIO.WriteToText();
+            System.exit(0);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_exitBtnActionPerformed
 
     private void loginLinkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginLinkMouseClicked
@@ -550,8 +555,8 @@ public class Register extends javax.swing.JFrame {
         String email = emailField.getText();
         String address = addressField.getText();
         
-        int ageInt;
-        
+        int ageInt = 0;
+        int phoneNumInt = 0;
         try {
             ageInt = Integer.parseInt(age);
             
@@ -571,7 +576,7 @@ public class Register extends javax.swing.JFrame {
                 boolean validPhoneNum = false;
                 // Check for phone number
                 try {
-                    int phoneNumInt = Integer.parseInt(phoneNum);
+                    phoneNumInt = Integer.parseInt(phoneNum);
 
                     if ((phoneNum.length() > 11) || !phoneNum.startsWith("01") ) {
                         JOptionPane.showMessageDialog(null, "Invalid Phone Number!", "Error!", JOptionPane.ERROR_MESSAGE);
@@ -594,25 +599,34 @@ public class Register extends javax.swing.JFrame {
 
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Invalid age input!", "Error!", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Invalid! Fill in all fields.", "Error!", JOptionPane.ERROR_MESSAGE);
         }
-        
         
         
         // If all details entered are legit
         if (DetailsPerfect) {
-            try {
-                boolean success = DataIO.RegisterUser("customer.txt",username,password,gender,age,phoneNum,email,address);
-                
-                if (success) {
-                    JOptionPane.showMessageDialog(null, "Your account has been registered!", "Success!", JOptionPane.INFORMATION_MESSAGE);
+            
+            Customer found = DataIO.checkUsername(username);
+            
+            if (found == null) {
+                try {
+                    Customer cust = new Customer(username, password, gender, ageInt, phoneNumInt, email, address);
+                    DataIO.customers.add(cust);
+                    DataIO.WriteToText();
                     
-                } else {
-                    JOptionPane.showMessageDialog(null, "Register Unsuccessful!", "Error!", JOptionPane.ERROR_MESSAGE);
+                    this.setVisible(false);
+                    Login start = new Login();
+                    start.setVisible(true);
+                    
+                    JOptionPane.showMessageDialog(null, "Your account has been registered!", "Success!", JOptionPane.INFORMATION_MESSAGE);
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(null, "Something went wrong!", "Error!", JOptionPane.ERROR_MESSAGE);
                 }
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Something went wrong!", "Error!", JOptionPane.ERROR_MESSAGE);
+            } else {
+                    JOptionPane.showMessageDialog(null, "Cannot Register with the same Username", "Error!", JOptionPane.ERROR_MESSAGE);
             }
+            
         }
     }//GEN-LAST:event_registerBtnActionPerformed
 

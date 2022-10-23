@@ -32,7 +32,7 @@ public class AdminLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        exitBtn = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -49,18 +49,18 @@ public class AdminLogin extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(1300, 700));
         getContentPane().setLayout(null);
 
-        jButton1.setBackground(new java.awt.Color(153, 0, 0));
-        jButton1.setFont(new java.awt.Font("Perpetua", 0, 36)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Exit");
-        jButton1.setBorder(null);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        exitBtn.setBackground(new java.awt.Color(153, 0, 0));
+        exitBtn.setFont(new java.awt.Font("Perpetua", 0, 36)); // NOI18N
+        exitBtn.setForeground(new java.awt.Color(255, 255, 255));
+        exitBtn.setText("Exit");
+        exitBtn.setBorder(null);
+        exitBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                exitBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(1110, 600, 110, 40);
+        getContentPane().add(exitBtn);
+        exitBtn.setBounds(1110, 600, 110, 40);
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -167,7 +167,7 @@ public class AdminLogin extends javax.swing.JFrame {
 
     private void memberLoginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_memberLoginBtnActionPerformed
         // TODO add your handling code here:
-        this.dispose();
+        this.setVisible(false);
         Login start = new Login();
         start.setVisible(true);
     }//GEN-LAST:event_memberLoginBtnActionPerformed
@@ -176,9 +176,14 @@ public class AdminLogin extends javax.swing.JFrame {
         login();
     }//GEN-LAST:event_loginBtnActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBtnActionPerformed
+         try {
+            DataIO.WriteToText();
+            System.exit(0);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_exitBtnActionPerformed
 
     private void adminPasswordFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_adminPasswordFieldKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_ENTER) {
@@ -190,27 +195,26 @@ public class AdminLogin extends javax.swing.JFrame {
         String username = adminUsernameField.getText();
         char[] pass = adminPasswordField.getPassword();
         String password = new String(pass);
- 
-        boolean login = false;
-        try {
-            login = DataIO.LoginReadFromTextFile("admin.txt", username, password);
-            
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
+        Admin found = DataIO.checkAdminUsername(username);
         
         if(username.equals("") && password.equals("")){
             JOptionPane.showMessageDialog(null, "Please Enter Username and Password.");
-        }
-        else if(login) {
+              
+        } else if(found!=null && password.equals(found.getPassword())){
             
-            JOptionPane.showMessageDialog(null, "Successfully Login.");
+            JOptionPane.showMessageDialog(null, "good.");
+//            this.setVisible(false);
+//            MainMenu mm = new MainMenu();
+//            mm.setVisible(true);
+             
         } else {
-            JOptionPane.showMessageDialog(null, "Wrong Username & Password, Please Try Again.");
-            
-            adminUsernameField.setText(null);
-            adminPasswordField.setText(null);
+            JOptionPane.showMessageDialog(null, "Wrong Username or Password, Please Try Again.");
+  
         }
+        
+        adminUsernameField.setText("");
+        adminPasswordField.setText("");
     }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -247,7 +251,7 @@ public class AdminLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField adminPasswordField;
     private javax.swing.JTextField adminUsernameField;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton exitBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
