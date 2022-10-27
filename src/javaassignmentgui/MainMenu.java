@@ -4,8 +4,6 @@
  */
 package javaassignmentgui;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 /**
  *
@@ -18,9 +16,9 @@ public class MainMenu extends javax.swing.JFrame {
      */
     public MainMenu() {
         initComponents();
-        String todate = new SimpleDateFormat("dd/MM/yyyy").format(new Date());
-        date.setText(todate);
-        username.setText(JavaAssignmentGUI.loginUser.getUsername());
+       
+        date.setText(Renty.toDate());
+        username.setText(Renty.loginUser.getUsername());
     }
 
     /**
@@ -61,9 +59,10 @@ public class MainMenu extends javax.swing.JFrame {
 
         date.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         date.setForeground(new java.awt.Color(255, 255, 255));
+        date.setText("date");
         date.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         getContentPane().add(date);
-        date.setBounds(1110, 70, 180, 40);
+        date.setBounds(1110, 110, 180, 40);
 
         username.setFont(new java.awt.Font("Perpetua", 0, 48)); // NOI18N
         username.setForeground(new java.awt.Color(255, 255, 255));
@@ -71,21 +70,27 @@ public class MainMenu extends javax.swing.JFrame {
         getContentPane().add(username);
         username.setBounds(240, 60, 320, 50);
 
+        jButton1.setBackground(new java.awt.Color(102, 204, 255));
         jButton1.setFont(new java.awt.Font("Gill Sans MT", 0, 24)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/car1.png"))); // NOI18N
         jButton1.setText("  Rent a Car");
         jButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         getContentPane().add(jButton1);
         jButton1.setBounds(60, 340, 360, 60);
 
+        jButton2.setBackground(new java.awt.Color(102, 204, 255));
         jButton2.setFont(new java.awt.Font("Gill Sans MT", 0, 24)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/cheque.png"))); // NOI18N
         jButton2.setText("  Booking, Payments, Reports");
         jButton2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         getContentPane().add(jButton2);
         jButton2.setBounds(60, 430, 360, 60);
 
+        jButton3.setBackground(new java.awt.Color(102, 204, 255));
         jButton3.setFont(new java.awt.Font("Gill Sans MT", 0, 24)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(0, 0, 0));
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/mechanical-gears-.png"))); // NOI18N
         jButton3.setText("  Settings");
         jButton3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -107,6 +112,10 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        
+        Setting setting = new Setting();
+        setting.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

@@ -240,7 +240,7 @@ public class Login extends javax.swing.JFrame {
               
         } else if(found!=null && password.equals(found.getPassword())){
             
-            JavaAssignmentGUI.loginUser = found;
+            Renty.loginUser = found;
             this.setVisible(false);
             MainMenu mm = new MainMenu();
             mm.setVisible(true);
