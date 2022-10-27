@@ -187,7 +187,7 @@ public class Login extends javax.swing.JFrame {
         jLabel7.setBounds(50, 30, 150, 60);
 
         backgroundImage.setBackground(new java.awt.Color(0, 0, 0));
-        backgroundImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/car.jpg"))); // NOI18N
+        backgroundImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/car.png"))); // NOI18N
         backgroundImage.setText("jLabel4");
         getContentPane().add(backgroundImage);
         backgroundImage.setBounds(0, 0, 1300, 700);

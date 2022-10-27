@@ -4,6 +4,9 @@
  */
 package javaassignmentgui;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  *
  * @author Horngjun
@@ -15,6 +18,9 @@ public class MainMenu extends javax.swing.JFrame {
      */
     public MainMenu() {
         initComponents();
+        String todate = new SimpleDateFormat("dd/MM/yyyy").format(new Date());
+        date.setText(todate);
+        username.setText(JavaAssignmentGUI.loginUser.getUsername());
     }
 
     /**
@@ -28,17 +34,11 @@ public class MainMenu extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        date = new javax.swing.JLabel();
+        username = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         backgroundImg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -49,86 +49,65 @@ public class MainMenu extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Perpetua", 0, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Greetings, BEN10.");
+        jLabel1.setText("Greetings,");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(480, 80, 340, 50);
+        jLabel1.setBounds(50, 60, 190, 50);
 
         jLabel3.setFont(new java.awt.Font("Perpetua", 0, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Welcome to RENTY, the Car Rental System.");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(370, 150, 600, 30);
+        jLabel3.setBounds(50, 120, 600, 30);
 
-        jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.setLayout(null);
+        date.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        date.setForeground(new java.awt.Color(255, 255, 255));
+        date.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        getContentPane().add(date);
+        date.setBounds(1110, 70, 180, 40);
 
-        jLabel6.setFont(new java.awt.Font("Gill Sans MT", 3, 48)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Rent a Car");
-        jPanel1.add(jLabel6);
-        jLabel6.setBounds(30, 110, 240, 90);
+        username.setFont(new java.awt.Font("Perpetua", 0, 48)); // NOI18N
+        username.setForeground(new java.awt.Color(255, 255, 255));
+        username.setText("username");
+        getContentPane().add(username);
+        username.setBounds(240, 60, 320, 50);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/car_card.jpeg"))); // NOI18N
-        jLabel2.setText("jLabel2");
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(0, 0, 390, 330);
+        jButton1.setFont(new java.awt.Font("Gill Sans MT", 0, 24)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/car1.png"))); // NOI18N
+        jButton1.setText("  Rent a Car");
+        jButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        getContentPane().add(jButton1);
+        jButton1.setBounds(60, 340, 360, 60);
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(160, 220, 300, 330);
+        jButton2.setFont(new java.awt.Font("Gill Sans MT", 0, 24)); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/cheque.png"))); // NOI18N
+        jButton2.setText("  Booking, Payments, Reports");
+        jButton2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        getContentPane().add(jButton2);
+        jButton2.setBounds(60, 430, 360, 60);
 
-        jPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.setLayout(null);
+        jButton3.setFont(new java.awt.Font("Gill Sans MT", 0, 24)); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/mechanical-gears-.png"))); // NOI18N
+        jButton3.setText("  Settings");
+        jButton3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3);
+        jButton3.setBounds(60, 520, 360, 60);
 
-        jLabel7.setFont(new java.awt.Font("Gill Sans MT", 3, 48)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Feedbacks");
-        jPanel2.add(jLabel7);
-        jLabel7.setBounds(50, 210, 220, 60);
-
-        jLabel8.setFont(new java.awt.Font("Gill Sans MT", 3, 48)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Booking");
-        jPanel2.add(jLabel8);
-        jLabel8.setBounds(70, 50, 180, 60);
-
-        jLabel9.setFont(new java.awt.Font("Gill Sans MT", 3, 48)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Payments");
-        jPanel2.add(jLabel9);
-        jLabel9.setBounds(50, 130, 220, 60);
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/car_card.jpeg"))); // NOI18N
-        jLabel5.setText("jLabel5");
-        jPanel2.add(jLabel5);
-        jLabel5.setBounds(-320, 0, 620, 330);
-
-        getContentPane().add(jPanel2);
-        jPanel2.setBounds(520, 220, 300, 330);
-
-        jPanel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel3.setLayout(null);
-
-        jLabel10.setFont(new java.awt.Font("Gill Sans MT", 3, 48)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Settings");
-        jPanel3.add(jLabel10);
-        jLabel10.setBounds(70, 100, 170, 100);
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/car_card.jpeg"))); // NOI18N
-        jLabel4.setText("jLabel4");
-        jPanel3.add(jLabel4);
-        jLabel4.setBounds(-620, 0, 920, 330);
-
-        getContentPane().add(jPanel3);
-        jPanel3.setBounds(890, 220, 300, 330);
-
-        backgroundImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/renty_logo.png"))); // NOI18N
+        backgroundImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/car.png"))); // NOI18N
         backgroundImg.setText("jLabel2");
         getContentPane().add(backgroundImg);
         backgroundImg.setBounds(-3, -4, 1310, 710);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -167,18 +146,12 @@ public class MainMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel backgroundImg;
+    private javax.swing.JLabel date;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel username;
     // End of variables declaration//GEN-END:variables
 }
