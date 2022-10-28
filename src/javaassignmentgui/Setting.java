@@ -38,12 +38,8 @@ public class Setting extends javax.swing.JFrame {
         File resourcesDirectory = new File(path);
         genderPic.setIcon(new ImageIcon(resourcesDirectory.getAbsolutePath()));
         
-        usernameLabel.setText(Renty.loginUser.getUsername());
-        passwordLabel.setText("*".repeat(Renty.loginUser.getPassword().length()));
-        ageLabel.setText(String.valueOf(Renty.loginUser.getAge()));
-        phoneNumLabel.setText(String.valueOf(Renty.loginUser.getPhoneNum()));
-        emailLabel.setText(Renty.loginUser.getEmail());
-        addressLabel.setText(Renty.loginUser.getAddress());
+        setLabel();
+        
     }
 
     /**
@@ -544,6 +540,8 @@ public class Setting extends javax.swing.JFrame {
                 DataIO.WriteToText();
                 JOptionPane.showMessageDialog(null, "Successfully Updated Profile.");
                 
+                setLabel();
+                
                 address.setText("");
                 phoneNum.setText("");
                 email.setText("");
@@ -559,7 +557,17 @@ public class Setting extends javax.swing.JFrame {
         
         System.out.println(Renty.loginUser.toString());
     }//GEN-LAST:event_saveBtnActionPerformed
-
+    
+    public void setLabel() {
+        
+        usernameLabel.setText(Renty.loginUser.getUsername());
+        passwordLabel.setText("*".repeat(Renty.loginUser.getPassword().length()));
+        ageLabel.setText(String.valueOf(Renty.loginUser.getAge()));
+        phoneNumLabel.setText(String.valueOf(Renty.loginUser.getPhoneNum()));
+        emailLabel.setText(Renty.loginUser.getEmail());
+        addressLabel.setText(Renty.loginUser.getAddress());
+        
+    }
     /**
      * @param args the command line arguments
      */
