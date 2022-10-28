@@ -1,4 +1,3 @@
-test|test123|Male|20|1234567|test@mail.com|test, taman test
+test|haha|Male|20|1234567|test@mail.com|test, taman test
 test1|test321|Male|20|1234567|test@mail.com|test, taman test
-testing|testing123|Male|20|123123123|test@mail.comas|dasd
-asdasd|123123|Male|22|13121123|te@mail.com|asdfasf
+testing|testing123|Female|20|123123123|test@mail.comas|dasd
