@@ -1,0 +1,10 @@
+WRE 3344|Lamborghini|Urus|SUV|yellow|76km/h|5|RM100|available
+WRT 2487|Lamborghini|Urus|SUV|yellow|76km/h|5|RM100|available
+WHJ 8866|Lamborghini|Urus|SUV|yellow|76km/h|5|RM100|available
+HUT 1887|Lamborghini|Urus|SUV|yellow|76km/h|5|RM100|available
+WTF 6294|Lamborghini|Urus|SUV|yellow|76km/h|5|RM100|available
+TEO 1212|Lamborghini|Urus|SUV|yellow|76km/h|5|RM100|available
+RAY 0209|Lamborghini|Urus|SUV|yellow|76km/h|5|RM100|available
+WKY 0926|Lamborghini|Urus|SUV|yellow|76km/h|5|RM100|available
+MAX 0818|Lamborghini|Urus|SUV|yellow|76km/h|5|RM100|available
+LOK 1234|Lamborghini|Urus|SUV|yellow|76km/h|5|RM100|available

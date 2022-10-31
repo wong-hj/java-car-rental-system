@@ -5,6 +5,9 @@
 package javaassignmentgui;
 
 import java.io.FileNotFoundException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -41,7 +44,6 @@ public class Register extends javax.swing.JFrame {
         confirmPassField = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        ageField = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         phoneField = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
@@ -53,6 +55,7 @@ public class Register extends javax.swing.JFrame {
         registerBtn = new javax.swing.JButton();
         loginLink = new javax.swing.JLabel();
         backIcon = new javax.swing.JLabel();
+        ageField = new com.toedter.calendar.JDateChooser();
         exitBtn = new javax.swing.JButton();
         Background = new javax.swing.JLabel();
 
@@ -135,25 +138,7 @@ public class Register extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Age:");
-
-        ageField.setBackground(new java.awt.Color(204, 204, 204));
-        ageField.setFont(new java.awt.Font("Perpetua", 0, 20)); // NOI18N
-        ageField.setForeground(new java.awt.Color(51, 51, 51));
-        ageField.setText("Enter Age");
-        ageField.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                ageFieldFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                ageFieldFocusLost(evt);
-            }
-        });
-        ageField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ageFieldActionPerformed(evt);
-            }
-        });
+        jLabel6.setText("DoB:");
 
         jLabel7.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -220,6 +205,7 @@ public class Register extends javax.swing.JFrame {
         registerBtn.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         registerBtn.setForeground(new java.awt.Color(255, 255, 255));
         registerBtn.setText("Register");
+        registerBtn.setBorder(null);
         registerBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         registerBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -247,6 +233,9 @@ public class Register extends javax.swing.JFrame {
                 backIconMouseClicked(evt);
             }
         });
+
+        ageField.setBackground(new java.awt.Color(204, 204, 204));
+        ageField.setForeground(new java.awt.Color(51, 51, 51));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -300,7 +289,7 @@ public class Register extends javax.swing.JFrame {
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(emailField)
                                             .addComponent(phoneField, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
-                                            .addComponent(ageField, javax.swing.GroupLayout.Alignment.TRAILING)))
+                                            .addComponent(ageField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                     .addComponent(jScrollPane1))))))
                 .addGap(37, 37, 37))
         );
@@ -322,16 +311,15 @@ public class Register extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ageField, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(confirmPassField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(phoneField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(ageField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -354,7 +342,7 @@ public class Register extends javax.swing.JFrame {
         exitBtn.setFont(new java.awt.Font("Perpetua", 0, 36)); // NOI18N
         exitBtn.setForeground(new java.awt.Color(255, 255, 255));
         exitBtn.setText("Exit");
-        exitBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        exitBtn.setBorder(null);
         exitBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         exitBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -381,11 +369,6 @@ public class Register extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_confirmPassFieldActionPerformed
-
-    private void ageFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ageFieldActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_ageFieldActionPerformed
 
     private void phoneFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneFieldActionPerformed
         // TODO add your handling code here:
@@ -453,17 +436,6 @@ public class Register extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_confirmPassFieldFocusGained
 
-    private void ageFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ageFieldFocusGained
-        // TODO add your handling code here:
-        var text = ageField.getText();
-        
-        if (text.equals("Enter Age")) {
-            ageField.setText("");
-        } else if (text.equals("")) {
-            ageField.setText("Enter Age");
-        }
-    }//GEN-LAST:event_ageFieldFocusGained
-
     private void phoneFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_phoneFieldFocusGained
         // TODO add your handling code here:
         var text = phoneField.getText();
@@ -514,15 +486,6 @@ public class Register extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_confirmPassFieldFocusLost
 
-    private void ageFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ageFieldFocusLost
-        // TODO add your handling code here:
-        var text = ageField.getText();
-        
-        if (text.equals("")) {
-            ageField.setText("Enter Age");
-        }
-    }//GEN-LAST:event_ageFieldFocusLost
-
     private void phoneFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_phoneFieldFocusLost
         // TODO add your handling code here:
         var text = phoneField.getText();
@@ -542,91 +505,103 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_emailFieldFocusLost
 
     private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
-        // TODO add your handling code here:
-        
-        boolean DetailsPerfect = false;
-        
-        String username = usernameField.getText();
-        String password = passwordField.getText();
-        String confirmPass = confirmPassField.getText();
-        String gender = genderComboBox.getSelectedItem().toString();
-        String age = ageField.getText();
-        String phoneNum = phoneField.getText();
-        String email = emailField.getText();
-        String address = addressField.getText();
-        
-        int ageInt = 0;
-        int phoneNumInt = 0;
-        try {
-            ageInt = Integer.parseInt(age);
+        try {                                            
+            // TODO add your handling code here:
             
-            if (!password.equals(confirmPass)) {
-                // check for password equals
-                JOptionPane.showMessageDialog(null, "Password do not match.", "Error!", JOptionPane.ERROR_MESSAGE);
-            } else if (username.equals("") || password.equals("") || gender.equals("") || age.equals("") || phoneNum.equals("") || email.equals("") || address.equals("")) {
-                // check for empty fields
-                JOptionPane.showMessageDialog(null, "Please fill in all fields", "Error!", JOptionPane.ERROR_MESSAGE);
-            } else if ((ageInt <= 0) || (ageInt >= 100)) {
-                //  check age
-                JOptionPane.showMessageDialog(null, "Age error.", "Error!", JOptionPane.ERROR_MESSAGE);
-            } else if ((0 <= ageInt) && (ageInt <= 17)) {
-                // check legal age to drive
-                JOptionPane.showMessageDialog(null, "I don't think this is a good age to drive.", "Error!", JOptionPane.ERROR_MESSAGE);
-            } else {
-                boolean validPhoneNum = false;
-                // Check for phone number
-                try {
-                    phoneNumInt = Integer.parseInt(phoneNum);
-
-                    if ((phoneNum.length() > 11) || !phoneNum.startsWith("01") ) {
+            boolean DetailsPerfect = false;
+            
+            String username = usernameField.getText();
+            String password = passwordField.getText();
+            String confirmPass = confirmPassField.getText();
+            String gender = genderComboBox.getSelectedItem().toString();
+            
+            Date age = ageField.getDate();
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+            Date ageChosen = sdf.parse(sdf.format(age));
+            Date today = sdf.parse(sdf.format(new Date()));
+            
+            // calculation of age
+            long millisecondsDifference = today.getTime() - ageChosen.getTime();
+            long age_diff_years = (millisecondsDifference /(1000l * 60 * 60 * 24 * 365));
+            
+            String phoneNum = phoneField.getText();
+            String email = emailField.getText();
+            String address = addressField.getText();
+            
+            int ageInt = 0;
+            int phoneNumInt = 0;
+            try {
+                ageInt = (int)age_diff_years;
+                
+                if (!password.equals(confirmPass)) {
+                    // check for password equals
+                    JOptionPane.showMessageDialog(null, "Password do not match.", "Error!", JOptionPane.ERROR_MESSAGE);
+                } else if (username.equals("") || password.equals("") || gender.equals("") || age.equals("") || phoneNum.equals("") || email.equals("") || address.equals("")) {
+                    // check for empty fields
+                    JOptionPane.showMessageDialog(null, "Please fill in all fields", "Error!", JOptionPane.ERROR_MESSAGE);
+                } else if ((ageInt <= 0) || (ageInt >= 100)) {
+                    //  check age
+                    JOptionPane.showMessageDialog(null, "Age error.", "Error!", JOptionPane.ERROR_MESSAGE);
+                } else if ((0 <= ageInt) && (ageInt <= 17)) {
+                    // check legal age to drive
+                    JOptionPane.showMessageDialog(null, "I don't think this is a good age to drive.", "Error!", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    boolean validPhoneNum = false;
+                    // Check for phone number
+                    try {
+                        phoneNumInt = Integer.parseInt(phoneNum);
+                        
+                        if ((phoneNum.length() > 11) || !phoneNum.startsWith("01") ) {
+                            JOptionPane.showMessageDialog(null, "Invalid Phone Number!", "Error!", JOptionPane.ERROR_MESSAGE);
+                        } else {
+                            validPhoneNum = true;
+                        }
+                    }
+                    catch( Exception e ) {
                         JOptionPane.showMessageDialog(null, "Invalid Phone Number!", "Error!", JOptionPane.ERROR_MESSAGE);
-                    } else {
-                        validPhoneNum = true;
                     }
-                }
-                catch( Exception e ) {
-                    JOptionPane.showMessageDialog(null, "Invalid Phone Number!", "Error!", JOptionPane.ERROR_MESSAGE);
-                }
-
-                // Check Email validity (Simple)
-                if (validPhoneNum) {
-                    if (email.contains("@") || email.contains(".")) {
-                        DetailsPerfect = true;
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Invalid Email!", "Error!", JOptionPane.ERROR_MESSAGE);
+                    
+                    // Check Email validity (Simple)
+                    if (validPhoneNum) {
+                        if (email.contains("@") || email.contains(".")) {
+                            DetailsPerfect = true;
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Invalid Email!", "Error!", JOptionPane.ERROR_MESSAGE);
+                        }
                     }
+                    
                 }
-
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Invalid! Fill in all fields.", "Error!", JOptionPane.ERROR_MESSAGE);
             }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Invalid! Fill in all fields.", "Error!", JOptionPane.ERROR_MESSAGE);
-        }
-        
-        
-        // If all details entered are legit
-        if (DetailsPerfect) {
             
-            Customer found = DataIO.checkUsername(username);
-            
-            if (found == null) {
-                try {
-                    Customer cust = new Customer(username, password, gender, ageInt, phoneNumInt, email, address);
-                    DataIO.customers.add(cust);
-                    DataIO.WriteToText();
-                    
-                    this.setVisible(false);
-                    Login start = new Login();
-                    start.setVisible(true);
-                    
-                    JOptionPane.showMessageDialog(null, "Your account has been registered!", "Success!", JOptionPane.INFORMATION_MESSAGE);
-                } catch (FileNotFoundException ex) {
-                    Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
-                    JOptionPane.showMessageDialog(null, "Something went wrong!", "Error!", JOptionPane.ERROR_MESSAGE);
-                }
-            } else {
+            // If all details entered are legit
+            if (DetailsPerfect) {
+                
+                Customer found = DataIO.checkUsername(username);
+                
+                if (found == null) {
+                    try {
+                        Customer cust = new Customer(username, password, gender, ageInt, phoneNumInt, email, address);
+                        DataIO.customers.add(cust);
+                        DataIO.WriteToText();
+                        
+                        this.setVisible(false);
+                        Login start = new Login();
+                        start.setVisible(true);
+                        
+                        JOptionPane.showMessageDialog(null, "Your account has been registered!", "Success!", JOptionPane.INFORMATION_MESSAGE);
+                    } catch (FileNotFoundException ex) {
+                        Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
+                        JOptionPane.showMessageDialog(null, "Something went wrong!", "Error!", JOptionPane.ERROR_MESSAGE);
+                    }
+                } else {
                     JOptionPane.showMessageDialog(null, "Cannot Register with the same Username", "Error!", JOptionPane.ERROR_MESSAGE);
+                }
+                
             }
-            
+        } catch (ParseException ex) {            
+            Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_registerBtnActionPerformed
 
@@ -668,7 +643,7 @@ public class Register extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
     private javax.swing.JTextArea addressField;
-    private javax.swing.JTextField ageField;
+    private com.toedter.calendar.JDateChooser ageField;
     private javax.swing.JLabel backIcon;
     private javax.swing.JTextField confirmPassField;
     private javax.swing.JTextField emailField;
