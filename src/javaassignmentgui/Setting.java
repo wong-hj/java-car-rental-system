@@ -55,7 +55,7 @@ public class Setting extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jLabel3 = new javax.swing.JLabel();
+        mmBtn = new javax.swing.JLabel();
         userBtn = new javax.swing.JLabel();
         date = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -107,10 +107,15 @@ public class Setting extends javax.swing.JFrame {
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-        jLabel3.setFont(new java.awt.Font("Perpetua", 0, 30)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Main Menu");
-        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mmBtn.setFont(new java.awt.Font("Perpetua", 0, 30)); // NOI18N
+        mmBtn.setForeground(new java.awt.Color(255, 255, 255));
+        mmBtn.setText("Main Menu");
+        mmBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mmBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mmBtnMouseClicked(evt);
+            }
+        });
 
         userBtn.setBackground(new java.awt.Color(255, 255, 255));
         userBtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -139,7 +144,7 @@ public class Setting extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
+                .addComponent(mmBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 675, Short.MAX_VALUE)
                 .addComponent(date)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -157,7 +162,7 @@ public class Setting extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel3)
+                                .addComponent(mmBtn)
                                 .addComponent(date))
                             .addComponent(userBtn)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -279,8 +284,8 @@ public class Setting extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ageLabel)
                     .addComponent(usernameLabel)
-                    .addComponent(passwordLabel))
-                .addGap(145, 145, 145)
+                    .addComponent(passwordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -291,8 +296,8 @@ public class Setting extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(emailLabel)
                     .addComponent(phoneNumLabel)
-                    .addComponent(addressLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(202, Short.MAX_VALUE))
+                    .addComponent(addressLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -357,24 +362,24 @@ public class Setting extends javax.swing.JFrame {
         jLabel15.setText("Address:");
 
         newPassword.setBackground(new java.awt.Color(229, 241, 243));
-        newPassword.setFont(new java.awt.Font("Perpetua", 0, 14)); // NOI18N
+        newPassword.setFont(new java.awt.Font("Perpetua", 0, 20)); // NOI18N
         newPassword.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 204, 255), 2, true));
 
         confirmPassword.setBackground(new java.awt.Color(229, 241, 243));
-        confirmPassword.setFont(new java.awt.Font("Perpetua", 0, 14)); // NOI18N
+        confirmPassword.setFont(new java.awt.Font("Perpetua", 0, 20)); // NOI18N
         confirmPassword.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 204, 255), 2, true));
 
         phoneNum.setBackground(new java.awt.Color(229, 241, 243));
-        phoneNum.setFont(new java.awt.Font("Perpetua", 0, 14)); // NOI18N
+        phoneNum.setFont(new java.awt.Font("Perpetua", 0, 20)); // NOI18N
         phoneNum.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 204, 255), 2, true));
 
         email.setBackground(new java.awt.Color(229, 241, 243));
-        email.setFont(new java.awt.Font("Perpetua", 0, 14)); // NOI18N
+        email.setFont(new java.awt.Font("Perpetua", 0, 20)); // NOI18N
         email.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 204, 255), 2, true));
 
         address.setBackground(new java.awt.Color(229, 241, 243));
         address.setColumns(20);
-        address.setFont(new java.awt.Font("Perpetua", 0, 14)); // NOI18N
+        address.setFont(new java.awt.Font("Perpetua", 0, 20)); // NOI18N
         address.setRows(5);
         address.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 204, 255), 2, true));
         jScrollPane1.setViewportView(address);
@@ -401,18 +406,17 @@ public class Setting extends javax.swing.JFrame {
                             .addComponent(confirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(217, 217, 217)
                             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel4Layout.createSequentialGroup()
-                                    .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(0, 0, Short.MAX_VALUE))
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                                    .addComponent(jLabel14)
+                                    .addGap(0, 0, Short.MAX_VALUE)
+                                    .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel4Layout.createSequentialGroup()
+                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel14)
+                                        .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel15)
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                                    .addGap(0, 0, Short.MAX_VALUE)
-                                    .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGroup(jPanel4Layout.createSequentialGroup()
                             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel4Layout.createSequentialGroup()
@@ -445,23 +449,21 @@ public class Setting extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(newPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(newPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(phoneNum)
                                 .addGap(36, 36, 36)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel12)
-                                    .addComponent(jLabel14)))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(confirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel14))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(confirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane1))
                 .addGap(66, 66, 66))
         );
 
@@ -517,15 +519,38 @@ public class Setting extends javax.swing.JFrame {
                 Renty.loginUser.setPassword(newPass);
                 flag = 1;
             }
+            
             if(!phoneNumVal.equals("")) {
-
-                Renty.loginUser.setPhoneNum(Integer.parseInt(phoneNumVal));
-                flag = 1;
+                
+                if ((phoneNumVal.length() > 11) || !phoneNumVal.startsWith("01") ) {
+                    JOptionPane.showMessageDialog(null, "Invalid Phone Number!", "Error!", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    
+                    
+                    try { 
+                        Renty.loginUser.setPhoneNum(Integer.parseInt(phoneNumVal));
+                        flag = 1;
+                    }  
+                    catch (NumberFormatException e) { 
+                        
+                        JOptionPane.showMessageDialog(null, "Invalid Phone Number!", "Error!", JOptionPane.ERROR_MESSAGE);
+                        
+                    } 
+                }
+                
             } 
             if(!emailVal.equals("")){
-
-                Renty.loginUser.setEmail(emailVal);
-                flag = 1;
+                
+                if (emailVal.contains("@") || emailVal.contains(".")) {
+                    
+                    Renty.loginUser.setEmail(emailVal);
+                    flag = 1;
+                    
+                } else {
+                    JOptionPane.showMessageDialog(null, "Invalid Email!", "Error!", JOptionPane.ERROR_MESSAGE);
+                }
+                
+                
             } 
             if(!addressVal.equals("")) {
 
@@ -557,6 +582,14 @@ public class Setting extends javax.swing.JFrame {
         
         System.out.println(Renty.loginUser.toString());
     }//GEN-LAST:event_saveBtnActionPerformed
+
+    private void mmBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mmBtnMouseClicked
+        this.setVisible(false);
+        
+        MainMenu mm = new MainMenu();
+        mm.setVisible(true);
+        
+    }//GEN-LAST:event_mmBtnMouseClicked
     
     public void setLabel() {
         
@@ -621,7 +654,6 @@ public class Setting extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -636,6 +668,7 @@ public class Setting extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JLabel mmBtn;
     private javax.swing.JPasswordField newPassword;
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JTextField phoneNum;

@@ -9,8 +9,9 @@ public class Customer {
     private int phoneNum;
     private String email;
     private String address;
+    private int approval;
 
-    public Customer(String username, String password, String gender, int age, int phoneNum, String email, String address) {
+    public Customer(String username, String password, String gender, int age, int phoneNum, String email, String address, int approval) {
         this.username = username;
         this.password = password;
         this.gender = gender;
@@ -18,6 +19,7 @@ public class Customer {
         this.phoneNum = phoneNum;
         this.email = email;
         this.address = address;
+        this.approval = approval;
     }
 
     public String getUsername() {
@@ -75,8 +77,17 @@ public class Customer {
     public void setAddress(String address) {
         this.address = address;
     }
+
+    public int getApproval() {
+        return approval;
+    }
+
+    public void setApproval(int approval) {
+        this.approval = approval;
+    }
+    
     
     public String toString() {
-        return username + "," + password + "," + age + "," + phoneNum + "," + email + "," + address;
+        return username + "," + password + "," + age + "," + phoneNum + "," + email + "," + address + "," + approval;
     }
 }

@@ -238,13 +238,17 @@ public class Login extends javax.swing.JFrame {
         if(username.equals("") && password.equals("")){
             JOptionPane.showMessageDialog(null, "Please Enter Username and Password.");
               
-        } else if(found!=null && password.equals(found.getPassword())){
+        } else if(found!= null && password.equals(found.getPassword())){
             
-            Renty.loginUser = found;
-            this.setVisible(false);
-            MainMenu mm = new MainMenu();
-            mm.setVisible(true);
-             
+            if(found.getApproval() == 1) {
+                Renty.loginUser = found;
+                this.setVisible(false);
+                MainMenu mm = new MainMenu();
+                mm.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(null, "User account is yet to be approved. Please Wait.");
+            }
+            
         } else {
             JOptionPane.showMessageDialog(null, "Wrong Username or Password, Please Try Again.");
   

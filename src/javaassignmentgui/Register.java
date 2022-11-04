@@ -582,7 +582,9 @@ public class Register extends javax.swing.JFrame {
                 
                 if (found == null) {
                     try {
-                        Customer cust = new Customer(username, password, gender, ageInt, phoneNumInt, email, address);
+                        int approval = 0;
+                        
+                        Customer cust = new Customer(username, password, gender, ageInt, phoneNumInt, email, address, approval);
                         DataIO.customers.add(cust);
                         DataIO.WriteToText();
                         
@@ -590,7 +592,7 @@ public class Register extends javax.swing.JFrame {
                         Login start = new Login();
                         start.setVisible(true);
                         
-                        JOptionPane.showMessageDialog(null, "Your account has been registered!", "Success!", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Your account has been registered! Please wait for admin to approve.", "Success!", JOptionPane.INFORMATION_MESSAGE);
                     } catch (FileNotFoundException ex) {
                         Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
                         JOptionPane.showMessageDialog(null, "Something went wrong!", "Error!", JOptionPane.ERROR_MESSAGE);
