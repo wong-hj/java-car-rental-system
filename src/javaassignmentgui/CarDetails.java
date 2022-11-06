@@ -2,6 +2,10 @@
 package javaassignmentgui;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 
 
@@ -22,7 +26,7 @@ public class CarDetails extends javax.swing.JFrame {
         seaterTxt.setText(String.valueOf(RentCar.carChosen.getSeat()));
         statusTxt.setText(RentCar.carChosen.getStatus());
         plateTxt.setText(RentCar.carChosen.getCarPlate());
-        
+        date.setText(Renty.toDate());
         
         String type = RentCar.carChosen.getType();
         
@@ -57,6 +61,12 @@ public class CarDetails extends javax.swing.JFrame {
         topBar = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        date = new javax.swing.JLabel();
+        exitIcon = new javax.swing.JLabel();
+        rentCarBtn = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
         jPanel1 = new javax.swing.JPanel();
         typeImg = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -97,11 +107,55 @@ public class CarDetails extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Main Menu");
+        jLabel10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel10MouseClicked(evt);
             }
         });
+
+        jLabel11.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Car Details");
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel11MouseClicked(evt);
+            }
+        });
+
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator1.setToolTipText("");
+
+        date.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        date.setForeground(new java.awt.Color(255, 255, 255));
+        date.setText("Date");
+        date.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dateMouseClicked(evt);
+            }
+        });
+
+        exitIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/exit.png"))); // NOI18N
+        exitIcon.setToolTipText("Exit");
+        exitIcon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        exitIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exitIconMouseClicked(evt);
+            }
+        });
+
+        rentCarBtn.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        rentCarBtn.setForeground(new java.awt.Color(255, 255, 255));
+        rentCarBtn.setText("Rent Car");
+        rentCarBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        rentCarBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                rentCarBtnMouseClicked(evt);
+            }
+        });
+
+        jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator2.setToolTipText("");
 
         javax.swing.GroupLayout topBarLayout = new javax.swing.GroupLayout(topBar);
         topBar.setLayout(topBarLayout);
@@ -111,17 +165,39 @@ public class CarDetails extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
+                .addComponent(jLabel11)
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rentCarBtn)
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel10)
-                .addContainerGap(1067, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 590, Short.MAX_VALUE)
+                .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(exitIcon)
+                .addGap(36, 36, 36))
         );
         topBarLayout.setVerticalGroup(
             topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topBarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(18, 18, 18)
+                .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(jLabel2))
-                .addContainerGap(14, Short.MAX_VALUE))
+                    .addComponent(jLabel11)
+                    .addComponent(date)
+                    .addComponent(exitIcon)
+                    .addComponent(rentCarBtn))
+                .addContainerGap(10, Short.MAX_VALUE))
+            .addGroup(topBarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jSeparator1)
+                    .addComponent(jSeparator2))
+                .addContainerGap())
         );
 
         getContentPane().add(topBar);
@@ -315,11 +391,39 @@ public class CarDetails extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel10MouseClicked
 
     private void bookCarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookCarBtnActionPerformed
+        try {
+            this.setVisible(false);
+            
+            Payment pay = new Payment();
+            pay.setVisible(true);
+        } catch (ParseException ex) {
+            Logger.getLogger(CarDetails.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_bookCarBtnActionPerformed
+
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel11MouseClicked
+
+    private void dateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dateMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dateMouseClicked
+
+    private void exitIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitIconMouseClicked
+       try {
+            DataIO.WriteToText();
+            System.exit(0);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_exitIconMouseClicked
+
+    private void rentCarBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rentCarBtnMouseClicked
         this.setVisible(false);
         
-        Payment pay = new Payment();
-        pay.setVisible(true);
-    }//GEN-LAST:event_bookCarBtnActionPerformed
+        RentCar rent = new RentCar();
+        rent.setVisible(true);
+    }//GEN-LAST:event_rentCarBtnMouseClicked
 
     /**
      * @param args the command line arguments
@@ -360,8 +464,11 @@ public class CarDetails extends javax.swing.JFrame {
     private javax.swing.JButton bookCarBtn;
     private javax.swing.JLabel carTxt;
     private javax.swing.JLabel colorTxt;
+    private javax.swing.JLabel date;
+    private javax.swing.JLabel exitIcon;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
@@ -375,9 +482,12 @@ public class CarDetails extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel plateTxt;
     private javax.swing.JLabel priceTxt;
+    private javax.swing.JLabel rentCarBtn;
     private javax.swing.JLabel seaterTxt;
     private javax.swing.JLabel speedTxt;
     private javax.swing.JLabel statusTxt;

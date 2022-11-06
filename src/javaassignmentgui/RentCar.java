@@ -6,11 +6,15 @@ package javaassignmentgui;
 
 import java.awt.Color;
 import java.awt.List;
+import java.io.FileNotFoundException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
@@ -32,7 +36,7 @@ public class RentCar extends javax.swing.JFrame {
     public RentCar() {
         initComponents();
         carTable.setDefaultEditor(Object.class, null);
-        
+        date.setText(Renty.toDate());
         
         readCarTable();
         
@@ -52,7 +56,13 @@ public class RentCar extends javax.swing.JFrame {
         topBar = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        date = new javax.swing.JLabel();
+        exitIcon = new javax.swing.JLabel();
+        checkDate = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         carTable = new javax.swing.JTable();
         searchField = new javax.swing.JTextField();
@@ -67,8 +77,10 @@ public class RentCar extends javax.swing.JFrame {
         jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1300, 700));
         setMinimumSize(new java.awt.Dimension(1300, 700));
         setPreferredSize(new java.awt.Dimension(1300, 700));
+        setSize(new java.awt.Dimension(1300, 700));
         getContentPane().setLayout(null);
 
         topBar.setBackground(new java.awt.Color(0, 0, 0));
@@ -80,11 +92,33 @@ public class RentCar extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Main Menu");
+        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel3MouseClicked(evt);
             }
         });
+
+        jLabel5.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Rent Car");
+
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        date.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        date.setForeground(new java.awt.Color(255, 255, 255));
+        date.setText("date");
+
+        exitIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/exit.png"))); // NOI18N
+        exitIcon.setToolTipText("Exit");
+        exitIcon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        exitIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exitIconMouseClicked(evt);
+            }
+        });
+
+        checkDate.setText("jLabel6");
 
         javax.swing.GroupLayout topBarLayout = new javax.swing.GroupLayout(topBar);
         topBar.setLayout(topBarLayout);
@@ -93,19 +127,36 @@ public class RentCar extends javax.swing.JFrame {
             .addGroup(topBarLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
-                .addContainerGap(1068, Short.MAX_VALUE))
+                .addGap(88, 88, 88)
+                .addComponent(checkDate)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 615, Short.MAX_VALUE)
+                .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(exitIcon)
+                .addGap(34, 34, 34))
         );
         topBarLayout.setVerticalGroup(
             topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topBarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+                .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(topBarLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jLabel3)
+                .addGap(16, 16, 16)
+                .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(date)
+                    .addComponent(jLabel5)
+                    .addComponent(exitIcon)
+                    .addComponent(checkDate))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -117,6 +168,12 @@ public class RentCar extends javax.swing.JFrame {
         jLabel2.setText("Available Cars");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(40, 80, 200, 50);
+
+        jLabel4.setFont(new java.awt.Font("Perpetua", 0, 20)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("**Double Click to Select a Car After entering Pickup and Return Date.");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(40, 140, 580, 30);
 
         carTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -134,7 +191,7 @@ public class RentCar extends javax.swing.JFrame {
         jScrollPane1.setViewportView(carTable);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(40, 140, 1220, 530);
+        jScrollPane1.setBounds(40, 180, 1220, 440);
 
         searchField.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         searchField.setForeground(new java.awt.Color(153, 153, 153));
@@ -223,7 +280,7 @@ public class RentCar extends javax.swing.JFrame {
         
         if (evt.getClickCount() == 2){
             
-            if(pickupDate.getDate()!= null && returnDate.getDate() != null){
+            if(pickupDate.getDate()!= null && returnDate.getDate() != null && checkDate.getText() == "1"){
                 SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
                 String pickup_date = sdf.format(pickupDate.getDate());
                 String return_date = sdf.format(returnDate.getDate());
@@ -248,37 +305,59 @@ public class RentCar extends javax.swing.JFrame {
 //        Date pickup = pickupDate.getDate();
         
         if(pickupDate.getDate()!= null && returnDate.getDate() != null){
-            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-            String pickup_date = sdf.format(pickupDate.getDate());
-            String return_date = sdf.format(returnDate.getDate());
+            Date todate = new Date();
+            
+            if(pickupDate.getDate().compareTo(todate) >= 0 && returnDate.getDate().compareTo(todate) >= 0){
+                
+                if(pickupDate.getDate().compareTo(returnDate.getDate()) <= 0){
+                    
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+                    String pickup_date = sdf.format(pickupDate.getDate());
+                    String return_date = sdf.format(returnDate.getDate());
 
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy", Locale.ENGLISH);
-            LocalDate pickupdate = LocalDate.parse(pickup_date, formatter);
-            LocalDate returndate = LocalDate.parse(return_date, formatter);
-            
-            ArrayList<Car> filterCars = DataIO.filterCar(pickupdate, returndate);
-            
-            DefaultTableModel model = (DefaultTableModel)carTable.getModel();
-            
-            while (model.getRowCount() > 0) {
-                    model.removeRow(0);
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy", Locale.ENGLISH);
+                    LocalDate pickupdate = LocalDate.parse(pickup_date, formatter);
+                    LocalDate returndate = LocalDate.parse(return_date, formatter);
+
+                    ArrayList<Car> filterCars = DataIO.filterCar(pickupdate, returndate);
+
+                    DefaultTableModel model = (DefaultTableModel)carTable.getModel();
+
+                    while (model.getRowCount() > 0) {
+                            model.removeRow(0);
+                    }
+
+                    Object[] tableLines = filterCars.toArray();
+
+                    for (Object tableLine : tableLines) {
+                       String line = tableLine.toString().trim();
+                       //split result with "|"
+                       String[] dataRow = line.split("\\|");
+                       //add result in table
+                       model.addRow(dataRow);
+                    }
+                    checkDate.setText("1");
+                    JOptionPane.showMessageDialog(null, "Result Filtered.");
+                    
+                } else {
+                    
+                    JOptionPane.showMessageDialog(null, "Pick Up Date Cannot be After Return Date. Please Try Other Date.", "Invalid Date", JOptionPane.ERROR_MESSAGE);
+                    checkDate.setText("0");
+                    readCarTable();
+                }
+                
+            } else{
+                
+                JOptionPane.showMessageDialog(null, "Date Entered Cannot Before Today. Please Try Other Date.", "Invalid Date", JOptionPane.ERROR_MESSAGE);
+                checkDate.setText("0");
+                readCarTable();
             }
             
-            Object[] tableLines = filterCars.toArray();
-
-            for (Object tableLine : tableLines) {
-               String line = tableLine.toString().trim();
-               //split result with "|"
-               String[] dataRow = line.split("\\|");
-               //add result in table
-               model.addRow(dataRow);
-            }
-            //returnDate.getDate();
-//            if(indate.compareTo(checkoutDate) <= 0 && outdate.compareTo(checkinDate) >= 0){
-//                
-//            }
         } else {
+            
             JOptionPane.showMessageDialog(null, "Please Input Date.", "Error!", JOptionPane.ERROR_MESSAGE);
+            checkDate.setText("0");
+            readCarTable();
         }
     }//GEN-LAST:event_filterBtnActionPerformed
 
@@ -289,6 +368,16 @@ public class RentCar extends javax.swing.JFrame {
         mm.setVisible(true);
     }//GEN-LAST:event_jLabel3MouseClicked
 
+    private void exitIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitIconMouseClicked
+        try {
+            DataIO.WriteToText();
+            System.exit(0);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_exitIconMouseClicked
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -329,6 +418,10 @@ public class RentCar extends javax.swing.JFrame {
         
         DefaultTableModel model = (DefaultTableModel)carTable.getModel();
         
+        if(model.getRowCount() > 0) {
+            model.setRowCount(0);
+        }
+        
         Object[] tableLines = DataIO.cars.toArray();
 
         for (Object tableLine : tableLines) {
@@ -350,13 +443,19 @@ public class RentCar extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel backgroundImage;
     private javax.swing.JTable carTable;
+    private javax.swing.JLabel checkDate;
+    private javax.swing.JLabel date;
+    private javax.swing.JLabel exitIcon;
     private javax.swing.JButton filterBtn;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private com.toedter.calendar.JMonthChooser jMonthChooser1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     private com.toedter.calendar.JDateChooser pickupDate;
     private javax.swing.JLabel pickupLabel;
     private com.toedter.calendar.JDateChooser returnDate;

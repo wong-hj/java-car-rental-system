@@ -77,7 +77,13 @@ public class Payment extends javax.swing.JFrame {
         paymentMethod = new javax.swing.ButtonGroup();
         topBar = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        date = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jSeparator4 = new javax.swing.JSeparator();
+        jSeparator5 = new javax.swing.JSeparator();
+        jLabel18 = new javax.swing.JLabel();
+        exitIcon = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         carTxt = new javax.swing.JLabel();
         plateTxt = new javax.swing.JLabel();
@@ -135,12 +141,52 @@ public class Payment extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/rent_smalllogo.png"))); // NOI18N
 
-        jLabel10.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Main Menu");
-        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+        date.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        date.setForeground(new java.awt.Color(255, 255, 255));
+        date.setText("Date");
+        date.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel10MouseClicked(evt);
+                dateMouseClicked(evt);
+            }
+        });
+
+        jLabel12.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Payment");
+        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel12MouseClicked(evt);
+            }
+        });
+
+        jLabel13.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("Rent Car");
+        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel13MouseClicked(evt);
+            }
+        });
+
+        jSeparator4.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        jSeparator5.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        jLabel18.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel18.setText("Main Menu");
+        jLabel18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel18MouseClicked(evt);
+            }
+        });
+
+        exitIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/exit.png"))); // NOI18N
+        exitIcon.setToolTipText("Exit");
+        exitIcon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        exitIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exitIconMouseClicked(evt);
             }
         });
 
@@ -151,18 +197,52 @@ public class Payment extends javax.swing.JFrame {
             .addGroup(topBarLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel13)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel10)
-                .addContainerGap(1067, Short.MAX_VALUE))
+                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 617, Short.MAX_VALUE)
+                .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
+                .addComponent(exitIcon)
+                .addGap(31, 31, 31))
         );
         topBarLayout.setVerticalGroup(
             topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topBarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel2))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(topBarLayout.createSequentialGroup()
+                        .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2)
+                            .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel12)
+                                .addGroup(topBarLayout.createSequentialGroup()
+                                    .addGap(3, 3, 3)
+                                    .addComponent(jLabel13))))
+                        .addContainerGap(14, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topBarLayout.createSequentialGroup()
+                        .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jSeparator4, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator5))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topBarLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topBarLayout.createSequentialGroup()
+                                .addComponent(exitIcon)
+                                .addGap(15, 15, 15))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topBarLayout.createSequentialGroup()
+                                .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(date, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap())))))
         );
 
         getContentPane().add(topBar);
@@ -181,7 +261,7 @@ public class Payment extends javax.swing.JFrame {
         plateTxt.setBounds(50, 190, 117, 28);
 
         confirmBookingBtn.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
-        confirmBookingBtn.setText("Confirm Booking");
+        confirmBookingBtn.setText("Confirm Address");
         confirmBookingBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         confirmBookingBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -189,7 +269,7 @@ public class Payment extends javax.swing.JFrame {
             }
         });
         jPanel2.add(confirmBookingBtn);
-        confirmBookingBtn.setBounds(290, 550, 179, 40);
+        confirmBookingBtn.setBounds(290, 530, 177, 40);
 
         typeImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/suv-car.png"))); // NOI18N
         jPanel2.add(typeImg);
@@ -198,12 +278,12 @@ public class Payment extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Perpetua", 0, 18)); // NOI18N
         jLabel3.setText("Pickup Address:");
         jPanel2.add(jLabel3);
-        jLabel3.setBounds(50, 240, 120, 30);
+        jLabel3.setBounds(50, 220, 120, 30);
 
         jLabel11.setFont(new java.awt.Font("Perpetua", 0, 18)); // NOI18N
         jLabel11.setText("Return Address:");
         jPanel2.add(jLabel11);
-        jLabel11.setBounds(50, 390, 110, 30);
+        jLabel11.setBounds(50, 370, 110, 30);
 
         pickupTxt.setColumns(20);
         pickupTxt.setFont(new java.awt.Font("Perpetua", 0, 18)); // NOI18N
@@ -211,7 +291,7 @@ public class Payment extends javax.swing.JFrame {
         jScrollPane2.setViewportView(pickupTxt);
 
         jPanel2.add(jScrollPane2);
-        jScrollPane2.setBounds(180, 240, 290, 140);
+        jScrollPane2.setBounds(180, 220, 290, 140);
 
         returnTxt.setColumns(20);
         returnTxt.setFont(new java.awt.Font("Perpetua", 0, 18)); // NOI18N
@@ -219,12 +299,12 @@ public class Payment extends javax.swing.JFrame {
         jScrollPane3.setViewportView(returnTxt);
 
         jPanel2.add(jScrollPane3);
-        jScrollPane3.setBounds(180, 400, 290, 140);
+        jScrollPane3.setBounds(180, 380, 290, 140);
 
         jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jPanel2.add(jSeparator1);
-        jSeparator1.setBounds(570, 20, 10, 560);
+        jSeparator1.setBounds(570, 20, 10, 540);
 
         jLabel4.setFont(new java.awt.Font("Perpetua", 0, 36)); // NOI18N
         jLabel4.setText("Booking Summary");
@@ -313,7 +393,7 @@ public class Payment extends javax.swing.JFrame {
         paymentTxt.setFont(new java.awt.Font("Perpetua", 0, 18)); // NOI18N
         paymentTxt.setText("Credit Card Number:");
         jPanel2.add(paymentTxt);
-        paymentTxt.setBounds(600, 510, 140, 21);
+        paymentTxt.setBounds(600, 530, 140, 21);
 
         paymentField.setFont(new java.awt.Font("Perpetua", 0, 18)); // NOI18N
         paymentField.setEnabled(false);
@@ -323,7 +403,7 @@ public class Payment extends javax.swing.JFrame {
             }
         });
         jPanel2.add(paymentField);
-        paymentField.setBounds(750, 500, 180, 40);
+        paymentField.setBounds(750, 520, 180, 40);
 
         bookBtn.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         bookBtn.setText("Book");
@@ -334,7 +414,7 @@ public class Payment extends javax.swing.JFrame {
             }
         });
         jPanel2.add(bookBtn);
-        bookBtn.setBounds(930, 550, 160, 40);
+        bookBtn.setBounds(940, 520, 160, 40);
 
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/paypal.png"))); // NOI18N
         jPanel2.add(jLabel20);
@@ -394,7 +474,7 @@ public class Payment extends javax.swing.JFrame {
         totalField.setBounds(690, 360, 240, 42);
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(80, 70, 1120, 610);
+        jPanel2.setBounds(80, 70, 1120, 580);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/car.png"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -403,12 +483,12 @@ public class Payment extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
+    private void dateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dateMouseClicked
 //       this.setVisible(false);
 //        
 //        MainMenu mm = new MainMenu();
 //        mm.setVisible(true);
-    }//GEN-LAST:event_jLabel10MouseClicked
+    }//GEN-LAST:event_dateMouseClicked
 
     private void paymentFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymentFieldActionPerformed
         // TODO add your handling code here:
@@ -461,7 +541,6 @@ public class Payment extends javax.swing.JFrame {
             String LatestBID = DataIO.checkLatestBooking();
             String BID = "B" + (Integer.parseInt(LatestBID.substring(1,LatestBID.length()))+1);
             
-//            Booking book = new Booking(BID, nameField.getText(), phoneNumField.getText(), emailField.getText(), carField.getText(), carPlateField.getText(), pickupTxt.getText(), returnTxt.getText(), Renty.toDate(), "04/12/2022", "06/12/2022", 4, "RM 100", payMethod, paymentField.getText(), review);
             Booking book = new Booking(BID, nameField.getText(), phoneNumField.getText(), emailField.getText(), carField.getText(), carPlateField.getText(), pickupTxt.getText(), returnTxt.getText(), Renty.toDate(), pickupDateField.getText(), returnDateField.getText(), Integer.parseInt(dayField.getText()), totalField.getText(), payMethod, paymentField.getText(), review);
             DataIO.bookings.add(book);
             DataIO.WriteToText();
@@ -501,6 +580,33 @@ public class Payment extends javax.swing.JFrame {
         paymentTxt.setText("");
         paymentTxt.setText("TnG Number:");
     }//GEN-LAST:event_tngRadioMousePressed
+
+    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel12MouseClicked
+
+    private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
+        this.setVisible(false);
+        
+        RentCar rent = new RentCar();
+        rent.setVisible(true);
+    }//GEN-LAST:event_jLabel13MouseClicked
+
+    private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
+        this.setVisible(false);
+        
+        MainMenu mm = new MainMenu();
+        mm.setVisible(true);
+    }//GEN-LAST:event_jLabel18MouseClicked
+
+    private void exitIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitIconMouseClicked
+        try {
+            DataIO.WriteToText();
+            System.exit(0);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_exitIconMouseClicked
     
     private static String countDays(String pickupdate, String returndate) throws ParseException{
         
@@ -547,15 +653,19 @@ public class Payment extends javax.swing.JFrame {
     private javax.swing.JLabel carPlateField;
     private javax.swing.JLabel carTxt;
     private javax.swing.JButton confirmBookingBtn;
+    private javax.swing.JLabel date;
     private javax.swing.JLabel dayField;
     private javax.swing.JLabel emailField;
+    private javax.swing.JLabel exitIcon;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
@@ -574,6 +684,8 @@ public class Payment extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
     private javax.swing.JLabel nameField;
     private javax.swing.JTextField paymentField;
     private javax.swing.ButtonGroup paymentMethod;
