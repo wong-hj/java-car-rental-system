@@ -77,7 +77,6 @@ public class MainMenu extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(102, 204, 255));
         jButton1.setFont(new java.awt.Font("Gill Sans MT", 0, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/car1.png"))); // NOI18N
         jButton1.setText("  Rent a Car");
         jButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -91,16 +90,19 @@ public class MainMenu extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(102, 204, 255));
         jButton2.setFont(new java.awt.Font("Gill Sans MT", 0, 24)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/cheque.png"))); // NOI18N
         jButton2.setText("  Booking, Payments, Reports");
         jButton2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2);
         jButton2.setBounds(60, 430, 360, 60);
 
         jButton3.setBackground(new java.awt.Color(102, 204, 255));
         jButton3.setFont(new java.awt.Font("Gill Sans MT", 0, 24)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 0, 0));
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/mechanical-gears-.png"))); // NOI18N
         jButton3.setText("  Settings");
         jButton3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -156,6 +158,12 @@ public class MainMenu extends javax.swing.JFrame {
         RentCar rent = new RentCar();
         rent.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.setVisible(false);
+        ViewBooking vb = new ViewBooking();
+        vb.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

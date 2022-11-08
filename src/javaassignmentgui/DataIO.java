@@ -43,6 +43,7 @@ public class DataIO {
                 customers.add(c);
             }
             
+            System.out.println('1');
             Scanner s2 = new Scanner(new File("admin.txt"));
             while(s2.hasNext()){
                 String line = s2.nextLine().trim();
@@ -54,7 +55,8 @@ public class DataIO {
                 admins.add(a);
               
             }
-            
+            System.out.println('2');
+
             Scanner s3 = new Scanner(new File("cars.txt"));
             
             while(s3.hasNext()){
@@ -74,7 +76,8 @@ public class DataIO {
                 cars.add(c);
               
             }
-            
+                        System.out.println('3');
+
             Scanner s4 = new Scanner(new File("booking.txt"));
             
             while(s4.hasNext()){
@@ -101,6 +104,8 @@ public class DataIO {
                 bookings.add(d);
               
             }
+                        System.out.println('4');
+
 
         }catch(Exception e){
             System.out.println("Error in read .....");
@@ -236,9 +241,39 @@ public class DataIO {
             }
         }
         
+
         
         return filteredCars;
+    }
+    
+    public static ArrayList<Booking> userBookings(String username) {
+        
+        ArrayList<Booking> userBookings = new ArrayList<Booking>();
+        for(Booking book : bookings){
+            
+            if(username.equals(book.getName())){
+//                System.out.println();
+                userBookings.add(book);
+                
+            }
+            
         }
+        
+        
+        return userBookings;
+        
+    }
+    
+    public static Booking chosenBooking(String BID) {
+        Booking chosenBooking = null;
+        for(Booking book : bookings){
+            if(BID.equals(book.getBookingID())){
+                chosenBooking = book;
+                break;
+            }
+        }
+        return chosenBooking;
+    }
 
             
     }
