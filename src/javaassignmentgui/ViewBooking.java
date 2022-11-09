@@ -7,6 +7,7 @@ package javaassignmentgui;
 import java.awt.Color;
 import java.awt.List;
 import java.io.FileNotFoundException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -252,6 +253,8 @@ public class ViewBooking extends javax.swing.JFrame {
         int selectedRowIndex = bookingTable.getSelectedRow();
         
         String bookid = model.getValueAt(selectedRowIndex, 0).toString();
+        String review = model.getValueAt(selectedRowIndex, 11).toString();
+        String returnDate = model.getValueAt(selectedRowIndex, 7).toString();
         
         Booking chosenBooking = DataIO.chosenBooking(bookid);
 
@@ -283,6 +286,45 @@ public class ViewBooking extends javax.swing.JFrame {
         );
 
         printBtn.setEnabled(true);
+        
+        
+        if(evt.getClickCount() == 2 && review.equals("Pending")){
+            
+            try {
+                Date return_date = new SimpleDateFormat("dd-MM-yyyy").parse(returnDate);
+                Date toDate = new Date();
+                
+                if(return_date.compareTo(toDate) < 0) {
+                    
+                    String feedback = JOptionPane.showInputDialog(this, "Give Review", "Review",JOptionPane.INFORMATION_MESSAGE);
+            
+                    if(feedback != null && !feedback.equals("")){
+
+                        chosenBooking.setReview(feedback);
+                        try {
+                            DataIO.WriteToText();
+
+                            model.setRowCount(0);
+
+                            readBookingTable();
+                        } catch (FileNotFoundException ex) {
+
+                            Logger.getLogger(ViewBooking.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+
+
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "The car rental need to be completed to review", "Invalid", JOptionPane.ERROR_MESSAGE);
+                }
+                
+            } catch (ParseException ex) {
+                Logger.getLogger(ViewBooking.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            
+            
+        }
         
     }//GEN-LAST:event_bookingTableMouseClicked
 

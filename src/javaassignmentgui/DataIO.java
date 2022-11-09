@@ -274,6 +274,19 @@ public class DataIO {
         }
         return chosenBooking;
     }
+    
+    public static ArrayList<Booking> getReview(String carPlate) {
+
+        ArrayList<Booking> reviewCars = new ArrayList<Booking>();
+        
+        for(Booking book: bookings) {
+            if(carPlate.equals(book.getCarPlate())) {
+                reviewCars.add(book);
+            }
+        }
+        System.out.println(reviewCars);
+        return reviewCars;
+    }
 
             
     }

@@ -35,6 +35,8 @@ public class Payment extends javax.swing.JFrame {
         pickupDateField.setText(RentCar.pickup_Date);
         returnDateField.setText(RentCar.return_Date);
         
+        date.setText(Renty.toDate());
+        
         dayField.setText(countDays(RentCar.pickup_Date, RentCar.return_Date));
         totalField.setText("RM " + calcTotal(dayField.getText(), RentCar.carChosen.getPrice()));
 //        pickupAddField.setText("-");
@@ -162,6 +164,7 @@ public class Payment extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Rent Car");
+        jLabel13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel13MouseClicked(evt);
@@ -175,6 +178,7 @@ public class Payment extends javax.swing.JFrame {
         jLabel18.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("Main Menu");
+        jLabel18.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel18.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel18MouseClicked(evt);

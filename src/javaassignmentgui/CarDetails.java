@@ -4,6 +4,7 @@ package javaassignmentgui;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -46,6 +47,8 @@ public class CarDetails extends javax.swing.JFrame {
         
         File resourcesDirectory = new File(path);
         typeImg.setIcon(new ImageIcon(resourcesDirectory.getAbsolutePath()));
+        
+        showReview();
     }
 
     /**
@@ -88,7 +91,7 @@ public class CarDetails extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        reviewTxt = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
 
         jPasswordField1.setText("jPasswordField1");
@@ -346,12 +349,11 @@ public class CarDetails extends javax.swing.JFrame {
         jLabel17.setFont(new java.awt.Font("Perpetua", 0, 36)); // NOI18N
         jLabel17.setText("Reviews");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Perpetua", 0, 18)); // NOI18N
-        jTextArea1.setRows(5);
-        jTextArea1.setText("GRAPE REVIEW!\n\nHAHA CRINGE\n\nEZ LAMBORGHINI VROOM VROOM");
-        jTextArea1.setEnabled(false);
-        jScrollPane1.setViewportView(jTextArea1);
+        reviewTxt.setColumns(20);
+        reviewTxt.setFont(new java.awt.Font("Perpetua", 0, 18)); // NOI18N
+        reviewTxt.setRows(5);
+        reviewTxt.setEnabled(false);
+        jScrollPane1.setViewportView(reviewTxt);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -425,7 +427,31 @@ public class CarDetails extends javax.swing.JFrame {
         RentCar rent = new RentCar();
         rent.setVisible(true);
     }//GEN-LAST:event_rentCarBtnMouseClicked
+    
+    private void showReview(){
+        ArrayList<Booking> reviews = DataIO.getReview(RentCar.carChosen.getCarPlate());
+        
+        Object[] lines = reviews.toArray();
 
+        for (Object line : lines) {
+           int counter = 0;
+           String dataline = line.toString().trim();
+           //split result with "|"
+           String[] dataRow = dataline.split("\\|");
+           
+           if(!dataRow[15].equals("Pending") && counter <= 3) {
+                reviewTxt.append(
+                     dataRow[15] + " - " + dataRow[1] + "\n\n"
+                );
+                
+                counter++;
+           }
+        }
+        
+        if(reviewTxt.getText().equals("")) {
+            reviewTxt.setText("No reviews yet.");
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -485,10 +511,10 @@ public class CarDetails extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel plateTxt;
     private javax.swing.JLabel priceTxt;
     private javax.swing.JLabel rentCarBtn;
+    private javax.swing.JTextArea reviewTxt;
     private javax.swing.JLabel seaterTxt;
     private javax.swing.JLabel speedTxt;
     private javax.swing.JLabel statusTxt;
