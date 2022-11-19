@@ -10,6 +10,7 @@ import javax.swing.UIManager.LookAndFeelInfo;
 public class Renty {
    
     public static Customer loginUser = null;
+    public static Admin loginAdmin = null;
 //    public static Car carChosen = null;
     
 
