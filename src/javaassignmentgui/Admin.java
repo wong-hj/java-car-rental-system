@@ -27,5 +27,8 @@ public class Admin {
         this.password = password;
     }
     
+    public String toString() {
+        return username + "|" + password;
+    }
     
 }
