@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  *
  * @author Horngjun
  */
-public class AdminLogin extends javax.swing.JFrame {
+public class AdminLogin extends javax.swing.JFrame implements Auth {
 
     /**
      * Creates new form AdminLogin
@@ -179,12 +179,7 @@ public class AdminLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_loginBtnActionPerformed
 
     private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBtnActionPerformed
-         try {
-            DataIO.WriteToText();
-            System.exit(0);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        DataIO.exitProgram();
     }//GEN-LAST:event_exitBtnActionPerformed
 
     private void adminPasswordFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_adminPasswordFieldKeyPressed
@@ -193,7 +188,7 @@ public class AdminLogin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_adminPasswordFieldKeyPressed
 
-    private void login(){
+    public void login(){
         String username = adminUsernameField.getText();
         char[] pass = adminPasswordField.getPassword();
         String password = new String(pass);

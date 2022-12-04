@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 
-public class Login extends javax.swing.JFrame {
+public class Login extends javax.swing.JFrame implements Auth {
 
     /**
      * Creates new form Login
@@ -229,7 +229,7 @@ public class Login extends javax.swing.JFrame {
         reg.setVisible(true);
     }//GEN-LAST:event_registerBtnMouseClicked
 
-    private void login(){
+    public void login(){
         String username = usernameField.getText();
         char[] pass = passwordField.getPassword();
         String password = new String(pass);
