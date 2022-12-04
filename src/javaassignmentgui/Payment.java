@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 
 
 public class Payment extends javax.swing.JFrame {
-
+    public static Car carChosen = null;
     /**
      * Creates new form CarDetails
      */
@@ -26,24 +26,25 @@ public class Payment extends javax.swing.JFrame {
         phoneNumField.setText(String.valueOf(Renty.loginUser.getPhoneNum()));
         emailField.setText(Renty.loginUser.getEmail());
         
-        carTxt.setText(RentCar.carChosen.getBrand() + " " + RentCar.carChosen.getModel());
-        plateTxt.setText(RentCar.carChosen.getCarPlate());
+        carTxt.setText(BookingPay.bookingChosen.getCar());
+        plateTxt.setText(BookingPay.bookingChosen.getCarPlate());
         
-        carPlateField.setText(RentCar.carChosen.getCarPlate());
-        carField.setText(RentCar.carChosen.getCar());
+        carPlateField.setText(BookingPay.bookingChosen.getCarPlate());
+        carField.setText(BookingPay.bookingChosen.getCar());
         
-        pickupDateField.setText(RentCar.pickup_Date);
-        returnDateField.setText(RentCar.return_Date);
+        pickupDateField.setText(BookingPay.bookingChosen.getPickupDate());
+        returnDateField.setText(BookingPay.bookingChosen.getReturnDate());
         
         date.setText(Renty.toDate());
         
-        dayField.setText(countDays(RentCar.pickup_Date, RentCar.return_Date));
-        totalField.setText("RM " + calcTotal(dayField.getText(), RentCar.carChosen.getPrice()));
-//        pickupAddField.setText("-");
-//        returnAddField.setText("-");
+        dayField.setText(String.valueOf(BookingPay.bookingChosen.getDays()));
+        totalField.setText(BookingPay.bookingChosen.getTotal());
         
+        Car chosenCar = DataIO.chosenCar(plateTxt.getText());
+                
+        Payment.carChosen = chosenCar;
         
-        String type = RentCar.carChosen.getType();
+        String type = Payment.carChosen.getType();
         
         if(type.equals("SUV")) {
             path = "src/resource/suv-car.png";
@@ -273,7 +274,7 @@ public class Payment extends javax.swing.JFrame {
             }
         });
         jPanel2.add(confirmBookingBtn);
-        confirmBookingBtn.setBounds(290, 530, 179, 34);
+        confirmBookingBtn.setBounds(290, 530, 177, 40);
 
         typeImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/suv-car.png"))); // NOI18N
         jPanel2.add(typeImg);
@@ -372,7 +373,7 @@ public class Payment extends javax.swing.JFrame {
             }
         });
         jPanel2.add(ppRadio);
-        ppRadio.setBounds(600, 440, 20, 19);
+        ppRadio.setBounds(600, 440, 20, 18);
 
         paymentMethod.add(visaRadio);
         visaRadio.setEnabled(false);
@@ -382,7 +383,7 @@ public class Payment extends javax.swing.JFrame {
             }
         });
         jPanel2.add(visaRadio);
-        visaRadio.setBounds(720, 440, 19, 19);
+        visaRadio.setBounds(720, 440, 18, 18);
 
         paymentMethod.add(tngRadio);
         tngRadio.setEnabled(false);
@@ -392,7 +393,7 @@ public class Payment extends javax.swing.JFrame {
             }
         });
         jPanel2.add(tngRadio);
-        tngRadio.setBounds(840, 440, 19, 19);
+        tngRadio.setBounds(840, 440, 18, 18);
 
         paymentTxt.setFont(new java.awt.Font("Perpetua", 0, 18)); // NOI18N
         paymentTxt.setText("Credit Card Number:");
@@ -541,19 +542,20 @@ public class Payment extends javax.swing.JFrame {
             }
             
             if(!Error) {
-            String review = "Pending";
-            String LatestBID = DataIO.checkLatestBooking();
-            String BID = "B" + (Integer.parseInt(LatestBID.substring(1,LatestBID.length()))+1);
-            
-            Booking book = new Booking(BID, nameField.getText(), phoneNumField.getText(), emailField.getText(), carField.getText(), carPlateField.getText(), pickupTxt.getText(), returnTxt.getText(), Renty.toDate(), pickupDateField.getText(), returnDateField.getText(), Integer.parseInt(dayField.getText()), totalField.getText(), payMethod, paymentField.getText(), review);
-            DataIO.bookings.add(book);
-            DataIO.WriteToText();
-            
-            JOptionPane.showMessageDialog(null, "Booking Made Successfully. Total Paid: " + totalField.getText()+ ".");
-            
-            this.setVisible(false);
-            MainMenu mm = new MainMenu();
-            mm.setVisible(true);
+                
+                BookingPay.bookingChosen.setPickupAdd(pickupTxt.getText());
+                BookingPay.bookingChosen.setReturnAdd(returnTxt.getText());
+                BookingPay.bookingChosen.setPaymentMethod(payMethod);
+                BookingPay.bookingChosen.setPaymentDetails(paymentInfo);
+                BookingPay.bookingChosen.setStatus("Paid");
+                
+                DataIO.WriteToText();
+
+                JOptionPane.showMessageDialog(null, "Booking Made Successfully. Total Paid: " + totalField.getText()+ ".");
+
+                this.setVisible(false);
+                MainMenu mm = new MainMenu();
+                mm.setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(null, "Please Select Atleast one Payment Method.", "Error!", JOptionPane.ERROR_MESSAGE);
             }
@@ -612,27 +614,7 @@ public class Payment extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_exitIconMouseClicked
     
-    private static String countDays(String pickupdate, String returndate) throws ParseException{
-        
-        
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-        Date pickupD = sdf.parse(pickupdate);
-        Date returnD = sdf.parse(returndate);
-        
-        long diff = returnD.getTime() - pickupD.getTime();
-        float daysdiff = (diff / (1000*60*60*24));
-        int dayInt = (int) daysdiff;
-        String day = String.valueOf(dayInt);
-        
-        return day;
-    }
     
-    private static String calcTotal(String day, String price) {
-        int dayInt = Integer.parseInt(day);
-        int priceInt = Integer.parseInt(price.replaceAll("[^0-9]", ""));
-        
-        return String.valueOf(dayInt * priceInt);
-    }
     /**
      * @param args the command line arguments
      */

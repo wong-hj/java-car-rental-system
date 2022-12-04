@@ -4,10 +4,13 @@ package javaassignmentgui;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 
 public class CarDetails extends javax.swing.JFrame {
@@ -394,14 +397,31 @@ public class CarDetails extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel10MouseClicked
 
     private void bookCarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookCarBtnActionPerformed
+        
+        
         try {
-            this.setVisible(false);
+            String days = countDays(RentCar.pickup_Date, RentCar.return_Date);
+            String total = "RM " + calcTotal(days, RentCar.carChosen.getPrice());
+            String review = "Pending";
+            String status = "Pending";
+            String LatestBID = DataIO.checkLatestBooking();
+            String BID = "B" + (Integer.parseInt(LatestBID.substring(1,LatestBID.length()))+1);
             
-            Payment pay = new Payment();
-            pay.setVisible(true);
+            Booking book = new Booking(BID, Renty.loginUser.getUsername(), Renty.loginUser.getPhoneNum(), Renty.loginUser.getEmail(), carTxt.getText(), plateTxt.getText(), "-", "-", Renty.toDate(), RentCar.pickup_Date, RentCar.return_Date, Integer.parseInt(days), total, "-", "-", review, status);
+            DataIO.bookings.add(book);
+            DataIO.WriteToText();
+            
+            JOptionPane.showMessageDialog(null, "Booking placed, please wait for admin approval to proceed for payment.");
+            
+            this.setVisible(false);
+            MainMenu mm = new MainMenu();
+            mm.setVisible(true);
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Payment.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParseException ex) {
             Logger.getLogger(CarDetails.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        } 
     }//GEN-LAST:event_bookCarBtnActionPerformed
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
@@ -451,6 +471,28 @@ public class CarDetails extends javax.swing.JFrame {
         if(reviewTxt.getText().equals("")) {
             reviewTxt.setText("No reviews yet.");
         }
+    }
+    
+    private static String countDays(String pickupdate, String returndate) throws ParseException{
+        
+        
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        Date pickupD = sdf.parse(pickupdate);
+        Date returnD = sdf.parse(returndate);
+        
+        long diff = returnD.getTime() - pickupD.getTime();
+        float daysdiff = (diff / (1000*60*60*24));
+        int dayInt = (int) daysdiff;
+        String day = String.valueOf(dayInt);
+        
+        return day;
+    }
+    
+    private static String calcTotal(String day, String price) {
+        int dayInt = Integer.parseInt(day);
+        int priceInt = Integer.parseInt(price.replaceAll("[^0-9]", ""));
+        
+        return String.valueOf(dayInt * priceInt);
     }
     /**
      * @param args the command line arguments

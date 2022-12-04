@@ -38,10 +38,11 @@ public class MainMenu extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         date = new javax.swing.JLabel();
         username = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        rentBtn = new javax.swing.JButton();
+        reportBtn = new javax.swing.JButton();
+        settingBtn = new javax.swing.JButton();
         exitBtn = new javax.swing.JButton();
+        payBtn = new javax.swing.JButton();
         backgroundImg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -75,44 +76,44 @@ public class MainMenu extends javax.swing.JFrame {
         getContentPane().add(username);
         username.setBounds(240, 60, 320, 50);
 
-        jButton1.setBackground(new java.awt.Color(102, 204, 255));
-        jButton1.setFont(new java.awt.Font("Gill Sans MT", 0, 24)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/car1.png"))); // NOI18N
-        jButton1.setText("  Rent a Car");
-        jButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        rentBtn.setBackground(new java.awt.Color(102, 204, 255));
+        rentBtn.setFont(new java.awt.Font("Gill Sans MT", 0, 24)); // NOI18N
+        rentBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/car1.png"))); // NOI18N
+        rentBtn.setText("  Rent a Car");
+        rentBtn.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        rentBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                rentBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(60, 340, 360, 60);
+        getContentPane().add(rentBtn);
+        rentBtn.setBounds(60, 290, 360, 60);
 
-        jButton2.setBackground(new java.awt.Color(102, 204, 255));
-        jButton2.setFont(new java.awt.Font("Gill Sans MT", 0, 24)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/cheque.png"))); // NOI18N
-        jButton2.setText("  Booking, Reports");
-        jButton2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        reportBtn.setBackground(new java.awt.Color(102, 204, 255));
+        reportBtn.setFont(new java.awt.Font("Gill Sans MT", 0, 24)); // NOI18N
+        reportBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/clipboard.png"))); // NOI18N
+        reportBtn.setText("  Booking, Reports");
+        reportBtn.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        reportBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                reportBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2);
-        jButton2.setBounds(60, 430, 360, 60);
+        getContentPane().add(reportBtn);
+        reportBtn.setBounds(60, 470, 360, 60);
 
-        jButton3.setBackground(new java.awt.Color(102, 204, 255));
-        jButton3.setFont(new java.awt.Font("Gill Sans MT", 0, 24)); // NOI18N
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/mechanical-gears-.png"))); // NOI18N
-        jButton3.setText("  Settings");
-        jButton3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        settingBtn.setBackground(new java.awt.Color(102, 204, 255));
+        settingBtn.setFont(new java.awt.Font("Gill Sans MT", 0, 24)); // NOI18N
+        settingBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/mechanical-gears-.png"))); // NOI18N
+        settingBtn.setText("  Settings");
+        settingBtn.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        settingBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                settingBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3);
-        jButton3.setBounds(60, 520, 360, 60);
+        getContentPane().add(settingBtn);
+        settingBtn.setBounds(60, 560, 360, 60);
 
         exitBtn.setBackground(new java.awt.Color(153, 0, 0));
         exitBtn.setFont(new java.awt.Font("Perpetua", 0, 36)); // NOI18N
@@ -127,6 +128,19 @@ public class MainMenu extends javax.swing.JFrame {
         getContentPane().add(exitBtn);
         exitBtn.setBounds(1120, 550, 120, 40);
 
+        payBtn.setBackground(new java.awt.Color(102, 204, 255));
+        payBtn.setFont(new java.awt.Font("Gill Sans MT", 0, 24)); // NOI18N
+        payBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/cheque.png"))); // NOI18N
+        payBtn.setText(" Payment");
+        payBtn.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        payBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                payBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(payBtn);
+        payBtn.setBounds(60, 380, 360, 60);
+
         backgroundImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/car.png"))); // NOI18N
         backgroundImg.setText("jLabel2");
         getContentPane().add(backgroundImg);
@@ -135,13 +149,13 @@ public class MainMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void settingBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settingBtnActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         
         Setting setting = new Setting();
         setting.setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_settingBtnActionPerformed
 
     private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBtnActionPerformed
         try {
@@ -152,18 +166,25 @@ public class MainMenu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_exitBtnActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void rentBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentBtnActionPerformed
         this.setVisible(false);
         
         RentCar rent = new RentCar();
         rent.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_rentBtnActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void reportBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportBtnActionPerformed
         this.setVisible(false);
         ViewBooking vb = new ViewBooking();
         vb.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_reportBtnActionPerformed
+
+    private void payBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payBtnActionPerformed
+        this.setVisible(false);
+        
+        BookingPay bp = new BookingPay();
+        bp.setVisible(true);
+    }//GEN-LAST:event_payBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -204,11 +225,12 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JLabel backgroundImg;
     private javax.swing.JLabel date;
     private javax.swing.JButton exitBtn;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton payBtn;
+    private javax.swing.JButton rentBtn;
+    private javax.swing.JButton reportBtn;
+    private javax.swing.JButton settingBtn;
     private javax.swing.JLabel username;
     // End of variables declaration//GEN-END:variables
 }

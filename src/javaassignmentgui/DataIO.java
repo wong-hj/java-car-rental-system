@@ -34,7 +34,7 @@ public class DataIO {
                 String password = dataRow[1];
                 String gender = dataRow[2];
                 int age = Integer.parseInt(dataRow[3]);
-                int phoneNum = Integer.parseInt(dataRow[4]);
+                String phoneNum = dataRow[4];
                 String email = dataRow[5];
                 String address = dataRow[6];
                 int approval = Integer.parseInt(dataRow[7]);
@@ -99,8 +99,9 @@ public class DataIO {
                 String paymentMethod = dataRow[13];
                 String paymentDetails = dataRow[14];
                 String review = dataRow[15];
+                String status = dataRow[16];
                 
-                Booking d = new Booking(bid, name, contact, email, car, carPlate, pickupAdd, returnAdd, bookingDate, pickupDate, returnDate, days, total, paymentMethod, paymentDetails, review);
+                Booking d = new Booking(bid, name, contact, email, car, carPlate, pickupAdd, returnAdd, bookingDate, pickupDate, returnDate, days, total, paymentMethod, paymentDetails, review, status);
                 bookings.add(d);
                 
             }
@@ -139,7 +140,8 @@ public class DataIO {
         for(Booking book : bookings){
             String Book = book.getBookingID() + "|" + book.getName() + "|" + book.getContact() + "|" + book.getEmail() + "|" + book.getCar()
                     + "|" + book.getCarPlate() + "|" + book.getPickupAdd() + "|" + book.getReturnAdd() + "|" + book.getBookingDate()
-                    + "|" + book.getPickupDate() + "|" + book.getReturnDate() + "|" + book.getDays() + "|" + book.getTotal() + "|" + book.getPaymentMethod() + "|" + book.getPaymentDetails() + "|" + book.getReview();
+                    + "|" + book.getPickupDate() + "|" + book.getReturnDate() + "|" + book.getDays() + "|" + book.getTotal() + "|" + book.getPaymentMethod()
+                     + "|" + book.getPaymentDetails() + "|" + book.getReview() + "|" + book.getStatus();
             d.println(Book);
         }
         d.close();
@@ -241,8 +243,6 @@ public class DataIO {
             }
         }
         
-
-        
         return filteredCars;
     }
     
@@ -251,14 +251,26 @@ public class DataIO {
         ArrayList<Booking> userBookings = new ArrayList<Booking>();
         for(Booking book : bookings){
             
-            if(username.equals(book.getName())){
+            if(username.equals(book.getName()) && (book.getStatus().equals("Pending") || book.getStatus().equals("Approved"))){
 //                System.out.println();
-                userBookings.add(book);
-                
+                userBookings.add(book);  
             }
-            
         }
         
+        return userBookings;
+        
+    }
+    
+    public static ArrayList<Booking> userBookings(String username, String status) {
+        
+        ArrayList<Booking> userBookings = new ArrayList<Booking>();
+        for(Booking book : bookings){
+            
+            if(username.equals(book.getName()) && book.getStatus().equals(status)){
+//                System.out.println();
+                userBookings.add(book);  
+            }
+        }
         
         return userBookings;
         

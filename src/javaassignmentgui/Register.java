@@ -529,7 +529,7 @@ public class Register extends javax.swing.JFrame {
             String address = addressField.getText();
             
             int ageInt = 0;
-            int phoneNumInt = 0;
+            
             try {
                 ageInt = (int)age_diff_years;
                 
@@ -548,18 +548,13 @@ public class Register extends javax.swing.JFrame {
                 } else {
                     boolean validPhoneNum = false;
                     // Check for phone number
-                    try {
-                        phoneNumInt = Integer.parseInt(phoneNum);
-                        
-                        if ((phoneNum.length() > 11) || !phoneNum.startsWith("01") ) {
-                            JOptionPane.showMessageDialog(null, "Invalid Phone Number!", "Error!", JOptionPane.ERROR_MESSAGE);
-                        } else {
-                            validPhoneNum = true;
-                        }
-                    }
-                    catch( Exception e ) {
+                    
+                    if ((phoneNum.length() > 11) || !phoneNum.startsWith("01") ) {
                         JOptionPane.showMessageDialog(null, "Invalid Phone Number!", "Error!", JOptionPane.ERROR_MESSAGE);
+                    } else {
+                        validPhoneNum = true;
                     }
+                    
                     
                     // Check Email validity (Simple)
                     if (validPhoneNum) {
@@ -584,7 +579,7 @@ public class Register extends javax.swing.JFrame {
                     try {
                         int approval = 0;
                         
-                        Customer cust = new Customer(username, password, gender, ageInt, phoneNumInt, email, address, approval);
+                        Customer cust = new Customer(username, password, gender, ageInt, phoneNum, email, address, approval);
                         DataIO.customers.add(cust);
                         DataIO.WriteToText();
                         

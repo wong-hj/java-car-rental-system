@@ -20,8 +20,9 @@ public class Booking {
     private String paymentMethod;
     private String paymentDetails;
     private String review;
+    private String status;
 
-    public Booking(String BookingID, String name, String contact, String email, String car, String carPlate, String pickupAdd, String returnAdd, String bookingDate, String pickupDate, String returnDate, int days, String total, String paymentMethod, String paymentDetails, String review) {
+    public Booking(String BookingID, String name, String contact, String email, String car, String carPlate, String pickupAdd, String returnAdd, String bookingDate, String pickupDate, String returnDate, int days, String total, String paymentMethod, String paymentDetails, String review, String status) {
         this.BookingID = BookingID;
         this.name = name;
         this.contact = contact;
@@ -38,6 +39,7 @@ public class Booking {
         this.paymentMethod = paymentMethod;
         this.paymentDetails = paymentDetails;
         this.review = review;
+        this.status = status;
     }
 
     public String getBookingID() {
@@ -168,8 +170,16 @@ public class Booking {
         this.review = review;
     }
     
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+    
     public String toString() {
-        return BookingID + "|" + name + "|" + contact + "|" + email + "|" + car + "|" + carPlate + "|" + pickupAdd + "|" + returnAdd + "|" + bookingDate  + "|" + pickupDate  + "|" + returnDate + "|" + days  + "|" + total  + "|" + paymentMethod + "|" + paymentDetails + "|" + review;
+        return BookingID + "|" + name + "|" + contact + "|" + email + "|" + car + "|" + carPlate + "|" + pickupAdd + "|" + returnAdd + "|" + bookingDate  + "|" + pickupDate  + "|" + returnDate + "|" + days  + "|" + total  + "|" + paymentMethod + "|" + paymentDetails + "|" + review + "|" + status;
     }
     
 //    public String simplifiedToString() {

@@ -522,16 +522,17 @@ public class Setting extends javax.swing.JFrame {
             
             if(!phoneNumVal.equals("")) {
                 
-                if ((phoneNumVal.length() > 11) || !phoneNumVal.startsWith("01") ) {
+                if ((phoneNumVal.length() < 10 || phoneNumVal.length() > 11) || !phoneNumVal.startsWith("01") ) {
                     JOptionPane.showMessageDialog(null, "Invalid Phone Number!", "Error!", JOptionPane.ERROR_MESSAGE);
                 } else {
                     
                     
                     try { 
-                        Renty.loginUser.setPhoneNum(Integer.parseInt(phoneNumVal));
+                        Integer.parseInt(phoneNumVal);
+                        Renty.loginUser.setPhoneNum(phoneNumVal);
                         flag = 1;
                     }  
-                    catch (NumberFormatException e) { 
+                    catch (Exception e) { 
                         
                         JOptionPane.showMessageDialog(null, "Invalid Phone Number!", "Error!", JOptionPane.ERROR_MESSAGE);
                         

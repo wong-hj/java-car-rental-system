@@ -6,7 +6,6 @@ package javaassignmentgui;
 
 import java.awt.Color;
 import java.awt.List;
-import java.awt.print.PrinterException;
 import java.io.FileNotFoundException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -14,7 +13,9 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Locale;
+import java.util.Set;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,14 +28,16 @@ import javax.swing.table.TableRowSorter;
  *
  * @author Horngjun
  */
-public class ViewBooking extends javax.swing.JFrame {
+public class BookingPay extends javax.swing.JFrame {
     
-    
+    public static Booking bookingChosen = null;
+    public static String pickup_Date = null;
+    public static String return_Date = null;
 
     /**
      * Creates new form RentCar
      */
-    public ViewBooking() {
+    public BookingPay() {
         initComponents();
         bookingTable.setDefaultEditor(Object.class, null);
         date.setText(Renty.toDate());
@@ -63,19 +66,18 @@ public class ViewBooking extends javax.swing.JFrame {
         exitIcon = new javax.swing.JLabel();
         checkDate = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         bookingTable = new javax.swing.JTable();
         searchField = new javax.swing.JTextField();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        receiptTxt = new javax.swing.JTextArea();
-        printBtn = new javax.swing.JButton();
         backgroundImage = new javax.swing.JLabel();
+        searchBtn = new javax.swing.JButton();
 
         jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(1500, 770));
-        setSize(new java.awt.Dimension(1500, 770));
+        setMinimumSize(new java.awt.Dimension(1300, 700));
+        setSize(new java.awt.Dimension(1300, 700));
         getContentPane().setLayout(null);
 
         topBar.setBackground(new java.awt.Color(0, 0, 0));
@@ -96,7 +98,7 @@ public class ViewBooking extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Booking History");
+        jLabel5.setText("Payment");
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
@@ -130,7 +132,7 @@ public class ViewBooking extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(88, 88, 88)
                 .addComponent(checkDate)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 755, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 618, Short.MAX_VALUE)
                 .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(exitIcon)
@@ -157,20 +159,26 @@ public class ViewBooking extends javax.swing.JFrame {
         );
 
         getContentPane().add(topBar);
-        topBar.setBounds(0, 0, 1500, 60);
+        topBar.setBounds(0, 0, 1300, 60);
 
         jLabel2.setFont(new java.awt.Font("Perpetua", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Booking History");
+        jLabel2.setText("Confirm Payment");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(20, 60, 260, 50);
+        jLabel2.setBounds(40, 80, 250, 50);
+
+        jLabel4.setFont(new java.awt.Font("Perpetua", 0, 20)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("**Double Click to Select an approved Booking to proceed for payment.");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(40, 140, 580, 30);
 
         bookingTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "BID", "Contact", "Email", "Car", "Car Plate", "Booking Date", "Pick Up Date", "Return Date", "Days", "Total Price", "Payment Method", "Review"
+                "BID", "Contact", "Email", "Car", "Car Plate", "Booking Date", "Pick Up Date", "Return Date", "Days", "Total Price", "Status"
             }
         ));
         bookingTable.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -181,7 +189,7 @@ public class ViewBooking extends javax.swing.JFrame {
         jScrollPane1.setViewportView(bookingTable);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(20, 120, 1040, 550);
+        jScrollPane1.setBounds(40, 180, 1220, 440);
 
         searchField.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         searchField.setForeground(new java.awt.Color(153, 153, 153));
@@ -200,31 +208,18 @@ public class ViewBooking extends javax.swing.JFrame {
             }
         });
         getContentPane().add(searchField);
-        searchField.setBounds(750, 70, 310, 40);
-
-        receiptTxt.setColumns(20);
-        receiptTxt.setRows(5);
-        jScrollPane2.setViewportView(receiptTxt);
-
-        getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(1080, 70, 390, 600);
-
-        printBtn.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
-        printBtn.setText("Print");
-        printBtn.setEnabled(false);
-        printBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                printBtnActionPerformed(evt);
-            }
-        });
-        getContentPane().add(printBtn);
-        printBtn.setBounds(1240, 680, 100, 40);
+        searchField.setBounds(950, 80, 310, 40);
 
         backgroundImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/car.png"))); // NOI18N
         backgroundImage.setMinimumSize(new java.awt.Dimension(1300, 700));
         backgroundImage.setPreferredSize(new java.awt.Dimension(1300, 700));
         getContentPane().add(backgroundImage);
-        backgroundImage.setBounds(-3, -4, 1510, 760);
+        backgroundImage.setBounds(-3, -4, 1300, 710);
+
+        searchBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/search.png"))); // NOI18N
+        searchBtn.setBorder(null);
+        getContentPane().add(searchBtn);
+        searchBtn.setBounds(1190, 80, 60, 40);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -253,85 +248,32 @@ public class ViewBooking extends javax.swing.JFrame {
 
     
     private void bookingTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bookingTableMouseClicked
-        receiptTxt.setText("");
-        
-        DefaultTableModel model = (DefaultTableModel)bookingTable.getModel();
-        int selectedRowIndex = bookingTable.getSelectedRow();
-        
-        String bookid = model.getValueAt(selectedRowIndex, 0).toString();
-        String review = model.getValueAt(selectedRowIndex, 11).toString();
-        String returnDate = model.getValueAt(selectedRowIndex, 7).toString();
-        
-        Booking chosenBooking = DataIO.chosenBooking(bookid);
-
-        receiptTxt.append(
-                "\t\t Receipt \n\n" +
-
-                "Booking ID: \t\t" + chosenBooking.getBookingID() + "\n" +
-                "\n--------------------------------------------------------------------------------------------\n" +
-                "Name:\t\t" + chosenBooking.getName() + "\n\n" + 
-                "Contact:\t\t" + chosenBooking.getContact() + "\n\n" + 
-                "Email:\t\t" + chosenBooking.getEmail() + "\n" + 
-                "\n--------------------------------------------------------------------------------------------\n" +
-                "Car:\t\t" + chosenBooking.getCarPlate() + " - " + chosenBooking.getCar() + "\n\n" + 
-                "Pick Up Address:\t" + chosenBooking.getPickupAdd() + "\n\n" + 
-                "Return Address:\t" + chosenBooking.getReturnAdd() + "\n" + 
-                "\n--------------------------------------------------------------------------------------------\n" +
-                "Booking Date:\t\t" + chosenBooking.getBookingDate() + "\n\n" + 
-                "Pick Up Date:\t\t" + chosenBooking.getPickupDate() + "\n\n" + 
-                "Return Date:\t\t" + chosenBooking.getReturnDate() + "\n\n" + 
-                "Days:\t\t" + chosenBooking.getDays() + "\n" + 
-                "\n--------------------------------------------------------------------------------------------\n" +
-                      
-                "Payment Method:\t" + chosenBooking.getPaymentMethod() + "\n\n" + 
-                "Payment Details:\t" + chosenBooking.getPaymentDetails() + "\n\n" + 
-                "Total:\t\t" + chosenBooking.getTotal() + "\n\n" + 
-                
-                "\tThank you, Please come again!\n" +
-                "\tGenerated on " + Renty.toDate()
-        );
-
-        printBtn.setEnabled(true);
         
         
-        if(evt.getClickCount() == 2 && review.equals("Pending")){
+        if (evt.getClickCount() == 2){
+            int row = bookingTable.getSelectedRow();
+            String status = bookingTable.getModel().getValueAt(bookingTable.convertRowIndexToModel(row), 10).toString();
+            String BID = bookingTable.getModel().getValueAt(bookingTable.convertRowIndexToModel(row), 0).toString();
             
-            try {
-                Date return_date = new SimpleDateFormat("dd-MM-yyyy").parse(returnDate);
-                Date toDate = new Date();
+            if(status.equals("Approved")) {
                 
-                if(return_date.compareTo(toDate) < 0) {
-                    
-                    String feedback = JOptionPane.showInputDialog(this, "Give Review", "Review",JOptionPane.INFORMATION_MESSAGE);
-            
-                    if(feedback != null && !feedback.equals("")){
-
-                        chosenBooking.setReview(feedback);
-                        try {
-                            DataIO.WriteToText();
-
-                            model.setRowCount(0);
-
-                            readBookingTable();
-                        } catch (FileNotFoundException ex) {
-
-                            Logger.getLogger(ViewBooking.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-
-
-                    }
-                } else {
-                    JOptionPane.showMessageDialog(null, "The car rental need to be completed to review.", "Invalid", JOptionPane.ERROR_MESSAGE);
+                Booking chosenBooking = DataIO.chosenBooking(BID);
+                
+                BookingPay.bookingChosen = chosenBooking;
+                
+                this.setVisible(false);
+                try {
+                    Payment pay = new Payment();
+                    pay.setVisible(true);
+                } catch (ParseException ex) {
+                    Logger.getLogger(BookingPay.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 
-            } catch (ParseException ex) {
-                Logger.getLogger(ViewBooking.class.getName()).log(Level.SEVERE, null, ex);
+            } else {
+                    JOptionPane.showMessageDialog(null, "The booking needs to be approved to proceed.", "Invalid", JOptionPane.ERROR_MESSAGE);
             }
-            
-            
-            
+  
         }
-        
     }//GEN-LAST:event_bookingTableMouseClicked
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
@@ -349,17 +291,6 @@ public class ViewBooking extends javax.swing.JFrame {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_exitIconMouseClicked
-
-    private void printBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printBtnActionPerformed
-        
-        try {
-            receiptTxt.print();
-        } catch (PrinterException ex) {
-            Logger.getLogger(ViewBooking.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            
-        
-    }//GEN-LAST:event_printBtnActionPerformed
     
     
     /**
@@ -379,13 +310,13 @@ public class ViewBooking extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ViewBooking.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BookingPay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ViewBooking.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BookingPay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ViewBooking.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BookingPay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ViewBooking.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BookingPay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -393,7 +324,7 @@ public class ViewBooking extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ViewBooking().setVisible(true);
+                new BookingPay().setVisible(true);
             }
         });
     }
@@ -407,7 +338,7 @@ public class ViewBooking extends javax.swing.JFrame {
             model.setRowCount(0);
         }
         
-        ArrayList<Booking> userBookings = DataIO.userBookings(Renty.loginUser.getUsername(), "Paid");
+        ArrayList<Booking> userBookings = DataIO.userBookings(Renty.loginUser.getUsername());
         
         Object[] tableLines = userBookings.toArray();
 
@@ -418,7 +349,7 @@ public class ViewBooking extends javax.swing.JFrame {
            //add result in table
            Vector row = new Vector();
            
-           int[] Rows = new int[] {0, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, 15};
+           int[] Rows = new int[] {0, 2, 3, 4, 5, 8, 9, 10, 11, 12, 16};
            for(int Index : Rows){
                row.add(dataRow[Index]);
            }
@@ -444,13 +375,12 @@ public class ViewBooking extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private com.toedter.calendar.JMonthChooser jMonthChooser1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JButton printBtn;
-    private javax.swing.JTextArea receiptTxt;
+    private javax.swing.JButton searchBtn;
     private javax.swing.JTextField searchField;
     private javax.swing.JPanel topBar;
     // End of variables declaration//GEN-END:variables

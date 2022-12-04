@@ -6,12 +6,12 @@ public class Customer {
     private String password;
     private String gender;
     private int age;
-    private int phoneNum;
+    private String phoneNum;
     private String email;
     private String address;
     private int approval;
 
-    public Customer(String username, String password, String gender, int age, int phoneNum, String email, String address, int approval) {
+    public Customer(String username, String password, String gender, int age, String phoneNum, String email, String address, int approval) {
         this.username = username;
         this.password = password;
         this.gender = gender;
@@ -54,11 +54,11 @@ public class Customer {
         this.age = age;
     }
 
-    public int getPhoneNum() {
+    public String getPhoneNum() {
         return phoneNum;
     }
 
-    public void setPhoneNum(int phoneNum) {
+    public void setPhoneNum(String phoneNum) {
         this.phoneNum = phoneNum;
     }
 
