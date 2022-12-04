@@ -88,6 +88,6 @@ public class Customer {
     
     
     public String toString() {
-        return username + "," + password + "," + age + "," + phoneNum + "," + email + "," + address + "," + approval;
+        return username + "|" + password + "|" + gender + "|" + age + "|" + phoneNum + "|" + email + "|" + address + "|" + approval;
     }
 }

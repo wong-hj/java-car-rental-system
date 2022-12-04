@@ -273,7 +273,7 @@ public class Payment extends javax.swing.JFrame {
             }
         });
         jPanel2.add(confirmBookingBtn);
-        confirmBookingBtn.setBounds(290, 530, 177, 40);
+        confirmBookingBtn.setBounds(290, 530, 179, 34);
 
         typeImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/suv-car.png"))); // NOI18N
         jPanel2.add(typeImg);
@@ -372,7 +372,7 @@ public class Payment extends javax.swing.JFrame {
             }
         });
         jPanel2.add(ppRadio);
-        ppRadio.setBounds(600, 440, 20, 18);
+        ppRadio.setBounds(600, 440, 20, 19);
 
         paymentMethod.add(visaRadio);
         visaRadio.setEnabled(false);
@@ -382,7 +382,7 @@ public class Payment extends javax.swing.JFrame {
             }
         });
         jPanel2.add(visaRadio);
-        visaRadio.setBounds(720, 440, 18, 18);
+        visaRadio.setBounds(720, 440, 19, 19);
 
         paymentMethod.add(tngRadio);
         tngRadio.setEnabled(false);
@@ -392,7 +392,7 @@ public class Payment extends javax.swing.JFrame {
             }
         });
         jPanel2.add(tngRadio);
-        tngRadio.setBounds(840, 440, 18, 18);
+        tngRadio.setBounds(840, 440, 19, 19);
 
         paymentTxt.setFont(new java.awt.Font("Perpetua", 0, 18)); // NOI18N
         paymentTxt.setText("Credit Card Number:");

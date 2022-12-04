@@ -129,7 +129,7 @@ public class ViewBooking extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(88, 88, 88)
                 .addComponent(checkDate)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 751, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 755, Short.MAX_VALUE)
                 .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(exitIcon)
@@ -211,6 +211,11 @@ public class ViewBooking extends javax.swing.JFrame {
         printBtn.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         printBtn.setText("Print");
         printBtn.setEnabled(false);
+        printBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                printBtnActionPerformed(evt);
+            }
+        });
         getContentPane().add(printBtn);
         printBtn.setBounds(1240, 680, 100, 40);
 
@@ -343,6 +348,10 @@ public class ViewBooking extends javax.swing.JFrame {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_exitIconMouseClicked
+
+    private void printBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_printBtnActionPerformed
     
     
     /**

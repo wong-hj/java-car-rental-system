@@ -44,6 +44,8 @@ public class AdminLogin extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1300, 700));
+        setMinimumSize(new java.awt.Dimension(1300, 700));
         setPreferredSize(new java.awt.Dimension(1300, 700));
         setResizable(false);
         setSize(new java.awt.Dimension(1300, 700));
@@ -202,11 +204,11 @@ public class AdminLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Please Enter Username and Password.");
               
         } else if(found!=null && password.equals(found.getPassword())){
-            
+            Renty.loginAdmin = found;
             JOptionPane.showMessageDialog(null, "good.");
-//            this.setVisible(false);
-//            MainMenu mm = new MainMenu();
-//            mm.setVisible(true);
+            this.setVisible(false);
+            AdminPanel ap = new AdminPanel();
+            ap.setVisible(true);
              
         } else {
             JOptionPane.showMessageDialog(null, "Wrong Username or Password, Please Try Again.");

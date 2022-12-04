@@ -12,7 +12,9 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Locale;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -290,7 +292,7 @@ public class RentCar extends javax.swing.JFrame {
                 String carPlate = carTable.getModel().getValueAt(carTable.convertRowIndexToModel(row), 0).toString();
 
                 Car chosenCar = DataIO.chosenCar(carPlate);
-
+                
                 RentCar.carChosen = chosenCar;
                 RentCar.pickup_Date = pickup_date;
                 RentCar.return_Date = return_date;

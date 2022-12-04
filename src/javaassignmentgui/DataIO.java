@@ -102,7 +102,7 @@ public class DataIO {
                 
                 Booking d = new Booking(bid, name, contact, email, car, carPlate, pickupAdd, returnAdd, bookingDate, pickupDate, returnDate, days, total, paymentMethod, paymentDetails, review);
                 bookings.add(d);
-              
+                
             }
                         System.out.println('4');
 
