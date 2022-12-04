@@ -363,7 +363,7 @@ public class AdminManageIndiBooking extends javax.swing.JFrame {
         jButton3.setBounds(570, 530, 110, 30);
 
         jButton4.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
-        jButton4.setText("Approve");
+        jButton4.setText("Modify");
         jPanel1.add(jButton4);
         jButton4.setBounds(440, 520, 110, 30);
 
