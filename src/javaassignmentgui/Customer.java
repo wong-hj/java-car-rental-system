@@ -1,9 +1,7 @@
 
 package javaassignmentgui;
 
-public class Customer {
-    private String username;
-    private String password;
+public class Customer extends User{
     private String gender;
     private int age;
     private String phoneNum;
