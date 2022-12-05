@@ -10,7 +10,9 @@ import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -49,27 +51,27 @@ public class AdminManageCustomers extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        somelabel = new javax.swing.JLabel();
-        modifyBtn = new javax.swing.JButton();
+        deleteBtn = new javax.swing.JButton();
         approveBtn = new javax.swing.JButton();
         denyBtn = new javax.swing.JButton();
-        usernameLabel = new javax.swing.JLabel();
         awawdawd = new javax.swing.JLabel();
         awdawdadaw = new javax.swing.JLabel();
         wadwadadawdaw = new javax.swing.JLabel();
         awdawdawdaw = new javax.swing.JLabel();
-        genderComboBox = new javax.swing.JComboBox<>();
-        ageInput = new javax.swing.JTextField();
-        contactInput = new javax.swing.JTextField();
-        emailInput = new javax.swing.JTextField();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        addressInput = new javax.swing.JTextArea();
+        usernameLabel = new javax.swing.JLabel();
+        genderLabel = new javax.swing.JLabel();
+        ageLabel = new javax.swing.JLabel();
+        contactLabel = new javax.swing.JLabel();
+        emailLabel = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        addressLabel = new javax.swing.JTextArea();
+        somelabel1 = new javax.swing.JLabel();
+        somelabel = new javax.swing.JLabel();
+        searchField = new javax.swing.JTextField();
         Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1300, 700));
         setMinimumSize(new java.awt.Dimension(1300, 700));
-        setPreferredSize(new java.awt.Dimension(1300, 700));
         setResizable(false);
         setSize(new java.awt.Dimension(1300, 700));
         getContentPane().setLayout(null);
@@ -205,21 +207,15 @@ public class AdminManageCustomers extends javax.swing.JFrame {
         jPanel2.add(jLabel6);
         jLabel6.setBounds(0, 0, 328, 30);
 
-        somelabel.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
-        somelabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        somelabel.setText("Gender:");
-        jPanel2.add(somelabel);
-        somelabel.setBounds(12, 95, 126, 30);
-
-        modifyBtn.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
-        modifyBtn.setText("Modify");
-        modifyBtn.addActionListener(new java.awt.event.ActionListener() {
+        deleteBtn.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        deleteBtn.setText("Delete");
+        deleteBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                modifyBtnActionPerformed(evt);
+                deleteBtnActionPerformed(evt);
             }
         });
-        jPanel2.add(modifyBtn);
-        modifyBtn.setBounds(86, 492, 140, 34);
+        jPanel2.add(deleteBtn);
+        deleteBtn.setBounds(86, 492, 140, 34);
 
         approveBtn.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         approveBtn.setText("Approve");
@@ -240,12 +236,6 @@ public class AdminManageCustomers extends javax.swing.JFrame {
         });
         jPanel2.add(denyBtn);
         denyBtn.setBounds(166, 440, 130, 34);
-
-        usernameLabel.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
-        usernameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        usernameLabel.setText("username");
-        jPanel2.add(usernameLabel);
-        usernameLabel.setBounds(6, 47, 292, 30);
 
         awawdawd.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         awawdawd.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -271,32 +261,64 @@ public class AdminManageCustomers extends javax.swing.JFrame {
         jPanel2.add(awdawdawdaw);
         awdawdawdaw.setBounds(12, 288, 126, 30);
 
-        genderComboBox.setFont(new java.awt.Font("Perpetua", 0, 18)); // NOI18N
-        genderComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
-        jPanel2.add(genderComboBox);
-        genderComboBox.setBounds(150, 96, 144, 30);
+        usernameLabel.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        usernameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        usernameLabel.setText("username");
+        jPanel2.add(usernameLabel);
+        usernameLabel.setBounds(6, 47, 292, 30);
 
-        ageInput.setFont(new java.awt.Font("Perpetua", 0, 18)); // NOI18N
-        jPanel2.add(ageInput);
-        ageInput.setBounds(150, 147, 144, 27);
+        genderLabel.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        genderLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel2.add(genderLabel);
+        genderLabel.setBounds(90, 90, 190, 30);
 
-        contactInput.setFont(new java.awt.Font("Perpetua", 0, 18)); // NOI18N
-        jPanel2.add(contactInput);
-        contactInput.setBounds(150, 195, 144, 27);
+        ageLabel.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        ageLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel2.add(ageLabel);
+        ageLabel.setBounds(70, 140, 210, 30);
 
-        emailInput.setFont(new java.awt.Font("Perpetua", 0, 18)); // NOI18N
-        jPanel2.add(emailInput);
-        emailInput.setBounds(150, 243, 144, 27);
+        contactLabel.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        contactLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel2.add(contactLabel);
+        contactLabel.setBounds(100, 190, 180, 30);
 
-        addressInput.setColumns(15);
-        addressInput.setRows(5);
-        jScrollPane2.setViewportView(addressInput);
+        emailLabel.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        emailLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel2.add(emailLabel);
+        emailLabel.setBounds(80, 240, 200, 30);
 
-        jPanel2.add(jScrollPane2);
-        jScrollPane2.setBounds(110, 290, 184, 86);
+        addressLabel.setEditable(false);
+        addressLabel.setColumns(20);
+        addressLabel.setRows(5);
+        jScrollPane3.setViewportView(addressLabel);
+
+        jPanel2.add(jScrollPane3);
+        jScrollPane3.setBounds(10, 320, 280, 110);
+
+        somelabel1.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        somelabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        somelabel1.setText("Gender:");
+        jPanel2.add(somelabel1);
+        somelabel1.setBounds(12, 95, 126, 30);
 
         getContentPane().add(jPanel2);
         jPanel2.setBounds(960, 120, 310, 540);
+
+        somelabel.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        somelabel.setForeground(new java.awt.Color(255, 255, 255));
+        somelabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        somelabel.setText("Search:");
+        getContentPane().add(somelabel);
+        somelabel.setBounds(30, 80, 70, 30);
+
+        searchField.setFont(new java.awt.Font("Perpetua", 0, 20)); // NOI18N
+        searchField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                searchFieldKeyTyped(evt);
+            }
+        });
+        getContentPane().add(searchField);
+        searchField.setBounds(110, 80, 210, 30);
 
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/renty_logo.png"))); // NOI18N
         Background.setText("jLabel1");
@@ -310,77 +332,20 @@ public class AdminManageCustomers extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_userBtnMouseClicked
 
-    private void modifyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyBtnActionPerformed
-        // TODO add your handling code here:
-        
+    private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
         if (chosenCustomer != null) {
-            String gender = genderComboBox.getSelectedItem().toString();
-            String age = ageInput.getText();
-            String phoneNum = contactInput.getText();
-            String email = emailInput.getText();
-            String address = addressInput.getText();
-
-            boolean DetailsPerfect = false;
-            int ageInt = Integer.parseInt(age);
-            int phoneNumInt = 0;
-
             try {
+                // TODO add your handling code here:
+                DataIO.customers.remove(chosenCustomer);
+                DataIO.WriteToText();
+                JOptionPane.showMessageDialog(null, "Customer Deleted!", "Info", JOptionPane.INFORMATION_MESSAGE);
+                clearLabels();
 
-                if (gender.equals("") || age.equals("") || phoneNum.equals("") || email.equals("") || address.equals("")) {
-                    // check for empty fields
-                    JOptionPane.showMessageDialog(null, "Please fill in all fields", "Error!", JOptionPane.ERROR_MESSAGE);
-                } else if ((ageInt <= 0) || (ageInt >= 100)) {
-                    //  check age
-                    JOptionPane.showMessageDialog(null, "Age error.", "Error!", JOptionPane.ERROR_MESSAGE);
-                } else if ((0 <= ageInt) && (ageInt <= 17)) {
-                    // check legal age to drive
-                    JOptionPane.showMessageDialog(null, "I don't think this is a good age to drive.", "Error!", JOptionPane.ERROR_MESSAGE);
-                } else {
-                    boolean validPhoneNum = false;
-                    // Check for phone number
-                    try {
-                        phoneNumInt = Integer.parseInt(phoneNum);
-
-                        if ((phoneNum.length() > 11) || !phoneNum.startsWith("01") ) {
-                            JOptionPane.showMessageDialog(null, "Invalid Phone Number!", "Error!", JOptionPane.ERROR_MESSAGE);
-                        } else {
-                            validPhoneNum = true;
-                        }
-                    }
-                    catch( Exception e ) {
-                        JOptionPane.showMessageDialog(null, "Invalid Phone Number!", "Error!", JOptionPane.ERROR_MESSAGE);
-                    }
-
-                    // Check Email validity (Simple)
-                    if (validPhoneNum) {
-                        if (email.contains("@") || email.contains(".")) {
-                            DetailsPerfect = true;
-                        } else {
-                            JOptionPane.showMessageDialog(null, "Invalid Email!", "Error!", JOptionPane.ERROR_MESSAGE);
-                        }
-                    }
-
-                }
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Invalid! Fill in all fields.", "Error!", JOptionPane.ERROR_MESSAGE);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(AdminManageCustomers.class.getName()).log(Level.SEVERE, null, ex);
             }
-
-            if (DetailsPerfect == true) {
-                try {
-                    chosenCustomer.setGender(gender);
-                    chosenCustomer.setAge(ageInt);
-                    chosenCustomer.setEmail(email);
-                    chosenCustomer.setAddress(address);
-
-                    DataIO.WriteToText();
-                    clearLabels();
-                    JOptionPane.showMessageDialog(null, "Customer details modified!", "Info", JOptionPane.INFORMATION_MESSAGE);
-                } catch (FileNotFoundException ex) {
-                    Logger.getLogger(AdminManageCustomers.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }            
         }
-    }//GEN-LAST:event_modifyBtnActionPerformed
+    }//GEN-LAST:event_deleteBtnActionPerformed
 
     private void customerTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customerTableMouseClicked
         // TODO add your handling code here:
@@ -402,11 +367,11 @@ public class AdminManageCustomers extends javax.swing.JFrame {
         chosenCustomer = chosenCus;
         
         usernameLabel.setText(username);
-        genderComboBox.setSelectedItem(gender);
-        ageInput.setText(age);
-        contactInput.setText(phonenum);
-        emailInput.setText(email);
-        addressInput.setText(address);
+        genderLabel.setText(gender);
+        ageLabel.setText(age);
+        contactLabel.setText(phonenum);
+        emailLabel.setText(email);
+        addressLabel.setText(address);
         
         if (approval.equals("1")) {
             denyBtn.setEnabled(true);
@@ -443,6 +408,16 @@ public class AdminManageCustomers extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_denyBtnActionPerformed
+
+    private void searchFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchFieldKeyTyped
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel)customerTable.getModel();
+        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(model);
+        customerTable.setRowSorter(tr);
+        
+        tr.setRowFilter(RowFilter.regexFilter(searchField.getText()));
+
+    }//GEN-LAST:event_searchFieldKeyTyped
 
     /**
      * @param args the command line arguments
@@ -484,23 +459,21 @@ public class AdminManageCustomers extends javax.swing.JFrame {
         // remove chosen
         chosenCustomer = null;
         
-        // set selected gender
-        genderComboBox.setSelectedItem("Male");
-        
         // show table
         showCustomers();
         
         // clear fields
         usernameLabel.setText("");
-        ageInput.setText("");
-        contactInput.setText("");
-        emailInput.setText("");
-        addressInput.setText("");
+        genderLabel.setText("");
+        ageLabel.setText("");
+        contactLabel.setText("");
+        emailLabel.setText("");
+        addressLabel.setText("");
         
         // return buttons to original state
         approveBtn.setEnabled(true);
         denyBtn.setEnabled(true);
-        modifyBtn.setEnabled(true);
+        deleteBtn.setEnabled(true);
     }
     
     public void showCustomers() {
@@ -516,6 +489,10 @@ public class AdminManageCustomers extends javax.swing.JFrame {
            String line = tableLine.toString().trim();
            //split result with "|"
            String[] dataRow = line.split("\\|");
+           
+           // replace password with *
+           dataRow[1] = "*****";
+           
            //add result in table
            model.addRow(dataRow);
         }
@@ -524,18 +501,19 @@ public class AdminManageCustomers extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
-    private javax.swing.JTextArea addressInput;
-    private javax.swing.JTextField ageInput;
+    private javax.swing.JTextArea addressLabel;
+    private javax.swing.JLabel ageLabel;
     private javax.swing.JButton approveBtn;
     private javax.swing.JLabel awawdawd;
     private javax.swing.JLabel awdawdadaw;
     private javax.swing.JLabel awdawdawdaw;
-    private javax.swing.JTextField contactInput;
+    private javax.swing.JLabel contactLabel;
     private javax.swing.JTable customerTable;
     private javax.swing.JLabel date;
+    private javax.swing.JButton deleteBtn;
     private javax.swing.JButton denyBtn;
-    private javax.swing.JTextField emailInput;
-    private javax.swing.JComboBox<String> genderComboBox;
+    private javax.swing.JLabel emailLabel;
+    private javax.swing.JLabel genderLabel;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -544,10 +522,11 @@ public class AdminManageCustomers extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JButton modifyBtn;
+    private javax.swing.JTextField searchField;
     private javax.swing.JLabel somelabel;
+    private javax.swing.JLabel somelabel1;
     private javax.swing.JLabel userBtn;
     private javax.swing.JLabel usernameLabel;
     private javax.swing.JLabel wadwadadawdaw;

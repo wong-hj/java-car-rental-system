@@ -5,8 +5,11 @@
 package javaassignmentgui;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.lang.System.Logger;
 import java.lang.System.Logger.Level;
+import java.util.Set;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -33,15 +36,6 @@ public class AdminManageIndiBooking extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        topBar = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        date = new javax.swing.JLabel();
-        exitIcon = new javax.swing.JLabel();
-        rentCarBtn = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -67,131 +61,40 @@ public class AdminManageIndiBooking extends javax.swing.JFrame {
         returnAddInput = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         reviewInput = new javax.swing.JTextArea();
-        jButton2 = new javax.swing.JButton();
-        daysBookedLabel1 = new javax.swing.JLabel();
-        daysBookedLabel2 = new javax.swing.JLabel();
-        daysBookedLabel3 = new javax.swing.JLabel();
-        daysBookedLabel4 = new javax.swing.JLabel();
-        daysBookedLabel5 = new javax.swing.JLabel();
-        daysBookedLabel6 = new javax.swing.JLabel();
-        daysBookedLabel7 = new javax.swing.JLabel();
-        daysBookedLabel8 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        deleteBtn = new javax.swing.JButton();
+        returnDateLabel = new javax.swing.JLabel();
+        nameLabel = new javax.swing.JLabel();
+        emailLabel = new javax.swing.JLabel();
+        contactLabel = new javax.swing.JLabel();
+        carLabel = new javax.swing.JLabel();
+        carPlateLabel = new javax.swing.JLabel();
+        bookingDateLabel = new javax.swing.JLabel();
+        pickupDateLabel = new javax.swing.JLabel();
+        modifyBtn = new javax.swing.JButton();
+        approveBtn = new javax.swing.JButton();
+        rejectBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         bookingIdLabel = new javax.swing.JLabel();
         backBtn = new javax.swing.JButton();
+        topBar = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        manageCusNav = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        date = new javax.swing.JLabel();
+        exitIcon = new javax.swing.JLabel();
+        editCarNav = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        jSeparator3 = new javax.swing.JSeparator();
+        manageBookingNav = new javax.swing.JLabel();
+        jSeparator4 = new javax.swing.JSeparator();
+        generateReportNav = new javax.swing.JLabel();
         Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1300, 700));
         setResizable(false);
         getContentPane().setLayout(null);
-
-        topBar.setBackground(new java.awt.Color(0, 0, 0));
-        topBar.setMinimumSize(new java.awt.Dimension(1300, 60));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/rent_smalllogo.png"))); // NOI18N
-
-        jLabel10.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Main Menu");
-        jLabel10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel10MouseClicked(evt);
-            }
-        });
-
-        jLabel11.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Car Details");
-        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel11MouseClicked(evt);
-            }
-        });
-
-        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jSeparator1.setToolTipText("");
-
-        date.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
-        date.setForeground(new java.awt.Color(255, 255, 255));
-        date.setText("Date");
-        date.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                dateMouseClicked(evt);
-            }
-        });
-
-        exitIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/exit.png"))); // NOI18N
-        exitIcon.setToolTipText("Exit");
-        exitIcon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        exitIcon.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                exitIconMouseClicked(evt);
-            }
-        });
-
-        rentCarBtn.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
-        rentCarBtn.setForeground(new java.awt.Color(255, 255, 255));
-        rentCarBtn.setText("Rent Car");
-        rentCarBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        rentCarBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                rentCarBtnMouseClicked(evt);
-            }
-        });
-
-        jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jSeparator2.setToolTipText("");
-
-        javax.swing.GroupLayout topBarLayout = new javax.swing.GroupLayout(topBar);
-        topBar.setLayout(topBarLayout);
-        topBarLayout.setHorizontalGroup(
-            topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(topBarLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel11)
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rentCarBtn)
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 590, Short.MAX_VALUE)
-                .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(exitIcon)
-                .addGap(36, 36, 36))
-        );
-        topBarLayout.setVerticalGroup(
-            topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(topBarLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(exitIcon)
-                    .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel10)
-                        .addComponent(jLabel11)
-                        .addComponent(date)
-                        .addComponent(rentCarBtn)))
-                .addContainerGap(10, Short.MAX_VALUE))
-            .addGroup(topBarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jSeparator1)
-                    .addComponent(jSeparator2))
-                .addContainerGap())
-        );
-
-        getContentPane().add(topBar);
-        topBar.setBounds(0, 0, 1300, 60);
 
         jPanel1.setLayout(null);
 
@@ -281,16 +184,19 @@ public class AdminManageIndiBooking extends javax.swing.JFrame {
         jLabel21.setBounds(30, 270, 180, 30);
 
         daysBookedLabel.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        daysBookedLabel.setText("value");
         jPanel1.add(daysBookedLabel);
-        daysBookedLabel.setBounds(640, 390, 160, 0);
+        daysBookedLabel.setBounds(630, 310, 160, 30);
 
         totalPaymentLabel.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        totalPaymentLabel.setText("value");
         jPanel1.add(totalPaymentLabel);
-        totalPaymentLabel.setBounds(640, 440, 160, 0);
+        totalPaymentLabel.setBounds(630, 360, 160, 30);
 
         paymentMethodLabel.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        paymentMethodLabel.setText("value");
         jPanel1.add(paymentMethodLabel);
-        paymentMethodLabel.setBounds(640, 490, 160, 0);
+        paymentMethodLabel.setBounds(630, 410, 160, 30);
 
         pickupAddInput.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         jPanel1.add(pickupAddInput);
@@ -312,60 +218,85 @@ public class AdminManageIndiBooking extends javax.swing.JFrame {
         jPanel1.add(jScrollPane1);
         jScrollPane1.setBounds(930, 310, 300, 110);
 
-        jButton2.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
-        jButton2.setText("Modify");
-        jPanel1.add(jButton2);
-        jButton2.setBounds(700, 520, 110, 30);
+        deleteBtn.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        deleteBtn.setText("Delete");
+        deleteBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(deleteBtn);
+        deleteBtn.setBounds(440, 530, 170, 30);
 
-        daysBookedLabel1.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
-        daysBookedLabel1.setText("value");
-        jPanel1.add(daysBookedLabel1);
-        daysBookedLabel1.setBounds(170, 410, 180, 30);
+        returnDateLabel.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        returnDateLabel.setText("value");
+        jPanel1.add(returnDateLabel);
+        returnDateLabel.setBounds(170, 410, 180, 30);
 
-        daysBookedLabel2.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
-        daysBookedLabel2.setText("value");
-        jPanel1.add(daysBookedLabel2);
-        daysBookedLabel2.setBounds(170, 50, 200, 30);
+        nameLabel.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        nameLabel.setText("value");
+        jPanel1.add(nameLabel);
+        nameLabel.setBounds(170, 50, 200, 30);
 
-        daysBookedLabel3.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
-        daysBookedLabel3.setText("value");
-        jPanel1.add(daysBookedLabel3);
-        daysBookedLabel3.setBounds(620, 50, 180, 30);
+        emailLabel.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        emailLabel.setText("value");
+        jPanel1.add(emailLabel);
+        emailLabel.setBounds(630, 50, 180, 30);
 
-        daysBookedLabel4.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
-        daysBookedLabel4.setText("value");
-        jPanel1.add(daysBookedLabel4);
-        daysBookedLabel4.setBounds(930, 50, 180, 30);
+        contactLabel.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        contactLabel.setText("value");
+        jPanel1.add(contactLabel);
+        contactLabel.setBounds(930, 50, 180, 30);
 
-        daysBookedLabel5.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
-        daysBookedLabel5.setText("value");
-        jPanel1.add(daysBookedLabel5);
-        daysBookedLabel5.setBounds(170, 150, 180, 30);
+        carLabel.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        carLabel.setText("value");
+        jPanel1.add(carLabel);
+        carLabel.setBounds(170, 150, 180, 30);
 
-        daysBookedLabel6.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
-        daysBookedLabel6.setText("value");
-        jPanel1.add(daysBookedLabel6);
-        daysBookedLabel6.setBounds(170, 200, 180, 30);
+        carPlateLabel.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        carPlateLabel.setText("value");
+        jPanel1.add(carPlateLabel);
+        carPlateLabel.setBounds(170, 200, 180, 30);
 
-        daysBookedLabel7.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
-        daysBookedLabel7.setText("value");
-        jPanel1.add(daysBookedLabel7);
-        daysBookedLabel7.setBounds(170, 310, 180, 30);
+        bookingDateLabel.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        bookingDateLabel.setText("value");
+        jPanel1.add(bookingDateLabel);
+        bookingDateLabel.setBounds(170, 310, 180, 30);
 
-        daysBookedLabel8.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
-        daysBookedLabel8.setText("value");
-        jPanel1.add(daysBookedLabel8);
-        daysBookedLabel8.setBounds(170, 360, 180, 40);
+        pickupDateLabel.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        pickupDateLabel.setText("value");
+        jPanel1.add(pickupDateLabel);
+        pickupDateLabel.setBounds(170, 360, 180, 40);
 
-        jButton3.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
-        jButton3.setText("Modify");
-        jPanel1.add(jButton3);
-        jButton3.setBounds(570, 530, 110, 30);
+        modifyBtn.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        modifyBtn.setText("Modify");
+        modifyBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modifyBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(modifyBtn);
+        modifyBtn.setBounds(630, 530, 170, 30);
 
-        jButton4.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
-        jButton4.setText("Modify");
-        jPanel1.add(jButton4);
-        jButton4.setBounds(440, 520, 110, 30);
+        approveBtn.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        approveBtn.setText("Approve");
+        approveBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                approveBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(approveBtn);
+        approveBtn.setBounds(630, 490, 170, 30);
+
+        rejectBtn.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        rejectBtn.setText("Reject");
+        rejectBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rejectBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(rejectBtn);
+        rejectBtn.setBounds(440, 490, 170, 30);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(20, 110, 1260, 570);
@@ -390,44 +321,155 @@ public class AdminManageIndiBooking extends javax.swing.JFrame {
         getContentPane().add(backBtn);
         backBtn.setBounds(40, 70, 110, 30);
 
+        topBar.setBackground(new java.awt.Color(0, 0, 0));
+        topBar.setMinimumSize(new java.awt.Dimension(1300, 60));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/rent_smalllogo.png"))); // NOI18N
+
+        manageCusNav.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        manageCusNav.setForeground(new java.awt.Color(255, 255, 255));
+        manageCusNav.setText("Manage Customers");
+        manageCusNav.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        manageCusNav.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                manageCusNavMouseClicked(evt);
+            }
+        });
+
+        jLabel11.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Settings");
+
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator1.setToolTipText("");
+
+        date.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        date.setForeground(new java.awt.Color(255, 255, 255));
+        date.setText("Date");
+        date.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dateMouseClicked(evt);
+            }
+        });
+
+        exitIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/exit.png"))); // NOI18N
+        exitIcon.setToolTipText("Exit");
+        exitIcon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        exitIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exitIconMouseClicked(evt);
+            }
+        });
+
+        editCarNav.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        editCarNav.setForeground(new java.awt.Color(255, 255, 255));
+        editCarNav.setText("Add/Edit Cars");
+        editCarNav.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        editCarNav.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                editCarNavMouseClicked(evt);
+            }
+        });
+
+        jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator2.setToolTipText("");
+
+        jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator3.setToolTipText("");
+
+        manageBookingNav.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        manageBookingNav.setForeground(new java.awt.Color(255, 255, 255));
+        manageBookingNav.setText("Manage Bookings");
+        manageBookingNav.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        manageBookingNav.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                manageBookingNavMouseClicked(evt);
+            }
+        });
+
+        jSeparator4.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator4.setToolTipText("");
+
+        generateReportNav.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        generateReportNav.setForeground(new java.awt.Color(255, 255, 255));
+        generateReportNav.setText("Generate Report");
+        generateReportNav.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        generateReportNav.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                generateReportNavMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout topBarLayout = new javax.swing.GroupLayout(topBar);
+        topBar.setLayout(topBarLayout);
+        topBarLayout.setHorizontalGroup(
+            topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(topBarLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(manageBookingNav)
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(editCarNav)
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(manageCusNav)
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel11)
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(generateReportNav)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
+                .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(exitIcon)
+                .addGap(36, 36, 36))
+        );
+        topBarLayout.setVerticalGroup(
+            topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(topBarLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(exitIcon)
+                    .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(date)
+                        .addComponent(manageBookingNav)))
+                .addContainerGap(10, Short.MAX_VALUE))
+            .addGroup(topBarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator1)
+                    .addComponent(jSeparator2)
+                    .addComponent(jSeparator3)
+                    .addComponent(jSeparator4)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(topBarLayout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(manageCusNav)
+                                .addComponent(jLabel11)
+                                .addComponent(editCarNav))
+                            .addComponent(generateReportNav))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addContainerGap())
+        );
+
+        getContentPane().add(topBar);
+        topBar.setBounds(0, 0, 1300, 60);
+
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/renty_logo.png"))); // NOI18N
         getContentPane().add(Background);
         Background.setBounds(0, 0, 1300, 700);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
-        this.setVisible(false);
-
-        MainMenu mm = new MainMenu();
-        mm.setVisible(true);
-    }//GEN-LAST:event_jLabel10MouseClicked
-
-    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel11MouseClicked
-
-    private void dateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dateMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dateMouseClicked
-
-    private void exitIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitIconMouseClicked
-
-        try {
-            DataIO.WriteToText();
-            System.exit(0);
-        } catch (FileNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdminManageIndiBooking.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_exitIconMouseClicked
-
-    private void rentCarBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rentCarBtnMouseClicked
-        this.setVisible(false);
-
-        RentCar rent = new RentCar();
-        rent.setVisible(true);
-    }//GEN-LAST:event_rentCarBtnMouseClicked
 
     private void returnAddInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnAddInputActionPerformed
         // TODO add your handling code here:
@@ -439,6 +481,106 @@ public class AdminManageIndiBooking extends javax.swing.JFrame {
         amb.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_backBtnActionPerformed
+
+    private void approveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_approveBtnActionPerformed
+        try {
+            // TODO add your handling code here:
+            amb.chosenBooking.setStatus("Approved");
+            DataIO.WriteToText();
+            setLabels();
+            JOptionPane.showMessageDialog(null, "Booking Approved!", "Success!", JOptionPane.INFORMATION_MESSAGE);
+            
+        } catch (FileNotFoundException ex) {
+            java.util.logging.Logger.getLogger(AdminManageIndiBooking.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_approveBtnActionPerformed
+
+    private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
+        try {
+            DataIO.bookings.remove(amb.chosenBooking);
+            DataIO.WriteToText();
+            setLabels();
+            JOptionPane.showMessageDialog(null, "Booking Deleted!", "Success!", JOptionPane.INFORMATION_MESSAGE);
+        } catch (FileNotFoundException ex) {
+            java.util.logging.Logger.getLogger(AdminManageIndiBooking.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_deleteBtnActionPerformed
+
+    private void rejectBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rejectBtnActionPerformed
+        try {
+            // TODO add your handling code here:
+            amb.chosenBooking.setStatus("Rejected");
+            DataIO.WriteToText();
+            setLabels();
+            JOptionPane.showMessageDialog(null, "Booking Rejected!", "Denied!", JOptionPane.INFORMATION_MESSAGE);
+        } catch (FileNotFoundException ex) {
+            java.util.logging.Logger.getLogger(AdminManageIndiBooking.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_rejectBtnActionPerformed
+
+    private void modifyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyBtnActionPerformed
+        try {
+            // TODO add your handling code here:
+            String updatedPickupAdd = pickupAddInput.getText();
+            String updatedReturnAdd = returnAddInput.getText();
+            String updatedReview = reviewInput.getText();
+            
+            amb.chosenBooking.setPickupAdd(updatedPickupAdd);
+            amb.chosenBooking.setReturnAdd(updatedReturnAdd);
+            amb.chosenBooking.setReview(updatedReview);
+            
+            DataIO.WriteToText();
+            
+            JOptionPane.showMessageDialog(null, "Booking Edited!", "Success!", JOptionPane.INFORMATION_MESSAGE);
+        } catch (FileNotFoundException ex) {
+            java.util.logging.Logger.getLogger(AdminManageIndiBooking.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_modifyBtnActionPerformed
+
+    private void manageCusNavMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageCusNavMouseClicked
+        this.setVisible(false);
+
+        AdminManageCustomers amc = new AdminManageCustomers();
+        amc.setVisible(true);
+    }//GEN-LAST:event_manageCusNavMouseClicked
+
+    private void dateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dateMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dateMouseClicked
+
+    private void exitIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitIconMouseClicked
+
+        DataIO.exitProgram();
+    }//GEN-LAST:event_exitIconMouseClicked
+
+    private void editCarNavMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editCarNavMouseClicked
+
+        try {
+            this.setVisible(false);
+
+            AdminEditCars aec = new AdminEditCars();
+            aec.setVisible(true);
+        } catch (IOException ex) {
+            java.util.logging.Logger.getLogger(AdminManageIndiBooking.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_editCarNavMouseClicked
+
+    private void manageBookingNavMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageBookingNavMouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        AdminManageBookings amb = new AdminManageBookings();
+        amb.setVisible(true);
+    }//GEN-LAST:event_manageBookingNavMouseClicked
+
+    private void generateReportNavMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_generateReportNavMouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        AdminGenerateReport agr = new AdminGenerateReport();
+        agr.setVisible(true);
+    }//GEN-LAST:event_generateReportNavMouseClicked
 
     /**
      * @param args the command line arguments
@@ -476,46 +618,62 @@ public class AdminManageIndiBooking extends javax.swing.JFrame {
     }
     
     public void setLabels() {
+        // disable buttons by default
+        rejectBtn.setVisible(false);
+        approveBtn.setVisible(false);
+        deleteBtn.setVisible(false);
+        modifyBtn.setVisible(false);
+        
         // getting values from previous selected booking
         bookingIdLabel.setText(amb.chosenBooking.getBookingID());
         
         // Pre fill values (user details)
-        nameInput.setText(amb.chosenBooking.getName());
-        emailInput.setText(amb.chosenBooking.getEmail());
-        contactInput.setText(amb.chosenBooking.getContact());
+        nameLabel.setText(amb.chosenBooking.getName());
+        emailLabel.setText(amb.chosenBooking.getEmail());
+        contactLabel.setText(amb.chosenBooking.getContact());
         
         // Pre fill values (car information)
-        carInput.setText(amb.chosenBooking.getCar());
-        carPlateInput.setText(amb.chosenBooking.getCarPlate());
+        carLabel.setText(amb.chosenBooking.getCar());
+        carPlateLabel.setText(amb.chosenBooking.getCarPlate());
         pickupAddInput.setText(amb.chosenBooking.getPickupAdd());
         returnAddInput.setText(amb.chosenBooking.getReturnAdd());
         
         // Pre fill values (booking details)
+        bookingDateLabel.setText(amb.chosenBooking.getBookingDate());
+        pickupDateLabel.setText(amb.chosenBooking.getPickupDate());
+        returnDateLabel.setText(amb.chosenBooking.getReturnDate());
         
+        // Review 
+        reviewInput.setText(amb.chosenBooking.getReview());
         
+        // Check which buttons to show
+        if (amb.chosenBooking.getStatus().equals("Pending")) {
+            rejectBtn.setVisible(true);
+            approveBtn.setVisible(true);
+        } else {
+            deleteBtn.setVisible(true);
+            modifyBtn.setVisible(true);
+        } 
 
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
+    private javax.swing.JButton approveBtn;
     private javax.swing.JButton backBtn;
+    private javax.swing.JLabel bookingDateLabel;
     private javax.swing.JLabel bookingIdLabel;
+    private javax.swing.JLabel carLabel;
+    private javax.swing.JLabel carPlateLabel;
+    private javax.swing.JLabel contactLabel;
     private javax.swing.JLabel date;
     private javax.swing.JLabel daysBookedLabel;
-    private javax.swing.JLabel daysBookedLabel1;
-    private javax.swing.JLabel daysBookedLabel2;
-    private javax.swing.JLabel daysBookedLabel3;
-    private javax.swing.JLabel daysBookedLabel4;
-    private javax.swing.JLabel daysBookedLabel5;
-    private javax.swing.JLabel daysBookedLabel6;
-    private javax.swing.JLabel daysBookedLabel7;
-    private javax.swing.JLabel daysBookedLabel8;
+    private javax.swing.JButton deleteBtn;
+    private javax.swing.JLabel editCarNav;
+    private javax.swing.JLabel emailLabel;
     private javax.swing.JLabel exitIcon;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JLabel generateReportNav;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -539,10 +697,18 @@ public class AdminManageIndiBooking extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JLabel manageBookingNav;
+    private javax.swing.JLabel manageCusNav;
+    private javax.swing.JButton modifyBtn;
+    private javax.swing.JLabel nameLabel;
     private javax.swing.JLabel paymentMethodLabel;
     private javax.swing.JTextField pickupAddInput;
-    private javax.swing.JLabel rentCarBtn;
+    private javax.swing.JLabel pickupDateLabel;
+    private javax.swing.JButton rejectBtn;
     private javax.swing.JTextField returnAddInput;
+    private javax.swing.JLabel returnDateLabel;
     private javax.swing.JTextArea reviewInput;
     private javax.swing.JPanel topBar;
     private javax.swing.JLabel totalPaymentLabel;

@@ -47,6 +47,7 @@ public class AdminManageBookings extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1300, 700));
         setResizable(false);
+        getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -123,6 +124,9 @@ public class AdminManageBookings extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 1300, 70);
+
         bookingTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -138,6 +142,9 @@ public class AdminManageBookings extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(bookingTable);
 
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(24, 111, 1249, 477);
+
         modifyBookingBtn.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         modifyBookingBtn.setText("Modify Booking");
         modifyBookingBtn.setEnabled(false);
@@ -146,63 +153,23 @@ public class AdminManageBookings extends javax.swing.JFrame {
                 modifyBookingBtnActionPerformed(evt);
             }
         });
+        getContentPane().add(modifyBookingBtn);
+        modifyBookingBtn.setBounds(583, 640, 170, 34);
 
         jLabel1.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         jLabel1.setText("Booking Selected :");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(498, 600, 162, 28);
 
         bookingIdLabel.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         bookingIdLabel.setText("booking_id");
+        getContentPane().add(bookingIdLabel);
+        bookingIdLabel.setBounds(678, 600, 100, 28);
 
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/renty_logo.png"))); // NOI18N
         Background.setText("jLabel1");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(modifyBookingBtn)
-                .addGap(547, 547, 547))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1249, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(498, 498, 498)
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(bookingIdLabel)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(Background, javax.swing.GroupLayout.PREFERRED_SIZE, 1300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(bookingIdLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(modifyBookingBtn)
-                .addGap(26, 26, 26))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(Background)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        getContentPane().add(Background);
+        Background.setBounds(0, 0, 1300, 700);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

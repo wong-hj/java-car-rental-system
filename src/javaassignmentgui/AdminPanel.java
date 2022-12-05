@@ -157,6 +157,9 @@ public class AdminPanel extends javax.swing.JFrame {
 
     private void generateReportBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateReportBtnActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        AdminGenerateReport agr = new AdminGenerateReport();
+        agr.setVisible(true);
     }//GEN-LAST:event_generateReportBtnActionPerformed
 
     private void adminSettingsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_adminSettingsMouseClicked

@@ -14,7 +14,9 @@ import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -73,17 +75,17 @@ public class AdminEditCars extends javax.swing.JFrame {
         PaxInput = new javax.swing.JTextField();
         PriceInput = new javax.swing.JTextField();
         typeComboBox = new javax.swing.JComboBox<>();
-        actionLabel = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         carPlateInput = new javax.swing.JTextField();
         statusComboBox = new javax.swing.JComboBox<>();
+        actionLabel1 = new javax.swing.JLabel();
         switchActionButton = new javax.swing.JButton();
+        actionLabel = new javax.swing.JLabel();
+        searchField = new javax.swing.JTextField();
         AdminBgMain = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1300, 700));
         setMinimumSize(new java.awt.Dimension(1300, 700));
-        setPreferredSize(new java.awt.Dimension(1300, 700));
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
@@ -357,12 +359,6 @@ public class AdminEditCars extends javax.swing.JFrame {
         jPanel2.add(typeComboBox);
         typeComboBox.setBounds(100, 180, 220, 30);
 
-        actionLabel.setFont(new java.awt.Font("Perpetua", 1, 24)); // NOI18N
-        actionLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        actionLabel.setText("Modify Car");
-        jPanel2.add(actionLabel);
-        actionLabel.setBounds(0, 10, 340, 30);
-
         jLabel16.setFont(new java.awt.Font("Perpetua", 0, 20)); // NOI18N
         jLabel16.setText("Car Plate:");
         jPanel2.add(jLabel16);
@@ -383,6 +379,12 @@ public class AdminEditCars extends javax.swing.JFrame {
         jPanel2.add(statusComboBox);
         statusComboBox.setBounds(100, 380, 220, 30);
 
+        actionLabel1.setFont(new java.awt.Font("Perpetua", 1, 24)); // NOI18N
+        actionLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        actionLabel1.setText("Modify Car");
+        jPanel2.add(actionLabel1);
+        actionLabel1.setBounds(0, 10, 340, 30);
+
         getContentPane().add(jPanel2);
         jPanel2.setBounds(920, 140, 340, 500);
 
@@ -395,6 +397,21 @@ public class AdminEditCars extends javax.swing.JFrame {
         });
         getContentPane().add(switchActionButton);
         switchActionButton.setBounds(920, 100, 340, 30);
+
+        actionLabel.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        actionLabel.setForeground(new java.awt.Color(255, 255, 255));
+        actionLabel.setText("Search:");
+        getContentPane().add(actionLabel);
+        actionLabel.setBounds(40, 90, 70, 30);
+
+        searchField.setFont(new java.awt.Font("Perpetua", 0, 20)); // NOI18N
+        searchField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                searchFieldKeyTyped(evt);
+            }
+        });
+        getContentPane().add(searchField);
+        searchField.setBounds(130, 90, 220, 30);
 
         AdminBgMain.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/renty_logo.png"))); // NOI18N
         AdminBgMain.setText("jLabel1");
@@ -479,6 +496,16 @@ public class AdminEditCars extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_actionButtonActionPerformed
+
+    private void searchFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchFieldKeyTyped
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel)carsTable.getModel();
+        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(model);
+        carsTable.setRowSorter(tr);
+        
+        tr.setRowFilter(RowFilter.regexFilter(searchField.getText()));
+
+    }//GEN-LAST:event_searchFieldKeyTyped
 
     /**
      * @param args the command line arguments
@@ -652,6 +679,14 @@ public class AdminEditCars extends javax.swing.JFrame {
            String line = tableLine.toString().trim();
            //split result with "|"
            String[] dataRow = line.split("\\|");
+           
+           // removing km/h
+           int index = dataRow[5].indexOf("km/h");
+           dataRow[5] = dataRow[5].substring(0, index);
+           
+           // removing RM
+           dataRow[7] = dataRow[7].substring(2);
+           
            //add result in table
            model.addRow(dataRow);
         }
@@ -667,6 +702,7 @@ public class AdminEditCars extends javax.swing.JFrame {
     private javax.swing.JTextField SpeedInput;
     private javax.swing.JButton actionButton;
     private javax.swing.JLabel actionLabel;
+    private javax.swing.JLabel actionLabel1;
     private javax.swing.JTextField carPlateInput;
     private javax.swing.JTable carsTable;
     private javax.swing.JLabel date;
@@ -692,6 +728,7 @@ public class AdminEditCars extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JTextField searchField;
     private javax.swing.JComboBox<String> statusComboBox;
     private javax.swing.JButton switchActionButton;
     private javax.swing.JComboBox<String> typeComboBox;
