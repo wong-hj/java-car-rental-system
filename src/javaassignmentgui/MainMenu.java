@@ -42,6 +42,7 @@ public class MainMenu extends javax.swing.JFrame {
         reportBtn = new javax.swing.JButton();
         settingBtn = new javax.swing.JButton();
         exitBtn = new javax.swing.JButton();
+        loginBtn = new javax.swing.JButton();
         payBtn = new javax.swing.JButton();
         backgroundImg = new javax.swing.JLabel();
 
@@ -126,7 +127,20 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
         getContentPane().add(exitBtn);
-        exitBtn.setBounds(1120, 550, 120, 40);
+        exitBtn.setBounds(1110, 570, 120, 40);
+
+        loginBtn.setBackground(new java.awt.Color(153, 0, 0));
+        loginBtn.setFont(new java.awt.Font("Perpetua", 0, 36)); // NOI18N
+        loginBtn.setForeground(new java.awt.Color(255, 255, 255));
+        loginBtn.setText("Back to Login");
+        loginBtn.setBorder(null);
+        loginBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(loginBtn);
+        loginBtn.setBounds(830, 570, 260, 40);
 
         payBtn.setBackground(new java.awt.Color(102, 204, 255));
         payBtn.setFont(new java.awt.Font("Gill Sans MT", 0, 24)); // NOI18N
@@ -158,12 +172,7 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_settingBtnActionPerformed
 
     private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBtnActionPerformed
-        try {
-            DataIO.WriteToText();
-            System.exit(0);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        DataIO.exitProgram();
     }//GEN-LAST:event_exitBtnActionPerformed
 
     private void rentBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentBtnActionPerformed
@@ -185,6 +194,15 @@ public class MainMenu extends javax.swing.JFrame {
         BookingPay bp = new BookingPay();
         bp.setVisible(true);
     }//GEN-LAST:event_payBtnActionPerformed
+
+    private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
+        Renty.loginUser = null;
+        
+        this.setVisible(false);
+        
+        Login login = new Login();
+        login.setVisible(true);
+    }//GEN-LAST:event_loginBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -227,6 +245,7 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JButton exitBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton loginBtn;
     private javax.swing.JButton payBtn;
     private javax.swing.JButton rentBtn;
     private javax.swing.JButton reportBtn;

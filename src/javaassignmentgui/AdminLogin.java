@@ -199,6 +199,7 @@ public class AdminLogin extends javax.swing.JFrame implements Auth {
             JOptionPane.showMessageDialog(null, "Please Enter Username and Password.");
               
         } else if(found!=null && password.equals(found.getPassword())){
+            Log.writeLog(username, "admin", "login", "success");
             Renty.loginAdmin = found;
             JOptionPane.showMessageDialog(null, "good.");
             this.setVisible(false);
@@ -206,6 +207,7 @@ public class AdminLogin extends javax.swing.JFrame implements Auth {
             ap.setVisible(true);
              
         } else {
+            Log.writeLog(username, "admin", "login", "fail");
             JOptionPane.showMessageDialog(null, "Wrong Username or Password, Please Try Again.");
   
         }

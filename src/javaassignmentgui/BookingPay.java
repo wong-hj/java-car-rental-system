@@ -284,18 +284,11 @@ public class BookingPay extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void exitIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitIconMouseClicked
-        try {
-            DataIO.WriteToText();
-            System.exit(0);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        DataIO.exitProgram();
     }//GEN-LAST:event_exitIconMouseClicked
     
     
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

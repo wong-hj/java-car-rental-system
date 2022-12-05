@@ -23,7 +23,7 @@ public class DataIO {
     public static ArrayList<Admin> admins = new ArrayList<Admin>();
     public static ArrayList<Car> cars = new ArrayList<Car>();
     public static ArrayList<Booking> bookings = new ArrayList<Booking>();
-    
+    public static ArrayList<Log> logging = new ArrayList<Log>();
 
     public static void readFromTextFile(){
         try{
@@ -108,6 +108,23 @@ public class DataIO {
                 
             }
                         System.out.println('4');
+                        
+            Scanner s5 = new Scanner(new File("log.txt"));
+            
+            while(s5.hasNext()){
+                String line = s5.nextLine().trim();
+                String [] dataRow = line.split("\\|");
+                String user = dataRow[0];
+                String role = dataRow[1];
+                String datetime = dataRow[2];
+                String action = dataRow[3];
+                String status = dataRow[4];
+
+                Log l = new Log(user, role, datetime, action, status);
+                logging.add(l);
+                
+            }
+                        System.out.println('5');
 
 
         }catch(Exception e){
@@ -147,6 +164,13 @@ public class DataIO {
             d.println(Book);
         }
         d.close();
+        
+        PrintWriter e = new PrintWriter("log.txt");
+        for(Log log : logging){
+            String Logs = log.getUser() + "|" + log.getRole() + "|" + log.getDatetime() + "|" + log.getAction() + "|" + log.getStatus();
+            e.println(Logs);
+        }
+        e.close();
 
     }
 
@@ -303,12 +327,22 @@ public class DataIO {
     }
     
     public static void exitProgram() {
-        try {
-            WriteToText();
-            System.exit(0);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        
+
+        String role = null;
+        String username = null;
+
+        if(Renty.loginAdmin != null) {
+            role = "admin";
+            username = Renty.loginAdmin.getUsername();
+        } else if(Renty.loginUser != null) {
+            role = "customer";
+            username = Renty.loginUser.getUsername();
         }
+
+        Log.writeLog(username, role, "logout", "success");
+        System.exit(0);
+
     }
 
             

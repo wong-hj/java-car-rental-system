@@ -1,0 +1,8 @@
+june|customer|05/12/2022 22:28:46|login|success
+june|User|05/12/2022 22:28:56|logout|success
+june|customer|05/12/2022 22:29:06|login|fail
+admin|admin|05/12/2022 22:29:17|login|fail
+admin|admin|05/12/2022 22:29:20|login|fail
+admin|admin|05/12/2022 22:29:23|login|success
+june|customer|05/12/2022 22:33:27|login|success
+null|null|05/12/2022 22:33:43|logout|success
