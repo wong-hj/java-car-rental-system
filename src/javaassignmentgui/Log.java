@@ -64,8 +64,6 @@ public class Log {
         this.status = status;
     }
 
-    
-    
     public static void writeLog(String user, String role, String action, String status) {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
         Date date = new Date();  

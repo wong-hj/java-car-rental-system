@@ -1,21 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package javaassignmentgui;
 
 import java.awt.Color;
-import java.awt.List;
-import java.io.FileNotFoundException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Locale;
-import java.util.Set;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,10 +12,6 @@ import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
-/**
- *
- * @author Horngjun
- */
 public class BookingPay extends javax.swing.JFrame {
     
     public static Booking bookingChosen = null;
@@ -67,6 +51,7 @@ public class BookingPay extends javax.swing.JFrame {
         checkDate = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         bookingTable = new javax.swing.JTable();
         searchField = new javax.swing.JTextField();
@@ -165,13 +150,19 @@ public class BookingPay extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Confirm Payment");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(40, 80, 250, 50);
+        jLabel2.setBounds(40, 80, 250, 40);
 
         jLabel4.setFont(new java.awt.Font("Perpetua", 0, 20)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("**Double Click to Select an approved Booking to proceed for payment.");
+        jLabel4.setText("Bookings that are not paid within 5 days from booking date will be removed.");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(40, 140, 580, 30);
+        jLabel4.setBounds(40, 120, 580, 30);
+
+        jLabel6.setFont(new java.awt.Font("Perpetua", 0, 20)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("**Double Click to Select an approved Booking to proceed for payment.");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(40, 150, 580, 30);
 
         bookingTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -370,6 +361,7 @@ public class BookingPay extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private com.toedter.calendar.JMonthChooser jMonthChooser1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;

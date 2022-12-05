@@ -182,9 +182,7 @@ public class Booking {
         return BookingID + "|" + name + "|" + contact + "|" + email + "|" + car + "|" + carPlate + "|" + pickupAdd + "|" + returnAdd + "|" + bookingDate  + "|" + pickupDate  + "|" + returnDate + "|" + days  + "|" + total  + "|" + paymentMethod + "|" + paymentDetails + "|" + review + "|" + status;
     }
     
-//    public String simplifiedToString() {
-//        return BookingID + "|" + contact + "|" + email + "|" + car + "|" + carPlate + "|" + bookingDate  + "|" + returnDate  + "|" + days  + "|" + total  + "|" + paymentMethod + "|" + review;
-//    }
+    
     
     
     

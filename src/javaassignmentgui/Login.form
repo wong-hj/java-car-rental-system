@@ -65,7 +65,7 @@
                           <Component id="adminLoginBtn" min="-2" pref="93" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel5" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="guestBtn" alignment="1" min="-2" max="-2" attributes="0"/>
                               <Component id="registerBtn" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -108,7 +108,7 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="registerBtn" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                          <Component id="guestBtn" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
@@ -204,7 +204,7 @@
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="registerBtnMouseClicked"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel5">
+        <Component class="javax.swing.JLabel" name="guestBtn">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Perpetua" size="18" style="0"/>
@@ -217,6 +217,9 @@
               <Color id="Hand Cursor"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="guestBtnMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="adminLoginBtn">
           <Properties>

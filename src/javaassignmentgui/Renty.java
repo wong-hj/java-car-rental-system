@@ -1,9 +1,9 @@
 
 package javaassignmentgui;
 
+import java.io.FileNotFoundException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 
@@ -11,10 +11,8 @@ public class Renty {
    
     public static Customer loginUser = null;
     public static Admin loginAdmin = null;
-//    public static Car carChosen = null;
-    
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         try {
             for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -27,6 +25,7 @@ public class Renty {
         }
         // TODO code application logic here
         DataIO.readFromTextFile();
+        DataIO.updateBooking();
         Login start = new Login();
         start.setVisible(true);
     }

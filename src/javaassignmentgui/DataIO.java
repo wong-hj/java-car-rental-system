@@ -7,9 +7,13 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.Locale;
 import java.util.Scanner;
@@ -124,7 +128,8 @@ public class DataIO {
                 logging.add(l);
                 
             }
-                        System.out.println('5');
+            
+            System.out.println('5');
 
 
         }catch(Exception e){
@@ -264,8 +269,7 @@ public class DataIO {
                     filteredCars.remove(i);
                     i--;
                 }
-                
-            
+
             }
         }
         
@@ -326,6 +330,39 @@ public class DataIO {
         return reviewCars;
     }
     
+    public static void updateBooking() throws FileNotFoundException {
+        
+        for(int i = 0; i < bookings.size(); i++){
+
+                if(bookings.get(i).getStatus().equals("Approved")){
+                    try {
+                    Date todate = new Date();
+                    String sdate = bookings.get(i).getBookingDate();
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+                    Date bdate = sdf.parse(sdate);
+                    
+                    Calendar cal = Calendar.getInstance(); 
+                    cal.setTime(bdate);
+                    cal.add(Calendar.DAY_OF_MONTH, 5);
+                    Date paymentDate = cal.getTime();
+                    
+                    if(paymentDate.compareTo(todate) <= 0) {
+                        bookings.remove(i);
+                        i--;
+                    }
+                    
+                    } catch (ParseException ex) {
+                        Logger.getLogger(DataIO.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    
+  
+                }
+
+        }
+
+        WriteToText();
+    }
+    
     public static void exitProgram() {
         
 
@@ -338,6 +375,9 @@ public class DataIO {
         } else if(Renty.loginUser != null) {
             role = "customer";
             username = Renty.loginUser.getUsername();
+        } else {
+            role = "guest";
+            username = "guest";
         }
 
         Log.writeLog(username, role, "logout", "success");

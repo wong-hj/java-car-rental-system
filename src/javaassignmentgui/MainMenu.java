@@ -1,18 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package javaassignmentgui;
 
-import java.io.FileNotFoundException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
-
-/**
- *
- * @author Horngjun
- */
 public class MainMenu extends javax.swing.JFrame {
 
     /**
@@ -22,7 +12,11 @@ public class MainMenu extends javax.swing.JFrame {
         initComponents();
        
         date.setText(Renty.toDate());
-        username.setText(Renty.loginUser.getUsername());
+        if(Renty.loginUser != null) {
+            username.setText(Renty.loginUser.getUsername());
+        } else {
+            username.setText("Guest");
+        }
     }
 
     /**
@@ -81,6 +75,7 @@ public class MainMenu extends javax.swing.JFrame {
         rentBtn.setFont(new java.awt.Font("Gill Sans MT", 0, 24)); // NOI18N
         rentBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/car1.png"))); // NOI18N
         rentBtn.setText("  Rent a Car");
+        rentBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         rentBtn.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         rentBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,9 +124,8 @@ public class MainMenu extends javax.swing.JFrame {
         getContentPane().add(exitBtn);
         exitBtn.setBounds(1110, 570, 120, 40);
 
-        loginBtn.setBackground(new java.awt.Color(153, 0, 0));
-        loginBtn.setFont(new java.awt.Font("Perpetua", 0, 36)); // NOI18N
-        loginBtn.setForeground(new java.awt.Color(255, 255, 255));
+        loginBtn.setBackground(new java.awt.Color(153, 153, 255));
+        loginBtn.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         loginBtn.setText("Back to Login");
         loginBtn.setBorder(null);
         loginBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -140,12 +134,13 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
         getContentPane().add(loginBtn);
-        loginBtn.setBounds(830, 570, 260, 40);
+        loginBtn.setBounds(870, 570, 220, 40);
 
         payBtn.setBackground(new java.awt.Color(102, 204, 255));
         payBtn.setFont(new java.awt.Font("Gill Sans MT", 0, 24)); // NOI18N
         payBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/cheque.png"))); // NOI18N
         payBtn.setText(" Payment");
+        payBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         payBtn.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         payBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,10 +160,16 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void settingBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settingBtnActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
         
-        Setting setting = new Setting();
-        setting.setVisible(true);
+        if(Renty.loginUser != null) {
+            this.setVisible(false);
+        
+            Setting setting = new Setting();
+            setting.setVisible(true);
+            
+        } else {
+            JOptionPane.showMessageDialog(null, "Please register to access the feature.");
+        }
     }//GEN-LAST:event_settingBtnActionPerformed
 
     private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBtnActionPerformed
@@ -183,16 +184,26 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_rentBtnActionPerformed
 
     private void reportBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportBtnActionPerformed
-        this.setVisible(false);
-        ViewBooking vb = new ViewBooking();
-        vb.setVisible(true);
+        if(Renty.loginUser != null) {
+            this.setVisible(false);
+            
+            ViewBooking vb = new ViewBooking();
+            vb.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Please register to access the feature.");
+        }
     }//GEN-LAST:event_reportBtnActionPerformed
 
     private void payBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payBtnActionPerformed
-        this.setVisible(false);
+        if(Renty.loginUser != null) {
+            this.setVisible(false);
         
-        BookingPay bp = new BookingPay();
-        bp.setVisible(true);
+            BookingPay bp = new BookingPay();
+            bp.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Please register to access the feature.");
+        }
+        
     }//GEN-LAST:event_payBtnActionPerformed
 
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed

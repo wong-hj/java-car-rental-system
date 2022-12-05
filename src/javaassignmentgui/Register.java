@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package javaassignmentgui;
 
 import java.io.FileNotFoundException;
@@ -12,10 +9,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author bryan
- */
 public class Register extends javax.swing.JFrame {
 
     /**
@@ -104,11 +97,6 @@ public class Register extends javax.swing.JFrame {
                 passwordFieldFocusLost(evt);
             }
         });
-        passwordField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordFieldActionPerformed(evt);
-            }
-        });
 
         jLabel4.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -124,11 +112,6 @@ public class Register extends javax.swing.JFrame {
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 confirmPassFieldFocusLost(evt);
-            }
-        });
-        confirmPassField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                confirmPassFieldActionPerformed(evt);
             }
         });
 
@@ -156,11 +139,6 @@ public class Register extends javax.swing.JFrame {
                 phoneFieldFocusLost(evt);
             }
         });
-        phoneField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                phoneFieldActionPerformed(evt);
-            }
-        });
 
         jLabel8.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -176,11 +154,6 @@ public class Register extends javax.swing.JFrame {
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 emailFieldFocusLost(evt);
-            }
-        });
-        emailField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailFieldActionPerformed(evt);
             }
         });
 
@@ -359,26 +332,6 @@ public class Register extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_passwordFieldActionPerformed
-
-    private void confirmPassFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmPassFieldActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_confirmPassFieldActionPerformed
-
-    private void phoneFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneFieldActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_phoneFieldActionPerformed
-
-    private void emailFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailFieldActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_emailFieldActionPerformed
 
     private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBtnActionPerformed
          try {
@@ -602,9 +555,6 @@ public class Register extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_registerBtnActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
