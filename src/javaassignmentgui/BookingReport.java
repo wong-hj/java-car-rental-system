@@ -67,6 +67,7 @@ public class BookingReport extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1300, 700));
         setPreferredSize(new java.awt.Dimension(1300, 700));
         setResizable(false);
+        setSize(new java.awt.Dimension(1300, 700));
         getContentPane().setLayout(null);
 
         backBtn.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
@@ -326,7 +327,11 @@ public class BookingReport extends javax.swing.JFrame {
 
         try {
             // TODO add your handling code here:
-            reportTxt.print();
+            if (reportTxt.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Please generate Report first.", "Error!", JOptionPane.ERROR_MESSAGE);
+            } else {
+                reportTxt.print();
+            }
         } catch (PrinterException ex) {
             Logger.getLogger(BookingReport.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -363,7 +368,7 @@ public class BookingReport extends javax.swing.JFrame {
                         Date checkinDate = sdf.parse(BookedPickUpDate);
                         Date checkoutDate = sdf.parse(BookedReturnDate);
 
-                        if(filterStart.compareTo(checkinDate) <= 0 && filterEnd.compareTo(checkoutDate) >= 0) {
+                        if((filterStart.compareTo(checkinDate) == 0 || filterStart.compareTo(checkinDate) <= 0) && (filterEnd.compareTo(checkoutDate) >= 0 || filterEnd.compareTo(checkoutDate) >= 0)) {
                             filteredBookingID.add(booking.getBookingID());
                         }
                     } catch (ParseException ex) {
@@ -398,30 +403,34 @@ public class BookingReport extends javax.swing.JFrame {
                 reportTxt.append(
                     "\t\t Booking Report \n\n" +
                     
-                    "Date Range: " + filterStartStr + " to " + filterEndStr + "\n" +
+                    "Date Range: \t" + filterStartStr + " to " + filterEndStr + "\n" +
                     "Total Bookings: \t" + totalBookings + "\n" +
                     "Total Earnings: \t\t" + totalEarnings + "\n" +
-                    "\n--------------------------------------------------------------------------------------------\n" +
-                    "\t\t Bookings List" + 
-                    "\n--------------------------------------------------------------------------------------------\n" +
-                    "Booking ID\tName\tContact\tEmail\tCar\tCar Plate\tPickup Address\tReturn Address\tDays\tTotal\tPayment Method\tReview\n");
+                    "\n-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n" +
+                    "\t\t\t\t\t\tBookings List" + 
+                    "\n-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n" +
+                    "Booking ID\tName\t\tContact\tEmail\t\tCar\t\tCar Plate\tDays\tTotal\tPayment Method\n");
 
                 for (Booking booking: filteredBookings) {
+                    
+                    String beautifyTab = "\t";
 
+                    if (booking.getEmail().length() <= 12) {
+                        beautifyTab = "\t\t";
+                    }
 
                     reportTxt.append(
-                            booking.getBookingID() + "\t" + booking.getName() + "\t" + 
-                            booking.getContact() + "\t" + booking.getEmail() + "\t" + 
+                            booking.getBookingID() + "\t" + booking.getName() + "\t\t" + 
+                            booking.getContact() + "\t" + booking.getEmail() + beautifyTab + 
                             booking.getCar() + "\t" + booking.getCarPlate() + "\t" + 
-                            booking.getPickupAdd() + "\t" + booking.getReturnAdd() + "\t" +
                             booking.getDays() + "\t" + booking.getTotal() + "\t" + 
-                            booking.getPaymentMethod() + "\t" + booking.getReview() + "\n"
+                            booking.getPaymentMethod() + "\n"
                     );
 
                 }
 
                 reportTxt.append(
-                    "\n--------------------------------------------------------------------------------------------\n" +
+                    "\n-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n" +
 
                     "End of report!\n" +
                     "Generated on " + Renty.toDate()

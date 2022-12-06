@@ -399,18 +399,23 @@ public class CustomerReport extends javax.swing.JFrame {
             "Total Males: \t\t" + totalMale + "\n" +
             "Total Females: \t\t" + totalFemale + "\n" +
             "Customer age range: \t" + minAge + " - " + maxAge + "\n" +
-            "\n--------------------------------------------------------------------------------------------\n" +
-            "\t\t Customer List" + 
-            "\n--------------------------------------------------------------------------------------------\n" +
+            "\n-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n" +
+            "\t\t\t\tCustomer List" + 
+            "\n-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n" +
             "Username\tPassword\tGender\tAge\tContact\tEmail\t\tAddress\n");
         
         for (Customer cus: DataIO.customers) {
 
-        
+            String beautifyTab = "\t";
+            
+            if (cus.getEmail().length() <= 15) {
+                beautifyTab = "\t\t";
+            }
+            
             reportTxt.append(
                     cus.getUsername() + "\t" + "*****" + "\t" + 
                     cus.getGender() + "\t" + cus.getAge() + "\t" + 
-                    cus.getPhoneNum() + "\t" + cus.getEmail() + "\t\t" + 
+                    cus.getPhoneNum() + "\t" + cus.getEmail() + beautifyTab + 
                     cus.getAddress() + "\n"
 
             );
@@ -418,7 +423,7 @@ public class CustomerReport extends javax.swing.JFrame {
         }
         
         reportTxt.append(
-            "\n--------------------------------------------------------------------------------------------\n" +
+            "\n-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n" +
 
             "End of report!\n" +
             "Generated on " + Renty.toDate()

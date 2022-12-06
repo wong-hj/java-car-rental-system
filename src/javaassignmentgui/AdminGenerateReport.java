@@ -42,6 +42,7 @@ public class AdminGenerateReport extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(1300, 700));
         setMinimumSize(new java.awt.Dimension(1300, 700));
         setPreferredSize(new java.awt.Dimension(1300, 700));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         topBar.setBackground(new java.awt.Color(0, 0, 0));
