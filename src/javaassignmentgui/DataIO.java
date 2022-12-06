@@ -19,6 +19,7 @@ import java.util.Locale;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 
@@ -363,9 +364,9 @@ public class DataIO {
         WriteToText();
     }
     
-    public static void exitProgram() {
+    public static void exitProgram(String framename) {
         
-
+        
         String role = null;
         String username = null;
 
@@ -381,7 +382,12 @@ public class DataIO {
         }
 
         Log.writeLog(username, role, "logout", "success");
-        System.exit(0);
+        Renty.loginUser = null;
+        Renty.loginAdmin = null;
+        
+        
+        Login login = new Login();
+        login.setVisible(true);
 
     }
 
