@@ -318,7 +318,7 @@ public class Register extends javax.swing.JFrame {
             String gender = genderComboBox.getSelectedItem().toString();
             String phoneNum = phoneField.getText();
             String email = emailField.getText();
-            String address = addressField.getText();
+            String address = addressField.getText().replace("\n", " ");
             
             int ageInt = 0;
             
@@ -338,7 +338,7 @@ public class Register extends javax.swing.JFrame {
 
                 if (username.equals("") || password.equals("") || gender.equals("") || ageField.getDate() == null || phoneNum.equals("") || email.equals("") || address.equals("")) {
                     // check for empty fields
-                    JOptionPane.showMessageDialog(null, "Please fill in all fields", "Error!", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Please fill in all fields.", "Error!", JOptionPane.ERROR_MESSAGE);
                 } else if (!password.equals(confirmPass)) {
                     // check for password equals
                     JOptionPane.showMessageDialog(null, "Password do not match.", "Error!", JOptionPane.ERROR_MESSAGE);

@@ -113,7 +113,7 @@ public class MainMenu extends javax.swing.JFrame {
         logoutBtn.setBackground(new java.awt.Color(153, 0, 0));
         logoutBtn.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         logoutBtn.setForeground(new java.awt.Color(255, 255, 255));
-        logoutBtn.setText("Logout");
+        logoutBtn.setText("Back to Login Screen");
         logoutBtn.setBorder(null);
         logoutBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,7 +121,7 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
         getContentPane().add(logoutBtn);
-        logoutBtn.setBounds(1060, 580, 180, 40);
+        logoutBtn.setBounds(1020, 580, 220, 40);
 
         payBtn.setBackground(new java.awt.Color(102, 204, 255));
         payBtn.setFont(new java.awt.Font("Gill Sans MT", 0, 24)); // NOI18N
