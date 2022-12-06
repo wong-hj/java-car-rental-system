@@ -32,6 +32,9 @@ public class AdminEditCars extends javax.swing.JFrame {
     public AdminEditCars() throws IOException {
         initComponents();
         showCars();
+        
+        // set date
+        date.setText(Renty.toDate());
     }
 
     /**
@@ -43,17 +46,6 @@ public class AdminEditCars extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        jLabel5 = new javax.swing.JLabel();
-        userBtn = new javax.swing.JLabel();
-        date = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
-        jLabel6 = new javax.swing.JLabel();
-        jSeparator3 = new javax.swing.JSeparator();
-        jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         carsTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
@@ -82,112 +74,24 @@ public class AdminEditCars extends javax.swing.JFrame {
         switchActionButton = new javax.swing.JButton();
         actionLabel = new javax.swing.JLabel();
         searchField = new javax.swing.JTextField();
+        topBar = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        manageCusNav = new javax.swing.JLabel();
+        settingsBtnNav = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        date = new javax.swing.JLabel();
+        exitIcon = new javax.swing.JLabel();
+        editCarNav = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        jSeparator3 = new javax.swing.JSeparator();
+        manageBookingNav = new javax.swing.JLabel();
+        jSeparator4 = new javax.swing.JSeparator();
+        generateReportNav = new javax.swing.JLabel();
         AdminBgMain = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1300, 700));
         getContentPane().setLayout(null);
-
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/renty_smalllogo.png"))); // NOI18N
-
-        jLabel4.setFont(new java.awt.Font("Perpetua", 0, 30)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Panel");
-        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
-        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
-
-        jLabel5.setFont(new java.awt.Font("Perpetua", 0, 30)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Add/Edit Cars");
-        jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        userBtn.setBackground(new java.awt.Color(255, 255, 255));
-        userBtn.setForeground(new java.awt.Color(255, 255, 255));
-        userBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/user.png"))); // NOI18N
-        userBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        date.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
-        date.setForeground(new java.awt.Color(255, 255, 255));
-        date.setText("08/04/2002");
-        date.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-
-        jSeparator2.setForeground(new java.awt.Color(255, 255, 255));
-        jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
-
-        jLabel6.setFont(new java.awt.Font("Perpetua", 0, 30)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Manage Bookings");
-        jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        jSeparator3.setForeground(new java.awt.Color(255, 255, 255));
-        jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
-
-        jLabel7.setFont(new java.awt.Font("Perpetua", 0, 30)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Manage Customers");
-        jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addGap(28, 28, 28)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 206, Short.MAX_VALUE)
-                .addComponent(date)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(userBtn)
-                .addGap(43, 43, 43))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jLabel4))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 11, Short.MAX_VALUE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel5)
-                                .addComponent(date)
-                                .addComponent(jLabel6))
-                            .addComponent(userBtn)
-                            .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7))))
-                .addContainerGap())
-        );
-
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 1300, 70);
 
         carsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -413,6 +317,161 @@ public class AdminEditCars extends javax.swing.JFrame {
         getContentPane().add(searchField);
         searchField.setBounds(130, 90, 220, 30);
 
+        topBar.setBackground(new java.awt.Color(0, 0, 0));
+        topBar.setMinimumSize(new java.awt.Dimension(1300, 60));
+
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/rent_smalllogo.png"))); // NOI18N
+
+        manageCusNav.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        manageCusNav.setForeground(new java.awt.Color(255, 255, 255));
+        manageCusNav.setText("Manage Customers");
+        manageCusNav.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        manageCusNav.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                manageCusNavMouseClicked(evt);
+            }
+        });
+
+        settingsBtnNav.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        settingsBtnNav.setForeground(new java.awt.Color(255, 255, 255));
+        settingsBtnNav.setText("Settings");
+        settingsBtnNav.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                settingsBtnNavMouseClicked(evt);
+            }
+        });
+
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator1.setToolTipText("");
+
+        date.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        date.setForeground(new java.awt.Color(255, 255, 255));
+        date.setText("Date");
+        date.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dateMouseClicked(evt);
+            }
+        });
+
+        exitIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/exit.png"))); // NOI18N
+        exitIcon.setToolTipText("Exit");
+        exitIcon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        exitIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exitIconMouseClicked(evt);
+            }
+        });
+
+        editCarNav.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        editCarNav.setForeground(new java.awt.Color(255, 255, 255));
+        editCarNav.setText("Add/Edit Cars");
+        editCarNav.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        editCarNav.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                editCarNavMouseClicked(evt);
+            }
+        });
+
+        jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator2.setToolTipText("");
+
+        jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator3.setToolTipText("");
+
+        manageBookingNav.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        manageBookingNav.setForeground(new java.awt.Color(255, 255, 255));
+        manageBookingNav.setText("Manage Bookings");
+        manageBookingNav.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        manageBookingNav.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                manageBookingNavMouseClicked(evt);
+            }
+        });
+
+        jSeparator4.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator4.setToolTipText("");
+
+        generateReportNav.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        generateReportNav.setForeground(new java.awt.Color(255, 255, 255));
+        generateReportNav.setText("Generate Report");
+        generateReportNav.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        generateReportNav.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                generateReportNavMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout topBarLayout = new javax.swing.GroupLayout(topBar);
+        topBar.setLayout(topBarLayout);
+        topBarLayout.setHorizontalGroup(
+            topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(topBarLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jLabel17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(editCarNav)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(generateReportNav)
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(manageCusNav)
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(settingsBtnNav)
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(manageBookingNav)
+                .addGap(147, 147, 147)
+                .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(exitIcon)
+                .addGap(38, 38, 38))
+        );
+        topBarLayout.setVerticalGroup(
+            topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topBarLayout.createSequentialGroup()
+                .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator4, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, topBarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(topBarLayout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(editCarNav)
+                                    .addComponent(generateReportNav)))))
+                    .addComponent(jSeparator1)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, topBarLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(exitIcon)
+                            .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(date)
+                                .addComponent(manageBookingNav)))
+                        .addGap(0, 4, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topBarLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topBarLayout.createSequentialGroup()
+                        .addComponent(manageCusNav)
+                        .addGap(15, 15, 15))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topBarLayout.createSequentialGroup()
+                        .addComponent(settingsBtnNav)
+                        .addGap(14, 14, 14))))
+        );
+
+        getContentPane().add(topBar);
+        topBar.setBounds(0, 0, 1300, 60);
+
         AdminBgMain.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/renty_logo.png"))); // NOI18N
         AdminBgMain.setText("jLabel1");
         getContentPane().add(AdminBgMain);
@@ -506,6 +565,56 @@ public class AdminEditCars extends javax.swing.JFrame {
         tr.setRowFilter(RowFilter.regexFilter(searchField.getText()));
 
     }//GEN-LAST:event_searchFieldKeyTyped
+
+    private void manageCusNavMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageCusNavMouseClicked
+        this.setVisible(false);
+
+        AdminManageCustomers amc = new AdminManageCustomers();
+        amc.setVisible(true);
+    }//GEN-LAST:event_manageCusNavMouseClicked
+
+    private void settingsBtnNavMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingsBtnNavMouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        AdminSettings as = new AdminSettings();
+        as.setVisible(true);
+    }//GEN-LAST:event_settingsBtnNavMouseClicked
+
+    private void dateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dateMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dateMouseClicked
+
+    private void exitIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitIconMouseClicked
+
+        this.setVisible(false);
+        DataIO.exitProgram();
+    }//GEN-LAST:event_exitIconMouseClicked
+
+    private void editCarNavMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editCarNavMouseClicked
+        try {
+            this.setVisible(false);
+
+            AdminEditCars aec = new AdminEditCars();
+            aec.setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(BookingReport.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_editCarNavMouseClicked
+
+    private void manageBookingNavMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageBookingNavMouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        AdminManageBookings amb = new AdminManageBookings();
+        amb.setVisible(true);
+    }//GEN-LAST:event_manageBookingNavMouseClicked
+
+    private void generateReportNavMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_generateReportNavMouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        AdminGenerateReport agr = new AdminGenerateReport();
+        agr.setVisible(true);
+    }//GEN-LAST:event_generateReportNavMouseClicked
 
     /**
      * @param args the command line arguments
@@ -706,6 +815,9 @@ public class AdminEditCars extends javax.swing.JFrame {
     private javax.swing.JTextField carPlateInput;
     private javax.swing.JTable carsTable;
     private javax.swing.JLabel date;
+    private javax.swing.JLabel editCarNav;
+    private javax.swing.JLabel exitIcon;
+    private javax.swing.JLabel generateReportNav;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -714,24 +826,23 @@ public class AdminEditCars extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JLabel manageBookingNav;
+    private javax.swing.JLabel manageCusNav;
     private javax.swing.JTextField searchField;
+    private javax.swing.JLabel settingsBtnNav;
     private javax.swing.JComboBox<String> statusComboBox;
     private javax.swing.JButton switchActionButton;
+    private javax.swing.JPanel topBar;
     private javax.swing.JComboBox<String> typeComboBox;
-    private javax.swing.JLabel userBtn;
     // End of variables declaration//GEN-END:variables
 }

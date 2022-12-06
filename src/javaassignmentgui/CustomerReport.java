@@ -22,6 +22,9 @@ public class CustomerReport extends javax.swing.JFrame {
     public CustomerReport() {
         initComponents();
         showReport();
+        
+        // set date
+        date.setText(Renty.toDate());
     }
 
     /**
@@ -36,7 +39,7 @@ public class CustomerReport extends javax.swing.JFrame {
         topBar = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         manageCusNav = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        settingsBtnNav = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         date = new javax.swing.JLabel();
         exitIcon = new javax.swing.JLabel();
@@ -54,9 +57,7 @@ public class CustomerReport extends javax.swing.JFrame {
         Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1300, 700));
         setMinimumSize(new java.awt.Dimension(1300, 700));
-        setPreferredSize(new java.awt.Dimension(1300, 700));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -75,9 +76,14 @@ public class CustomerReport extends javax.swing.JFrame {
             }
         });
 
-        jLabel11.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Settings");
+        settingsBtnNav.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        settingsBtnNav.setForeground(new java.awt.Color(255, 255, 255));
+        settingsBtnNav.setText("Settings");
+        settingsBtnNav.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                settingsBtnNavMouseClicked(evt);
+            }
+        });
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jSeparator1.setToolTipText("");
@@ -159,7 +165,7 @@ public class CustomerReport extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel11)
+                .addComponent(settingsBtnNav)
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -186,7 +192,7 @@ public class CustomerReport extends javax.swing.JFrame {
                                 .addGap(12, 12, 12)
                                 .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(manageCusNav)
-                                    .addComponent(jLabel11)
+                                    .addComponent(settingsBtnNav)
                                     .addComponent(editCarNav)))))
                     .addGroup(topBarLayout.createSequentialGroup()
                         .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -262,6 +268,7 @@ public class CustomerReport extends javax.swing.JFrame {
 
     private void exitIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitIconMouseClicked
 
+        this.setVisible(false);
         DataIO.exitProgram();
     }//GEN-LAST:event_exitIconMouseClicked
 
@@ -309,6 +316,13 @@ public class CustomerReport extends javax.swing.JFrame {
             Logger.getLogger(CustomerReport.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_printReportBtnActionPerformed
+
+    private void settingsBtnNavMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingsBtnNavMouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        AdminSettings as = new AdminSettings();
+        as.setVisible(true);
+    }//GEN-LAST:event_settingsBtnNavMouseClicked
 
     /**
      * @param args the command line arguments
@@ -439,7 +453,6 @@ public class CustomerReport extends javax.swing.JFrame {
     private javax.swing.JLabel exitIcon;
     private javax.swing.JLabel generateReportNav;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
@@ -450,6 +463,7 @@ public class CustomerReport extends javax.swing.JFrame {
     private javax.swing.JLabel manageCusNav;
     private javax.swing.JButton printReportBtn;
     private javax.swing.JTextArea reportTxt;
+    private javax.swing.JLabel settingsBtnNav;
     private javax.swing.JPanel topBar;
     // End of variables declaration//GEN-END:variables
 }

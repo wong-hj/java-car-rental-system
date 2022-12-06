@@ -13,6 +13,9 @@ public class AdminGenerateReport extends javax.swing.JFrame {
 
     public AdminGenerateReport() {
         initComponents();
+        
+        // set date
+        date.setText(Renty.toDate());
     }
 
     @SuppressWarnings("unchecked")
@@ -252,6 +255,7 @@ public class AdminGenerateReport extends javax.swing.JFrame {
 
     private void exitIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitIconMouseClicked
 
+        this.setVisible(false);
         DataIO.exitProgram();
     }//GEN-LAST:event_exitIconMouseClicked
 

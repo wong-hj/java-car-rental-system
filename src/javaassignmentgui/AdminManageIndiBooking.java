@@ -25,6 +25,9 @@ public class AdminManageIndiBooking extends javax.swing.JFrame {
     public AdminManageIndiBooking() {
         initComponents();
         setLabels();
+        
+        // set date
+        date.setText(Renty.toDate());
     }
 
     /**
@@ -79,7 +82,7 @@ public class AdminManageIndiBooking extends javax.swing.JFrame {
         topBar = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         manageCusNav = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        settingsBtnNav = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         date = new javax.swing.JLabel();
         exitIcon = new javax.swing.JLabel();
@@ -336,9 +339,14 @@ public class AdminManageIndiBooking extends javax.swing.JFrame {
             }
         });
 
-        jLabel11.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Settings");
+        settingsBtnNav.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        settingsBtnNav.setForeground(new java.awt.Color(255, 255, 255));
+        settingsBtnNav.setText("Settings");
+        settingsBtnNav.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                settingsBtnNavMouseClicked(evt);
+            }
+        });
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jSeparator1.setToolTipText("");
@@ -420,7 +428,7 @@ public class AdminManageIndiBooking extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel11)
+                .addComponent(settingsBtnNav)
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -454,10 +462,9 @@ public class AdminManageIndiBooking extends javax.swing.JFrame {
                         .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(manageCusNav)
-                                .addComponent(jLabel11)
+                                .addComponent(settingsBtnNav)
                                 .addComponent(editCarNav))
-                            .addComponent(generateReportNav))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                            .addComponent(generateReportNav))))
                 .addContainerGap())
         );
 
@@ -552,6 +559,7 @@ public class AdminManageIndiBooking extends javax.swing.JFrame {
 
     private void exitIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitIconMouseClicked
 
+        this.setVisible(false);
         DataIO.exitProgram();
     }//GEN-LAST:event_exitIconMouseClicked
 
@@ -581,6 +589,13 @@ public class AdminManageIndiBooking extends javax.swing.JFrame {
         AdminGenerateReport agr = new AdminGenerateReport();
         agr.setVisible(true);
     }//GEN-LAST:event_generateReportNavMouseClicked
+
+    private void settingsBtnNavMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingsBtnNavMouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        AdminSettings as = new AdminSettings();
+        as.setVisible(true);
+    }//GEN-LAST:event_settingsBtnNavMouseClicked
 
     /**
      * @param args the command line arguments
@@ -674,7 +689,6 @@ public class AdminManageIndiBooking extends javax.swing.JFrame {
     private javax.swing.JLabel exitIcon;
     private javax.swing.JLabel generateReportNav;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -710,6 +724,7 @@ public class AdminManageIndiBooking extends javax.swing.JFrame {
     private javax.swing.JTextField returnAddInput;
     private javax.swing.JLabel returnDateLabel;
     private javax.swing.JTextArea reviewInput;
+    private javax.swing.JLabel settingsBtnNav;
     private javax.swing.JPanel topBar;
     private javax.swing.JLabel totalPaymentLabel;
     // End of variables declaration//GEN-END:variables

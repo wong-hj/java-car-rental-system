@@ -606,12 +606,8 @@ public class Payment extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel18MouseClicked
 
     private void exitIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitIconMouseClicked
-        try {
-            DataIO.WriteToText();
-            System.exit(0);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        this.setVisible(false);
+        DataIO.exitProgram();
     }//GEN-LAST:event_exitIconMouseClicked
     
     

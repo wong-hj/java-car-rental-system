@@ -17,6 +17,9 @@ public class AdminSettings extends javax.swing.JFrame {
         initComponents();
         superadminPanel.setVisible(false);
         setLabels();
+        
+        // set date
+        date.setText(Renty.toDate());
     }
 
     /**
@@ -627,6 +630,7 @@ public class AdminSettings extends javax.swing.JFrame {
 
     private void exitIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitIconMouseClicked
 
+        this.setVisible(false);
         DataIO.exitProgram();
     }//GEN-LAST:event_exitIconMouseClicked
 

@@ -433,12 +433,8 @@ public class CarDetails extends javax.swing.JFrame {
     }//GEN-LAST:event_dateMouseClicked
 
     private void exitIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitIconMouseClicked
-       try {
-            DataIO.WriteToText();
-            System.exit(0);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-        }
+       this.setVisible(false);
+       DataIO.exitProgram();
     }//GEN-LAST:event_exitIconMouseClicked
 
     private void rentCarBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rentCarBtnMouseClicked

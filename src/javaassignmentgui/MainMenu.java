@@ -88,7 +88,7 @@ public class MainMenu extends javax.swing.JFrame {
         reportBtn.setBackground(new java.awt.Color(102, 204, 255));
         reportBtn.setFont(new java.awt.Font("Gill Sans MT", 0, 24)); // NOI18N
         reportBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/clipboard.png"))); // NOI18N
-        reportBtn.setText("  Booking, Reports");
+        reportBtn.setText("  Booking History");
         reportBtn.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         reportBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,7 +139,7 @@ public class MainMenu extends javax.swing.JFrame {
         payBtn.setBackground(new java.awt.Color(102, 204, 255));
         payBtn.setFont(new java.awt.Font("Gill Sans MT", 0, 24)); // NOI18N
         payBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/cheque.png"))); // NOI18N
-        payBtn.setText(" Payment");
+        payBtn.setText("  Payment");
         payBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         payBtn.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         payBtn.addActionListener(new java.awt.event.ActionListener() {

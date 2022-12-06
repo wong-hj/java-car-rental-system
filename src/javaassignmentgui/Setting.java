@@ -51,13 +51,6 @@ public class Setting extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        mmBtn = new javax.swing.JLabel();
-        userBtn = new javax.swing.JLabel();
-        date = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         genderPic = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -89,94 +82,18 @@ public class Setting extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         address = new javax.swing.JTextArea();
         saveBtn = new javax.swing.JButton();
+        topBar = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        date = new javax.swing.JLabel();
+        exitIcon = new javax.swing.JLabel();
         backgroundBtn = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1300, 700));
         getContentPane().setLayout(null);
-
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/renty_smalllogo.png"))); // NOI18N
-
-        jLabel2.setFont(new java.awt.Font("Perpetua", 0, 30)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Settings");
-        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
-        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
-
-        mmBtn.setFont(new java.awt.Font("Perpetua", 0, 30)); // NOI18N
-        mmBtn.setForeground(new java.awt.Color(255, 255, 255));
-        mmBtn.setText("Main Menu");
-        mmBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mmBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mmBtnMouseClicked(evt);
-            }
-        });
-
-        userBtn.setBackground(new java.awt.Color(255, 255, 255));
-        userBtn.setForeground(new java.awt.Color(255, 255, 255));
-        userBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/user.png"))); // NOI18N
-        userBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        userBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                userBtnMouseClicked(evt);
-            }
-        });
-
-        date.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
-        date.setForeground(new java.awt.Color(255, 255, 255));
-        date.setText("08/04/2002");
-        date.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(28, 28, 28)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(mmBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 675, Short.MAX_VALUE)
-                .addComponent(date)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(userBtn)
-                .addGap(43, 43, 43))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jLabel2))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(mmBtn)
-                                .addComponent(date))
-                            .addComponent(userBtn)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 11, Short.MAX_VALUE)))))
-                .addContainerGap())
-        );
-
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 1300, 70);
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
         jPanel2.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 0, 0)));
@@ -207,35 +124,27 @@ public class Setting extends javax.swing.JFrame {
         jPanel3.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel4.setFont(new java.awt.Font("Perpetua", 0, 22)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Username:");
 
         jLabel5.setFont(new java.awt.Font("Perpetua", 0, 22)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Password:");
 
         jLabel6.setFont(new java.awt.Font("Perpetua", 0, 22)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Age:");
 
         jLabel7.setFont(new java.awt.Font("Perpetua", 0, 22)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Contact Number:");
 
         jLabel8.setFont(new java.awt.Font("Perpetua", 0, 22)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Email:");
 
         jLabel9.setFont(new java.awt.Font("Perpetua", 0, 22)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Address:");
 
         usernameLabel.setFont(new java.awt.Font("Perpetua", 0, 22)); // NOI18N
-        usernameLabel.setForeground(new java.awt.Color(0, 0, 0));
         usernameLabel.setText("username");
 
         passwordLabel.setFont(new java.awt.Font("Perpetua", 0, 22)); // NOI18N
-        passwordLabel.setForeground(new java.awt.Color(0, 0, 0));
         passwordLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/hidden.png"))); // NOI18N
         passwordLabel.setText("password");
         passwordLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -251,23 +160,18 @@ public class Setting extends javax.swing.JFrame {
         });
 
         ageLabel.setFont(new java.awt.Font("Perpetua", 0, 22)); // NOI18N
-        ageLabel.setForeground(new java.awt.Color(0, 0, 0));
         ageLabel.setText("age");
 
         phoneNumLabel.setFont(new java.awt.Font("Perpetua", 0, 22)); // NOI18N
-        phoneNumLabel.setForeground(new java.awt.Color(0, 0, 0));
         phoneNumLabel.setText("contact num");
 
         emailLabel.setFont(new java.awt.Font("Perpetua", 0, 22)); // NOI18N
-        emailLabel.setForeground(new java.awt.Color(0, 0, 0));
         emailLabel.setText("email");
 
         addressLabel.setFont(new java.awt.Font("Perpetua", 0, 22)); // NOI18N
-        addressLabel.setForeground(new java.awt.Color(0, 0, 0));
         addressLabel.setText("address");
 
         jSeparator2.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -338,27 +242,21 @@ public class Setting extends javax.swing.JFrame {
         jPanel4.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel10.setFont(new java.awt.Font("Perpetua", 0, 36)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Edit Profile");
 
         jLabel11.setFont(new java.awt.Font("Perpetua", 0, 20)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("New Password:");
 
         jLabel12.setFont(new java.awt.Font("Perpetua", 0, 20)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Confirm Password:");
 
         jLabel13.setFont(new java.awt.Font("Perpetua", 0, 20)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Contact Number:");
 
         jLabel14.setFont(new java.awt.Font("Perpetua", 0, 20)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Email:");
 
         jLabel15.setFont(new java.awt.Font("Perpetua", 0, 20)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Address:");
 
         newPassword.setBackground(new java.awt.Color(229, 241, 243));
@@ -470,6 +368,81 @@ public class Setting extends javax.swing.JFrame {
         getContentPane().add(jPanel4);
         jPanel4.setBounds(110, 310, 1100, 320);
 
+        topBar.setBackground(new java.awt.Color(0, 0, 0));
+        topBar.setMinimumSize(new java.awt.Dimension(1300, 60));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/rent_smalllogo.png"))); // NOI18N
+
+        jLabel3.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Main Menu");
+        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+
+        jLabel16.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setText("Setting");
+
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        date.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        date.setForeground(new java.awt.Color(255, 255, 255));
+        date.setText("date");
+
+        exitIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/exit.png"))); // NOI18N
+        exitIcon.setToolTipText("Exit");
+        exitIcon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        exitIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exitIconMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout topBarLayout = new javax.swing.GroupLayout(topBar);
+        topBar.setLayout(topBarLayout);
+        topBarLayout.setHorizontalGroup(
+            topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(topBarLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel16)
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 762, Short.MAX_VALUE)
+                .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(exitIcon)
+                .addGap(34, 34, 34))
+        );
+        topBarLayout.setVerticalGroup(
+            topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(topBarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(topBarLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(exitIcon, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel3)
+                        .addComponent(date)
+                        .addComponent(jLabel16)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(topBar);
+        topBar.setBounds(0, 0, 1300, 60);
+
         backgroundBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/car.png"))); // NOI18N
         backgroundBtn.setText("jLabel1");
         getContentPane().add(backgroundBtn);
@@ -487,11 +460,6 @@ public class Setting extends javax.swing.JFrame {
         // TODO add your handling code here:
         passwordLabel.setText("*".repeat(Renty.loginUser.getPassword().length()));
     }//GEN-LAST:event_passwordLabelMouseExited
-
-    private void userBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userBtnMouseClicked
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_userBtnMouseClicked
 
     private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
         
@@ -584,13 +552,17 @@ public class Setting extends javax.swing.JFrame {
         System.out.println(Renty.loginUser.toString());
     }//GEN-LAST:event_saveBtnActionPerformed
 
-    private void mmBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mmBtnMouseClicked
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         this.setVisible(false);
-        
+
         MainMenu mm = new MainMenu();
         mm.setVisible(true);
-        
-    }//GEN-LAST:event_mmBtnMouseClicked
+    }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void exitIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitIconMouseClicked
+        this.setVisible(false);
+        DataIO.exitProgram();
+    }//GEN-LAST:event_exitIconMouseClicked
     
     public void setLabel() {
         
@@ -646,6 +618,7 @@ public class Setting extends javax.swing.JFrame {
     private javax.swing.JLabel date;
     private javax.swing.JTextField email;
     private javax.swing.JLabel emailLabel;
+    private javax.swing.JLabel exitIcon;
     private javax.swing.JLabel genderPic;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -654,14 +627,14 @@ public class Setting extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -669,13 +642,12 @@ public class Setting extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JLabel mmBtn;
     private javax.swing.JPasswordField newPassword;
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JTextField phoneNum;
     private javax.swing.JLabel phoneNumLabel;
     private javax.swing.JButton saveBtn;
-    private javax.swing.JLabel userBtn;
+    private javax.swing.JPanel topBar;
     private javax.swing.JLabel usernameLabel;
     // End of variables declaration//GEN-END:variables
 }

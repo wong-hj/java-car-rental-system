@@ -37,9 +37,7 @@ public class AdminLogin extends javax.swing.JFrame implements Auth {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1300, 700));
         setMinimumSize(new java.awt.Dimension(1300, 700));
-        setPreferredSize(new java.awt.Dimension(1300, 700));
         setResizable(false);
         setSize(new java.awt.Dimension(1300, 700));
         getContentPane().setLayout(null);
