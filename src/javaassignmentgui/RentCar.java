@@ -364,7 +364,7 @@ public class RentCar extends javax.swing.JFrame {
 
     private void exitIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitIconMouseClicked
         this.setVisible(false);
-        DataIO.exitProgram("test");
+        DataIO.exitProgram();
        
     }//GEN-LAST:event_exitIconMouseClicked
     

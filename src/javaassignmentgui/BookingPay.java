@@ -275,7 +275,8 @@ public class BookingPay extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void exitIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitIconMouseClicked
-        DataIO.exitProgram(this.getTitle());
+        this.setVisible(false);
+        DataIO.exitProgram();
     }//GEN-LAST:event_exitIconMouseClicked
     
     
