@@ -364,8 +364,7 @@ public class DataIO {
         WriteToText();
     }
     
-    public static void exitProgram(String framename) {
-        
+    public static void exitProgram() {
         
         String role = null;
         String username = null;
@@ -384,11 +383,10 @@ public class DataIO {
         Log.writeLog(username, role, "logout", "success");
         Renty.loginUser = null;
         Renty.loginAdmin = null;
-        
-        
+
         Login login = new Login();
         login.setVisible(true);
-
+ 
     }
 
             
