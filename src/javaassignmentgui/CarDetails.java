@@ -479,7 +479,7 @@ public class CarDetails extends javax.swing.JFrame {
         long diff = returnD.getTime() - pickupD.getTime();
         float daysdiff = (diff / (1000*60*60*24));
         int dayInt = (int) daysdiff;
-        String day = String.valueOf(dayInt);
+        String day = String.valueOf(dayInt + 1);
         
         return day;
     }

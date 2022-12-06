@@ -337,8 +337,6 @@ public class DataIO {
     
     public static void updateBooking() throws FileNotFoundException {
         
-        
-        
         for(int i = 0; i < bookings.size(); i++){
             
                 if(!bookings.get(i).getStatus().equals("Paid")){
@@ -356,7 +354,6 @@ public class DataIO {
                         Logger.getLogger(DataIO.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
-
 
         }
 

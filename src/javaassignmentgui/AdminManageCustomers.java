@@ -147,7 +147,7 @@ public class AdminManageCustomers extends javax.swing.JFrame {
             }
         });
         jPanel2.add(deleteBtn);
-        deleteBtn.setBounds(86, 492, 140, 34);
+        deleteBtn.setBounds(86, 492, 140, 40);
 
         approveBtn.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         approveBtn.setText("Approve");
@@ -157,7 +157,7 @@ public class AdminManageCustomers extends javax.swing.JFrame {
             }
         });
         jPanel2.add(approveBtn);
-        approveBtn.setBounds(12, 440, 136, 34);
+        approveBtn.setBounds(12, 440, 136, 40);
 
         denyBtn.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         denyBtn.setText("Deny");
@@ -167,7 +167,7 @@ public class AdminManageCustomers extends javax.swing.JFrame {
             }
         });
         jPanel2.add(denyBtn);
-        denyBtn.setBounds(166, 440, 130, 34);
+        denyBtn.setBounds(166, 440, 130, 40);
 
         awawdawd.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         awawdawd.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -245,8 +245,8 @@ public class AdminManageCustomers extends javax.swing.JFrame {
 
         searchField.setFont(new java.awt.Font("Perpetua", 0, 20)); // NOI18N
         searchField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                searchFieldKeyTyped(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                searchFieldKeyReleased(evt);
             }
         });
         getContentPane().add(searchField);
@@ -433,29 +433,25 @@ public class AdminManageCustomers extends javax.swing.JFrame {
         
         DefaultTableModel model = (DefaultTableModel)customerTable.getModel();
         
-        String username = model.getValueAt(customerTable.getSelectedRow(), 0).toString();
-        String gender = model.getValueAt(customerTable.getSelectedRow(), 2).toString();
-        String age = model.getValueAt(customerTable.getSelectedRow(), 3).toString();
-        String phonenum = model.getValueAt(customerTable.getSelectedRow(), 4).toString();
-        String email = model.getValueAt(customerTable.getSelectedRow(), 5).toString();
-        String address = model.getValueAt(customerTable.getSelectedRow(), 6).toString();
-        String approval = model.getValueAt(customerTable.getSelectedRow(), 7).toString();
+        int row = customerTable.getSelectedRow();
+        String username = model.getValueAt(customerTable.convertRowIndexToModel(row), 0).toString();
+        
         
         Customer chosenCus = DataIO.checkUsername(username);
         chosenCustomer = chosenCus;
         
-        usernameLabel.setText(username);
-        genderLabel.setText(gender);
-        ageLabel.setText(age);
-        contactLabel.setText(phonenum);
-        emailLabel.setText(email);
-        addressLabel.setText(address);
+        usernameLabel.setText(chosenCustomer.getUsername());
+        genderLabel.setText(chosenCustomer.getGender());
+        ageLabel.setText(String.valueOf(chosenCustomer.getAge()));
+        contactLabel.setText(chosenCustomer.getPhoneNum());
+        emailLabel.setText(chosenCustomer.getEmail());
+        addressLabel.setText(chosenCustomer.getAddress());
         
-        if (approval.equals("1")) {
+        if (chosenCustomer.getApproval() == 1) {
             denyBtn.setEnabled(true);
-        } else if (approval.equals("0")) {
+        } else if (chosenCustomer.getApproval() == 0) {
             approveBtn.setEnabled(true);
-        }
+        } else {}
     }//GEN-LAST:event_customerTableMouseClicked
 
     private void approveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_approveBtnActionPerformed
@@ -486,16 +482,6 @@ public class AdminManageCustomers extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_denyBtnActionPerformed
-
-    private void searchFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchFieldKeyTyped
-        // TODO add your handling code here:
-        DefaultTableModel model = (DefaultTableModel)customerTable.getModel();
-        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(model);
-        customerTable.setRowSorter(tr);
-        
-        tr.setRowFilter(RowFilter.regexFilter(searchField.getText()));
-
-    }//GEN-LAST:event_searchFieldKeyTyped
 
     private void manageCusNavMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageCusNavMouseClicked
         this.setVisible(false);
@@ -545,6 +531,14 @@ public class AdminManageCustomers extends javax.swing.JFrame {
         AdminSettings as = new AdminSettings();
         as.setVisible(true);
     }//GEN-LAST:event_jLabel11MouseClicked
+
+    private void searchFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchFieldKeyReleased
+        DefaultTableModel model = (DefaultTableModel)customerTable.getModel();
+        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(model);
+        customerTable.setRowSorter(tr);
+        
+        tr.setRowFilter(RowFilter.regexFilter(searchField.getText()));
+    }//GEN-LAST:event_searchFieldKeyReleased
 
     /**
      * @param args the command line arguments

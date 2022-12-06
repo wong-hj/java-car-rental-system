@@ -291,7 +291,8 @@ public class AdminManageBookings extends javax.swing.JFrame {
     private void bookingTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bookingTableMouseClicked
         DefaultTableModel model = (DefaultTableModel)bookingTable.getModel();
         
-        String booking_id = model.getValueAt(bookingTable.getSelectedRow(), 0).toString();
+        int row = bookingTable.getSelectedRow();
+        String booking_id = model.getValueAt(bookingTable.convertRowIndexToModel(row), 0).toString();
         bookingIdLabel.setText(booking_id);
         
         modifyBookingBtn.setEnabled(true);

@@ -280,9 +280,9 @@ public class RentCar extends javax.swing.JFrame {
 
                     Car chosenCar = DataIO.chosenCar(carPlate);
 
-                    RentCar.carChosen = chosenCar;
-                    RentCar.pickup_Date = pickup_date;
-                    RentCar.return_Date = return_date;
+                    carChosen = chosenCar;
+                    pickup_Date = pickup_date;
+                    return_Date = return_date;
 
                     this.setVisible(false);
                     CarDetails cd = new CarDetails();

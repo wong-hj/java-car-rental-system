@@ -73,6 +73,8 @@ public class AdminSettings extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(1300, 700));
         getContentPane().setLayout(null);
 
+        jPanel2.setLayout(null);
+
         superadminPanel.setBackground(new java.awt.Color(153, 153, 153));
         superadminPanel.setEnabled(false);
 
@@ -149,8 +151,8 @@ public class AdminSettings extends javax.swing.JFrame {
 
         searchField.setFont(new java.awt.Font("Perpetua", 0, 14)); // NOI18N
         searchField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                searchFieldKeyTyped(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                searchFieldKeyReleased(evt);
             }
         });
 
@@ -223,6 +225,9 @@ public class AdminSettings extends javax.swing.JFrame {
                         .addGap(43, 43, 43))))
         );
 
+        jPanel2.add(superadminPanel);
+        superadminPanel.setBounds(438, 78, 734, 292);
+
         advAdminBtn.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         advAdminBtn.setText("Manage Admins");
         advAdminBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -230,12 +235,18 @@ public class AdminSettings extends javax.swing.JFrame {
                 advAdminBtnActionPerformed(evt);
             }
         });
+        jPanel2.add(advAdminBtn);
+        advAdminBtn.setBounds(438, 26, 168, 40);
 
         adminName.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         adminName.setText("<ADMIN NAME>");
+        jPanel2.add(adminName);
+        adminName.setBounds(139, 36, 169, 28);
 
         jLabel6.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         jLabel6.setText("Change Password:");
+        jPanel2.add(jLabel6);
+        jLabel6.setBounds(34, 70, 161, 28);
 
         viewPassword.setFont(new java.awt.Font("Perpetua", 0, 21)); // NOI18N
         viewPassword.setText("View");
@@ -244,6 +255,8 @@ public class AdminSettings extends javax.swing.JFrame {
                 viewPasswordActionPerformed(evt);
             }
         });
+        jPanel2.add(viewPassword);
+        viewPassword.setBounds(276, 112, 68, 25);
 
         modifyPassword.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         modifyPassword.setText("Modify");
@@ -252,60 +265,20 @@ public class AdminSettings extends javax.swing.JFrame {
                 modifyPasswordActionPerformed(evt);
             }
         });
+        jPanel2.add(modifyPassword);
+        modifyPassword.setBounds(34, 159, 110, 43);
 
         passwordField.setText("jPasswordField1");
+        jPanel2.add(passwordField);
+        passwordField.setBounds(34, 104, 236, 43);
 
         jLabel5.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         jLabel5.setText("Welcome, ");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(modifyPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6)
-                            .addComponent(advAdminBtn)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(viewPassword))
-                            .addComponent(superadminPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(adminName)))
-                .addContainerGap(472, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(adminName)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(viewPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(passwordField, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(modifyPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22)
-                .addComponent(advAdminBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(superadminPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
-        );
+        jPanel2.add(jLabel5);
+        jLabel5.setBounds(36, 36, 97, 28);
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(30, 90, 1240, 590);
+        jPanel2.setBounds(30, 90, 1240, 550);
 
         topBar.setBackground(new java.awt.Color(0, 0, 0));
         topBar.setMinimumSize(new java.awt.Dimension(1300, 60));
@@ -489,7 +462,7 @@ public class AdminSettings extends javax.swing.JFrame {
             advAdminBtn.setEnabled(false);
         } else if (!pass.equals(result)) {
             JOptionPane.showMessageDialog(null, "Password Error!", "Error!", JOptionPane.ERROR_MESSAGE);
-        }
+        }  
     }//GEN-LAST:event_advAdminBtnActionPerformed
 
     private void addAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAdminBtnActionPerformed
@@ -607,24 +580,21 @@ public class AdminSettings extends javax.swing.JFrame {
 
     private void adminTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_adminTableMouseClicked
         // TODO add your handling code here:
+        deleteAdminBtn.setEnabled(true);
         DefaultTableModel model = (DefaultTableModel)adminTable.getModel();
         
-        String adminUsername = model.getValueAt(adminTable.getSelectedRow(), 0).toString();
+        int row = adminTable.getSelectedRow();
+        String adminUsername = model.getValueAt(adminTable.convertRowIndexToModel(row), 0).toString();
+        
         adminChosen = DataIO.checkAdminUsername(adminUsername);
         
         modifyUsernameField.setText(adminChosen.getUsername());
         modifyPassField.setText(adminChosen.getPassword());
-    }//GEN-LAST:event_adminTableMouseClicked
-
-    private void searchFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchFieldKeyTyped
-        // TODO add your handling code here:
-        DefaultTableModel model = (DefaultTableModel)adminTable.getModel();
-        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(model);
-        adminTable.setRowSorter(tr);
         
-        tr.setRowFilter(RowFilter.regexFilter(searchField.getText()));
-
-    }//GEN-LAST:event_searchFieldKeyTyped
+        if(Renty.loginAdmin.getUsername().equals(adminChosen.getUsername())) {
+            deleteAdminBtn.setEnabled(false);
+        }
+    }//GEN-LAST:event_adminTableMouseClicked
 
     private void manageCusNavMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageCusNavMouseClicked
         this.setVisible(false);
@@ -674,6 +644,15 @@ public class AdminSettings extends javax.swing.JFrame {
         AdminSettings as = new AdminSettings();
         as.setVisible(true);
     }//GEN-LAST:event_jLabel11MouseClicked
+
+    private void searchFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchFieldKeyReleased
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel)adminTable.getModel();
+        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(model);
+        adminTable.setRowSorter(tr);
+        
+        tr.setRowFilter(RowFilter.regexFilter(searchField.getText()));
+    }//GEN-LAST:event_searchFieldKeyReleased
 
     /**
      * @param args the command line arguments

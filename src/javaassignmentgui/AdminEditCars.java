@@ -212,44 +212,38 @@ public class AdminEditCars extends javax.swing.JFrame {
             }
         });
         jPanel2.add(actionButton);
-        actionButton.setBounds(20, 440, 300, 30);
+        actionButton.setBounds(20, 440, 300, 36);
 
-        BrandInput.setBackground(new java.awt.Color(204, 204, 204));
         BrandInput.setFont(new java.awt.Font("Perpetua", 0, 20)); // NOI18N
         BrandInput.setForeground(new java.awt.Color(51, 51, 51));
         BrandInput.setToolTipText("");
         jPanel2.add(BrandInput);
         BrandInput.setBounds(100, 100, 220, 30);
 
-        ModelInput.setBackground(new java.awt.Color(204, 204, 204));
         ModelInput.setFont(new java.awt.Font("Perpetua", 0, 20)); // NOI18N
         ModelInput.setForeground(new java.awt.Color(51, 51, 51));
         ModelInput.setToolTipText("");
         jPanel2.add(ModelInput);
         ModelInput.setBounds(100, 140, 220, 30);
 
-        ColorInput.setBackground(new java.awt.Color(204, 204, 204));
         ColorInput.setFont(new java.awt.Font("Perpetua", 0, 20)); // NOI18N
         ColorInput.setForeground(new java.awt.Color(51, 51, 51));
         ColorInput.setToolTipText("");
         jPanel2.add(ColorInput);
         ColorInput.setBounds(100, 220, 220, 30);
 
-        SpeedInput.setBackground(new java.awt.Color(204, 204, 204));
         SpeedInput.setFont(new java.awt.Font("Perpetua", 0, 20)); // NOI18N
         SpeedInput.setForeground(new java.awt.Color(51, 51, 51));
         SpeedInput.setToolTipText("");
         jPanel2.add(SpeedInput);
         SpeedInput.setBounds(100, 260, 160, 30);
 
-        PaxInput.setBackground(new java.awt.Color(204, 204, 204));
         PaxInput.setFont(new java.awt.Font("Perpetua", 0, 20)); // NOI18N
         PaxInput.setForeground(new java.awt.Color(51, 51, 51));
         PaxInput.setToolTipText("");
         jPanel2.add(PaxInput);
         PaxInput.setBounds(100, 300, 220, 30);
 
-        PriceInput.setBackground(new java.awt.Color(204, 204, 204));
         PriceInput.setFont(new java.awt.Font("Perpetua", 0, 20)); // NOI18N
         PriceInput.setForeground(new java.awt.Color(51, 51, 51));
         PriceInput.setToolTipText("");
@@ -310,8 +304,8 @@ public class AdminEditCars extends javax.swing.JFrame {
 
         searchField.setFont(new java.awt.Font("Perpetua", 0, 20)); // NOI18N
         searchField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                searchFieldKeyTyped(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                searchFieldKeyReleased(evt);
             }
         });
         getContentPane().add(searchField);
@@ -479,28 +473,21 @@ public class AdminEditCars extends javax.swing.JFrame {
         // TODO add your handling code here:
         DefaultTableModel model = (DefaultTableModel)carsTable.getModel();
         
-        String car_plate = model.getValueAt(carsTable.getSelectedRow(), 0).toString();
-        String car_brand = model.getValueAt(carsTable.getSelectedRow(), 1).toString();
-        String car_model = model.getValueAt(carsTable.getSelectedRow(), 2).toString();
-        String car_type = model.getValueAt(carsTable.getSelectedRow(), 3).toString();
-        String car_color = model.getValueAt(carsTable.getSelectedRow(), 4).toString();
-        String car_speed = model.getValueAt(carsTable.getSelectedRow(), 5).toString();
-        String car_pax = model.getValueAt(carsTable.getSelectedRow(), 6).toString();
-        String car_price = model.getValueAt(carsTable.getSelectedRow(), 7).toString();
-        String car_status = model.getValueAt(carsTable.getSelectedRow(), 8).toString();
-        
+        int row = carsTable.getSelectedRow();
+        String car_plate = model.getValueAt(carsTable.convertRowIndexToModel(row), 0).toString();
+
         Car chosenCar = DataIO.chosenCar(car_plate);
         carChosen = chosenCar;
         
-        carPlateInput.setText(car_plate);
-        BrandInput.setText(car_brand);
-        ModelInput.setText(car_model);
-        typeComboBox.setSelectedItem(car_type);
-        ColorInput.setText(car_color);
-        SpeedInput.setText(car_speed);
-        PaxInput.setText(car_pax);
-        PriceInput.setText(car_price);
-        statusComboBox.setSelectedItem(car_status);
+        carPlateInput.setText(carChosen.getCarPlate());
+        BrandInput.setText(carChosen.getBrand());
+        ModelInput.setText(carChosen.getModel());
+        typeComboBox.setSelectedItem(carChosen.getType());
+        ColorInput.setText(carChosen.getColor());
+        SpeedInput.setText(carChosen.getSpeed());
+        PaxInput.setText(String.valueOf(carChosen.getSeat()));
+        PriceInput.setText(carChosen.getPrice());
+        statusComboBox.setSelectedItem(carChosen.getStatus());
     }//GEN-LAST:event_carsTableMouseClicked
 
     private void switchActionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_switchActionButtonActionPerformed
@@ -551,16 +538,6 @@ public class AdminEditCars extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_actionButtonActionPerformed
 
-    private void searchFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchFieldKeyTyped
-        // TODO add your handling code here:
-        DefaultTableModel model = (DefaultTableModel)carsTable.getModel();
-        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(model);
-        carsTable.setRowSorter(tr);
-        
-        tr.setRowFilter(RowFilter.regexFilter(searchField.getText()));
-
-    }//GEN-LAST:event_searchFieldKeyTyped
-
     private void manageCusNavMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageCusNavMouseClicked
         this.setVisible(false);
 
@@ -609,6 +586,14 @@ public class AdminEditCars extends javax.swing.JFrame {
         AdminSettings as = new AdminSettings();
         as.setVisible(true);
     }//GEN-LAST:event_jLabel18MouseClicked
+
+    private void searchFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchFieldKeyReleased
+        DefaultTableModel model = (DefaultTableModel)carsTable.getModel();
+        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(model);
+        carsTable.setRowSorter(tr);
+        
+        tr.setRowFilter(RowFilter.regexFilter(searchField.getText()));
+    }//GEN-LAST:event_searchFieldKeyReleased
 
     /**
      * @param args the command line arguments
