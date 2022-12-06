@@ -192,7 +192,7 @@ public class AdminLogin extends javax.swing.JFrame implements Auth {
         } else if(found!=null && password.equals(found.getPassword())){
             Log.writeLog(username, "admin", "login", "success");
             Renty.loginAdmin = found;
-            JOptionPane.showMessageDialog(null, "good.");
+            JOptionPane.showMessageDialog(null, "Login successful!");
             this.setVisible(false);
             AdminPanel ap = new AdminPanel();
             ap.setVisible(true);
