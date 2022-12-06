@@ -249,11 +249,15 @@ public class DataIO {
             LocalDate checkoutDate = LocalDate.parse(BookedReturnDate, formatter);
             
             //validate user enter date with booked date if conflict then remove roomid from comboBox
-            if(pickupDate.compareTo(checkoutDate) <= 0 && returnDate.compareTo(checkinDate) >= 0){
+            if(book.getStatus().equals("Paid") || book.getStatus().equals("Approved")) {
                 
-                conflictCar.add(book.getCarPlate());
+                if(pickupDate.compareTo(checkoutDate) <= 0 && returnDate.compareTo(checkinDate) >= 0){
                 
+                    conflictCar.add(book.getCarPlate());
+                
+                }
             }
+            
         }
         
         ArrayList<Car> filteredCars = new ArrayList<Car>();
@@ -333,31 +337,26 @@ public class DataIO {
     
     public static void updateBooking() throws FileNotFoundException {
         
+        
+        
         for(int i = 0; i < bookings.size(); i++){
-
-                if(bookings.get(i).getStatus().equals("Approved")){
+            
+                if(!bookings.get(i).getStatus().equals("Paid")){
                     try {
-                    Date todate = new Date();
-                    String sdate = bookings.get(i).getBookingDate();
-                    SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-                    Date bdate = sdf.parse(sdate);
-                    
-                    Calendar cal = Calendar.getInstance(); 
-                    cal.setTime(bdate);
-                    cal.add(Calendar.DAY_OF_MONTH, 5);
-                    Date paymentDate = cal.getTime();
-                    
-                    if(paymentDate.compareTo(todate) <= 0) {
-                        bookings.remove(i);
-                        i--;
-                    }
-                    
+                        Date todate = new Date();
+                        String sdate = bookings.get(i).getPickupDate();
+                        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+                        Date pdate = sdf.parse(sdate);
+                        
+                        if(pdate.compareTo(todate) < 0) {
+                            bookings.remove(i);
+                            i--;
+                        }
                     } catch (ParseException ex) {
                         Logger.getLogger(DataIO.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                    
-  
                 }
+
 
         }
 

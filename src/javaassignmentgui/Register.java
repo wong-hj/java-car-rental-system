@@ -361,7 +361,7 @@ public class Register extends javax.swing.JFrame {
                             JOptionPane.showMessageDialog(null, "Invalid Phone Number!", "Error!", JOptionPane.ERROR_MESSAGE);
                         }
                     } else {
-                        JOptionPane.showMessageDialog(null, "IFInvalid Phone Number!", "Error!", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Invalid Phone Number!", "Error!", JOptionPane.ERROR_MESSAGE);
                     }
 
                     // Check Email validity (Simple)
