@@ -6,24 +6,26 @@ package javaassignmentgui;
 
 import java.awt.print.PrinterException;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author bryan
  */
-public class CarsReport extends javax.swing.JFrame {
+public class LogReport extends javax.swing.JFrame {
 
     /**
-     * Creates new form CarsReport
+     * Creates new form LogReport
      */
-    public CarsReport() {
+    public LogReport() {
         initComponents();
-        showReport();
-        
-        // set date
-        date.setText(Renty.toDate());
+        printReport();
     }
 
     /**
@@ -35,11 +37,15 @@ public class CarsReport extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        reportTxt = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         printReportBtn = new javax.swing.JButton();
+        printAll = new javax.swing.JButton();
+        endDate = new com.toedter.calendar.JDateChooser();
+        generatebtn = new javax.swing.JButton();
+        startDate = new com.toedter.calendar.JDateChooser();
         backBtn = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        reportTxt = new javax.swing.JTextArea();
         topBar = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         manageCusNav = new javax.swing.JLabel();
@@ -57,14 +63,23 @@ public class CarsReport extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1300, 700));
-        setResizable(false);
+        setSize(new java.awt.Dimension(1300, 700));
         getContentPane().setLayout(null);
+
+        reportTxt.setEditable(false);
+        reportTxt.setColumns(20);
+        reportTxt.setFont(new java.awt.Font("Perpetua", 0, 14)); // NOI18N
+        reportTxt.setRows(5);
+        jScrollPane1.setViewportView(reportTxt);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(330, 180, 630, 420);
 
         jLabel1.setFont(new java.awt.Font("Perpetua", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Cars Report");
+        jLabel1.setText("Log Report");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(520, 70, 250, 50);
+        jLabel1.setBounds(530, 70, 240, 50);
 
         printReportBtn.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         printReportBtn.setText("Print Report");
@@ -74,7 +89,31 @@ public class CarsReport extends javax.swing.JFrame {
             }
         });
         getContentPane().add(printReportBtn);
-        printReportBtn.setBounds(560, 600, 160, 40);
+        printReportBtn.setBounds(570, 620, 160, 40);
+
+        printAll.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        printAll.setText("Print All");
+        printAll.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                printAllActionPerformed(evt);
+            }
+        });
+        getContentPane().add(printAll);
+        printAll.setBounds(330, 130, 120, 30);
+        getContentPane().add(endDate);
+        endDate.setBounds(640, 130, 140, 30);
+
+        generatebtn.setFont(new java.awt.Font("Perpetua", 0, 18)); // NOI18N
+        generatebtn.setText("Generate Report");
+        generatebtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                generatebtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(generatebtn);
+        generatebtn.setBounds(810, 130, 150, 30);
+        getContentPane().add(startDate);
+        startDate.setBounds(480, 130, 140, 30);
 
         backBtn.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         backBtn.setText("< Back");
@@ -85,15 +124,6 @@ public class CarsReport extends javax.swing.JFrame {
         });
         getContentPane().add(backBtn);
         backBtn.setBounds(30, 80, 120, 30);
-
-        reportTxt.setEditable(false);
-        reportTxt.setColumns(20);
-        reportTxt.setFont(new java.awt.Font("Perpetua", 0, 14)); // NOI18N
-        reportTxt.setRows(5);
-        jScrollPane2.setViewportView(reportTxt);
-
-        getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(240, 140, 810, 430);
 
         topBar.setBackground(new java.awt.Color(0, 0, 0));
         topBar.setMinimumSize(new java.awt.Dimension(1300, 60));
@@ -252,21 +282,97 @@ public class CarsReport extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void printReportBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printReportBtnActionPerformed
+
+        try {
+            // TODO add your handling code here:
+            if (reportTxt.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Please generate Report first.", "Error!", JOptionPane.ERROR_MESSAGE);
+            } else {
+                reportTxt.print();
+            }
+        } catch (PrinterException ex) {
+            Logger.getLogger(BookingReport.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_printReportBtnActionPerformed
+
+    private void printAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printAllActionPerformed
+        // TODO add your handling code here:
+        printReport();
+    }//GEN-LAST:event_printAllActionPerformed
+
+    private void generatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generatebtnActionPerformed
+        try {
+            // TODO add your handling code here:
+            // clear txt area
+            reportTxt.setText("");
+            
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            // date validation
+            Date filterStart = sdf.parse(sdf.format(startDate.getDate()));
+            Date filterEnd = sdf.parse(sdf.format(endDate.getDate()));
+            
+            
+            if (filterStart == null || filterEnd == null) {
+                JOptionPane.showMessageDialog(null, "Please Input Date.", "Error!", JOptionPane.ERROR_MESSAGE);
+            } else {
+                ArrayList<Log> filteredLogs = new ArrayList<Log>();
+                
+                if (filterStart.compareTo(filterEnd) <= 0) {
+                    // filter all matching bookings
+                    for (Log log: DataIO.logging) {
+                        try {
+                            String logDate = log.getDatetime().substring(0,10);
+                            
+                            Date logdate = sdf.parse(logDate);
+                            
+                            if(filterStart.compareTo(logdate) <= 0 && filterEnd.compareTo(logdate) >= 0) {
+                                filteredLogs.add(log);
+                            }
+                        } catch (ParseException ex) {
+                            Logger.getLogger(BookingReport.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                    
+                    // print out details
+                    reportTxt.append(
+                            "\t\t Log Report \n\n" +
+                                    "User\tRole\tDate/Time\t\tAction\tStatus\n"
+                    );
+
+                    // print filtered logs
+                    for (Log log: filteredLogs) {
+                        
+                        reportTxt.append(
+                                log.getUser() + "\t" + log.getRole() + "\t" +
+                                        log.getDatetime() + "\t" + log.getAction() + "\t" +
+                                        log.getStatus() + "\n"
+                        );
+                        
+                    }
+                    
+                    reportTxt.append(
+                            "\n----------------------------------------------------\n" +
+                                    
+                                    "End of report!\n" +
+                                    "Generated on " + Renty.toDate()
+                    );
+                    
+                } else {
+                    JOptionPane.showMessageDialog(null, "Dates do not make sense.", "Error!", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        } catch (ParseException ex) {
+            Logger.getLogger(LogReport.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_generatebtnActionPerformed
+
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         AdminGenerateReport agr = new AdminGenerateReport();
         agr.setVisible(true);
     }//GEN-LAST:event_backBtnActionPerformed
-
-    private void printReportBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printReportBtnActionPerformed
-        try {
-            // TODO add your handling code here:
-            reportTxt.print();
-        } catch (PrinterException ex) {
-            Logger.getLogger(CarsReport.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_printReportBtnActionPerformed
 
     private void manageCusNavMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageCusNavMouseClicked
         this.setVisible(false);
@@ -334,87 +440,47 @@ public class CarsReport extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CarsReport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LogReport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CarsReport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LogReport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CarsReport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LogReport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CarsReport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LogReport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CarsReport().setVisible(true);
+                new LogReport().setVisible(true);
             }
         });
     }
     
-    public void showReport() {
+    public void printReport() {
         reportTxt.setText("");
         
-        // get values from arraylist
-        int totalCars = DataIO.cars.size();
-        
-        
-        // get diff cars count
-        int totalSuv = 0;
-        int totalSedan = 0;
-        int totalHatchback = 0;
-        int totalRacecar = 0;
-        
-        for (Car car : DataIO.cars) {
-            String type = car.getType();
-            
-            if(type.equals("SUV")) {
-                totalSuv += 1;
-
-            } else if(type.equals("Sedan")) {
-                totalSedan += 1;
-
-            } else if(type.equals("Hatchback")) {
-                totalHatchback += 1;
-
-            } else {
-                totalRacecar += 1;
-            }
-        }
-        
         reportTxt.append(
-                "\t\t Cars Report \n\n" +
-
-                "Total Cars: \t\t" + totalCars + "\n" +
-                "Total SUV: \t\t" + totalSuv + "\n" +
-                "Total Sedan: \t\t" + totalSedan + "\n" +
-                "Total Hatchbacks: \t" + totalHatchback + "\n" +
-                "Total Racecars: \t\t" + totalRacecar + "\n" +
-                "\n------------------------------------------------------------------------------------------------------------------------------------------------------\n" +
-                "\t\t\tCars" + 
-                "\n------------------------------------------------------------------------------------------------------------------------------------------------------\n" +
-                "Car Plate\tBrand\tModel\tType\tColor\tSpeed\tSeats\tPrice\n");
+        "\t\t Log Report \n\n" +
+        "User\tRole\tDate/Time\t\tAction\tStatus\n"
+        );
         
-        for (Car car: DataIO.cars) {
-
-        
+        // print all logs
+        for (Log log: DataIO.logging) {
             reportTxt.append(
-                    car.getCarPlate() + "\t" + car.getBrand() + "\t" + 
-                    car.getModel() + "\t" + car.getType() + "\t" + 
-                    car.getColor() + "\t" + car.getSpeed() + "\t" + 
-                    car.getSeat() + "\t" + car.getPrice() + "\n"
-
+            log.getUser() + "\t" + log.getRole() + "\t" +
+            log.getDatetime() + "\t" + log.getAction() + "\t" +
+            log.getStatus() + "\n"
             );
-
         }
         
         reportTxt.append(
-            "\n------------------------------------------------------------------------------------------------------------------------------------------------------\n" +
+            "\n----------------------------------------------------\n" +
 
             "End of report!\n" +
             "Generated on " + Renty.toDate()
         );
-        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -422,20 +488,24 @@ public class CarsReport extends javax.swing.JFrame {
     private javax.swing.JButton backBtn;
     private javax.swing.JLabel date;
     private javax.swing.JLabel editCarNav;
+    private com.toedter.calendar.JDateChooser endDate;
     private javax.swing.JLabel exitIcon;
     private javax.swing.JLabel generateReportNav;
+    private javax.swing.JButton generatebtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JLabel manageBookingNav;
     private javax.swing.JLabel manageCusNav;
+    private javax.swing.JButton printAll;
     private javax.swing.JButton printReportBtn;
     private javax.swing.JTextArea reportTxt;
+    private com.toedter.calendar.JDateChooser startDate;
     private javax.swing.JPanel topBar;
     // End of variables declaration//GEN-END:variables
 }

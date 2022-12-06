@@ -8,22 +8,20 @@ import java.awt.print.PrinterException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author bryan
  */
-public class CarsReport extends javax.swing.JFrame {
+public class FeedbackReport extends javax.swing.JFrame {
 
     /**
-     * Creates new form CarsReport
+     * Creates new form FeedbackReport
      */
-    public CarsReport() {
+    public FeedbackReport() {
         initComponents();
-        showReport();
-        
-        // set date
-        date.setText(Renty.toDate());
+        generateReport();
     }
 
     /**
@@ -35,10 +33,10 @@ public class CarsReport extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        backBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         printReportBtn = new javax.swing.JButton();
-        backBtn = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
         reportTxt = new javax.swing.JTextArea();
         topBar = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -58,23 +56,8 @@ public class CarsReport extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1300, 700));
         setResizable(false);
+        setSize(new java.awt.Dimension(1300, 700));
         getContentPane().setLayout(null);
-
-        jLabel1.setFont(new java.awt.Font("Perpetua", 1, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Cars Report");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(520, 70, 250, 50);
-
-        printReportBtn.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
-        printReportBtn.setText("Print Report");
-        printReportBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                printReportBtnActionPerformed(evt);
-            }
-        });
-        getContentPane().add(printReportBtn);
-        printReportBtn.setBounds(560, 600, 160, 40);
 
         backBtn.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         backBtn.setText("< Back");
@@ -86,14 +69,30 @@ public class CarsReport extends javax.swing.JFrame {
         getContentPane().add(backBtn);
         backBtn.setBounds(30, 80, 120, 30);
 
+        jLabel1.setFont(new java.awt.Font("Perpetua", 1, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Feedback Report");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(460, 80, 360, 50);
+
+        printReportBtn.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        printReportBtn.setText("Print Report");
+        printReportBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                printReportBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(printReportBtn);
+        printReportBtn.setBounds(570, 620, 160, 40);
+
         reportTxt.setEditable(false);
         reportTxt.setColumns(20);
         reportTxt.setFont(new java.awt.Font("Perpetua", 0, 14)); // NOI18N
         reportTxt.setRows(5);
-        jScrollPane2.setViewportView(reportTxt);
+        jScrollPane1.setViewportView(reportTxt);
 
-        getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(240, 140, 810, 430);
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(280, 170, 730, 420);
 
         topBar.setBackground(new java.awt.Color(0, 0, 0));
         topBar.setMinimumSize(new java.awt.Dimension(1300, 60));
@@ -246,6 +245,7 @@ public class CarsReport extends javax.swing.JFrame {
         topBar.setBounds(0, 0, 1300, 60);
 
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/renty_logo.png"))); // NOI18N
+        Background.setText("jLabel1");
         getContentPane().add(Background);
         Background.setBounds(0, 0, 1300, 700);
 
@@ -260,11 +260,16 @@ public class CarsReport extends javax.swing.JFrame {
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void printReportBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printReportBtnActionPerformed
+
         try {
             // TODO add your handling code here:
-            reportTxt.print();
+            if (reportTxt.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Please generate Report first.", "Error!", JOptionPane.ERROR_MESSAGE);
+            } else {
+                reportTxt.print();
+            }
         } catch (PrinterException ex) {
-            Logger.getLogger(CarsReport.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BookingReport.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_printReportBtnActionPerformed
 
@@ -334,86 +339,64 @@ public class CarsReport extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CarsReport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FeedbackReport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CarsReport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FeedbackReport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CarsReport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FeedbackReport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CarsReport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FeedbackReport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CarsReport().setVisible(true);
+                new FeedbackReport().setVisible(true);
             }
         });
     }
     
-    public void showReport() {
+    public void generateReport() {
         reportTxt.setText("");
         
-        // get values from arraylist
-        int totalCars = DataIO.cars.size();
-        
-        
-        // get diff cars count
-        int totalSuv = 0;
-        int totalSedan = 0;
-        int totalHatchback = 0;
-        int totalRacecar = 0;
-        
-        for (Car car : DataIO.cars) {
-            String type = car.getType();
-            
-            if(type.equals("SUV")) {
-                totalSuv += 1;
-
-            } else if(type.equals("Sedan")) {
-                totalSedan += 1;
-
-            } else if(type.equals("Hatchback")) {
-                totalHatchback += 1;
-
-            } else {
-                totalRacecar += 1;
-            }
-        }
-        
         reportTxt.append(
-                "\t\t Cars Report \n\n" +
-
-                "Total Cars: \t\t" + totalCars + "\n" +
-                "Total SUV: \t\t" + totalSuv + "\n" +
-                "Total Sedan: \t\t" + totalSedan + "\n" +
-                "Total Hatchbacks: \t" + totalHatchback + "\n" +
-                "Total Racecars: \t\t" + totalRacecar + "\n" +
-                "\n------------------------------------------------------------------------------------------------------------------------------------------------------\n" +
-                "\t\t\tCars" + 
-                "\n------------------------------------------------------------------------------------------------------------------------------------------------------\n" +
-                "Car Plate\tBrand\tModel\tType\tColor\tSpeed\tSeats\tPrice\n");
+        "\t\t Feedback Analysis \n\n"
+        );
         
         for (Car car: DataIO.cars) {
-
-        
+            String carPlate = car.getCarPlate();
+            
+            // print car name and car plate
             reportTxt.append(
-                    car.getCarPlate() + "\t" + car.getBrand() + "\t" + 
-                    car.getModel() + "\t" + car.getType() + "\t" + 
-                    car.getColor() + "\t" + car.getSpeed() + "\t" + 
-                    car.getSeat() + "\t" + car.getPrice() + "\n"
-
+            car.getCarPlate() + " " + car.getCar() + "\n"
             );
-
+            // check for reviews
+            for (Booking book: DataIO.bookings) {
+                if (book.getCarPlate().equals(carPlate)) {
+                    if (!book.getReview().equals("Pending")) {
+                        // dont print if no reviews
+                        reportTxt.append(
+                        book.getName() + " - " + book.getReview() + "\n"
+                        );
+                    }
+                }
+            }
+            
+            // space a line for next car's reviews
+            reportTxt.append(
+            "\n"
+            );
+            
         }
         
         reportTxt.append(
-            "\n------------------------------------------------------------------------------------------------------------------------------------------------------\n" +
+            "\n----------------------------------------------------------\n" +
 
             "End of report!\n" +
             "Generated on " + Renty.toDate()
         );
+        
         
     }
 
@@ -427,7 +410,7 @@ public class CarsReport extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;

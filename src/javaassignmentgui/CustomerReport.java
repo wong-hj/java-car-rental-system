@@ -36,10 +36,15 @@ public class CustomerReport extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        backBtn = new javax.swing.JButton();
+        printReportBtn = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        reportTxt = new javax.swing.JTextArea();
         topBar = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         manageCusNav = new javax.swing.JLabel();
-        settingsBtnNav = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         date = new javax.swing.JLabel();
         exitIcon = new javax.swing.JLabel();
@@ -49,17 +54,47 @@ public class CustomerReport extends javax.swing.JFrame {
         manageBookingNav = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
         generateReportNav = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        backBtn = new javax.swing.JButton();
-        printReportBtn = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        reportTxt = new javax.swing.JTextArea();
         Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1300, 700));
         setResizable(false);
         getContentPane().setLayout(null);
+
+        jLabel1.setFont(new java.awt.Font("Perpetua", 1, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Customer Report");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(470, 70, 360, 50);
+
+        backBtn.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        backBtn.setText("< Back");
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(backBtn);
+        backBtn.setBounds(30, 80, 120, 30);
+
+        printReportBtn.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        printReportBtn.setText("Print Report");
+        printReportBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                printReportBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(printReportBtn);
+        printReportBtn.setBounds(570, 620, 160, 40);
+
+        reportTxt.setEditable(false);
+        reportTxt.setColumns(20);
+        reportTxt.setFont(new java.awt.Font("Perpetua", 0, 14)); // NOI18N
+        reportTxt.setRows(5);
+        jScrollPane1.setViewportView(reportTxt);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(190, 140, 930, 460);
 
         topBar.setBackground(new java.awt.Color(0, 0, 0));
         topBar.setMinimumSize(new java.awt.Dimension(1300, 60));
@@ -76,12 +111,14 @@ public class CustomerReport extends javax.swing.JFrame {
             }
         });
 
-        settingsBtnNav.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
-        settingsBtnNav.setForeground(new java.awt.Color(255, 255, 255));
-        settingsBtnNav.setText("Settings");
-        settingsBtnNav.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel11.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Settings");
+        jLabel11.setToolTipText("");
+        jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                settingsBtnNavMouseClicked(evt);
+                jLabel11MouseClicked(evt);
             }
         });
 
@@ -152,101 +189,62 @@ public class CustomerReport extends javax.swing.JFrame {
             .addGroup(topBarLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(generateReportNav)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel11)
+                .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(editCarNav)
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(manageCusNav)
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(settingsBtnNav)
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(manageBookingNav)
-                .addGap(131, 131, 131)
+                .addGap(33, 33, 33)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(3, 3, 3)
+                .addComponent(manageCusNav)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(generateReportNav)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
                 .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(exitIcon)
-                .addGap(38, 38, 38))
+                .addGap(36, 36, 36))
         );
         topBarLayout.setVerticalGroup(
             topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topBarLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
                 .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(exitIcon)
+                    .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel11)
+                        .addComponent(date)
+                        .addComponent(editCarNav)
+                        .addComponent(generateReportNav)))
+                .addContainerGap(10, Short.MAX_VALUE))
+            .addGroup(topBarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jSeparator1)
+                    .addComponent(jSeparator2)
+                    .addComponent(jSeparator3)
+                    .addComponent(jSeparator4)
                     .addGroup(topBarLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator1)
-                            .addComponent(jSeparator2)
-                            .addComponent(jSeparator3)
-                            .addComponent(jSeparator4)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(topBarLayout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(manageCusNav)
-                                    .addComponent(settingsBtnNav)
-                                    .addComponent(editCarNav)))))
-                    .addGroup(topBarLayout.createSequentialGroup()
-                        .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(topBarLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(exitIcon)
-                                    .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(date)
-                                        .addComponent(manageBookingNav))))
-                            .addGroup(topBarLayout.createSequentialGroup()
-                                .addGap(16, 16, 16)
-                                .addComponent(generateReportNav)))
-                        .addGap(0, 4, Short.MAX_VALUE)))
+                        .addGap(12, 12, 12)
+                        .addComponent(manageBookingNav)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topBarLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(manageCusNav)
+                .addGap(15, 15, 15))
         );
 
         getContentPane().add(topBar);
         topBar.setBounds(0, 0, 1300, 60);
-
-        jLabel1.setFont(new java.awt.Font("Perpetua", 1, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Customer Report");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(470, 70, 360, 50);
-
-        backBtn.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
-        backBtn.setText("< Back");
-        backBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backBtnActionPerformed(evt);
-            }
-        });
-        getContentPane().add(backBtn);
-        backBtn.setBounds(30, 80, 120, 30);
-
-        printReportBtn.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
-        printReportBtn.setText("Print Report");
-        printReportBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                printReportBtnActionPerformed(evt);
-            }
-        });
-        getContentPane().add(printReportBtn);
-        printReportBtn.setBounds(570, 620, 160, 40);
-
-        reportTxt.setEditable(false);
-        reportTxt.setColumns(20);
-        reportTxt.setFont(new java.awt.Font("Perpetua", 0, 14)); // NOI18N
-        reportTxt.setRows(5);
-        jScrollPane1.setViewportView(reportTxt);
-
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(30, 140, 1240, 460);
 
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/renty_logo.png"))); // NOI18N
         getContentPane().add(Background);
@@ -254,6 +252,22 @@ public class CustomerReport extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        AdminGenerateReport agr = new AdminGenerateReport();
+        agr.setVisible(true);
+    }//GEN-LAST:event_backBtnActionPerformed
+
+    private void printReportBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printReportBtnActionPerformed
+        try {
+            // TODO add your handling code here:
+            reportTxt.print();
+        } catch (PrinterException ex) {
+            Logger.getLogger(CustomerReport.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_printReportBtnActionPerformed
 
     private void manageCusNavMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageCusNavMouseClicked
         this.setVisible(false);
@@ -273,18 +287,14 @@ public class CustomerReport extends javax.swing.JFrame {
     }//GEN-LAST:event_exitIconMouseClicked
 
     private void editCarNavMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editCarNavMouseClicked
-
-
         try {
             this.setVisible(false);
 
             AdminEditCars aec = new AdminEditCars();
             aec.setVisible(true);
         } catch (IOException ex) {
-            Logger.getLogger(CustomerReport.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AdminSettings.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-
     }//GEN-LAST:event_editCarNavMouseClicked
 
     private void manageBookingNavMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageBookingNavMouseClicked
@@ -301,28 +311,12 @@ public class CustomerReport extends javax.swing.JFrame {
         agr.setVisible(true);
     }//GEN-LAST:event_generateReportNavMouseClicked
 
-    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
-        // TODO add your handling code here:
-        this.setVisible(false);
-        AdminGenerateReport agr = new AdminGenerateReport();
-        agr.setVisible(true);
-    }//GEN-LAST:event_backBtnActionPerformed
-
-    private void printReportBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printReportBtnActionPerformed
-        try {
-            // TODO add your handling code here:
-            reportTxt.print();
-        } catch (PrinterException ex) {
-            Logger.getLogger(CustomerReport.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_printReportBtnActionPerformed
-
-    private void settingsBtnNavMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingsBtnNavMouseClicked
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
         // TODO add your handling code here:
         this.setVisible(false);
         AdminSettings as = new AdminSettings();
         as.setVisible(true);
-    }//GEN-LAST:event_settingsBtnNavMouseClicked
+    }//GEN-LAST:event_jLabel11MouseClicked
 
     /**
      * @param args the command line arguments
@@ -453,6 +447,7 @@ public class CustomerReport extends javax.swing.JFrame {
     private javax.swing.JLabel exitIcon;
     private javax.swing.JLabel generateReportNav;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
@@ -463,7 +458,6 @@ public class CustomerReport extends javax.swing.JFrame {
     private javax.swing.JLabel manageCusNav;
     private javax.swing.JButton printReportBtn;
     private javax.swing.JTextArea reportTxt;
-    private javax.swing.JLabel settingsBtnNav;
     private javax.swing.JPanel topBar;
     // End of variables declaration//GEN-END:variables
 }

@@ -82,7 +82,7 @@ public class AdminManageIndiBooking extends javax.swing.JFrame {
         topBar = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         manageCusNav = new javax.swing.JLabel();
-        settingsBtnNav = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         date = new javax.swing.JLabel();
         exitIcon = new javax.swing.JLabel();
@@ -229,7 +229,7 @@ public class AdminManageIndiBooking extends javax.swing.JFrame {
             }
         });
         jPanel1.add(deleteBtn);
-        deleteBtn.setBounds(440, 530, 170, 30);
+        deleteBtn.setBounds(440, 500, 170, 30);
 
         returnDateLabel.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         returnDateLabel.setText("value");
@@ -279,7 +279,7 @@ public class AdminManageIndiBooking extends javax.swing.JFrame {
             }
         });
         jPanel1.add(modifyBtn);
-        modifyBtn.setBounds(630, 530, 170, 30);
+        modifyBtn.setBounds(630, 500, 170, 30);
 
         approveBtn.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         approveBtn.setText("Approve");
@@ -289,7 +289,7 @@ public class AdminManageIndiBooking extends javax.swing.JFrame {
             }
         });
         jPanel1.add(approveBtn);
-        approveBtn.setBounds(630, 490, 170, 30);
+        approveBtn.setBounds(630, 460, 170, 30);
 
         rejectBtn.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         rejectBtn.setText("Reject");
@@ -299,17 +299,19 @@ public class AdminManageIndiBooking extends javax.swing.JFrame {
             }
         });
         jPanel1.add(rejectBtn);
-        rejectBtn.setBounds(440, 490, 170, 30);
+        rejectBtn.setBounds(440, 460, 170, 30);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(20, 110, 1260, 570);
+        jPanel1.setBounds(20, 110, 1260, 550);
 
         jLabel1.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Booking ID:");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(520, 70, 110, 30);
 
         bookingIdLabel.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        bookingIdLabel.setForeground(new java.awt.Color(255, 255, 255));
         bookingIdLabel.setText("booking_id");
         getContentPane().add(bookingIdLabel);
         bookingIdLabel.setBounds(640, 70, 160, 30);
@@ -339,12 +341,14 @@ public class AdminManageIndiBooking extends javax.swing.JFrame {
             }
         });
 
-        settingsBtnNav.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
-        settingsBtnNav.setForeground(new java.awt.Color(255, 255, 255));
-        settingsBtnNav.setText("Settings");
-        settingsBtnNav.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel11.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Settings");
+        jLabel11.setToolTipText("");
+        jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                settingsBtnNavMouseClicked(evt);
+                jLabel11MouseClicked(evt);
             }
         });
 
@@ -416,7 +420,7 @@ public class AdminManageIndiBooking extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addComponent(manageBookingNav)
+                .addComponent(jLabel11)
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -424,12 +428,12 @@ public class AdminManageIndiBooking extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(manageCusNav)
-                .addGap(18, 18, 18)
+                .addComponent(manageBookingNav)
+                .addGap(33, 33, 33)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(3, 3, 3)
+                .addComponent(manageCusNav)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(settingsBtnNav)
-                .addGap(18, 18, 18)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(generateReportNav)
@@ -446,26 +450,27 @@ public class AdminManageIndiBooking extends javax.swing.JFrame {
                 .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(exitIcon)
                     .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel11)
                         .addComponent(date)
-                        .addComponent(manageBookingNav)))
+                        .addComponent(editCarNav)
+                        .addComponent(generateReportNav)))
                 .addContainerGap(10, Short.MAX_VALUE))
             .addGroup(topBarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jSeparator1)
                     .addComponent(jSeparator2)
                     .addComponent(jSeparator3)
                     .addComponent(jSeparator4)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(topBarLayout.createSequentialGroup()
                         .addGap(12, 12, 12)
-                        .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(manageCusNav)
-                                .addComponent(settingsBtnNav)
-                                .addComponent(editCarNav))
-                            .addComponent(generateReportNav))))
+                        .addComponent(manageBookingNav)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topBarLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(manageCusNav)
+                .addGap(15, 15, 15))
         );
 
         getContentPane().add(topBar);
@@ -533,6 +538,11 @@ public class AdminManageIndiBooking extends javax.swing.JFrame {
             String updatedReturnAdd = returnAddInput.getText();
             String updatedReview = reviewInput.getText();
             
+            if (updatedPickupAdd.equals("") || updatedReturnAdd.equals("") || updatedReview.equals("")) {
+                JOptionPane.showMessageDialog(null, "Please fill in all fields!", "Error!", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
             amb.chosenBooking.setPickupAdd(updatedPickupAdd);
             amb.chosenBooking.setReturnAdd(updatedReturnAdd);
             amb.chosenBooking.setReview(updatedReview);
@@ -590,12 +600,12 @@ public class AdminManageIndiBooking extends javax.swing.JFrame {
         agr.setVisible(true);
     }//GEN-LAST:event_generateReportNavMouseClicked
 
-    private void settingsBtnNavMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingsBtnNavMouseClicked
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
         // TODO add your handling code here:
         this.setVisible(false);
         AdminSettings as = new AdminSettings();
         as.setVisible(true);
-    }//GEN-LAST:event_settingsBtnNavMouseClicked
+    }//GEN-LAST:event_jLabel11MouseClicked
 
     /**
      * @param args the command line arguments
@@ -658,6 +668,11 @@ public class AdminManageIndiBooking extends javax.swing.JFrame {
         pickupDateLabel.setText(amb.chosenBooking.getPickupDate());
         returnDateLabel.setText(amb.chosenBooking.getReturnDate());
         
+        daysBookedLabel.setText(String.valueOf(amb.chosenBooking.getDays()));
+        totalPaymentLabel.setText(amb.chosenBooking.getTotal());
+        paymentMethodLabel.setText(amb.chosenBooking.getPaymentMethod());
+        
+        
         // Review 
         reviewInput.setText(amb.chosenBooking.getReview());
         
@@ -689,6 +704,7 @@ public class AdminManageIndiBooking extends javax.swing.JFrame {
     private javax.swing.JLabel exitIcon;
     private javax.swing.JLabel generateReportNav;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -724,7 +740,6 @@ public class AdminManageIndiBooking extends javax.swing.JFrame {
     private javax.swing.JTextField returnAddInput;
     private javax.swing.JLabel returnDateLabel;
     private javax.swing.JTextArea reviewInput;
-    private javax.swing.JLabel settingsBtnNav;
     private javax.swing.JPanel topBar;
     private javax.swing.JLabel totalPaymentLabel;
     // End of variables declaration//GEN-END:variables

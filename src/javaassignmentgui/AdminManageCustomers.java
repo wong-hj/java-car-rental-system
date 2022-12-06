@@ -68,7 +68,7 @@ public class AdminManageCustomers extends javax.swing.JFrame {
         topBar = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         manageCusNav = new javax.swing.JLabel();
-        settingsBtnNav = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         date = new javax.swing.JLabel();
         exitIcon = new javax.swing.JLabel();
@@ -267,12 +267,14 @@ public class AdminManageCustomers extends javax.swing.JFrame {
             }
         });
 
-        settingsBtnNav.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
-        settingsBtnNav.setForeground(new java.awt.Color(255, 255, 255));
-        settingsBtnNav.setText("Settings");
-        settingsBtnNav.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel11.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Settings");
+        jLabel11.setToolTipText("");
+        jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                settingsBtnNavMouseClicked(evt);
+                jLabel11MouseClicked(evt);
             }
         });
 
@@ -343,8 +345,8 @@ public class AdminManageCustomers extends javax.swing.JFrame {
             .addGroup(topBarLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(manageCusNav)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel11)
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -352,51 +354,49 @@ public class AdminManageCustomers extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(generateReportNav)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(settingsBtnNav)
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(manageBookingNav)
-                .addGap(159, 159, 159)
+                .addGap(33, 33, 33)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(3, 3, 3)
+                .addComponent(manageCusNav)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(generateReportNav)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
                 .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(exitIcon)
-                .addGap(38, 38, 38))
+                .addGap(36, 36, 36))
         );
         topBarLayout.setVerticalGroup(
             topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topBarLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
                 .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(exitIcon)
+                    .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel11)
+                        .addComponent(date)
+                        .addComponent(editCarNav)
+                        .addComponent(generateReportNav)))
+                .addContainerGap(10, Short.MAX_VALUE))
+            .addGroup(topBarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jSeparator1)
+                    .addComponent(jSeparator2)
+                    .addComponent(jSeparator3)
+                    .addComponent(jSeparator4)
                     .addGroup(topBarLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator4)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jSeparator1)
-                            .addComponent(jSeparator2)
-                            .addGroup(topBarLayout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(manageCusNav)
-                                        .addComponent(settingsBtnNav)
-                                        .addComponent(generateReportNav))
-                                    .addComponent(editCarNav))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jSeparator3)))
-                    .addGroup(topBarLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(exitIcon)
-                            .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(date)
-                                .addComponent(manageBookingNav)))
-                        .addGap(0, 4, Short.MAX_VALUE)))
+                        .addGap(12, 12, 12)
+                        .addComponent(manageBookingNav)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topBarLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(manageCusNav)
+                .addGap(15, 15, 15))
         );
 
         getContentPane().add(topBar);
@@ -504,13 +504,6 @@ public class AdminManageCustomers extends javax.swing.JFrame {
         amc.setVisible(true);
     }//GEN-LAST:event_manageCusNavMouseClicked
 
-    private void settingsBtnNavMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingsBtnNavMouseClicked
-        // TODO add your handling code here:
-        this.setVisible(false);
-        AdminSettings as = new AdminSettings();
-        as.setVisible(true);
-    }//GEN-LAST:event_settingsBtnNavMouseClicked
-
     private void dateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dateMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_dateMouseClicked
@@ -522,17 +515,14 @@ public class AdminManageCustomers extends javax.swing.JFrame {
     }//GEN-LAST:event_exitIconMouseClicked
 
     private void editCarNavMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editCarNavMouseClicked
-
         try {
             this.setVisible(false);
 
             AdminEditCars aec = new AdminEditCars();
             aec.setVisible(true);
         } catch (IOException ex) {
-            Logger.getLogger(AdminManageCustomers.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AdminSettings.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-
     }//GEN-LAST:event_editCarNavMouseClicked
 
     private void manageBookingNavMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageBookingNavMouseClicked
@@ -548,6 +538,13 @@ public class AdminManageCustomers extends javax.swing.JFrame {
         AdminGenerateReport agr = new AdminGenerateReport();
         agr.setVisible(true);
     }//GEN-LAST:event_generateReportNavMouseClicked
+
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        AdminSettings as = new AdminSettings();
+        as.setVisible(true);
+    }//GEN-LAST:event_jLabel11MouseClicked
 
     /**
      * @param args the command line arguments
@@ -647,6 +644,7 @@ public class AdminManageCustomers extends javax.swing.JFrame {
     private javax.swing.JLabel exitIcon;
     private javax.swing.JLabel genderLabel;
     private javax.swing.JLabel generateReportNav;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -660,7 +658,6 @@ public class AdminManageCustomers extends javax.swing.JFrame {
     private javax.swing.JLabel manageBookingNav;
     private javax.swing.JLabel manageCusNav;
     private javax.swing.JTextField searchField;
-    private javax.swing.JLabel settingsBtnNav;
     private javax.swing.JLabel somelabel;
     private javax.swing.JLabel somelabel1;
     private javax.swing.JPanel topBar;

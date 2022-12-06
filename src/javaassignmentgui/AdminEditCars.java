@@ -70,14 +70,14 @@ public class AdminEditCars extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         carPlateInput = new javax.swing.JTextField();
         statusComboBox = new javax.swing.JComboBox<>();
-        actionLabel1 = new javax.swing.JLabel();
-        switchActionButton = new javax.swing.JButton();
         actionLabel = new javax.swing.JLabel();
+        switchActionButton = new javax.swing.JButton();
+        someLabel = new javax.swing.JLabel();
         searchField = new javax.swing.JTextField();
         topBar = new javax.swing.JPanel();
-        jLabel17 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         manageCusNav = new javax.swing.JLabel();
-        settingsBtnNav = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         date = new javax.swing.JLabel();
         exitIcon = new javax.swing.JLabel();
@@ -283,11 +283,11 @@ public class AdminEditCars extends javax.swing.JFrame {
         jPanel2.add(statusComboBox);
         statusComboBox.setBounds(100, 380, 220, 30);
 
-        actionLabel1.setFont(new java.awt.Font("Perpetua", 1, 24)); // NOI18N
-        actionLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        actionLabel1.setText("Modify Car");
-        jPanel2.add(actionLabel1);
-        actionLabel1.setBounds(0, 10, 340, 30);
+        actionLabel.setFont(new java.awt.Font("Perpetua", 1, 24)); // NOI18N
+        actionLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        actionLabel.setText("Modify Car");
+        jPanel2.add(actionLabel);
+        actionLabel.setBounds(0, 10, 340, 30);
 
         getContentPane().add(jPanel2);
         jPanel2.setBounds(920, 140, 340, 500);
@@ -302,11 +302,11 @@ public class AdminEditCars extends javax.swing.JFrame {
         getContentPane().add(switchActionButton);
         switchActionButton.setBounds(920, 100, 340, 30);
 
-        actionLabel.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
-        actionLabel.setForeground(new java.awt.Color(255, 255, 255));
-        actionLabel.setText("Search:");
-        getContentPane().add(actionLabel);
-        actionLabel.setBounds(40, 90, 70, 30);
+        someLabel.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        someLabel.setForeground(new java.awt.Color(255, 255, 255));
+        someLabel.setText("Search:");
+        getContentPane().add(someLabel);
+        someLabel.setBounds(40, 90, 70, 30);
 
         searchField.setFont(new java.awt.Font("Perpetua", 0, 20)); // NOI18N
         searchField.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -320,7 +320,7 @@ public class AdminEditCars extends javax.swing.JFrame {
         topBar.setBackground(new java.awt.Color(0, 0, 0));
         topBar.setMinimumSize(new java.awt.Dimension(1300, 60));
 
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/rent_smalllogo.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/rent_smalllogo.png"))); // NOI18N
 
         manageCusNav.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         manageCusNav.setForeground(new java.awt.Color(255, 255, 255));
@@ -332,12 +332,14 @@ public class AdminEditCars extends javax.swing.JFrame {
             }
         });
 
-        settingsBtnNav.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
-        settingsBtnNav.setForeground(new java.awt.Color(255, 255, 255));
-        settingsBtnNav.setText("Settings");
-        settingsBtnNav.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel18.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel18.setText("Settings");
+        jLabel18.setToolTipText("");
+        jLabel18.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel18.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                settingsBtnNavMouseClicked(evt);
+                jLabel18MouseClicked(evt);
             }
         });
 
@@ -407,66 +409,59 @@ public class AdminEditCars extends javax.swing.JFrame {
             topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topBarLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(jLabel17)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(editCarNav)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel18)
+                .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(generateReportNav)
+                .addComponent(editCarNav)
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(manageCusNav)
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(settingsBtnNav)
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(manageBookingNav)
-                .addGap(147, 147, 147)
+                .addGap(33, 33, 33)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(3, 3, 3)
+                .addComponent(manageCusNav)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(generateReportNav)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
                 .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(exitIcon)
-                .addGap(38, 38, 38))
+                .addGap(36, 36, 36))
         );
         topBarLayout.setVerticalGroup(
             topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topBarLayout.createSequentialGroup()
-                .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator4, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, topBarLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(topBarLayout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(editCarNav)
-                                    .addComponent(generateReportNav)))))
+            .addGroup(topBarLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(exitIcon)
+                    .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel18)
+                        .addComponent(date)
+                        .addComponent(editCarNav)
+                        .addComponent(generateReportNav)))
+                .addContainerGap(10, Short.MAX_VALUE))
+            .addGroup(topBarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jSeparator1)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, topBarLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(exitIcon)
-                            .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(date)
-                                .addComponent(manageBookingNav)))
-                        .addGap(0, 4, Short.MAX_VALUE)))
+                    .addComponent(jSeparator2)
+                    .addComponent(jSeparator3)
+                    .addComponent(jSeparator4)
+                    .addGroup(topBarLayout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(manageBookingNav)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topBarLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topBarLayout.createSequentialGroup()
-                        .addComponent(manageCusNav)
-                        .addGap(15, 15, 15))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topBarLayout.createSequentialGroup()
-                        .addComponent(settingsBtnNav)
-                        .addGap(14, 14, 14))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(manageCusNav)
+                .addGap(15, 15, 15))
         );
 
         getContentPane().add(topBar);
@@ -573,13 +568,6 @@ public class AdminEditCars extends javax.swing.JFrame {
         amc.setVisible(true);
     }//GEN-LAST:event_manageCusNavMouseClicked
 
-    private void settingsBtnNavMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingsBtnNavMouseClicked
-        // TODO add your handling code here:
-        this.setVisible(false);
-        AdminSettings as = new AdminSettings();
-        as.setVisible(true);
-    }//GEN-LAST:event_settingsBtnNavMouseClicked
-
     private void dateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dateMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_dateMouseClicked
@@ -597,9 +585,8 @@ public class AdminEditCars extends javax.swing.JFrame {
             AdminEditCars aec = new AdminEditCars();
             aec.setVisible(true);
         } catch (IOException ex) {
-            Logger.getLogger(BookingReport.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AdminSettings.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }//GEN-LAST:event_editCarNavMouseClicked
 
     private void manageBookingNavMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageBookingNavMouseClicked
@@ -615,6 +602,13 @@ public class AdminEditCars extends javax.swing.JFrame {
         AdminGenerateReport agr = new AdminGenerateReport();
         agr.setVisible(true);
     }//GEN-LAST:event_generateReportNavMouseClicked
+
+    private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        AdminSettings as = new AdminSettings();
+        as.setVisible(true);
+    }//GEN-LAST:event_jLabel18MouseClicked
 
     /**
      * @param args the command line arguments
@@ -656,16 +650,14 @@ public class AdminEditCars extends javax.swing.JFrame {
         });
     }
     
-    public static boolean checkFields() throws IOException {
+    public boolean checkFields() throws IOException {
         
         boolean flag = true;
+        
+        String action = actionButton.getText();
 
-        if (carChosen.getCarPlate().equals("")) {
-            JOptionPane.showMessageDialog(null, "Please Select or enter a car plate", "Error!", JOptionPane.ERROR_MESSAGE);
-            flag = false;
-        } else if (carChosen.getCarPlate().equals("") || carChosen.getBrand().equals("") || carChosen.getModel().equals("") || carChosen.getType().equals("") || carChosen.getColor().equals("") || carChosen.getSpeed().equals("") || carChosen.getPrice().equals("")) {
-            // Check for null
-            JOptionPane.showMessageDialog(null, "Please fill in all fields!", "Error!", JOptionPane.ERROR_MESSAGE);
+        if (carChosen == null && action.equals("Modify")) {
+            JOptionPane.showMessageDialog(null, "Please Select or enter a car plate to modify.", "Error!", JOptionPane.ERROR_MESSAGE);
             flag = false;
         }
         
@@ -689,7 +681,7 @@ public class AdminEditCars extends javax.swing.JFrame {
         } else {
             try {
                 paxInt = Integer.parseInt(pax);
-                
+                               
                 carChosen.setBrand(brand);
                 carChosen.setModel(model);
                 carChosen.setType(type);
@@ -731,21 +723,17 @@ public class AdminEditCars extends javax.swing.JFrame {
         } else {
             try {
                 paxInt = Integer.parseInt(pax);
+                int speedInt = Integer.parseInt(speed);
+                int priceInt = Integer.parseInt(price);
 
                 existingCar = DataIO.chosenCar(carPlate);
                 
                 if (existingCar == null) {
-                    carChosen.setCarPlate(carPlate);
-                    carChosen.setBrand(brand);
-                    carChosen.setModel(model);
-                    carChosen.setType(type);
-                    carChosen.setColor(color);
-                    carChosen.setSpeed(speed + "km/h");
-                    carChosen.setSeat(paxInt);
-                    carChosen.setPrice("RM" + price);
-                    carChosen.setStatus(status);
+                    String newSpeed = speed + "km/h";
+                    String newPrice = "RM" + price;
 
-                    DataIO.cars.add(carChosen);
+                    Car newCar = new Car(carPlate, brand, model, type, color, newSpeed, paxInt, newPrice, status);
+                    DataIO.cars.add(newCar);
                     DataIO.WriteToText();
                     clearFields();
                     showCars();
@@ -756,7 +744,7 @@ public class AdminEditCars extends javax.swing.JFrame {
                 }
  
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Invalid seat!", "Error!", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Invalid fields entered!", "Error!", JOptionPane.ERROR_MESSAGE);
             }
         }
     }
@@ -811,7 +799,6 @@ public class AdminEditCars extends javax.swing.JFrame {
     private javax.swing.JTextField SpeedInput;
     private javax.swing.JButton actionButton;
     private javax.swing.JLabel actionLabel;
-    private javax.swing.JLabel actionLabel1;
     private javax.swing.JTextField carPlateInput;
     private javax.swing.JTable carsTable;
     private javax.swing.JLabel date;
@@ -826,8 +813,9 @@ public class AdminEditCars extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
@@ -839,7 +827,7 @@ public class AdminEditCars extends javax.swing.JFrame {
     private javax.swing.JLabel manageBookingNav;
     private javax.swing.JLabel manageCusNav;
     private javax.swing.JTextField searchField;
-    private javax.swing.JLabel settingsBtnNav;
+    private javax.swing.JLabel someLabel;
     private javax.swing.JComboBox<String> statusComboBox;
     private javax.swing.JButton switchActionButton;
     private javax.swing.JPanel topBar;

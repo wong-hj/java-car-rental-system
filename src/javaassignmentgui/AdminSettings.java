@@ -325,6 +325,13 @@ public class AdminSettings extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Settings");
+        jLabel11.setToolTipText("");
+        jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel11MouseClicked(evt);
+            }
+        });
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jSeparator1.setToolTipText("");
@@ -402,12 +409,12 @@ public class AdminSettings extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(manageCusNav)
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(manageBookingNav)
-                .addGap(18, 18, 18)
+                .addGap(33, 33, 33)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(3, 3, 3)
+                .addComponent(manageCusNav)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(generateReportNav)
@@ -424,10 +431,10 @@ public class AdminSettings extends javax.swing.JFrame {
                 .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(exitIcon)
                     .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(manageCusNav)
                         .addComponent(jLabel11)
                         .addComponent(date)
-                        .addComponent(editCarNav)))
+                        .addComponent(editCarNav)
+                        .addComponent(generateReportNav)))
                 .addContainerGap(10, Short.MAX_VALUE))
             .addGroup(topBarLayout.createSequentialGroup()
                 .addContainerGap()
@@ -439,10 +446,12 @@ public class AdminSettings extends javax.swing.JFrame {
                     .addComponent(jSeparator4)
                     .addGroup(topBarLayout.createSequentialGroup()
                         .addGap(12, 12, 12)
-                        .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(manageBookingNav)
-                            .addComponent(generateReportNav))))
+                        .addComponent(manageBookingNav)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topBarLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(manageCusNav)
+                .addGap(15, 15, 15))
         );
 
         getContentPane().add(topBar);
@@ -658,6 +667,13 @@ public class AdminSettings extends javax.swing.JFrame {
         AdminGenerateReport agr = new AdminGenerateReport();
         agr.setVisible(true);
     }//GEN-LAST:event_generateReportNavMouseClicked
+
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        AdminSettings as = new AdminSettings();
+        as.setVisible(true);
+    }//GEN-LAST:event_jLabel11MouseClicked
 
     /**
      * @param args the command line arguments
