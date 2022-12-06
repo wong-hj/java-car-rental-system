@@ -35,8 +35,7 @@ public class MainMenu extends javax.swing.JFrame {
         rentBtn = new javax.swing.JButton();
         reportBtn = new javax.swing.JButton();
         settingBtn = new javax.swing.JButton();
-        exitBtn = new javax.swing.JButton();
-        loginBtn = new javax.swing.JButton();
+        logoutBtn = new javax.swing.JButton();
         payBtn = new javax.swing.JButton();
         backgroundImg = new javax.swing.JLabel();
 
@@ -111,30 +110,18 @@ public class MainMenu extends javax.swing.JFrame {
         getContentPane().add(settingBtn);
         settingBtn.setBounds(60, 560, 360, 60);
 
-        exitBtn.setBackground(new java.awt.Color(153, 0, 0));
-        exitBtn.setFont(new java.awt.Font("Perpetua", 0, 36)); // NOI18N
-        exitBtn.setForeground(new java.awt.Color(255, 255, 255));
-        exitBtn.setText("Exit");
-        exitBtn.setBorder(null);
-        exitBtn.addActionListener(new java.awt.event.ActionListener() {
+        logoutBtn.setBackground(new java.awt.Color(153, 0, 0));
+        logoutBtn.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        logoutBtn.setForeground(new java.awt.Color(255, 255, 255));
+        logoutBtn.setText("Logout");
+        logoutBtn.setBorder(null);
+        logoutBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitBtnActionPerformed(evt);
+                logoutBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(exitBtn);
-        exitBtn.setBounds(1110, 570, 120, 40);
-
-        loginBtn.setBackground(new java.awt.Color(153, 153, 255));
-        loginBtn.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
-        loginBtn.setText("Back to Login");
-        loginBtn.setBorder(null);
-        loginBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginBtnActionPerformed(evt);
-            }
-        });
-        getContentPane().add(loginBtn);
-        loginBtn.setBounds(870, 570, 220, 40);
+        getContentPane().add(logoutBtn);
+        logoutBtn.setBounds(1060, 580, 180, 40);
 
         payBtn.setBackground(new java.awt.Color(102, 204, 255));
         payBtn.setFont(new java.awt.Font("Gill Sans MT", 0, 24)); // NOI18N
@@ -172,9 +159,11 @@ public class MainMenu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_settingBtnActionPerformed
 
-    private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBtnActionPerformed
+    private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
+        this.setVisible(false);
+        
         DataIO.exitProgram();
-    }//GEN-LAST:event_exitBtnActionPerformed
+    }//GEN-LAST:event_logoutBtnActionPerformed
 
     private void rentBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentBtnActionPerformed
         this.setVisible(false);
@@ -205,15 +194,6 @@ public class MainMenu extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_payBtnActionPerformed
-
-    private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
-        Renty.loginUser = null;
-        
-        this.setVisible(false);
-        
-        Login login = new Login();
-        login.setVisible(true);
-    }//GEN-LAST:event_loginBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -253,10 +233,9 @@ public class MainMenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel backgroundImg;
     private javax.swing.JLabel date;
-    private javax.swing.JButton exitBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JButton loginBtn;
+    private javax.swing.JButton logoutBtn;
     private javax.swing.JButton payBtn;
     private javax.swing.JButton rentBtn;
     private javax.swing.JButton reportBtn;

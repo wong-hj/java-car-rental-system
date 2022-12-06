@@ -96,6 +96,7 @@ public class Login extends javax.swing.JFrame implements Auth {
         adminLoginBtn.setForeground(new java.awt.Color(255, 255, 255));
         adminLoginBtn.setText("Admin Login");
         adminLoginBtn.setBorder(null);
+        adminLoginBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         adminLoginBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 adminLoginBtnActionPerformed(evt);
@@ -242,7 +243,7 @@ public class Login extends javax.swing.JFrame implements Auth {
         Customer found = DataIO.checkUsername(username);
         
         if(username.equals("") && password.equals("")){
-            JOptionPane.showMessageDialog(null, "Please Enter Username and Password.");
+            JOptionPane.showMessageDialog(null, "Please Enter Username and Password.", "Error!", JOptionPane.ERROR_MESSAGE);
               
         } else if(found!= null && password.equals(found.getPassword())){
             
@@ -260,7 +261,7 @@ public class Login extends javax.swing.JFrame implements Auth {
         } else {
             
             Log.writeLog(username, "customer", "login", "fail");
-            JOptionPane.showMessageDialog(null, "Wrong Username or Password, Please Try Again.");
+            JOptionPane.showMessageDialog(null, "Wrong Username or Password, Please Try Again.", "Error!", JOptionPane.ERROR_MESSAGE);
             
         }
         

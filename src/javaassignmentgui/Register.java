@@ -68,52 +68,22 @@ public class Register extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Username:");
 
-        usernameField.setBackground(new java.awt.Color(204, 204, 204));
         usernameField.setFont(new java.awt.Font("Perpetua", 0, 20)); // NOI18N
         usernameField.setForeground(new java.awt.Color(51, 51, 51));
-        usernameField.setText("Enter Username");
-        usernameField.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                usernameFieldFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                usernameFieldFocusLost(evt);
-            }
-        });
 
         jLabel3.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Password:");
 
-        passwordField.setBackground(new java.awt.Color(204, 204, 204));
         passwordField.setFont(new java.awt.Font("Perpetua", 0, 20)); // NOI18N
         passwordField.setForeground(new java.awt.Color(51, 51, 51));
-        passwordField.setText("Enter Password");
-        passwordField.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                passwordFieldFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                passwordFieldFocusLost(evt);
-            }
-        });
 
         jLabel4.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Confirm Password:");
 
-        confirmPassField.setBackground(new java.awt.Color(204, 204, 204));
         confirmPassField.setFont(new java.awt.Font("Perpetua", 0, 20)); // NOI18N
         confirmPassField.setForeground(new java.awt.Color(51, 51, 51));
-        confirmPassField.setText("Confirm Password");
-        confirmPassField.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                confirmPassFieldFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                confirmPassFieldFocusLost(evt);
-            }
-        });
 
         jLabel5.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -127,41 +97,21 @@ public class Register extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Email:");
 
-        phoneField.setBackground(new java.awt.Color(204, 204, 204));
         phoneField.setFont(new java.awt.Font("Perpetua", 0, 20)); // NOI18N
         phoneField.setForeground(new java.awt.Color(51, 51, 51));
-        phoneField.setText("Enter HP Number");
-        phoneField.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                phoneFieldFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                phoneFieldFocusLost(evt);
-            }
-        });
 
         jLabel8.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Phone Number:");
 
-        emailField.setBackground(new java.awt.Color(204, 204, 204));
         emailField.setFont(new java.awt.Font("Perpetua", 0, 20)); // NOI18N
         emailField.setForeground(new java.awt.Color(51, 51, 51));
-        emailField.setText("Enter Email");
-        emailField.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                emailFieldFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                emailFieldFocusLost(evt);
-            }
-        });
 
         jLabel9.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Address:");
 
-        addressField.setBackground(new java.awt.Color(204, 204, 204));
+        addressField.setBackground(new java.awt.Color(255, 255, 255));
         addressField.setColumns(20);
         addressField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         addressField.setForeground(new java.awt.Color(51, 51, 51));
@@ -356,107 +306,6 @@ public class Register extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_backIconMouseClicked
 
-    private void usernameFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usernameFieldFocusGained
-        // TODO add your handling code here:
-        var text = usernameField.getText();
-        
-        if (text.equals("Enter Username")) {
-            usernameField.setText("");
-        } else if (text.equals("")) {
-            usernameField.setText("Enter Username");
-        }
-    }//GEN-LAST:event_usernameFieldFocusGained
-
-    private void passwordFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFieldFocusGained
-        // TODO add your handling code here:
-        var text = passwordField.getText();
-        
-        if (text.equals("Enter Password")) {
-            passwordField.setText("");
-        } else if (text.equals("")) {
-            passwordField.setText("Enter Password");
-        }
-    }//GEN-LAST:event_passwordFieldFocusGained
-
-    private void confirmPassFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_confirmPassFieldFocusGained
-        // TODO add your handling code here:
-        var text = confirmPassField.getText();
-        
-        if (text.equals("Confirm Password")) {
-            confirmPassField.setText("");
-        } else if (text.equals("")) {
-            confirmPassField.setText("Confirm Password");
-        }
-    }//GEN-LAST:event_confirmPassFieldFocusGained
-
-    private void phoneFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_phoneFieldFocusGained
-        // TODO add your handling code here:
-        var text = phoneField.getText();
-        
-        if (text.equals("Enter HP Number")) {
-            phoneField.setText("");
-        } else if (text.equals("")) {
-            phoneField.setText("Enter HP Number");
-        }
-    }//GEN-LAST:event_phoneFieldFocusGained
-
-    private void emailFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emailFieldFocusGained
-        // TODO add your handling code here:
-        var text = emailField.getText();
-        
-        if (text.equals("Enter Email")) {
-            emailField.setText("");
-        } else if (text.equals("")) {
-            emailField.setText("Enter Email");
-        }
-        
-    }//GEN-LAST:event_emailFieldFocusGained
-
-    private void usernameFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usernameFieldFocusLost
-        // TODO add your handling code here:
-        var text = usernameField.getText();
-        
-        if (text.equals("")) {
-            usernameField.setText("Enter Username");
-        }
-    }//GEN-LAST:event_usernameFieldFocusLost
-
-    private void passwordFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFieldFocusLost
-        // TODO add your handling code here:
-        var text = passwordField.getText();
-        
-        if (text.equals("")) {
-            passwordField.setText("Enter Password");
-        }
-    }//GEN-LAST:event_passwordFieldFocusLost
-
-    private void confirmPassFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_confirmPassFieldFocusLost
-        // TODO add your handling code here:
-        var text = confirmPassField.getText();
-        
-        if (text.equals("")) {
-            confirmPassField.setText("Confirm Password");
-        }
-    }//GEN-LAST:event_confirmPassFieldFocusLost
-
-    private void phoneFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_phoneFieldFocusLost
-        // TODO add your handling code here:
-        var text = phoneField.getText();
-        
-        if (text.equals("")) {
-            phoneField.setText("Enter HP Number");
-        }
-    }//GEN-LAST:event_phoneFieldFocusLost
-
-    private void emailFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emailFieldFocusLost
-        // TODO add your handling code here:
-        var text = emailField.getText();
-        
-        if (text.equals("")) {
-            emailField.setText("Enter Email");
-        }
-    }//GEN-LAST:event_emailFieldFocusLost
-
     private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
         try {                                            
             // TODO add your handling code here:
@@ -467,48 +316,54 @@ public class Register extends javax.swing.JFrame {
             String password = passwordField.getText();
             String confirmPass = confirmPassField.getText();
             String gender = genderComboBox.getSelectedItem().toString();
-            
-            Date age = ageField.getDate();
-            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-            Date ageChosen = sdf.parse(sdf.format(age));
-            Date today = sdf.parse(sdf.format(new Date()));
-            
-            // calculation of age
-            long millisecondsDifference = today.getTime() - ageChosen.getTime();
-            long age_diff_years = (millisecondsDifference /(1000l * 60 * 60 * 24 * 365));
-            
             String phoneNum = phoneField.getText();
             String email = emailField.getText();
             String address = addressField.getText();
             
             int ageInt = 0;
             
-            try {
+            if(ageField.getDate() != null) {
+                Date age = ageField.getDate();
+                SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+                Date ageChosen = sdf.parse(sdf.format(age));
+                Date today = sdf.parse(sdf.format(new Date()));
+
+                // calculation of age
+                long millisecondsDifference = today.getTime() - ageChosen.getTime();
+                long age_diff_years = (millisecondsDifference /(1000l * 60 * 60 * 24 * 365));
                 ageInt = (int)age_diff_years;
-                
-                if (!password.equals(confirmPass)) {
-                    // check for password equals
-                    JOptionPane.showMessageDialog(null, "Password do not match.", "Error!", JOptionPane.ERROR_MESSAGE);
-                } else if (username.equals("") || password.equals("") || gender.equals("") || age.equals("") || phoneNum.equals("") || email.equals("") || address.equals("")) {
+            }
+            
+            try {
+
+                if (username.equals("") || password.equals("") || gender.equals("") || ageField.getDate() == null || phoneNum.equals("") || email.equals("") || address.equals("")) {
                     // check for empty fields
                     JOptionPane.showMessageDialog(null, "Please fill in all fields", "Error!", JOptionPane.ERROR_MESSAGE);
+                } else if (!password.equals(confirmPass)) {
+                    // check for password equals
+                    JOptionPane.showMessageDialog(null, "Password do not match.", "Error!", JOptionPane.ERROR_MESSAGE);
+  
                 } else if ((ageInt <= 0) || (ageInt >= 100)) {
                     //  check age
-                    JOptionPane.showMessageDialog(null, "Age error.", "Error!", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Invalid Age.", "Error!", JOptionPane.ERROR_MESSAGE);
                 } else if ((0 <= ageInt) && (ageInt <= 17)) {
                     // check legal age to drive
-                    JOptionPane.showMessageDialog(null, "I don't think this is a good age to drive.", "Error!", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Not a valid age to drive.", "Error!", JOptionPane.ERROR_MESSAGE);
                 } else {
                     boolean validPhoneNum = false;
                     // Check for phone number
                     
-                    if ((phoneNum.length() > 11) || !phoneNum.startsWith("01") ) {
-                        JOptionPane.showMessageDialog(null, "Invalid Phone Number!", "Error!", JOptionPane.ERROR_MESSAGE);
+                    if ((phoneNum.length() >= 9 && phoneNum.length() <= 10) && phoneNum.startsWith("01")) {
+                        try {
+                            Integer.parseInt(phoneNum);
+                            validPhoneNum = true;
+                        } catch (NumberFormatException e) {
+                            JOptionPane.showMessageDialog(null, "Invalid Phone Number!", "Error!", JOptionPane.ERROR_MESSAGE);
+                        }
                     } else {
-                        validPhoneNum = true;
+                        JOptionPane.showMessageDialog(null, "IFInvalid Phone Number!", "Error!", JOptionPane.ERROR_MESSAGE);
                     }
-                    
-                    
+
                     // Check Email validity (Simple)
                     if (validPhoneNum) {
                         if (email.contains("@") || email.contains(".")) {
