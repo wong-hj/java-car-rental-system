@@ -203,7 +203,7 @@ public class AdminManageIndiBooking extends javax.swing.JFrame {
 
         pickupAddInput.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         jPanel1.add(pickupAddInput);
-        pickupAddInput.setBounds(620, 140, 610, 40);
+        pickupAddInput.setBounds(620, 140, 590, 40);
 
         returnAddInput.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         returnAddInput.addActionListener(new java.awt.event.ActionListener() {
@@ -212,14 +212,14 @@ public class AdminManageIndiBooking extends javax.swing.JFrame {
             }
         });
         jPanel1.add(returnAddInput);
-        returnAddInput.setBounds(620, 190, 610, 40);
+        returnAddInput.setBounds(620, 190, 590, 40);
 
         reviewInput.setColumns(20);
         reviewInput.setRows(5);
         jScrollPane1.setViewportView(reviewInput);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(930, 310, 300, 110);
+        jScrollPane1.setBounds(910, 310, 300, 110);
 
         deleteBtn.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         deleteBtn.setText("Delete");
@@ -534,9 +534,9 @@ public class AdminManageIndiBooking extends javax.swing.JFrame {
     private void modifyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyBtnActionPerformed
         try {
             // TODO add your handling code here:
-            String updatedPickupAdd = pickupAddInput.getText();
-            String updatedReturnAdd = returnAddInput.getText();
-            String updatedReview = reviewInput.getText();
+            String updatedPickupAdd = pickupAddInput.getText().replace("\n", " ");
+            String updatedReturnAdd = returnAddInput.getText().replace("\n", " ");
+            String updatedReview = reviewInput.getText().replace("\n", " ");
             
             if (updatedPickupAdd.equals("") || updatedReturnAdd.equals("") || updatedReview.equals("")) {
                 JOptionPane.showMessageDialog(null, "Please fill in all fields!", "Error!", JOptionPane.ERROR_MESSAGE);

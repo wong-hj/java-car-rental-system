@@ -312,12 +312,12 @@ public class Register extends javax.swing.JFrame {
             
             boolean DetailsPerfect = false;
             
-            String username = usernameField.getText();
-            String password = passwordField.getText();
-            String confirmPass = confirmPassField.getText();
+            String username = usernameField.getText().replace("\n", " ");
+            String password = passwordField.getText().replace("\n", " ");
+            String confirmPass = confirmPassField.getText().replace("\n", " ");
             String gender = genderComboBox.getSelectedItem().toString();
-            String phoneNum = phoneField.getText();
-            String email = emailField.getText();
+            String phoneNum = phoneField.getText().replace("\n", " ");
+            String email = emailField.getText().replace("\n", " ");
             String address = addressField.getText().replace("\n", " ");
             
             int ageInt = 0;
@@ -353,7 +353,7 @@ public class Register extends javax.swing.JFrame {
                     boolean validPhoneNum = false;
                     // Check for phone number
                     
-                    if ((phoneNum.length() >= 9 && phoneNum.length() <= 10) && phoneNum.startsWith("01")) {
+                    if ((phoneNum.length() >= 10 && phoneNum.length() <= 11) && phoneNum.startsWith("01")) {
                         try {
                             Integer.parseInt(phoneNum);
                             validPhoneNum = true;

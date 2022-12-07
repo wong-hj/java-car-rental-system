@@ -468,9 +468,9 @@ public class Setting extends javax.swing.JFrame {
         
         String newPass = new String(password);
         String confirmPass = new String(conPass);
-        String addressVal = address.getText();
-        String phoneNumVal = phoneNum.getText();
-        String emailVal = email.getText();
+        String addressVal = address.getText().replace("\n", " ");
+        String phoneNumVal = phoneNum.getText().replace("\n", " ");
+        String emailVal = email.getText().replace("\n", " ");
         
         int flag = 0;
         

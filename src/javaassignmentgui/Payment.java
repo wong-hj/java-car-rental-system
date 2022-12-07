@@ -543,8 +543,8 @@ public class Payment extends javax.swing.JFrame {
             
             if(!Error) {
                 
-                BookingPay.bookingChosen.setPickupAdd(pickupTxt.getText());
-                BookingPay.bookingChosen.setReturnAdd(returnTxt.getText());
+                BookingPay.bookingChosen.setPickupAdd(pickupTxt.getText().replace("\n", " "));
+                BookingPay.bookingChosen.setReturnAdd(returnTxt.getText().replace("\n", " "));
                 BookingPay.bookingChosen.setPaymentMethod(payMethod);
                 BookingPay.bookingChosen.setPaymentDetails(paymentInfo);
                 BookingPay.bookingChosen.setStatus("Paid");

@@ -664,12 +664,12 @@ public class AdminEditCars extends javax.swing.JFrame {
     public void modifyCar() {
         String brand = BrandInput.getText().replace("\n", " ");
         String model = ModelInput.getText().replace("\n", " ");
-        String type = typeComboBox.getSelectedItem().toString().replace("\n", " ");
+        String type = typeComboBox.getSelectedItem().toString();
         String color = ColorInput.getText().replace("\n", " ");
         String speed = SpeedInput.getText().replace("\n", " ");
         String pax = PaxInput.getText().replace("\n", " ");
         String price = PriceInput.getText().replace("\n", " ");
-        String status = statusComboBox.getSelectedItem().toString().replace("\n", " ");
+        String status = statusComboBox.getSelectedItem().toString();
         
         int paxInt = 0;
         

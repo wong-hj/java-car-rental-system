@@ -525,8 +525,8 @@ public class AdminSettings extends javax.swing.JFrame {
 
     private void modifyAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyAdminBtnActionPerformed
         // TODO add your handling code here:
-        String username = modifyUsernameField.getText();
-        String password = modifyPassField.getText();
+        String username = modifyUsernameField.getText().replace("\n", " ");
+        String password = modifyPassField.getText().replace("\n", " ");
         
         Admin adminToModify = DataIO.checkAdminUsername(adminChosen.getUsername());
         
