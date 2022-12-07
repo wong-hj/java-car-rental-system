@@ -249,14 +249,13 @@ public class DataIO {
             LocalDate checkoutDate = LocalDate.parse(BookedReturnDate, formatter);
             
             //validate user enter date with booked date if conflict then remove roomid from comboBox
-            if(book.getStatus().equals("Paid") || book.getStatus().equals("Approved")) {
-                
-                if(pickupDate.compareTo(checkoutDate) <= 0 && returnDate.compareTo(checkinDate) >= 0){
-                
-                    conflictCar.add(book.getCarPlate());
-                
-                }
+            
+            if(pickupDate.compareTo(checkoutDate) <= 0 && returnDate.compareTo(checkinDate) >= 0){
+
+                conflictCar.add(book.getCarPlate());
+
             }
+            
             
         }
         
@@ -301,7 +300,7 @@ public class DataIO {
         ArrayList<Booking> userBookings = new ArrayList<Booking>();
         for(Booking book : bookings){
             
-            if(username.equals(book.getName()) && (book.getStatus().equals("Pending") || book.getStatus().equals("Approved"))){
+            if(username.equals(book.getName()) && !book.getStatus().equals("Paid")){
                 userBookings.add(book);  
             }
         }
@@ -350,27 +349,41 @@ public class DataIO {
     
     public static void updateBooking() throws FileNotFoundException {
         
-        for(int i = 0; i < bookings.size(); i++){
-            
-                if(!bookings.get(i).getStatus().equals("Paid")){
-                    try {
-                        Date todate = new Date();
-                        String sdate = bookings.get(i).getPickupDate();
-                        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-                        Date pdate = sdf.parse(sdate);
-                        
-                        if(pdate.compareTo(todate) < 0) {
-                            bookings.remove(i);
-                            i--;
-                        }
-                    } catch (ParseException ex) {
-                        Logger.getLogger(DataIO.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
+        Date todate = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        try {
+            for(int i = 0; i < bookings.size(); i++){
 
-        }
+                    if(bookings.get(i).getStatus().equals("Approved")){
+
+                        String sdate = bookings.get(i).getPickupDate();
+                        Date pdate = sdf.parse(sdate);
+
+                        if(pdate.compareTo(todate) < 0) {
+                            bookings.get(i).setStatus("Cancelled");
+                        }
+
+                    } else if (bookings.get(i).getStatus().equals("Pending")) {
+                        
+                        Calendar c = Calendar.getInstance();
+                        String sdate = bookings.get(i).getBookingDate();
+                        Date pdate = sdf.parse(sdate);
+                        c.setTime(pdate);
+                        c.add(Calendar.DAY_OF_MONTH, 1);
+                        
+                        if(pdate.compareTo(todate) <= 0) {
+                                bookings.remove(i);
+                                i--;
+                        }
+                        
+                    }
+            }
+        }catch (ParseException ex) {
+                        Logger.getLogger(DataIO.class.getName()).log(Level.SEVERE, null, ex);
+        }          
 
         WriteToText();
+        
     }
     
     public static void logout() {

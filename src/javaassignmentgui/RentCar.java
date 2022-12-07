@@ -327,8 +327,11 @@ public class RentCar extends javax.swing.JFrame {
                        String line = tableLine.toString().trim();
                        //split result with "|"
                        String[] dataRow = line.split("\\|");
-                       //add result in table
-                       model.addRow(dataRow);
+                       if(dataRow[8].equals("Available")) {
+                           //add result in table
+                           model.addRow(dataRow);
+                       }
+                       
                     }
                     checkDate = true;
                     JOptionPane.showMessageDialog(null, "Result Filtered.");

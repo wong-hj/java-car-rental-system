@@ -101,7 +101,6 @@ public class CarDetails extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1300, 700));
-        setPreferredSize(new java.awt.Dimension(1300, 700));
         getContentPane().setLayout(null);
 
         topBar.setBackground(new java.awt.Color(0, 0, 0));
@@ -219,47 +218,77 @@ public class CarDetails extends javax.swing.JFrame {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(100, 90, 210, 210);
 
+        jPanel2.setLayout(null);
+
         carTxt.setFont(new java.awt.Font("Perpetua", 0, 40)); // NOI18N
         carTxt.setText("Lamborghini Urus");
+        jPanel2.add(carTxt);
+        carTxt.setBounds(23, 16, 673, 39);
 
         jLabel4.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         jLabel4.setText("Type:");
+        jPanel2.add(jLabel4);
+        jLabel4.setBounds(23, 90, 68, 28);
 
         jLabel5.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         jLabel5.setText("Color:");
+        jPanel2.add(jLabel5);
+        jLabel5.setBounds(23, 130, 58, 28);
 
         jLabel6.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         jLabel6.setText("Speed:");
+        jPanel2.add(jLabel6);
+        jLabel6.setBounds(23, 170, 59, 28);
 
         jLabel7.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         jLabel7.setText("Seater:");
+        jPanel2.add(jLabel7);
+        jLabel7.setBounds(433, 87, 61, 28);
 
         jLabel8.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         jLabel8.setText("Car Plate:");
+        jPanel2.add(jLabel8);
+        jLabel8.setBounds(431, 127, 88, 28);
 
         jLabel9.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         jLabel9.setText("Status:");
+        jPanel2.add(jLabel9);
+        jLabel9.setBounds(431, 170, 59, 28);
 
         typeTxt.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         typeTxt.setText("SUV");
+        jPanel2.add(typeTxt);
+        typeTxt.setBounds(111, 90, 147, 28);
 
         colorTxt.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         colorTxt.setText("Purple");
+        jPanel2.add(colorTxt);
+        colorTxt.setBounds(111, 130, 147, 28);
 
         speedTxt.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         speedTxt.setText("100km/h");
+        jPanel2.add(speedTxt);
+        speedTxt.setBounds(111, 170, 147, 28);
 
         seaterTxt.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         seaterTxt.setText("5");
+        jPanel2.add(seaterTxt);
+        seaterTxt.setBounds(552, 87, 89, 28);
 
         plateTxt.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         plateTxt.setText("JUN 9991");
+        jPanel2.add(plateTxt);
+        plateTxt.setBounds(552, 127, 117, 28);
 
         statusTxt.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         statusTxt.setText("Available");
+        jPanel2.add(statusTxt);
+        statusTxt.setBounds(552, 170, 117, 28);
 
         priceTxt.setFont(new java.awt.Font("Felix Titling", 0, 40)); // NOI18N
         priceTxt.setText("RM 100");
+        jPanel2.add(priceTxt);
+        priceTxt.setBounds(660, 10, 210, 48);
 
         bookCarBtn.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         bookCarBtn.setText("Book Car Now");
@@ -269,82 +298,8 @@ public class CarDetails extends javax.swing.JFrame {
                 bookCarBtnActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(carTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 673, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(priceTxt))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel5))
-                        .addGap(20, 20, 20)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(colorTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(typeTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(speedTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(2, 2, 2)
-                                .addComponent(jLabel7))
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel8))
-                        .addGap(33, 33, 33)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(seaterTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(plateTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
-                            .addComponent(statusTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(37, 37, 37)
-                        .addComponent(bookCarBtn)))
-                .addContainerGap(31, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(7, 7, 7)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(carTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(priceTxt))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(typeTxt))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(colorTxt))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(speedTxt))
-                        .addContainerGap(12, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(seaterTxt))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(plateTxt))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel9)
-                            .addComponent(statusTxt)
-                            .addComponent(bookCarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(9, 9, 9))))
-        );
+        jPanel2.add(bookCarBtn);
+        bookCarBtn.setBounds(706, 167, 158, 34);
 
         getContentPane().add(jPanel2);
         jPanel2.setBounds(330, 90, 880, 210);
@@ -406,16 +361,22 @@ public class CarDetails extends javax.swing.JFrame {
             String status = "Pending";
             String LatestBID = DataIO.checkLatestBooking();
             String BID = "B" + (Integer.parseInt(LatestBID.substring(1,LatestBID.length()))+1);
+            if (JOptionPane.showConfirmDialog(null, "The booking will be " + total + " for " + days + " day/s\nDo you want to make this booking?", "人手不足，敬請見諒。",
+            JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                Booking book = new Booking(BID, Renty.loginUser.getUsername(), Renty.loginUser.getPhoneNum(), Renty.loginUser.getEmail(), carTxt.getText(), plateTxt.getText(), "-", "-", Renty.toDate(), RentCar.pickup_Date, RentCar.return_Date, Integer.parseInt(days), total, "-", "-", review, status);
+                DataIO.bookings.add(book);
+                DataIO.WriteToText();
+
+                JOptionPane.showMessageDialog(null, "Booking placed, please wait for admin approval to proceed for payment.\nIf the booking is not approved within 1 day, do place same booking again.\nSorry for inconvenience.", "test");
+
+                this.setVisible(false);
+                MainMenu mm = new MainMenu();
+                mm.setVisible(true);
+            } else {
+                return;
+            }
             
-            Booking book = new Booking(BID, Renty.loginUser.getUsername(), Renty.loginUser.getPhoneNum(), Renty.loginUser.getEmail(), carTxt.getText(), plateTxt.getText(), "-", "-", Renty.toDate(), RentCar.pickup_Date, RentCar.return_Date, Integer.parseInt(days), total, "-", "-", review, status);
-            DataIO.bookings.add(book);
-            DataIO.WriteToText();
             
-            JOptionPane.showMessageDialog(null, "Booking placed, please wait for admin approval to proceed for payment.");
-            
-            this.setVisible(false);
-            MainMenu mm = new MainMenu();
-            mm.setVisible(true);
             
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Payment.class.getName()).log(Level.SEVERE, null, ex);
@@ -486,9 +447,10 @@ public class CarDetails extends javax.swing.JFrame {
     
     private static String calcTotal(String day, String price) {
         int dayInt = Integer.parseInt(day);
-        int priceInt = Integer.parseInt(price.replaceAll("[^0-9]", ""));
+        String priceOnly = price.substring(2);
+        double priceDob = Double.valueOf(priceOnly);
         
-        return String.valueOf(dayInt * priceInt);
+        return String.format("%.2f", dayInt * priceDob);
     }
     /**
      * @param args the command line arguments

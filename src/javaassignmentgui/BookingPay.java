@@ -50,7 +50,6 @@ public class BookingPay extends javax.swing.JFrame {
         exitIcon = new javax.swing.JLabel();
         checkDate = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         bookingTable = new javax.swing.JTable();
@@ -152,17 +151,11 @@ public class BookingPay extends javax.swing.JFrame {
         getContentPane().add(jLabel2);
         jLabel2.setBounds(40, 80, 250, 40);
 
-        jLabel4.setFont(new java.awt.Font("Perpetua", 0, 20)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Bookings that are not paid within 5 days from booking date will be removed.");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(40, 120, 580, 30);
-
         jLabel6.setFont(new java.awt.Font("Perpetua", 0, 20)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("**Double Click to Select an approved Booking to proceed for payment.");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(40, 150, 580, 30);
+        jLabel6.setBounds(40, 130, 580, 30);
 
         bookingTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -180,7 +173,7 @@ public class BookingPay extends javax.swing.JFrame {
         jScrollPane1.setViewportView(bookingTable);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(40, 180, 1220, 440);
+        jScrollPane1.setBounds(40, 160, 1220, 460);
 
         searchField.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         searchField.setForeground(new java.awt.Color(153, 153, 153));
@@ -360,7 +353,6 @@ public class BookingPay extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private com.toedter.calendar.JMonthChooser jMonthChooser1;
