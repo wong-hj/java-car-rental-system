@@ -11,6 +11,9 @@ public class AdminPanel extends javax.swing.JFrame {
         
         // set admin name
         username.setText(Renty.loginAdmin.getUsername());
+        
+        // set date
+        date.setText(Renty.toDate());
     }
 
     @SuppressWarnings("unchecked")
@@ -25,8 +28,8 @@ public class AdminPanel extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         username = new javax.swing.JLabel();
-        exitBtn = new javax.swing.JButton();
         loginBtn = new javax.swing.JButton();
+        date = new javax.swing.JLabel();
         AdminBgMain = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -122,21 +125,9 @@ public class AdminPanel extends javax.swing.JFrame {
         getContentPane().add(username);
         username.setBounds(240, 60, 320, 50);
 
-        exitBtn.setBackground(new java.awt.Color(153, 0, 0));
-        exitBtn.setFont(new java.awt.Font("Perpetua", 0, 36)); // NOI18N
-        exitBtn.setForeground(new java.awt.Color(255, 255, 255));
-        exitBtn.setText("Exit");
-        exitBtn.setBorder(null);
-        exitBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitBtnActionPerformed(evt);
-            }
-        });
-        getContentPane().add(exitBtn);
-        exitBtn.setBounds(1110, 570, 120, 40);
-
-        loginBtn.setBackground(new java.awt.Color(153, 153, 255));
+        loginBtn.setBackground(new java.awt.Color(204, 0, 51));
         loginBtn.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        loginBtn.setForeground(new java.awt.Color(255, 255, 255));
         loginBtn.setText("Back to Login");
         loginBtn.setBorder(null);
         loginBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -145,7 +136,18 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         });
         getContentPane().add(loginBtn);
-        loginBtn.setBounds(870, 570, 220, 40);
+        loginBtn.setBounds(1000, 570, 220, 40);
+
+        date.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        date.setForeground(new java.awt.Color(255, 255, 255));
+        date.setText("Date");
+        date.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dateMouseClicked(evt);
+            }
+        });
+        getContentPane().add(date);
+        date.setBounds(1060, 120, 170, 28);
 
         AdminBgMain.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/renty_logo.png"))); // NOI18N
         AdminBgMain.setText("jLabel1");
@@ -199,9 +201,9 @@ public class AdminPanel extends javax.swing.JFrame {
         login.setVisible(true);
     }//GEN-LAST:event_loginBtnActionPerformed
 
-    private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBtnActionPerformed
-        DataIO.exitProgram();
-    }//GEN-LAST:event_exitBtnActionPerformed
+    private void dateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dateMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dateMouseClicked
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -214,8 +216,8 @@ public class AdminPanel extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AdminBgMain;
     private javax.swing.JButton adminSettings;
+    private javax.swing.JLabel date;
     private javax.swing.JButton editCarBtn;
-    private javax.swing.JButton exitBtn;
     private javax.swing.JButton generateReportBtn;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;

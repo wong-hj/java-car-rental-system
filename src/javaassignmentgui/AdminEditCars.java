@@ -117,7 +117,7 @@ public class AdminEditCars extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Car Plate", "Brand", "Model", "Type", "Color", "Speed", "Pax", "Price", "Status"
+                "Car Plate", "Brand", "Model", "Type", "Color", "Speed", "Seats", "Price", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -195,7 +195,7 @@ public class AdminEditCars extends javax.swing.JFrame {
         jLabel13.setBounds(20, 260, 80, 30);
 
         jLabel14.setFont(new java.awt.Font("Perpetua", 0, 20)); // NOI18N
-        jLabel14.setText("Pax:");
+        jLabel14.setText("Seats:");
         jPanel2.add(jLabel14);
         jLabel14.setBounds(20, 300, 80, 30);
 
@@ -212,7 +212,7 @@ public class AdminEditCars extends javax.swing.JFrame {
             }
         });
         jPanel2.add(actionButton);
-        actionButton.setBounds(20, 440, 300, 36);
+        actionButton.setBounds(20, 440, 300, 30);
 
         BrandInput.setFont(new java.awt.Font("Perpetua", 0, 20)); // NOI18N
         BrandInput.setForeground(new java.awt.Color(51, 51, 51));
@@ -262,7 +262,6 @@ public class AdminEditCars extends javax.swing.JFrame {
         jPanel2.add(jLabel16);
         jLabel16.setBounds(20, 60, 80, 30);
 
-        carPlateInput.setBackground(new java.awt.Color(204, 204, 204));
         carPlateInput.setFont(new java.awt.Font("Perpetua", 0, 20)); // NOI18N
         carPlateInput.setForeground(new java.awt.Color(51, 51, 51));
         carPlateInput.setToolTipText("");
@@ -471,6 +470,12 @@ public class AdminEditCars extends javax.swing.JFrame {
 
     private void carsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carsTableMouseClicked
         // TODO add your handling code here:
+        switchActionButton.setText("Switch to Add Car");
+        actionLabel.setText("Modify Car");
+        actionButton.setText("Modify");
+        clearFields();
+        carPlateInput.setEnabled(false);
+            
         DefaultTableModel model = (DefaultTableModel)carsTable.getModel();
         
         int row = carsTable.getSelectedRow();
@@ -479,14 +484,21 @@ public class AdminEditCars extends javax.swing.JFrame {
         Car chosenCar = DataIO.chosenCar(car_plate);
         carChosen = chosenCar;
         
+        // removing km/h
+        int index = carChosen.getSpeed().indexOf("km/h");
+        String newCarSpeed = carChosen.getSpeed().substring(0, index);
+
+        // removing RM
+        String newCarPrice = carChosen.getPrice().substring(2);
+        
         carPlateInput.setText(carChosen.getCarPlate());
         BrandInput.setText(carChosen.getBrand());
         ModelInput.setText(carChosen.getModel());
         typeComboBox.setSelectedItem(carChosen.getType());
         ColorInput.setText(carChosen.getColor());
-        SpeedInput.setText(carChosen.getSpeed());
+        SpeedInput.setText(newCarSpeed);
         PaxInput.setText(String.valueOf(carChosen.getSeat()));
-        PriceInput.setText(carChosen.getPrice());
+        PriceInput.setText(newCarPrice);
         statusComboBox.setSelectedItem(carChosen.getStatus());
     }//GEN-LAST:event_carsTableMouseClicked
 
@@ -650,14 +662,14 @@ public class AdminEditCars extends javax.swing.JFrame {
     }
     
     public void modifyCar() {
-        String brand = BrandInput.getText();
-        String model = ModelInput.getText();
-        String type = typeComboBox.getSelectedItem().toString();
-        String color = ColorInput.getText();
-        String speed = SpeedInput.getText();
-        String pax = PaxInput.getText();
-        String price = PriceInput.getText();
-        String status = statusComboBox.getSelectedItem().toString();
+        String brand = BrandInput.getText().replace("\n", " ");
+        String model = ModelInput.getText().replace("\n", " ");
+        String type = typeComboBox.getSelectedItem().toString().replace("\n", " ");
+        String color = ColorInput.getText().replace("\n", " ");
+        String speed = SpeedInput.getText().replace("\n", " ");
+        String pax = PaxInput.getText().replace("\n", " ");
+        String price = PriceInput.getText().replace("\n", " ");
+        String status = statusComboBox.getSelectedItem().toString().replace("\n", " ");
         
         int paxInt = 0;
         
@@ -666,6 +678,19 @@ public class AdminEditCars extends javax.swing.JFrame {
         } else {
             try {
                 paxInt = Integer.parseInt(pax);
+                int speedInt = Integer.parseInt(speed);
+                int priceInt = Integer.parseInt(price);
+                
+                if (speedInt <= 0) {
+                    JOptionPane.showMessageDialog(null, "Invalid Speed!", "Error!", JOptionPane.ERROR_MESSAGE);
+                    return;
+                } else if (paxInt <= 0) {
+                    JOptionPane.showMessageDialog(null, "Invalid Seats!", "Error!", JOptionPane.ERROR_MESSAGE);
+                    return;
+                } else if (priceInt <= 0) {
+                    JOptionPane.showMessageDialog(null, "Invalid Price!", "Error!", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
                                
                 carChosen.setBrand(brand);
                 carChosen.setModel(model);
@@ -683,7 +708,7 @@ public class AdminEditCars extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Car successfully modified!", "Success!", JOptionPane.INFORMATION_MESSAGE);
                 
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Invalid seat!", "Error!", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Invalid fields entered!", "Error!", JOptionPane.ERROR_MESSAGE);
             }
         }
     }
@@ -691,15 +716,15 @@ public class AdminEditCars extends javax.swing.JFrame {
     public void addCar() {
         Car existingCar = null;
         
-        String carPlate = carPlateInput.getText();
-        String brand = BrandInput.getText();
-        String model = ModelInput.getText();
-        String type = typeComboBox.getSelectedItem().toString();
-        String color = ColorInput.getText();
-        String speed = SpeedInput.getText();
-        String pax = PaxInput.getText();
-        String price = PriceInput.getText();
-        String status = statusComboBox.getSelectedItem().toString();
+        String carPlate = carPlateInput.getText().replace("\n", " ");
+        String brand = BrandInput.getText().replace("\n", " ");
+        String model = ModelInput.getText().replace("\n", " ");
+        String type = typeComboBox.getSelectedItem().toString().replace("\n", " ");
+        String color = ColorInput.getText().replace("\n", " ");
+        String speed = SpeedInput.getText().replace("\n", " ");
+        String pax = PaxInput.getText().replace("\n", " ");
+        String price = PriceInput.getText().replace("\n", " ");
+        String status = statusComboBox.getSelectedItem().toString().replace("\n", " ");
         
         int paxInt = 0;
         
@@ -710,6 +735,17 @@ public class AdminEditCars extends javax.swing.JFrame {
                 paxInt = Integer.parseInt(pax);
                 int speedInt = Integer.parseInt(speed);
                 int priceInt = Integer.parseInt(price);
+                
+                if (speedInt <= 0) {
+                    JOptionPane.showMessageDialog(null, "Invalid Speed!", "Error!", JOptionPane.ERROR_MESSAGE);
+                    return;
+                } else if (paxInt <= 0) {
+                    JOptionPane.showMessageDialog(null, "Invalid Seats!", "Error!", JOptionPane.ERROR_MESSAGE);
+                    return;
+                } else if (priceInt <= 0) {
+                    JOptionPane.showMessageDialog(null, "Invalid Price!", "Error!", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
 
                 existingCar = DataIO.chosenCar(carPlate);
                 
@@ -761,13 +797,6 @@ public class AdminEditCars extends javax.swing.JFrame {
            String line = tableLine.toString().trim();
            //split result with "|"
            String[] dataRow = line.split("\\|");
-           
-           // removing km/h
-           int index = dataRow[5].indexOf("km/h");
-           dataRow[5] = dataRow[5].substring(0, index);
-           
-           // removing RM
-           dataRow[7] = dataRow[7].substring(2);
            
            //add result in table
            model.addRow(dataRow);

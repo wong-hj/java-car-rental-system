@@ -302,7 +302,7 @@ public class AdminManageIndiBooking extends javax.swing.JFrame {
         rejectBtn.setBounds(440, 460, 170, 30);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(20, 110, 1260, 550);
+        jPanel1.setBounds(30, 110, 1240, 540);
 
         jLabel1.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
