@@ -170,7 +170,12 @@ public class AdminLogin extends javax.swing.JFrame implements Auth {
     }//GEN-LAST:event_loginBtnActionPerformed
 
     private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBtnActionPerformed
-        DataIO.exitProgram();
+        try {
+            DataIO.WriteToText();
+            System.exit(0);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_exitBtnActionPerformed
 
     private void adminPasswordFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_adminPasswordFieldKeyPressed
@@ -183,7 +188,6 @@ public class AdminLogin extends javax.swing.JFrame implements Auth {
         String username = adminUsernameField.getText();
         char[] pass = adminPasswordField.getPassword();
         String password = new String(pass);
-        
         Admin found = DataIO.checkAdminUsername(username);
         
         if(username.equals("") && password.equals("")){
@@ -193,10 +197,11 @@ public class AdminLogin extends javax.swing.JFrame implements Auth {
             Log.writeLog(username, "admin", "login", "success");
             Renty.loginAdmin = found;
             JOptionPane.showMessageDialog(null, "Login successful!");
+            
             this.setVisible(false);
             AdminPanel ap = new AdminPanel();
             ap.setVisible(true);
-             
+            
         } else {
             Log.writeLog(username, "admin", "login", "fail");
             JOptionPane.showMessageDialog(null, "Wrong Username or Password, Please Try Again.");

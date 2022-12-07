@@ -162,7 +162,7 @@ public class MainMenu extends javax.swing.JFrame {
     private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
         this.setVisible(false);
         
-        DataIO.exitProgram();
+        DataIO.logout();
     }//GEN-LAST:event_logoutBtnActionPerformed
 
     private void rentBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentBtnActionPerformed

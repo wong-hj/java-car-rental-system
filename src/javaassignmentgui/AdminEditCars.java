@@ -564,7 +564,7 @@ public class AdminEditCars extends javax.swing.JFrame {
     private void exitIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitIconMouseClicked
 
         this.setVisible(false);
-        DataIO.exitProgram();
+        DataIO.logout();
     }//GEN-LAST:event_exitIconMouseClicked
 
     private void editCarNavMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editCarNavMouseClicked
@@ -679,7 +679,7 @@ public class AdminEditCars extends javax.swing.JFrame {
             try {
                 paxInt = Integer.parseInt(pax);
                 int speedInt = Integer.parseInt(speed);
-                int priceInt = Integer.parseInt(price);
+                double priceDob = Double.valueOf(price);
                 
                 if (speedInt <= 0) {
                     JOptionPane.showMessageDialog(null, "Invalid Speed!", "Error!", JOptionPane.ERROR_MESSAGE);
@@ -687,7 +687,7 @@ public class AdminEditCars extends javax.swing.JFrame {
                 } else if (paxInt <= 0) {
                     JOptionPane.showMessageDialog(null, "Invalid Seats!", "Error!", JOptionPane.ERROR_MESSAGE);
                     return;
-                } else if (priceInt <= 0) {
+                } else if (priceDob <= 0) {
                     JOptionPane.showMessageDialog(null, "Invalid Price!", "Error!", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
@@ -698,7 +698,7 @@ public class AdminEditCars extends javax.swing.JFrame {
                 carChosen.setColor(color);
                 carChosen.setSpeed(speed + "km/h");
                 carChosen.setSeat(paxInt);
-                carChosen.setPrice("RM" + price);
+                carChosen.setPrice("RM" + String.format("%.2f", priceDob));
                 carChosen.setStatus(status);
                 
                 DataIO.WriteToText();
@@ -719,12 +719,12 @@ public class AdminEditCars extends javax.swing.JFrame {
         String carPlate = carPlateInput.getText().replace("\n", " ");
         String brand = BrandInput.getText().replace("\n", " ");
         String model = ModelInput.getText().replace("\n", " ");
-        String type = typeComboBox.getSelectedItem().toString().replace("\n", " ");
+        String type = typeComboBox.getSelectedItem().toString();
         String color = ColorInput.getText().replace("\n", " ");
         String speed = SpeedInput.getText().replace("\n", " ");
         String pax = PaxInput.getText().replace("\n", " ");
         String price = PriceInput.getText().replace("\n", " ");
-        String status = statusComboBox.getSelectedItem().toString().replace("\n", " ");
+        String status = statusComboBox.getSelectedItem().toString();
         
         int paxInt = 0;
         
@@ -734,7 +734,7 @@ public class AdminEditCars extends javax.swing.JFrame {
             try {
                 paxInt = Integer.parseInt(pax);
                 int speedInt = Integer.parseInt(speed);
-                int priceInt = Integer.parseInt(price);
+                double priceDob = Integer.parseInt(price);
                 
                 if (speedInt <= 0) {
                     JOptionPane.showMessageDialog(null, "Invalid Speed!", "Error!", JOptionPane.ERROR_MESSAGE);
@@ -742,7 +742,7 @@ public class AdminEditCars extends javax.swing.JFrame {
                 } else if (paxInt <= 0) {
                     JOptionPane.showMessageDialog(null, "Invalid Seats!", "Error!", JOptionPane.ERROR_MESSAGE);
                     return;
-                } else if (priceInt <= 0) {
+                } else if (priceDob <= 0) {
                     JOptionPane.showMessageDialog(null, "Invalid Price!", "Error!", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
@@ -751,8 +751,8 @@ public class AdminEditCars extends javax.swing.JFrame {
                 
                 if (existingCar == null) {
                     String newSpeed = speed + "km/h";
-                    String newPrice = "RM" + price;
-
+                    String newPrice = "RM" + String.format("%.2f", priceDob);
+                    
                     Car newCar = new Car(carPlate, brand, model, type, color, newSpeed, paxInt, newPrice, status);
                     DataIO.cars.add(newCar);
                     DataIO.WriteToText();

@@ -373,7 +373,7 @@ public class DataIO {
         WriteToText();
     }
     
-    public static void exitProgram() {
+    public static void logout() {
         
         String role = null;
         String username = null;
@@ -397,6 +397,10 @@ public class DataIO {
         login.setVisible(true);
  
     }
+
+   
+
+    
 
             
     }

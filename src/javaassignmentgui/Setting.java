@@ -561,7 +561,7 @@ public class Setting extends javax.swing.JFrame {
 
     private void exitIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitIconMouseClicked
         this.setVisible(false);
-        DataIO.exitProgram();
+        DataIO.logout();
     }//GEN-LAST:event_exitIconMouseClicked
     
     public void setLabel() {

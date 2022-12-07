@@ -343,7 +343,7 @@ public class ViewBooking extends javax.swing.JFrame {
 
     private void exitIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitIconMouseClicked
         this.setVisible(false);
-        DataIO.exitProgram();
+        DataIO.logout();
     }//GEN-LAST:event_exitIconMouseClicked
 
     private void printBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printBtnActionPerformed

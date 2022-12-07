@@ -250,9 +250,11 @@ public class Login extends javax.swing.JFrame implements Auth {
             if(found.getApproval() == 1) {
                 Log.writeLog(username, "customer", "login", "success");
                 Renty.loginUser = found;
+                JOptionPane.showMessageDialog(null, "Login successful!");
                 this.setVisible(false);
                 MainMenu mm = new MainMenu();
                 mm.setVisible(true);
+                
             } else {
                 Log.writeLog(username, "customer", "login", "fail");
                 JOptionPane.showMessageDialog(null, "User account is yet to be approved. Please Wait.");
@@ -264,10 +266,10 @@ public class Login extends javax.swing.JFrame implements Auth {
             JOptionPane.showMessageDialog(null, "Wrong Username or Password, Please Try Again.", "Error!", JOptionPane.ERROR_MESSAGE);
             
         }
-        
+
         usernameField.setText("");
         passwordField.setText("");
-         
+        
     }
     /**
      * @param args the command line arguments
