@@ -413,7 +413,8 @@ public class RentCar extends javax.swing.JFrame {
             model.setRowCount(0);
         }
         
-        Object[] tableLines = DataIO.cars.toArray();
+        ArrayList<Car> cars = DataIO.availableCars();
+        Object[] tableLines = cars.toArray();
 
         for (Object tableLine : tableLines) {
            String line = tableLine.toString().trim();

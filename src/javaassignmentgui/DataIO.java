@@ -281,13 +281,27 @@ public class DataIO {
         return filteredCars;
     }
     
+    public static ArrayList<Car> availableCars() {
+        
+        ArrayList<Car> availableCars = new ArrayList<Car>();
+        for(Car car : cars){
+            
+            if(car.getStatus().equals("Available")){
+                availableCars.add(car);  
+            }
+        }
+        
+        return availableCars;
+        
+    }
+    
+    
     public static ArrayList<Booking> userBookings(String username) {
         
         ArrayList<Booking> userBookings = new ArrayList<Booking>();
         for(Booking book : bookings){
             
             if(username.equals(book.getName()) && (book.getStatus().equals("Pending") || book.getStatus().equals("Approved"))){
-//                System.out.println();
                 userBookings.add(book);  
             }
         }
@@ -302,7 +316,6 @@ public class DataIO {
         for(Booking book : bookings){
             
             if(username.equals(book.getName()) && book.getStatus().equals(status)){
-//                System.out.println();
                 userBookings.add(book);  
             }
         }
