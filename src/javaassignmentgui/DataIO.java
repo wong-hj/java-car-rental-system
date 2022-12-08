@@ -301,7 +301,8 @@ public class DataIO {
         ArrayList<Booking> userBookings = new ArrayList<Booking>();
         for(Booking book : bookings){
             
-            if(username.equals(book.getName()) && !book.getStatus().equals("Paid")){
+            if(username.equals(book.getName()) && 
+                    (book.getStatus().equals("Rejected") || book.getStatus().equals("Approved") || book.getStatus().equals("Pending") || book.getStatus().equals("Cancelled"))){
                 userBookings.add(book);  
             }
         }
@@ -368,15 +369,22 @@ public class DataIO {
                         
                         Calendar c = Calendar.getInstance();
                         String sdate = bookings.get(i).getBookingDate();
-                        Date pdate = sdf.parse(sdate);
-                        c.setTime(pdate);
+                        Date bdate = sdf.parse(sdate);
+                        c.setTime(bdate);
                         c.add(Calendar.DAY_OF_MONTH, 1);
-                        
-                        if(pdate.compareTo(todate) <= 0) {
+
+                        if(c.getTime().compareTo(todate) <= 0) {
                                 bookings.remove(i);
                                 i--;
                         }
                         
+                    } else if (bookings.get(i).getStatus().equals("Paid")) {
+                        Date rdate = sdf.parse(bookings.get(i).getReturnDate());
+                        if( rdate.compareTo(todate) < 0 ) {
+                            
+                            bookings.get(i).setStatus("Completed");
+                            
+                        }
                     }
             }
         }catch (ParseException ex) {

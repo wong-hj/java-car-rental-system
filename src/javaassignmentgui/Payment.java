@@ -22,9 +22,9 @@ public class Payment extends javax.swing.JFrame {
         String path = null;
         
         
-        nameField.setText(Renty.loginUser.getUsername());
-        phoneNumField.setText(String.valueOf(Renty.loginUser.getPhoneNum()));
-        emailField.setText(Renty.loginUser.getEmail());
+        nameField.setText(BookingPay.bookingChosen.getName());
+        phoneNumField.setText(String.valueOf(BookingPay.bookingChosen.getContact()));
+        emailField.setText(BookingPay.bookingChosen.getEmail());
         
         carTxt.setText(BookingPay.bookingChosen.getCar());
         plateTxt.setText(BookingPay.bookingChosen.getCarPlate());
@@ -82,8 +82,6 @@ public class Payment extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         date = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jSeparator4 = new javax.swing.JSeparator();
         jSeparator5 = new javax.swing.JSeparator();
         jLabel18 = new javax.swing.JLabel();
         exitIcon = new javax.swing.JLabel();
@@ -135,7 +133,6 @@ public class Payment extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1310, 700));
-        setPreferredSize(new java.awt.Dimension(1310, 700));
         getContentPane().setLayout(null);
 
         topBar.setBackground(new java.awt.Color(0, 0, 0));
@@ -161,18 +158,6 @@ public class Payment extends javax.swing.JFrame {
                 jLabel12MouseClicked(evt);
             }
         });
-
-        jLabel13.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("Rent Car");
-        jLabel13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel13MouseClicked(evt);
-            }
-        });
-
-        jSeparator4.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
         jSeparator5.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
@@ -207,12 +192,8 @@ public class Payment extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel13)
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel18)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 617, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 738, Short.MAX_VALUE)
                 .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43)
                 .addComponent(exitIcon)
@@ -223,31 +204,28 @@ public class Payment extends javax.swing.JFrame {
             .addGroup(topBarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topBarLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topBarLayout.createSequentialGroup()
-                                .addComponent(exitIcon)
-                                .addGap(15, 15, 15))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topBarLayout.createSequentialGroup()
-                                .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(date, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap())))
                     .addGroup(topBarLayout.createSequentialGroup()
                         .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(topBarLayout.createSequentialGroup()
                                 .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel2)
-                                    .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(topBarLayout.createSequentialGroup()
-                                            .addGap(3, 3, 3)
-                                            .addComponent(jLabel13))
-                                        .addComponent(jLabel12)))
+                                    .addGroup(topBarLayout.createSequentialGroup()
+                                        .addComponent(jLabel12)
+                                        .addGap(3, 3, 3)))
                                 .addGap(0, 8, Short.MAX_VALUE))
-                            .addComponent(jSeparator4)
                             .addComponent(jSeparator5, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addContainerGap())))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topBarLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topBarLayout.createSequentialGroup()
+                                    .addComponent(exitIcon)
+                                    .addGap(15, 15, 15))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topBarLayout.createSequentialGroup()
+                                    .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addContainerGap()))))))
         );
 
         getContentPane().add(topBar);
@@ -526,8 +504,6 @@ public class Payment extends javax.swing.JFrame {
         String paymentInfo = paymentField.getText();
         
         try {
-            Integer.parseInt(paymentInfo);
-            
             
             String payMethod = null;
             boolean Error = false;
@@ -542,25 +518,37 @@ public class Payment extends javax.swing.JFrame {
             }
             
             if(!Error) {
+               
+                if(paymentInfo.length() >= 10 && paymentInfo.length() <= 16) {
+                    double paymentInfoDob = Double.parseDouble(paymentInfo);
                 
-                BookingPay.bookingChosen.setPickupAdd(pickupTxt.getText().replace("\n", " "));
-                BookingPay.bookingChosen.setReturnAdd(returnTxt.getText().replace("\n", " "));
-                BookingPay.bookingChosen.setPaymentMethod(payMethod);
-                BookingPay.bookingChosen.setPaymentDetails(paymentInfo);
-                BookingPay.bookingChosen.setStatus("Paid");
+                    if (paymentInfoDob >= 0) {
+                    
+                        BookingPay.bookingChosen.setPickupAdd(pickupTxt.getText().replace("\n", " "));
+                        BookingPay.bookingChosen.setReturnAdd(returnTxt.getText().replace("\n", " "));
+                        BookingPay.bookingChosen.setPaymentMethod(payMethod);
+                        BookingPay.bookingChosen.setPaymentDetails(paymentInfo);
+                        BookingPay.bookingChosen.setStatus("Paid");
+
+                        DataIO.WriteToText();
+
+                        JOptionPane.showMessageDialog(null, "Booking Made Successfully. Total Paid: " + totalField.getText()+ ".");
+
+                        this.setVisible(false);
+                        MainMenu mm = new MainMenu();
+                        mm.setVisible(true);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Negative value is not allowed!", "Error!", JOptionPane.ERROR_MESSAGE);
+                    }
+                    
+                } else {
+                    JOptionPane.showMessageDialog(null, "Payment Number must be 10 - 16 digits!", "Error!", JOptionPane.ERROR_MESSAGE);
+                }
                 
-                DataIO.WriteToText();
-
-                JOptionPane.showMessageDialog(null, "Booking Made Successfully. Total Paid: " + totalField.getText()+ ".");
-
-                this.setVisible(false);
-                MainMenu mm = new MainMenu();
-                mm.setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(null, "Please Select Atleast one Payment Method.", "Error!", JOptionPane.ERROR_MESSAGE);
             }
-        }  catch (NumberFormatException e)  
-        { 
+        }  catch (NumberFormatException e){ 
            JOptionPane.showMessageDialog(null, "Please Input Valid Payment Info.", "Error!", JOptionPane.ERROR_MESSAGE);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Payment.class.getName()).log(Level.SEVERE, null, ex);
@@ -590,13 +578,6 @@ public class Payment extends javax.swing.JFrame {
     private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel12MouseClicked
-
-    private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
-        this.setVisible(false);
-        
-        RentCar rent = new RentCar();
-        rent.setVisible(true);
-    }//GEN-LAST:event_jLabel13MouseClicked
 
     private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
         this.setVisible(false);
@@ -642,7 +623,6 @@ public class Payment extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -666,7 +646,6 @@ public class Payment extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JLabel nameField;
     private javax.swing.JTextField paymentField;
