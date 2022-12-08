@@ -359,39 +359,36 @@ public class CarDetails extends javax.swing.JFrame {
 
     private void bookCarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookCarBtnActionPerformed
         
-        String LatestBID = DataIO.checkLatestBooking();
-        String BID = "B" + (Integer.parseInt(LatestBID.substring(1,LatestBID.length()))+1);
-        System.out.println(LatestBID);
-        System.out.println(BID);
-//        try {
-//            String days = countDays(RentCar.pickup_Date, RentCar.return_Date);
-//            String total = "RM " + calcTotal(days, RentCar.carChosen.getPrice());
-//            String review = "-";
-//            String status = "Pending";
-//            String LatestBID = DataIO.checkLatestBooking();
-//            String BID = "B" + (Integer.parseInt(LatestBID.substring(1,LatestBID.length()))+1);
-//            if (JOptionPane.showConfirmDialog(null, "The booking will be " + total + " for " + days + " day/s\nDo you want to make this booking?", "Booking Confirmation",
-//            JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-//                Booking book = new Booking(BID, Renty.loginUser.getUsername(), Renty.loginUser.getPhoneNum(), Renty.loginUser.getEmail(), carTxt.getText(), plateTxt.getText(), "-", "-", Renty.toDate(), RentCar.pickup_Date, RentCar.return_Date, Integer.parseInt(days), total, "-", "-", review, status);
-//                DataIO.bookings.add(book);
-//                DataIO.WriteToText();
-//
-//                JOptionPane.showMessageDialog(null, "Booking placed, please wait for admin approval to proceed for payment.\nIf the booking is not approved within 1 day, do place same booking again.\nSorry for inconvenience.");
-//
-//                this.setVisible(false);
-//                MainMenu mm = new MainMenu();
-//                mm.setVisible(true);
-//            } else {
-//                return;
-//            }
-//            
-//            
-//            
-//        } catch (FileNotFoundException ex) {
-//            Logger.getLogger(Payment.class.getName()).log(Level.SEVERE, null, ex);
-//        } catch (ParseException ex) {
-//            Logger.getLogger(CarDetails.class.getName()).log(Level.SEVERE, null, ex);
-//        } 
+        
+        try {
+            String days = countDays(RentCar.pickup_Date, RentCar.return_Date);
+            String total = "RM " + calcTotal(days, RentCar.carChosen.getPrice());
+            String review = "-";
+            String status = "Pending";
+            String LatestBID = DataIO.checkLatestBooking();
+            String BID = "B" + (Integer.parseInt(LatestBID.substring(1,LatestBID.length()))+1);
+            if (JOptionPane.showConfirmDialog(null, "The booking will be " + total + " for " + days + " day/s\nDo you want to make this booking?", "Booking Confirmation",
+            JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                Booking book = new Booking(BID, Renty.loginUser.getUsername(), Renty.loginUser.getPhoneNum(), Renty.loginUser.getEmail(), carTxt.getText(), plateTxt.getText(), "-", "-", Renty.toDate(), RentCar.pickup_Date, RentCar.return_Date, Integer.parseInt(days), total, "-", "-", review, status);
+                DataIO.bookings.add(book);
+                DataIO.WriteToText();
+
+                JOptionPane.showMessageDialog(null, "Booking placed, please wait for admin approval to proceed for payment.\nIf the booking is not approved within 1 day, do place same booking again.\nSorry for inconvenience.");
+
+                this.setVisible(false);
+                MainMenu mm = new MainMenu();
+                mm.setVisible(true);
+            } else {
+                return;
+            }
+            
+            
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Payment.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(CarDetails.class.getName()).log(Level.SEVERE, null, ex);
+        } 
     }//GEN-LAST:event_bookCarBtnActionPerformed
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked

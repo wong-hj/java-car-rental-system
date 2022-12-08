@@ -350,21 +350,21 @@ public class DataIO {
     }
     
     public static void updateBooking() throws FileNotFoundException {
-        
         Date todate = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         try {
+            //for loop bookings arraylist
             for(int i = 0; i < bookings.size(); i++){
-
+                    //if booking's status is Approved
                     if(bookings.get(i).getStatus().equals("Approved")){
-
+                        
                         String sdate = bookings.get(i).getPickupDate();
                         Date pdate = sdf.parse(sdate);
-
+                        //if todate is after pickupDate then set Status to Cancelled
                         if(pdate.compareTo(todate) < 0) {
                             bookings.get(i).setStatus("Cancelled");
                         }
-
+                        //if booking's status is Pending
                     } else if (bookings.get(i).getStatus().equals("Pending")) {
                         
                         Calendar c = Calendar.getInstance();
@@ -372,28 +372,28 @@ public class DataIO {
                         Date bdate = sdf.parse(sdate);
                         c.setTime(bdate);
                         c.add(Calendar.DAY_OF_MONTH, 1);
-
+                        
+                        //if todate is after or equals to 1 day after bookingDate then delete booking
                         if(c.getTime().compareTo(todate) <= 0) {
                                 bookings.remove(i);
                                 i--;
                         }
-                        
+                        //if booking's status is Paid
                     } else if (bookings.get(i).getStatus().equals("Paid")) {
                         Date rdate = sdf.parse(bookings.get(i).getReturnDate());
+                        //if todate is after returnDate then set Status to Completed
                         if( rdate.compareTo(todate) < 0 ) {
                             
                             bookings.get(i).setStatus("Completed");
-                            
                         }
+                    } else {
+                        
                     }
             }
         }catch (ParseException ex) {
                         Logger.getLogger(DataIO.class.getName()).log(Level.SEVERE, null, ex);
         }          
-
-        WriteToText();
-        
-    }
+        WriteToText();}
     
     public static void logout() {
         
