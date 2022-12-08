@@ -151,7 +151,7 @@ public class CarDetails extends javax.swing.JFrame {
 
         rentCarBtn.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         rentCarBtn.setForeground(new java.awt.Color(255, 255, 255));
-        rentCarBtn.setText("Rent Car");
+        rentCarBtn.setText("View Car");
         rentCarBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         rentCarBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -179,7 +179,7 @@ public class CarDetails extends javax.swing.JFrame {
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 590, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 586, Short.MAX_VALUE)
                 .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(exitIcon)
@@ -209,6 +209,7 @@ public class CarDetails extends javax.swing.JFrame {
         getContentPane().add(topBar);
         topBar.setBounds(0, 0, 1300, 60);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(null);
 
         typeImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/suv-car.png"))); // NOI18N
@@ -218,6 +219,7 @@ public class CarDetails extends javax.swing.JFrame {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(100, 90, 210, 210);
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(null);
 
         carTxt.setFont(new java.awt.Font("Perpetua", 0, 40)); // NOI18N
@@ -304,13 +306,16 @@ public class CarDetails extends javax.swing.JFrame {
         getContentPane().add(jPanel2);
         jPanel2.setBounds(330, 90, 880, 210);
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel17.setFont(new java.awt.Font("Perpetua", 0, 36)); // NOI18N
         jLabel17.setText("Reviews");
 
+        reviewTxt.setEditable(false);
+        reviewTxt.setBackground(new java.awt.Color(255, 255, 255));
         reviewTxt.setColumns(20);
         reviewTxt.setFont(new java.awt.Font("Perpetua", 0, 18)); // NOI18N
         reviewTxt.setRows(5);
-        reviewTxt.setEnabled(false);
         jScrollPane1.setViewportView(reviewTxt);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -361,7 +366,7 @@ public class CarDetails extends javax.swing.JFrame {
             String status = "Pending";
             String LatestBID = DataIO.checkLatestBooking();
             String BID = "B" + (Integer.parseInt(LatestBID.substring(1,LatestBID.length()))+1);
-            if (JOptionPane.showConfirmDialog(null, "The booking will be " + total + " for " + days + " day/s\nDo you want to make this booking?", "人手不足，敬請見諒。",
+            if (JOptionPane.showConfirmDialog(null, "The booking will be " + total + " for " + days + " day/s\nDo you want to make this booking?", "Booking Confirmation",
             JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                 Booking book = new Booking(BID, Renty.loginUser.getUsername(), Renty.loginUser.getPhoneNum(), Renty.loginUser.getEmail(), carTxt.getText(), plateTxt.getText(), "-", "-", Renty.toDate(), RentCar.pickup_Date, RentCar.return_Date, Integer.parseInt(days), total, "-", "-", review, status);
                 DataIO.bookings.add(book);

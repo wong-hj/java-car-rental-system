@@ -303,7 +303,7 @@ public class RentCar extends javax.swing.JFrame {
             
             if(pickupDate.getDate().compareTo(todate) >= 0 && returnDate.getDate().compareTo(todate) >= 0){
                 
-                if(pickupDate.getDate().compareTo(returnDate.getDate()) <= 0){
+                if(pickupDate.getDate().compareTo(returnDate.getDate()) < 0){
                     
                     SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
                     String pickup_date = sdf.format(pickupDate.getDate());
@@ -339,14 +339,14 @@ public class RentCar extends javax.swing.JFrame {
                 } else {
                     
                     JOptionPane.showMessageDialog(null, "Pick Up Date Cannot be After Return Date. Please Try Other Date.", "Invalid Date", JOptionPane.ERROR_MESSAGE);
-                    
+                    checkDate = false;
                     readCarTable();
                 }
                 
             } else{
                 
                 JOptionPane.showMessageDialog(null, "Date Entered Cannot Before Today. Please Try Other Date.", "Invalid Date", JOptionPane.ERROR_MESSAGE);
-                
+                checkDate = false;
                 readCarTable();
             }
             

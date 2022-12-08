@@ -250,12 +250,13 @@ public class DataIO {
             
             //validate user enter date with booked date if conflict then remove roomid from comboBox
             
-            if(pickupDate.compareTo(checkoutDate) <= 0 && returnDate.compareTo(checkinDate) >= 0){
+            if(!book.getStatus().equals("Cancelled")){
+                if(pickupDate.compareTo(checkoutDate) <= 0 && returnDate.compareTo(checkinDate) >= 0){
 
-                conflictCar.add(book.getCarPlate());
+                    conflictCar.add(book.getCarPlate());
 
+                }
             }
-            
             
         }
         
