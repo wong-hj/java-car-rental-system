@@ -417,7 +417,7 @@ public class AdminManageBookings extends javax.swing.JFrame {
            //add result in table
            Vector row = new Vector();
            
-           int[] Rows = new int[] {0, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, 15, 14};
+           int[] Rows = new int[] {0, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, 15, 16};
            for(int Index : Rows){
                row.add(dataRow[Index]);
            }
