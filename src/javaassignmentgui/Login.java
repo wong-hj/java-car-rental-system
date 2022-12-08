@@ -239,18 +239,27 @@ public class Login extends javax.swing.JFrame implements Auth {
     public void login(){
         String username = usernameField.getText();
         char[] pass = passwordField.getPassword();
+        //change password datatype to String
         String password = new String(pass);
+        
+        //get user data from matching username
         Customer found = DataIO.checkUsername(username);
         
+        //if both fields are empty
         if(username.equals("") && password.equals("")){
             JOptionPane.showMessageDialog(null, "Please Enter Username and Password.", "Error!", JOptionPane.ERROR_MESSAGE);
-              
+        
+          //if found user and with matching password
         } else if(found!= null && password.equals(found.getPassword())){
             
+            //if account is approved
             if(found.getApproval() == 1) {
+                //write auth action in log
                 Log.writeLog(username, "customer", "login", "success");
                 Renty.loginUser = found;
                 JOptionPane.showMessageDialog(null, "Login successful!");
+                
+                //direct to main menu screen
                 this.setVisible(false);
                 MainMenu mm = new MainMenu();
                 mm.setVisible(true);
@@ -266,7 +275,7 @@ public class Login extends javax.swing.JFrame implements Auth {
             JOptionPane.showMessageDialog(null, "Wrong Username or Password, Please Try Again.", "Error!", JOptionPane.ERROR_MESSAGE);
             
         }
-
+        
         usernameField.setText("");
         passwordField.setText("");
         

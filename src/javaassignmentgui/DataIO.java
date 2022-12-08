@@ -228,7 +228,7 @@ public class DataIO {
                 }
             }
         } else {
-            bookingID = "B0001";
+            bookingID = "B0";
         }
         
         return bookingID;

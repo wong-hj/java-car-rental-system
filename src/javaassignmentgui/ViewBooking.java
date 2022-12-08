@@ -253,17 +253,19 @@ public class ViewBooking extends javax.swing.JFrame {
 
     
     private void bookingTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bookingTableMouseClicked
+        //set receipt text area to empty
         receiptTxt.setText("");
         
         DefaultTableModel model = (DefaultTableModel)bookingTable.getModel();
+        
+        //get specific row value
         int selectedRowIndex = bookingTable.getSelectedRow();
-        
         String bookid = model.getValueAt(selectedRowIndex, 0).toString();
-        String review = model.getValueAt(selectedRowIndex, 11).toString();
-        String returnDate = model.getValueAt(selectedRowIndex, 7).toString();
         
+        //find chosen booking's data
         Booking chosenBooking = DataIO.chosenBooking(bookid);
-
+        
+        //show in receipt text area
         receiptTxt.append(
                 "\t\t Receipt \n\n" +
 
@@ -289,9 +291,12 @@ public class ViewBooking extends javax.swing.JFrame {
                 "\tThank you, Please come again!\n" +
                 "\tGenerated on " + Renty.toDate()
         );
-
+        
         printBtn.setEnabled(true);
         
+        
+        String review = model.getValueAt(selectedRowIndex, 11).toString();
+        String returnDate = model.getValueAt(selectedRowIndex, 7).toString();
         
         if(evt.getClickCount() == 2 && review.equals("-")){
             
@@ -353,7 +358,6 @@ public class ViewBooking extends javax.swing.JFrame {
             Logger.getLogger(ViewBooking.class.getName()).log(Level.SEVERE, null, ex);
         }
             
-        
     }//GEN-LAST:event_printBtnActionPerformed
     
     
