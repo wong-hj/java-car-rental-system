@@ -643,6 +643,11 @@ public class AdminManageIndiBooking extends javax.swing.JFrame {
     }
     
     public void setLabels() {
+        // disable inputs
+        pickupAddInput.setEnabled(false);
+        returnAddInput.setEnabled(false);
+        reviewInput.setEnabled(false);
+        
         // disable buttons by default
         rejectBtn.setVisible(false);
         approveBtn.setVisible(false);
@@ -672,6 +677,12 @@ public class AdminManageIndiBooking extends javax.swing.JFrame {
         totalPaymentLabel.setText(amb.chosenBooking.getTotal());
         paymentMethodLabel.setText(amb.chosenBooking.getPaymentMethod());
         
+        // if approve or paid only can edit pickup, return addresses, and review
+        if (amb.chosenBooking.getStatus().equals("Paid") || amb.chosenBooking.getStatus().equals("Approved")) {
+            pickupAddInput.setEnabled(true);
+            returnAddInput.setEnabled(true);
+            reviewInput.setEnabled(true);
+        }
         
         // Review 
         reviewInput.setText(amb.chosenBooking.getReview());

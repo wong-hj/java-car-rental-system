@@ -71,11 +71,11 @@ public class AdminManageBookings extends javax.swing.JFrame {
 
             },
             new String [] {
-                "BID", "Contact", "Email", "Car", "Car Plate", "Booking Date", "Pick Up Date", "Return Date", "Days", "Total Price", "Payment Method", "Review"
+                "BID", "Contact", "Email", "Car", "Car Plate", "Booking Date", "Pick Up Date", "Return Date", "Days", "Total Price", "Payment Method", "Review", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -417,7 +417,7 @@ public class AdminManageBookings extends javax.swing.JFrame {
            //add result in table
            Vector row = new Vector();
            
-           int[] Rows = new int[] {0, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, 15};
+           int[] Rows = new int[] {0, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, 15, 14};
            for(int Index : Rows){
                row.add(dataRow[Index]);
            }
