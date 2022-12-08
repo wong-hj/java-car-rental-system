@@ -514,6 +514,10 @@ public class AdminManageIndiBooking extends javax.swing.JFrame {
             DataIO.WriteToText();
             setLabels();
             JOptionPane.showMessageDialog(null, "Booking Deleted!", "Success!", JOptionPane.INFORMATION_MESSAGE);
+            
+            AdminManageBookings amb = new AdminManageBookings();
+            amb.setVisible(true);
+            this.setVisible(false);
         } catch (FileNotFoundException ex) {
             java.util.logging.Logger.getLogger(AdminManageIndiBooking.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
@@ -678,7 +682,7 @@ public class AdminManageIndiBooking extends javax.swing.JFrame {
         paymentMethodLabel.setText(amb.chosenBooking.getPaymentMethod());
         
         // if approve or paid only can edit pickup, return addresses, and review
-        if (amb.chosenBooking.getStatus().equals("Paid") || amb.chosenBooking.getStatus().equals("Approved")) {
+        if (amb.chosenBooking.getStatus().equals("Paid") || amb.chosenBooking.getStatus().equals("Approved") || amb.chosenBooking.getStatus().equals("Completed")) {
             pickupAddInput.setEnabled(true);
             returnAddInput.setEnabled(true);
             reviewInput.setEnabled(true);

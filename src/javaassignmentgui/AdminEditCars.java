@@ -654,7 +654,7 @@ public class AdminEditCars extends javax.swing.JFrame {
         String action = actionButton.getText();
 
         if (carChosen == null && action.equals("Modify")) {
-            JOptionPane.showMessageDialog(null, "Please Select or enter a car plate to modify.", "Error!", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Please Select a car to modify.", "Error!", JOptionPane.ERROR_MESSAGE);
             flag = false;
         }
         

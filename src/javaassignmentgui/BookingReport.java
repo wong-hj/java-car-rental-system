@@ -63,6 +63,7 @@ public class BookingReport extends javax.swing.JFrame {
         manageBookingNav = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
         generateReportNav = new javax.swing.JLabel();
+        printAll = new javax.swing.JButton();
         Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -104,11 +105,11 @@ public class BookingReport extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Booking Report");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(490, 70, 340, 50);
+        jLabel1.setBounds(480, 70, 340, 50);
         getContentPane().add(endDate);
-        endDate.setBounds(580, 130, 140, 30);
+        endDate.setBounds(660, 130, 140, 30);
         getContentPane().add(startDate);
-        startDate.setBounds(420, 130, 140, 30);
+        startDate.setBounds(500, 130, 140, 30);
 
         generatebtn.setFont(new java.awt.Font("Perpetua", 0, 18)); // NOI18N
         generatebtn.setText("Generate Report");
@@ -118,7 +119,7 @@ public class BookingReport extends javax.swing.JFrame {
             }
         });
         getContentPane().add(generatebtn);
-        generatebtn.setBounds(740, 130, 150, 30);
+        generatebtn.setBounds(820, 130, 150, 30);
 
         topBar.setBackground(new java.awt.Color(0, 0, 0));
         topBar.setMinimumSize(new java.awt.Dimension(1300, 60));
@@ -270,6 +271,21 @@ public class BookingReport extends javax.swing.JFrame {
         getContentPane().add(topBar);
         topBar.setBounds(0, 0, 1300, 60);
 
+        printAll.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
+        printAll.setText("Print All");
+        printAll.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                printAllMouseClicked(evt);
+            }
+        });
+        printAll.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                printAllActionPerformed(evt);
+            }
+        });
+        getContentPane().add(printAll);
+        printAll.setBounds(360, 130, 120, 30);
+
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/renty_logo.png"))); // NOI18N
         getContentPane().add(Background);
         Background.setBounds(0, 0, 1300, 700);
@@ -308,16 +324,16 @@ public class BookingReport extends javax.swing.JFrame {
         Date filterStart = startDate.getDate();
         Date filterEnd = endDate.getDate();
         
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-        
-        // Date in string
-        String filterStartStr = sdf.format(filterStart);
-        String filterEndStr = sdf.format(filterEnd);
-        
         if (filterStart == null || filterEnd == null) {
             JOptionPane.showMessageDialog(null, "Please Input Date.", "Error!", JOptionPane.ERROR_MESSAGE);
         } else {
             ArrayList<String> filteredBookingID = new ArrayList<String>();
+            
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        
+            // Date in string
+            String filterStartStr = sdf.format(filterStart);
+            String filterEndStr = sdf.format(filterEnd);
 
             if (filterStart.compareTo(filterEnd) <= 0) {
                 // filter all matching bookings
@@ -356,7 +372,7 @@ public class BookingReport extends javax.swing.JFrame {
                     
                     // add up all earnings
                     String totalStr = booking.getTotal().substring(3);
-                    totalEarnings += Integer.parseInt(totalStr);
+                    totalEarnings += Double.parseDouble(totalStr);
                 }
 
                 
@@ -375,15 +391,19 @@ public class BookingReport extends javax.swing.JFrame {
                 for (Booking booking: filteredBookings) {
                     
                     String beautifyTab = "\t";
-
+                    String beautifyTabCar = "\t";
+                    
                     if (booking.getEmail().length() <= 12) {
                         beautifyTab = "\t\t";
+                    }
+                    if (booking.getCar().length() <= 12) {
+                        beautifyTabCar = "\t\t";
                     }
 
                     reportTxt.append(
                             booking.getBookingID() + "\t" + booking.getName() + "\t\t" + 
                             booking.getContact() + "\t" + booking.getEmail() + beautifyTab + 
-                            booking.getCar() + "\t" + booking.getCarPlate() + "\t" + 
+                            booking.getCar() + beautifyTabCar + booking.getCarPlate() + "\t" + 
                             booking.getDays() + "\t" + booking.getTotal() + "\t" + 
                             booking.getPaymentMethod() + "\n"
                     );
@@ -452,6 +472,16 @@ public class BookingReport extends javax.swing.JFrame {
         as.setVisible(true);
     }//GEN-LAST:event_jLabel11MouseClicked
 
+    private void printAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printAllActionPerformed
+        // TODO add your handling code here:
+        printReport();
+    }//GEN-LAST:event_printAllActionPerformed
+
+    private void printAllMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printAllMouseClicked
+        // TODO add your handling code here:
+        printReport();
+    }//GEN-LAST:event_printAllMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -486,6 +516,64 @@ public class BookingReport extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void printReport() {
+        reportTxt.setText("");
+        
+        int totalBookings = 0;
+        int totalEarnings = 0;
+
+        for (Booking booking: DataIO.bookings) {
+            // increase count
+            totalBookings += 1;
+
+            // add up all earnings
+            String totalStr = booking.getTotal().substring(3);
+            totalEarnings += Double.parseDouble(totalStr);
+        }
+                
+                
+        // print out details
+        reportTxt.append(
+            "\t\t Booking Report \n\n" +
+
+            "Total Bookings: \t" + totalBookings + " bookings\n" +
+            "Total Earnings: \t\tRM " + totalEarnings + "\n" +
+            "\n-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n" +
+            "\t\t\t\t\t\tBookings List" + 
+            "\n-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n" +
+            "Booking ID\tName\t\tContact\tEmail\t\tCar\t\tCar Plate\tDays\tTotal\tPayment Method\n");
+
+        for (Booking booking: DataIO.bookings) {
+
+            String beautifyTab = "\t";
+            String beautifyTabCar = "\t";
+
+            if (booking.getEmail().length() <= 12) {
+                beautifyTab = "\t\t";
+            }
+            if (booking.getCar().length() <= 12) {
+                beautifyTabCar = "\t\t";
+            }
+
+            reportTxt.append(
+                    booking.getBookingID() + "\t" + booking.getName() + "\t\t" + 
+                    booking.getContact() + "\t" + booking.getEmail() + beautifyTab + 
+                    booking.getCar() + beautifyTabCar + booking.getCarPlate() + "\t" + 
+                    booking.getDays() + "\t" + booking.getTotal() + "\t" + 
+                    booking.getPaymentMethod() + "\n"
+            );
+
+        }
+
+        reportTxt.append(
+            "\n-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n" +
+
+            "End of report!\n" +
+            "Generated on " + Renty.toDate()
+        );
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
@@ -506,6 +594,7 @@ public class BookingReport extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JLabel manageBookingNav;
     private javax.swing.JLabel manageCusNav;
+    private javax.swing.JButton printAll;
     private javax.swing.JButton printReportBtn;
     private javax.swing.JTextArea reportTxt;
     private com.toedter.calendar.JDateChooser startDate;

@@ -530,7 +530,13 @@ public class AdminSettings extends javax.swing.JFrame {
         String username = modifyUsernameField.getText().replace("\n", " ");
         String password = modifyPassField.getText().replace("\n", " ");
         
-        Admin adminToModify = DataIO.checkAdminUsername(adminChosen.getUsername());
+        Admin adminToModify = DataIO.checkAdminUsername(username);
+        adminChosen = adminToModify;
+        
+        if (username.equals("") || password.equals("")) {
+            JOptionPane.showMessageDialog(null, "Please fill in all fields!", "Error!", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         
         // assuming cant change username
         if (!adminToModify.getUsername().equals(username)) {

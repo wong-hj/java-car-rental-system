@@ -308,15 +308,19 @@ public class LogReport extends javax.swing.JFrame {
             reportTxt.setText("");
             
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-            // date validation
-            Date filterStart = sdf.parse(sdf.format(startDate.getDate()));
-            Date filterEnd = sdf.parse(sdf.format(endDate.getDate()));
+            
+            Date startdate = startDate.getDate();
+            Date enddate = endDate.getDate();
             
             
-            if (filterStart == null || filterEnd == null) {
+            if (startdate == null || enddate == null) {
                 JOptionPane.showMessageDialog(null, "Please Input Date.", "Error!", JOptionPane.ERROR_MESSAGE);
             } else {
                 ArrayList<Log> filteredLogs = new ArrayList<Log>();
+                
+                // date validation
+                Date filterStart = sdf.parse(sdf.format(startdate));
+                Date filterEnd = sdf.parse(sdf.format(enddate));
                 
                 if (filterStart.compareTo(filterEnd) <= 0) {
                     // filter all matching bookings
