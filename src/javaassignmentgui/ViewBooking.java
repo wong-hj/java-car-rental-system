@@ -282,9 +282,8 @@ public class ViewBooking extends javax.swing.JFrame {
                 "Return Date:\t\t" + chosenBooking.getReturnDate() + "\n\n" + 
                 "Days:\t\t" + chosenBooking.getDays() + "\n" + 
                 "\n--------------------------------------------------------------------------------------------\n" +
-                      
-                "Payment Method:\t" + chosenBooking.getPaymentMethod() + "\n\n" + 
-                "Payment Details:\t" + chosenBooking.getPaymentDetails() + "\n\n" + 
+                "Payment Method:\t" + chosenBooking.getPaymentMethod() + "\n\n" +    
+                "Payment Details:\t" + "*".repeat(chosenBooking.getPaymentDetails().length()) + "\n\n" + 
                 "Total:\t\t" + chosenBooking.getTotal() + "\n\n" + 
                 
                 "\tThank you, Please come again!\n" +
@@ -294,7 +293,7 @@ public class ViewBooking extends javax.swing.JFrame {
         printBtn.setEnabled(true);
         
         
-        if(evt.getClickCount() == 2 && review.equals("Pending")){
+        if(evt.getClickCount() == 2 && review.equals("-")){
             
             try {
                 Date return_date = new SimpleDateFormat("dd-MM-yyyy").parse(returnDate);
@@ -403,7 +402,7 @@ public class ViewBooking extends javax.swing.JFrame {
             model.setRowCount(0);
         }
         
-        ArrayList<Booking> userBookings = DataIO.userBookings(Renty.loginUser.getUsername(), "Paid");
+        ArrayList<Booking> userBookings = DataIO.userBookings(Renty.loginUser.getUsername(), "Paid", "Completed");
         
         Object[] tableLines = userBookings.toArray();
 

@@ -518,9 +518,9 @@ public class Payment extends javax.swing.JFrame {
             }
             
             if(!Error) {
-               
+                double paymentInfoDob = Double.parseDouble(paymentInfo);
                 if(paymentInfo.length() >= 10 && paymentInfo.length() <= 16) {
-                    double paymentInfoDob = Double.parseDouble(paymentInfo);
+                    
                 
                     if (paymentInfoDob >= 0) {
                     

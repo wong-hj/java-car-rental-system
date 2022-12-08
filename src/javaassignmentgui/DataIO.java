@@ -311,12 +311,12 @@ public class DataIO {
         
     }
     
-    public static ArrayList<Booking> userBookings(String username, String status) {
+    public static ArrayList<Booking> userBookings(String username, String status, String status2) {
         
         ArrayList<Booking> userBookings = new ArrayList<Booking>();
         for(Booking book : bookings){
             
-            if(username.equals(book.getName()) && book.getStatus().equals(status)){
+            if(username.equals(book.getName()) && (book.getStatus().equals(status) || book.getStatus().equals(status2))){
                 userBookings.add(book);  
             }
         }
@@ -345,7 +345,7 @@ public class DataIO {
                 reviewCars.add(book);
             }
         }
-        System.out.println(reviewCars);
+        
         return reviewCars;
     }
     

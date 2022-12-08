@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -362,7 +363,7 @@ public class CarDetails extends javax.swing.JFrame {
         try {
             String days = countDays(RentCar.pickup_Date, RentCar.return_Date);
             String total = "RM " + calcTotal(days, RentCar.carChosen.getPrice());
-            String review = "Pending";
+            String review = "-";
             String status = "Pending";
             String LatestBID = DataIO.checkLatestBooking();
             String BID = "B" + (Integer.parseInt(LatestBID.substring(1,LatestBID.length()))+1);
@@ -412,7 +413,8 @@ public class CarDetails extends javax.swing.JFrame {
     
     private void showReview(){
         ArrayList<Booking> reviews = DataIO.getReview(RentCar.carChosen.getCarPlate());
-        
+        //shuffle arraylist
+        Collections.shuffle(reviews);
         Object[] lines = reviews.toArray();
 
         for (Object line : lines) {
@@ -421,7 +423,7 @@ public class CarDetails extends javax.swing.JFrame {
            //split result with "|"
            String[] dataRow = dataline.split("\\|");
            
-           if(!dataRow[15].equals("Pending") && counter <= 3) {
+           if(!dataRow[15].equals("-") && counter <= 3) {
                 reviewTxt.append(
                      dataRow[15] + " - " + dataRow[1] + "\n\n"
                 );
