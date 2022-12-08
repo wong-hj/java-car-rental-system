@@ -367,7 +367,7 @@ public class CarDetails extends javax.swing.JFrame {
                 DataIO.bookings.add(book);
                 DataIO.WriteToText();
 
-                JOptionPane.showMessageDialog(null, "Booking placed, please wait for admin approval to proceed for payment.\nIf the booking is not approved within 1 day, do place same booking again.\nSorry for inconvenience.", "test");
+                JOptionPane.showMessageDialog(null, "Booking placed, please wait for admin approval to proceed for payment.\nIf the booking is not approved within 1 day, do place same booking again.\nSorry for inconvenience.");
 
                 this.setVisible(false);
                 MainMenu mm = new MainMenu();

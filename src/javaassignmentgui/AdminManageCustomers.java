@@ -614,6 +614,14 @@ public class AdminManageCustomers extends javax.swing.JFrame {
            // replace password with *
            dataRow[1] = "*****";
            
+           // change approval status
+           if (dataRow[7].equals("0")) {
+               System.out.println(dataRow[7]);
+               dataRow[7] = "Not Approved";
+           } else if (dataRow[7].equals("1")) {
+               dataRow[7] = "Approved";
+           }
+           
            //add result in table
            model.addRow(dataRow);
         }

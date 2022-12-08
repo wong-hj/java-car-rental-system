@@ -460,9 +460,11 @@ public class AdminSettings extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "You now have access to Advanced Admin!", "Success!", JOptionPane.INFORMATION_MESSAGE);
             superadminPanel.setVisible(true);
             advAdminBtn.setEnabled(false);
+        } else if (result == null) {
+
         } else if (!pass.equals(result)) {
             JOptionPane.showMessageDialog(null, "Password Error!", "Error!", JOptionPane.ERROR_MESSAGE);
-        }  
+        } 
     }//GEN-LAST:event_advAdminBtnActionPerformed
 
     private void addAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAdminBtnActionPerformed
