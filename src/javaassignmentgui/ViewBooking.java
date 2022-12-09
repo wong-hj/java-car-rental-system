@@ -64,6 +64,7 @@ public class ViewBooking extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1500, 770));
+        setResizable(false);
         setSize(new java.awt.Dimension(1500, 770));
         getContentPane().setLayout(null);
 

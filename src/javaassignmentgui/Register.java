@@ -54,6 +54,7 @@ public class Register extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1300, 700));
+        setResizable(false);
         setSize(new java.awt.Dimension(1300, 700));
         getContentPane().setLayout(null);
 

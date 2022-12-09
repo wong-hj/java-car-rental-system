@@ -78,6 +78,7 @@ public class AdminEditCars extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1300, 700));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         carsTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -199,7 +200,7 @@ public class AdminEditCars extends javax.swing.JFrame {
             }
         });
         jPanel2.add(actionButton);
-        actionButton.setBounds(20, 440, 300, 30);
+        actionButton.setBounds(20, 440, 300, 36);
 
         BrandInput.setFont(new java.awt.Font("Perpetua", 0, 20)); // NOI18N
         BrandInput.setForeground(new java.awt.Color(51, 51, 51));

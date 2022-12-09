@@ -131,6 +131,7 @@ public class Payment extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1310, 700));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         topBar.setBackground(new java.awt.Color(0, 0, 0));

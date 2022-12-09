@@ -387,7 +387,7 @@ public class BookingReport extends javax.swing.JFrame {
                     if (booking.getEmail().length() <= 12) {
                         beautifyTab = "\t\t";
                     }
-                    if (booking.getCar().length() <= 12) {
+                    if (booking.getCar().length() <= 15) {
                         beautifyTabCar = "\t\t";
                     }
 
