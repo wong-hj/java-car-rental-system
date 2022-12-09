@@ -18,19 +18,23 @@ import java.util.logging.Logger;
 
 
 public class DataIO {
+    // create objects for arraylist
     public static ArrayList<Customer> customers = new ArrayList<Customer>();
     public static ArrayList<Admin> admins = new ArrayList<Admin>();
     public static ArrayList<Car> cars = new ArrayList<Car>();
     public static ArrayList<Booking> bookings = new ArrayList<Booking>();
     public static ArrayList<Log> logging = new ArrayList<Log>();
-
+    
+    //read data from text files
     public static void readFromTextFile(){
         try{
+            //Scanner on customer text file
             Scanner s1 = new Scanner(new File("customer.txt")); 
+            //while text file has next line, loop
             while(s1.hasNext()){
                 
-                String line = s1.nextLine().trim();
-                String [] dataRow = line.split("\\|");
+                String line = s1.nextLine().trim(); //remove blank spaces from front and back
+                String [] dataRow = line.split("\\|"); //split with delimiter "|"
                 String username = dataRow[0];
                 String password = dataRow[1];
                 String gender = dataRow[2];
@@ -130,13 +134,17 @@ public class DataIO {
         }
     }
     
+    //write data to text
     public static void WriteToText() throws FileNotFoundException{
         
         PrintWriter a = new PrintWriter("customer.txt");
+        //for loop customers arraylist
         for(Customer cust : customers){
             String Customers = cust.getUsername() + "|" + cust.getPassword() + "|" + cust.getGender() + "|" + cust.getAge() + "|" + cust.getPhoneNum() + "|" + cust.getEmail() + "|" + cust.getAddress() + "|" + cust.getApproval();
+            //print write in text file
             a.println(Customers);
         }
+        //close print writer
         a.close();
 
         PrintWriter b = new PrintWriter("admin.txt");
@@ -171,10 +179,13 @@ public class DataIO {
         e.close();
 
     }
-
+    
+    //check user existence in system with username passed
     public static Customer checkUsername(String username) {
         Customer found = null;
+        //for loop customers
         for(Customer c : customers){
+            //if username matches then.. 
             if(username.equals(c.getUsername())){
                 found = c;
                 break;
@@ -183,7 +194,7 @@ public class DataIO {
         return found;
         
     }
-
+    //check admin existence in system with username passed
     public static Admin checkAdminUsername(String username) {
         Admin found = null;
         for(Admin a : admins){
@@ -196,6 +207,7 @@ public class DataIO {
         
     }
     
+    //return chosen car with carplate
     public static Car chosenCar(String carPlate) {
         Car carChosen = null;
         for(Car car : cars){
@@ -207,6 +219,7 @@ public class DataIO {
         return carChosen;
     }
     
+    //get latest booking ( for auto increment ID )
     public static String checkLatestBooking() {
         
        
@@ -226,6 +239,7 @@ public class DataIO {
         return bookingID;
     }
     
+    //filter cars with pickup date and return date input from customer
     public static ArrayList<Car> filterCar(LocalDate pickupDate, LocalDate returnDate) {
         
         ArrayList<String> conflictCar = new ArrayList<String>();
@@ -243,6 +257,7 @@ public class DataIO {
             //validate user enter date with booked date if conflict then remove roomid from comboBox
             
             if(!book.getStatus().equals("Cancelled")){
+                //if date conflicted with current bookings then add into conflict car arraylist
                 if(pickupDate.compareTo(checkoutDate) <= 0 && returnDate.compareTo(checkinDate) >= 0){
 
                     conflictCar.add(book.getCarPlate());
@@ -253,11 +268,14 @@ public class DataIO {
         }
         
         ArrayList<Car> filteredCars = new ArrayList<Car>();
-
+        
+        //clone a cars arraylist to filteredCars
         for(Car car : cars){
             filteredCars.add(car);
         }
         
+        //compare conflicCar arraylist and filteredCars arraylist,
+        //if matches then remove cars from arraylist
         for(String conflict : conflictCar) {
             
             for(int i = 0; i < filteredCars.size(); i++){
@@ -269,15 +287,17 @@ public class DataIO {
 
             }
         }
-        
+        //return filteredCars in the end
         return filteredCars;
     }
     
+    //return availableCars for customer to view
     public static ArrayList<Car> availableCars() {
         
         ArrayList<Car> availableCars = new ArrayList<Car>();
         for(Car car : cars){
             
+            //filter only cars with Available status
             if(car.getStatus().equals("Available")){
                 availableCars.add(car);  
             }
@@ -287,7 +307,7 @@ public class DataIO {
         
     }
     
-    
+    //Method Overloading
     public static ArrayList<Booking> userBookings(String username) {
         
         ArrayList<Booking> userBookings = new ArrayList<Booking>();
@@ -317,6 +337,7 @@ public class DataIO {
         
     }
     
+    //get chosen booking
     public static Booking chosenBooking(String BID) {
         Booking chosenBooking = null;
         for(Booking book : bookings){
@@ -328,6 +349,7 @@ public class DataIO {
         return chosenBooking;
     }
     
+    //get reviews for each car
     public static ArrayList<Booking> getReview(String carPlate) {
 
         ArrayList<Booking> reviewCars = new ArrayList<Booking>();
@@ -341,6 +363,7 @@ public class DataIO {
         return reviewCars;
     }
     
+    //background checking for booking status
     public static void updateBooking() throws FileNotFoundException {
         Date todate = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
@@ -387,6 +410,7 @@ public class DataIO {
         }          
         WriteToText();}
     
+    //logout function
     public static void logout() {
         
         String role = null;
@@ -413,11 +437,7 @@ public class DataIO {
     }
 
    
-
-    
-
-            
-    }
+}
         
 
 
