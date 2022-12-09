@@ -1,20 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package javaassignmentgui;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.lang.System.Logger;
-import java.lang.System.Logger.Level;
-import java.util.Set;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author bryan
- */
 public class AdminManageIndiBooking extends javax.swing.JFrame {
     
     AdminManageBookings amb = new AdminManageBookings();
