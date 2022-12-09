@@ -50,7 +50,6 @@ public class DataIO {
                 customers.add(c);
             }
             
-            System.out.println('1');
             Scanner s2 = new Scanner(new File("admin.txt"));
             while(s2.hasNext()){
                 String line = s2.nextLine().trim();
@@ -62,13 +61,14 @@ public class DataIO {
                 admins.add(a);
               
             }
-            System.out.println('2');
-
-            Scanner s3 = new Scanner(new File("cars.txt"));
             
+            //Scanner on cars text file
+            Scanner s3 = new Scanner(new File("cars.txt"));
+            //while text file has next line, loop
             while(s3.hasNext()){
-                String line = s3.nextLine().trim();
-                String [] dataRow = line.split("\\|");
+                String line = s3.nextLine().trim(); //remove blank spaces from front and back
+                String [] dataRow = line.split("\\|"); //split with delimiter "|"
+                //assign values to variables
                 String carPlate = dataRow[0];
                 String brand = dataRow[1];
                 String model = dataRow[2];
@@ -79,11 +79,13 @@ public class DataIO {
                 String price = dataRow[7];
                 String status = dataRow[8];
                 
+                //create object as an instance of car class
                 Car c = new Car(carPlate, brand, model, type, color, speed, seat, price, status);
+                //cars is an object for custom arrayList 
+                //c is an object for car class
                 cars.add(c);
               
             }
-                        System.out.println('3');
 
             Scanner s4 = new Scanner(new File("booking.txt"));
             
@@ -112,7 +114,6 @@ public class DataIO {
                 bookings.add(d);
                 
             }
-                        System.out.println('4');
                         
             Scanner s5 = new Scanner(new File("log.txt"));
             
@@ -129,9 +130,6 @@ public class DataIO {
                 logging.add(l);
                 
             }
-            
-            System.out.println('5');
-
 
         }catch(Exception e){
             System.out.println("Error in read .....");

@@ -173,25 +173,25 @@ public class AdminManageCustomers extends javax.swing.JFrame {
         awawdawd.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         awawdawd.setText("Age:");
         jPanel2.add(awawdawd);
-        awawdawd.setBounds(12, 144, 126, 30);
+        awawdawd.setBounds(12, 144, 70, 30);
 
         awdawdadaw.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         awdawdadaw.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         awdawdadaw.setText("Contact:");
         jPanel2.add(awdawdadaw);
-        awdawdadaw.setBounds(12, 192, 126, 30);
+        awdawdadaw.setBounds(12, 192, 80, 30);
 
         wadwadadawdaw.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         wadwadadawdaw.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         wadwadadawdaw.setText("Email:");
         jPanel2.add(wadwadadawdaw);
-        wadwadadawdaw.setBounds(12, 240, 126, 30);
+        wadwadadawdaw.setBounds(12, 240, 80, 30);
 
         awdawdawdaw.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         awdawdawdaw.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         awdawdawdaw.setText("Address:");
         jPanel2.add(awdawdawdaw);
-        awdawdawdaw.setBounds(12, 288, 126, 30);
+        awdawdawdaw.setBounds(12, 288, 80, 30);
 
         usernameLabel.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         usernameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -201,23 +201,31 @@ public class AdminManageCustomers extends javax.swing.JFrame {
 
         genderLabel.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         genderLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        genderLabel.setFocusable(false);
+        genderLabel.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         jPanel2.add(genderLabel);
-        genderLabel.setBounds(90, 90, 190, 30);
+        genderLabel.setBounds(120, 90, 160, 30);
 
         ageLabel.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         ageLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ageLabel.setFocusable(false);
+        ageLabel.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         jPanel2.add(ageLabel);
-        ageLabel.setBounds(70, 140, 210, 30);
+        ageLabel.setBounds(120, 140, 160, 30);
 
         contactLabel.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         contactLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        contactLabel.setFocusable(false);
+        contactLabel.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         jPanel2.add(contactLabel);
-        contactLabel.setBounds(100, 190, 180, 30);
+        contactLabel.setBounds(120, 190, 160, 30);
 
         emailLabel.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         emailLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        emailLabel.setFocusable(false);
+        emailLabel.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         jPanel2.add(emailLabel);
-        emailLabel.setBounds(80, 240, 200, 30);
+        emailLabel.setBounds(120, 240, 160, 30);
 
         addressLabel.setEditable(false);
         addressLabel.setColumns(20);
@@ -231,7 +239,7 @@ public class AdminManageCustomers extends javax.swing.JFrame {
         somelabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         somelabel1.setText("Gender:");
         jPanel2.add(somelabel1);
-        somelabel1.setBounds(12, 95, 126, 30);
+        somelabel1.setBounds(12, 95, 73, 30);
 
         getContentPane().add(jPanel2);
         jPanel2.setBounds(960, 120, 310, 540);

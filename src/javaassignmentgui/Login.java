@@ -273,12 +273,9 @@ public class Login extends javax.swing.JFrame implements Auth {
             
             Log.writeLog(username, "customer", "login", "fail");
             JOptionPane.showMessageDialog(null, "Wrong Username or Password, Please Try Again.", "Error!", JOptionPane.ERROR_MESSAGE);
-            
         }
-        
         usernameField.setText("");
         passwordField.setText("");
-        
     }
     /**
      * @param args the command line arguments

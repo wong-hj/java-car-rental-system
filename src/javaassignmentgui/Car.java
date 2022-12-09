@@ -100,6 +100,8 @@ public class Car {
     public String getCar(){
         return brand + " " + model;
     }
+    
+    @Override
     public String toString() {
         return carPlate + "|" + brand + "|" + model + "|" + type + "|" + color + "|" + speed + "|" + seat + "|" + price + "|" + status;
     }

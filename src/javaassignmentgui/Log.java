@@ -23,7 +23,7 @@ public class Log {
         this.action = action;
         this.status = status;
     }
-
+    
     public String getUser() {
         return user;
     }
@@ -64,13 +64,15 @@ public class Log {
         this.status = status;
     }
 
+    //write auth activity in log
     public static void writeLog(String user, String role, String action, String status) {
+        //get todate in String
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
         Date date = new Date();  
         String sdate = formatter.format(date);  
         
         try {
-            
+            //write in log arraylist
             Log log = new Log(user, role, sdate, action, status);
             DataIO.logging.add(log);
             DataIO.WriteToText();

@@ -68,7 +68,7 @@ public class Customer extends User{
         this.approval = approval;
     }
     
-    
+    @Override
     public String toString() {
         return username + "|" + password + "|" + gender + "|" + age + "|" + phoneNum + "|" + email + "|" + address + "|" + approval;
     }
