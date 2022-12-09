@@ -28,6 +28,7 @@ public class BookingReport extends javax.swing.JFrame {
      */
     public BookingReport() {
         initComponents();
+        printReport();
         
         // set date
         date.setText(Renty.toDate());
@@ -416,6 +417,8 @@ public class BookingReport extends javax.swing.JFrame {
                     "End of report!\n" +
                     "Generated on " + Renty.toDate()
                 );
+                
+                JOptionPane.showMessageDialog(null, "Report generated!", "Success!", JOptionPane.INFORMATION_MESSAGE);
                 
             } else {
                 JOptionPane.showMessageDialog(null, "Dates do not make sense.", "Error!", JOptionPane.ERROR_MESSAGE);

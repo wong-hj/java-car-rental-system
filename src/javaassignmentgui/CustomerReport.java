@@ -413,17 +413,11 @@ public class CustomerReport extends javax.swing.JFrame {
             "Username\tPassword\tGender\tAge\tContact\tEmail\t\tAddress\n");
         
         for (Customer cus: DataIO.customers) {
-
-            String beautifyTab = "\t";
-            
-            if (cus.getEmail().length() <= 15) {
-                beautifyTab = "\t\t";
-            }
             
             reportTxt.append(
                     cus.getUsername() + "\t" + "*****" + "\t" + 
                     cus.getGender() + "\t" + cus.getAge() + "\t" + 
-                    cus.getPhoneNum() + "\t" + cus.getEmail() + beautifyTab + 
+                    cus.getPhoneNum() + "\t" + cus.getEmail() + "\t" + 
                     cus.getAddress() + "\n"
 
             );

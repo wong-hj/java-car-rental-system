@@ -682,9 +682,10 @@ public class AdminManageIndiBooking extends javax.swing.JFrame {
         paymentMethodLabel.setText(amb.chosenBooking.getPaymentMethod());
         
         // if approve or paid only can edit pickup, return addresses, and review
-        if (amb.chosenBooking.getStatus().equals("Paid") || amb.chosenBooking.getStatus().equals("Approved") || amb.chosenBooking.getStatus().equals("Completed")) {
+        if (amb.chosenBooking.getStatus().equals("Paid") || amb.chosenBooking.getStatus().equals("Approved")) {
             pickupAddInput.setEnabled(true);
             returnAddInput.setEnabled(true);
+        } else if (amb.chosenBooking.getStatus().equals("Completed")) {
             reviewInput.setEnabled(true);
         }
         

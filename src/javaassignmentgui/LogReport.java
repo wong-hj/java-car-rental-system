@@ -362,6 +362,8 @@ public class LogReport extends javax.swing.JFrame {
                                     "Generated on " + Renty.toDate()
                     );
                     
+                    JOptionPane.showMessageDialog(null, "Report generated!", "Success!", JOptionPane.INFORMATION_MESSAGE);
+                    
                 } else {
                     JOptionPane.showMessageDialog(null, "Dates do not make sense.", "Error!", JOptionPane.ERROR_MESSAGE);
                 }

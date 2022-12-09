@@ -374,7 +374,7 @@ public class FeedbackReport extends javax.swing.JFrame {
             // check for reviews
             for (Booking book: DataIO.bookings) {
                 if (book.getCarPlate().equals(carPlate)) {
-                    if (!book.getReview().equals("Pending")) {
+                    if (!book.getReview().equals("-")) {
                         // dont print if no reviews
                         reportTxt.append(
                         book.getName() + " - " + book.getReview() + "\n"
