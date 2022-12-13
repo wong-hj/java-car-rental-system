@@ -337,7 +337,9 @@ public class BookingReport extends javax.swing.JFrame {
                         Date checkoutDate = sdf.parse(BookedReturnDate);
 
                         if(filterStart.compareTo(checkoutDate) <= 0 && filterEnd.compareTo(checkinDate) >= 0) {
-                            filteredBookingID.add(booking.getBookingID());
+                            if(!booking.getStatus().equals("Rejected") && !booking.getStatus().equals("Cancelled")) {
+                                filteredBookingID.add(booking.getBookingID());
+                            }
                         }
                     } catch (ParseException ex) {
                         Logger.getLogger(BookingReport.class.getName()).log(Level.SEVERE, null, ex);
@@ -355,7 +357,11 @@ public class BookingReport extends javax.swing.JFrame {
                 
                 // calculate necessary details
                 int totalBookings = 0;
-                int totalEarnings = 0;
+                double totalExpectedEarnings = 0;
+                int totalBookingsPaid = 0;
+                double totalBookingsPaidAmount = 0;
+                int totalBookingsUnpaid = 0;
+                double totalBookingsUnpaidAmount = 0;
                 
                 for (Booking booking: filteredBookings) {
                     // increase count
@@ -363,7 +369,18 @@ public class BookingReport extends javax.swing.JFrame {
                     
                     // add up all earnings
                     String totalStr = booking.getTotal().substring(3);
-                    totalEarnings += Double.parseDouble(totalStr);
+                    totalExpectedEarnings += Double.parseDouble(totalStr);
+                    
+                    // paid bookings
+                    if (booking.getStatus().equals("Paid") || booking.getStatus().equals("Completed")) {
+                        totalBookingsPaid += 1;
+                        String paidTotalStr = booking.getTotal().substring(3);
+                        totalBookingsPaidAmount += Double.parseDouble(paidTotalStr);
+                    } else if (booking.getStatus().equals("Pending") || booking.getStatus().equals("Approved")) {
+                        totalBookingsUnpaid += 1;
+                        String unpaidTotalStr = booking.getTotal().substring(3);
+                        totalBookingsUnpaidAmount += Double.parseDouble(unpaidTotalStr);
+                    }
                 }
 
                 
@@ -371,9 +388,13 @@ public class BookingReport extends javax.swing.JFrame {
                 reportTxt.append(
                     "\t\t Booking Report \n\n" +
                     
-                    "Date Range: \t\t" + filterStartStr + " to " + filterEndStr + "\n" +
-                    "Total Bookings: \t" + totalBookings + " bookings\n" +
-                    "Total Earnings: \t\tRM " + totalEarnings + "\n" +
+                    "Date Range: \t\t\t" + filterStartStr + " to " + filterEndStr + "\n" +
+                    "Total Bookings: \t\t" + totalBookings + " bookings\n" +
+                    "Total Expected Earnings: \t\tRM " + String.format("%.2f", totalExpectedEarnings) + "\n" +
+                    "Total Bookings Paid: \t\t" + totalBookingsPaid + "\n" +
+                    "Total Bookings Paid Amount: \t\tRM " + String.format("%.2f", totalBookingsPaidAmount) + "\n" +
+                    "Total Bookings Unpaid: \t\t" + totalBookingsUnpaid + "\n" +
+                    "Total Bookings Unpaid Amount: \tRM " + String.format("%.2f", totalBookingsUnpaidAmount) + "\n" +
                     "\n-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n" +
                     "\t\t\t\t\t\tBookings List" + 
                     "\n-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n" +
@@ -514,15 +535,34 @@ public class BookingReport extends javax.swing.JFrame {
         reportTxt.setText("");
         
         int totalBookings = 0;
-        int totalEarnings = 0;
+        double totalExpectedEarnings = 0;
+        int totalBookingsPaid = 0;
+        double totalBookingsPaidAmount = 0;
+        int totalBookingsUnpaid = 0;
+        double totalBookingsUnpaidAmount = 0;
 
         for (Booking booking: DataIO.bookings) {
-            // increase count
-            totalBookings += 1;
+            if (!booking.getStatus().equals("Rejected") && !booking.getStatus().equals("Cancelled")) {
+                
+                // increase count
+                totalBookings += 1;
+                System.out.println(totalBookings + booking.getStatus());
 
-            // add up all earnings
-            String totalStr = booking.getTotal().substring(3);
-            totalEarnings += Double.parseDouble(totalStr);
+                // add up all earnings
+                String totalStr = booking.getTotal().substring(3);
+                totalExpectedEarnings += Double.parseDouble(totalStr);
+
+                // calc paid and unpaid
+                if (booking.getStatus().equals("Paid") || booking.getStatus().equals("Completed")) {
+                    totalBookingsPaid += 1;
+                    String paidTotalStr = booking.getTotal().substring(3);
+                    totalBookingsPaidAmount += Double.parseDouble(paidTotalStr);
+                } else if (booking.getStatus().equals("Pending") || booking.getStatus().equals("Approved")) {
+                    totalBookingsUnpaid += 1;
+                    String unpaidTotalStr = booking.getTotal().substring(3);
+                    totalBookingsUnpaidAmount += Double.parseDouble(unpaidTotalStr);
+                }
+            }
         }
                 
                 
@@ -530,32 +570,38 @@ public class BookingReport extends javax.swing.JFrame {
         reportTxt.append(
             "\t\t Booking Report \n\n" +
 
-            "Total Bookings: \t" + totalBookings + " bookings\n" +
-            "Total Earnings: \t\tRM " + totalEarnings + "\n" +
+            "Total Bookings: \t\t" + totalBookings + " bookings\n" +
+            "Total Expected Earnings: \t\tRM " + String.format("%.2f", totalExpectedEarnings) + "\n" +
+            "Total Bookings Paid: \t\t" + totalBookingsPaid + "\n" +
+            "Total Bookings Paid Amount: \t\tRM " + String.format("%.2f", totalBookingsPaidAmount) + "\n" +
+            "Total Bookings Unpaid: \t\t" + totalBookingsUnpaid + "\n" +
+            "Total Bookings Unpaid Amount: \tRM " + String.format("%.2f", totalBookingsUnpaidAmount) + "\n" +
             "\n-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n" +
             "\t\t\t\t\t\tBookings List" + 
             "\n-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n" +
             "Booking ID\tName\t\tContact\tEmail\t\tCar\t\tCar Plate\tDays\tTotal\tPayment Method\n");
 
         for (Booking booking: DataIO.bookings) {
+            if (!booking.getStatus().equals("Rejected") || !booking.getStatus().equals("Cancelled")) {
+                String beautifyTab = "\t";
+                String beautifyTabCar = "\t";
 
-            String beautifyTab = "\t";
-            String beautifyTabCar = "\t";
+                if (booking.getEmail().length() <= 12) {
+                    beautifyTab = "\t\t";
+                }
+                if (booking.getCar().length() <= 12) {
+                    beautifyTabCar = "\t\t";
+                }
 
-            if (booking.getEmail().length() <= 12) {
-                beautifyTab = "\t\t";
+                reportTxt.append(
+                        booking.getBookingID() + "\t" + booking.getName() + "\t\t" + 
+                        booking.getContact() + "\t" + booking.getEmail() + beautifyTab + 
+                        booking.getCar() + beautifyTabCar + booking.getCarPlate() + "\t" + 
+                        booking.getDays() + "\t" + booking.getTotal() + "\t" + 
+                        booking.getPaymentMethod() + "\n"
+                );
             }
-            if (booking.getCar().length() <= 12) {
-                beautifyTabCar = "\t\t";
-            }
-
-            reportTxt.append(
-                    booking.getBookingID() + "\t" + booking.getName() + "\t\t" + 
-                    booking.getContact() + "\t" + booking.getEmail() + beautifyTab + 
-                    booking.getCar() + beautifyTabCar + booking.getCarPlate() + "\t" + 
-                    booking.getDays() + "\t" + booking.getTotal() + "\t" + 
-                    booking.getPaymentMethod() + "\n"
-            );
+            
 
         }
 
