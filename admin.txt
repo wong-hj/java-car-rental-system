@@ -1,1 +1,3 @@
 admin|admin123
+june|june123
+kaito|kaito123

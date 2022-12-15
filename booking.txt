@@ -1,4 +1,12 @@
-B2|june|122816772|123|Lamborghini Urus|TEO 1212|test|test|04/11/2022|06-11-2022|08-11-2022|4|RM 100|Credit Card|12345678|Pending
-B3|june|122816772|123|Lamborghini Urus|RAY 0209|test|test|04/11/2022|06-11-2022|08-11-2022|4|RM 100|Credit Card|12345678|Pending
-B4|june|122816772|123|Lamborghini Urus|TEO 1212|test|test|04/11/2022|09-11-2022|10-11-2022|4|RM 100|Credit Card|12345678|Pending
-B5|june|122816772|123|Lamborghini Urus|WHJ 8866|test123123|test123123|05-11-2022|05-11-2022|13-11-2022|8|RM 800|TnG|8888888|Pending
+B1|chenming|01234567891|chenming@gmail.com|Proton Saga|WRE 3344|No. 19, Lorong Padang Kota Lama 5/7|No. 19, Lorong Padang Kota Lama 5/7|09-01-2022|19-01-2022|22-01-2022|4|RM 382.00|Credit Card|1234567891234|Good car, I had a good ride with it!|Completed
+B2|chenming|01234567891|chenming@gmail.com|Honda Civic|WRT 2487|3Z-76, Jln Imbi|3Z-76, Jln Imbi|11-03-2022|14-03-2022|16-03-2022|3|RM 400.00|Credit Card|4463988047296258|Not bad, worth the money.|Completed
+B3|kenlee|0123425678|kenlee@yahoo.com|Perodua Myvi|TEO 1212|Lot K-88-05, Jalan 8/9X|Lot K-88-05, Jalan 8/9X|07-05-2022|09-05-2022|10-05-2022|2|RM 120.00|Credit Card|7977341317605320|Usable.|Completed
+B4|juneAcc|0122816772|june@hotmail.com|Volvo XC90|LOK 1234|2J-37, Jln Selamat 2/66V|2J-37, Jln Selamat 2/66V|08-05-2022|12-05-2022|19-05-2022|8|RM 800.00|TnG|1894308352645742|Great experience!|Completed
+B5|jett|0111111111|jett@hotmail.com|Perodua Myvi|TEO 1212|79, Lorong 4/2D|79, Lorong 4/2D|08-09-2022|22-09-2022|29-09-2022|8|RM 480.00|Credit Card|82810015921045|Not as great as I thought.|Completed
+B6|kenlee|0123425678|kenlee@yahoo.com|Subaru STI|WKY 0926|-|-|05-10-2022|07-10-2022|09-10-2022|3|RM 330.00|-|-|-|Cancelled
+B7|chenming|01234567891|chenming@gmail.com|Subaru STI|WKY 0926|-|-|02-11-2022|07-04-2023|09-04-2023|3|RM 330.00|-|-|-|Rejected
+B8|chenming|01234567891|chenming@gmail.com|Honda Civic|WRT 2487|-|-|20-12-2022|23-12-2022|26-12-2022|4|RM 400.00|-|-|-|Pending
+B9|juneAcc|0122816772|june@hotmail.com|Toyota Camry|WAT 6294|-|-|21-12-2022|24-12-2022|26-12-2022|3|RM 270.00|-|-|-|Pending
+B10|juneAcc|0122816772|june@hotmail.com|Mitsubishi EVO10|MAX 0818|-|-|20-12-2022|27-12-2022|27-12-2022|1|RM 95.00|-|-|-|Pending
+B11|genji|0123333499|gengo@mail.com|Volvo XC90|LOK 1234|-|-|19-12-2022|28-12-2022|30-12-2022|3|RM 300.00|-|-|-|Pending
+B12|kenlee|0123425678|kenlee@yahoo.com|Proton Saga|WRE 3344|-|-|20-12-2022|10-01-2023|17-01-2023|8|RM 800.00|-|-|-|Pending

@@ -1,3 +1,10 @@
-test|haha|Male|20|123|junieya@gmail.com|kaito, taman
-test1|test321|Male|20|1234567|test@mail.com|test, taman test
-testing|testing123|Female|20|123123123|test@mail.comas|dasd
+chenming|teo12345|Male|20|01324567891|chenming@gmail.com|No 3, Jalan empat lima, Taman enam|1
+kenlee|leehs53|Male|20|0123425678|kenlee@yahoo.com|D23, Jalan 8/19, Taman Rainbow|1
+reyna|blinded|Male|21|0179834562|reyna@hotmail.com|32a, Jalan Mata 1/4, Taman Breeze|0
+kelvin|kelv888|Male|26|0166577963|kelvin.wong@mail.com|16, Jalan 9/13, Taman Google|0
+natasha|secret|Male|35|0195637823|nts.rmn@gmail.com|No. 18, Jalan Sikret, Taman Bawang|0
+juneAcc|june123|Male|20|0122816772|june@hotmail.com|No.1, Taman Touch|1
+Karen|k123|Female|31|0123456782|karen@mail.com|No. 50, Taman Sixty, Jalan Lima|0
+jett|jett123|Female|23|0111111111|jett@hotmail.com|No.10, Taman Split, Jalan Haven|1
+pinix|pinix000|Male|34|0128888888|pnix@mail.com|No.100, Jalan Dust, Taman Inferno|0
+genji|sword001|Male|22|0123333499|gengo@mail.com|No.1, Jalan Hanamura, Taman Volskaya Industry|1

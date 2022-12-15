@@ -546,7 +546,6 @@ public class BookingReport extends javax.swing.JFrame {
                 
                 // increase count
                 totalBookings += 1;
-                System.out.println(totalBookings + booking.getStatus());
 
                 // add up all earnings
                 String totalStr = booking.getTotal().substring(3);
