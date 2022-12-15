@@ -615,7 +615,7 @@ public class AdminManageCustomers extends javax.swing.JFrame {
            
            // change approval status
            if (dataRow[7].equals("0")) {
-               System.out.println(dataRow[7]);
+               //System.out.println(dataRow[7]);
                dataRow[7] = "Not Approved";
            } else if (dataRow[7].equals("1")) {
                dataRow[7] = "Approved";
